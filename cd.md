@@ -34,3 +34,25 @@ public class CreateUserCommandHandler(IUserRepository repository) : IRequestHand
     }
 }
 ```
+
+## Учебные проекты
+
+InnoShop: [ https://github.com/tihonchik/innoShop](https://github.com/tihonchik/innoShop)
+
+## Курсы и тренинги
+
+- Курс Pre-Trainee по Asp.Net от innowise
+- Курс по git
+- Курс по T-SQL
+
+## Уровень англиского: A1+
+
+## Моё фото с князем
+
+![Моё фото с князем](./public/me.jpg)
+
+## Контакты для связи
+
+- Телефон: 88005553535
+- Email: tihonchik1@gmail.com
+- В социальных сетях: Прокопенко Тихон
