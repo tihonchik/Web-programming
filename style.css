@@ -659,7 +659,6 @@ main {
   justify-content: center;
   align-items: flex-start;
   gap: 28px;
-
   justify-self: stretch;
 
   border-radius: 16px;
@@ -916,4 +915,19 @@ main {
   line-height: 24px; /* 160% */
 
   text-decoration: none;
+}
+
+.rwelgth-block__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.twelfth-block__img {
+  width: 275px;
+  height: 275px;
+  flex-shrink: 0;
+  border-radius: 16px;
+
+  object-fit: cover;
 }
