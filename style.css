@@ -562,3 +562,51 @@ main {
 
   align-self: stretch;
 }
+
+.seventh-block__content {
+  display: flex;
+  padding: 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 128px;
+}
+.seventh-block__img {
+  width: 576px;
+  height: 576px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  object-fit: cover;
+}
+.seventh-block__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex: 1 0 0;
+}
+.seventh-block__text {
+  align-self: stretch;
+
+  color: #697586;
+  text-align: center;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px; /* 150% */
+}
+.seventh-block__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.seventh-block__left-button {
+  border-color: #cdd5df;
+  background: #fff;
+}
+
+.seventh-block__right-button {
+  background: #fff;
+}
