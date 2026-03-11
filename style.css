@@ -13,7 +13,8 @@ body {
   align-items: center;
 }
 
-main {
+main,
+header {
   width: 100%;
 }
 
