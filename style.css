@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-[data-theme="Mode 1"] {
+:root {
   /* color */
   --colors-pink-pink-500: #cf4d74;
   --colors-basic-black: #000000;
@@ -35,6 +35,7 @@
   --fonts-sizes-size-16: 16px;
   --fonts-sizes-size-20: 20px;
   --fonts-sizes-size-24: 24px;
+  --fonts-sizes-size-28: 28px;
   --fonts-sizes-size-32: 32px;
   --fonts-sizes-size-56: 56px;
   --fonts-sizes-size-64: 64px;
@@ -106,7 +107,7 @@
     --fonts-letter-spacing-letter-spacing-0
   );
   --fonts-material-icons-height: var(--fonts-heights-heights-16);
-  --fonts-material-icons-size: var(--fonts-sizes-size-20);
+  --fonts-material-icons-size: var(--fonts-sizes-size-28);
   --fonts-material-icons-weight: var(--fonts-weights-regular);
   --fonts-small-text-letter-spacing: var(
     --fonts-letter-spacing-letter-spacing-0
@@ -151,54 +152,62 @@
 }
 
 .Desktop__MaterialIcons {
-  font-size: 28px;
-  font-family:
-    Material Icons,
-    sans-serif;
-  font-weight: 400;
-  line-height: 16px;
+  font-family: var(--fonts-material-icons-family), sans-serif;
+  font-size: var(--fonts-material-icons-size);
+  font-weight: var(--fonts-material-icons-weight);
+  line-height: var(--fonts-material-icons-height);
+  letter-spacing: var(--fonts-material-icons-letter-spacing);
 }
 .Desktop__H1 {
-  font-size: 64px;
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  line-height: 68px;
+  font-family: var(--fonts-h1-family), sans-serif;
+  font-size: var(--fonts-h1-size);
+  font-weight: var(--fonts-h1-weight);
+  line-height: var(
+    --fonts-h1-heights
+  ); /* в ваших токенах тут heights с буквой 's' на конце */
+  letter-spacing: var(--fonts-h1-letter-spacing);
 }
 .Desktop__H2 {
-  font-size: 56px;
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  line-height: 60px;
+  font-family: var(--fonts-h2-family), sans-serif;
+  font-size: var(--fonts-h2-size);
+  font-weight: var(--fonts-h2-weight);
+  line-height: var(--fonts-h2-height);
+  letter-spacing: var(--fonts-h2-letter-spacing);
 }
 .Desktop__H3 {
-  font-size: 32px;
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  line-height: 44px;
+  font-family: var(--fonts-h3-family), sans-serif;
+  font-size: var(--fonts-h3-size);
+  font-weight: var(--fonts-h3-weight);
+  line-height: var(--fonts-h3-height);
+  letter-spacing: var(--fonts-h3-letter-spacing);
 }
 .Desktop__H4 {
-  font-size: 24px;
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  line-height: 32px;
+  font-family: var(--fonts-h4-family), sans-serif;
+  font-size: var(--fonts-h4-size);
+  font-weight: var(--fonts-h4-weight);
+  line-height: var(--fonts-h4-height);
+  letter-spacing: var(--fonts-h4-letter-spacing);
 }
 .Desktop__H5 {
-  font-size: 16px;
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  line-height: 24px;
+  font-family: var(--fonts-h5-family), sans-serif;
+  font-size: var(--fonts-h5-size);
+  font-weight: var(--fonts-h5-weight);
+  line-height: var(--fonts-h5-height);
+  letter-spacing: var(--fonts-h5-letter-spacing);
 }
 .Desktop__Text {
-  font-size: 20px;
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  line-height: 28px;
+  font-family: var(--fonts-text-family), sans-serif;
+  font-size: var(--fonts-text-size);
+  font-weight: var(--fonts-text-weight);
+  line-height: var(--fonts-text-height);
+  letter-spacing: var(--fonts-text-letter-spacing);
 }
 .Desktop__Smalltext {
-  font-size: 16px;
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  line-height: 24px;
+  font-family: var(--fonts-small-text-family), sans-serif;
+  font-size: var(--fonts-small-text-size);
+  font-weight: var(--fonts-small-text-weight);
+  line-height: var(--fonts-small-text-height);
+  letter-spacing: var(--fonts-small-text-letter-spacing);
 }
 
 body {
@@ -234,19 +243,19 @@ header {
 
 .top-header {
   display: flex;
-  padding: var(--spacing-spacing-md, 16px) var(--Space-space-0, 0);
+  padding: var(--spacing-spacing-md) var(--space-space-0);
   justify-content: center;
   align-items: center;
-  gap: var(--Gap-gap-0, 0);
+  gap: var(--gap-gap-0);
   align-self: stretch;
 
-  background: var(--Colors-violet-violet-700, #6244a3);
+  background: var(--colors-violet-violet-700, #6244a3);
 }
 .top-header__grid {
   display: inline-grid;
-  padding: var(--Spacing-spacing-0, 0) var(--Space-space-40, 40px);
-  row-gap: var(--Gap-gap-0, 0);
-  column-gap: var(--Gap-gap-0, 0);
+  padding: var(--spacing-spacing-0) var(--space-space-40);
+  row-gap: var(--gap-gap-0);
+  column-gap: var(--gap-gap-0);
   grid-template-rows: repeat(1, fit-content(100%));
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -257,7 +266,7 @@ header {
   grid-column: 2 / span 1;
   justify-self: CENTER;
 
-  color: var(--Colors-basic-white, #fff);
+  color: var(--colors-basic-white, #fff);
 }
 .header__close {
   align-self: CENTER;
@@ -265,49 +274,49 @@ header {
   grid-column: 3 / span 1;
   justify-self: end;
 
-  color: var(--New-group-white, #fff);
+  color: var(--colors-basic-white, #fff);
 }
 
 .bottom-header {
   display: flex;
-  padding: var(--Spacing-spacing-0, 0);
+  padding: var(--spacing-spacing-0);
   justify-content: center;
   align-items: center;
-  gap: var(--Gap-gap-0, 0);
+  gap: var(--gap-gap-0);
   align-self: stretch;
 }
 
 .bottom-header__grid {
   display: inline-grid;
-  padding: var(--Spacing-spacing-sm, 8px) var(--Spacing-spacing-xxxl, 80px);
-  row-gap: var(--Spacing-spacing-0, 0);
-  column-gap: var(--Spacing-spacing-0, 0);
+  padding: var(--spacing-spacing-sm) var(--spacing-spacing-xxxl);
+  row-gap: var(--spacing-spacing-0);
+  column-gap: var(--Spacing-spacing-0);
   grid-template-rows: repeat(1, fit-content(100%));
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .header__nav {
   display: inline-flex;
-  padding: var(--Spacing-spacing-0, 0);
+  padding: var(--spacing-spacing-0);
   justify-content: center;
   align-items: center;
-  gap: var(--Gap-gap-lg, 16px);
+  gap: var(--gap-gap-lg);
   grid-row: 1 / span 1;
   grid-column: 2 / span 1;
   justify-self: center;
 }
 
 .header__a {
-  color: var(--Colors-grey-grey-800, #697586);
+  color: var(--colors-grey-grey-800);
 
   text-decoration: none;
 }
 .header__buttons {
   display: inline-flex;
-  padding: var(--Spacing-spacing-0, 0);
+  padding: var(--spacing-spacing-0);
   justify-content: center;
   align-items: center;
-  gap: var(--Gap-gap-md, 8px);
+  gap: var(--gap-gap-md);
   grid-row: 1 / span 1;
   grid-column: 3 / span 1;
   justify-self: end;
@@ -315,30 +324,31 @@ header {
 
 .button {
   display: inline-flex;
-  padding: var(--Spacing-spacing-md, 16px) var(--Spacing-spacing-xl, 32px);
+  padding: var(--spacing-spacing-md) var(--spacing-spacing-xl);
   justify-content: center;
   align-items: center;
-  gap: var(--Gap-gap-md, 8px);
+  gap: var(--gap-gap-md);
 
-  border-radius: var(--Radius-radius-lg, 64px);
+  border-radius: var(--radius-radius-lg);
 
   text-align: center;
   border: 1px solid transparent;
 }
 .header__left-button {
-  border-color: var(--Border-border-color, #697586);
-  color: var(--Colors-basic-black, #000);
-  background: var(--Colors-basic-white, #fff);
+  border-color: var(--border-border-color);
+  color: var(--colors-basic-black);
+  background: var(--colors-basic-white);
 }
 
 .header__shoping_bag {
-  color: var(--Colors-basic-black, #000);
+  color: var(--colors-basic-black);
   text-align: center;
 }
 
 .header__right-button {
-  color: var(--Colors-basic-white, #fff);
-  background: var(--Colors-Pink-pink-500, #cf4d74);
+  border-color: var(--colors-pink-pink-500);
+  color: var(--colors-basic-white);
+  background: var(--colors-pink-pink-500);
 }
 
 .first-block {
