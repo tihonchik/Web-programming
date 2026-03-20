@@ -834,7 +834,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: var(--gap-gap-lg);
 }
 .twelfth-block__img {
   width: 275px;
