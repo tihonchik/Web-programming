@@ -511,13 +511,19 @@ footer {
   color: var(--colors-text-main);
   text-align: center;
 }
-
-.seventh-block__content {
+.seventh-block {
   display: flex;
-  padding: var(--spacing-spacing-xxxl);
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-xxxxl);
+  align-self: stretch;
+  background: var(--colors-backgroung-page);
+}
+.seventh-block__content {
+  display: flex;
+  padding: var(--spacing-xxxl);
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-xxxxl);
 }
 .seventh-block__img {
   width: 576px;
@@ -528,33 +534,31 @@ footer {
 }
 .seventh-block__description {
   display: flex;
-  padding: var(--spacing-spacing-0);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-xl);
+  gap: var(--gap-xl);
   flex: 1 0 0;
 }
 .seventh-block__text {
-  color: var(--colors-grey-grey-800);
-  text-align: center;
   max-width: 576px;
+  color: var(--colors-text-main);
+  text-align: center;
 }
 .seventh-block__buttons {
   display: flex;
-  padding: var(--spacing-spacing-0);
   justify-content: center;
   align-items: center;
   align-content: center;
-  gap: var(--gap-gap-md) var(--gap-gap-lg);
+  gap: var(--gap-md) var(--gap-lg);
   flex-wrap: wrap;
 }
 
 .seventh-block__left-button,
 .seventh-block__right-button {
-  border-radius: var(--radius-radius-lg);
-  border: var(--border-border-size) solid var(--border-border-color);
-  background: var(--colors-basic-white);
+  border-radius: var(--radius-lg);
+  border: var(--border-size) solid var(--colors-border);
+  background: var(--colors-backgroung-button-2);
 }
 
 .ninth-block__content {
