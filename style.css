@@ -844,14 +844,21 @@ footer {
 
   object-fit: cover;
 }
-
-.footer__content {
+.footer {
   display: flex;
-  padding: var(--spacing-spacing-xxxl);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-spacipng-xxl);
+  align-self: stretch;
+  background: var(--colors-basic-white);
+}
+.footer__content {
+  display: flex;
+  padding: var(--spacing-xxxl);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xxl);
 }
 .footer__top-part {
   display: flex;
@@ -864,55 +871,54 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: var(--gap-gap-xxl);
+  gap: var(--gap-xxl);
 }
 .footer__text {
-  color: var(--colors-grey-grey-800);
+  color: var(--colors-text-main, #697586);
 }
 .footer__text-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-lg);
+  gap: var(--gap-lg);
   align-self: stretch;
 }
 .footer__input {
   flex: 1 0 0;
   align-self: stretch;
 
-  border-radius: var(--radius-radius-sm);
-  border: var(--border-border-size) solid var(--border-border-color);
-  background: var(--colors-basic-white);
+  border-radius: var(--radius-sm,);
+  border: var(--border-size) solid var(--colors-border);
+  background: var(--colors-backgroung-page);
 }
 .footer__button {
-  background: var(--colors-pink-pink-500);
-  color: var(--colors-basic-white);
-  text-align: center;
+  background: var(--colors-backgroung-button-1);
+  color: var(--colors-text-button-button-1, #fff);
 }
 
 .footer__right-part {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: var(--gap-gap-xxl);
+  gap: var(--gap-xxl);
 }
 .footer__list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--gap-gap-lg);
+  gap: var(--gap-lg);
 }
 .footer__item-title {
-  color: var(--colors-violet-violet-800);
+  color: var(--colors-text-title);
 }
 .footer__item {
-  color: var(--colors-grey-grey-800);
+  color: var(--colors-text-main);
 }
 
 .footer__line {
-  background: var(--colors-grey-grey-700);
   width: 1280px;
   height: 1px;
+  background: var(--colors-border);
 }
 .footer__bottom-part {
   display: flex;
@@ -921,11 +927,15 @@ footer {
   align-self: stretch;
 }
 .footer__powered {
-  color: var(--colors-grey-grey-800);
+  color: var(--colors-text-main);
 }
 .footer__icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-xl);
+  gap: var(--gap-xl);
+}
+
+.footer__icon {
+  fill: var(--colors-vector);
 }
