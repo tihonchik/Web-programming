@@ -65,6 +65,7 @@
   --fonts-family-roboto: Roboto;
 }
 [data-theme="desktop"] {
+  /* color */
   --colors-border: var(--colors-grey-800, #697586);
   --colors-vector: var(--colors-basic-black, #000000);
   --colors-backgroung-button-1: var(--colors-pink-500, #cf4d74);
@@ -76,6 +77,7 @@
   --colors-backgroung-surface: var(--colors-violet-500, #edebf7);
   --colors-text-main: var(--colors-grey-800, #697586);
   --colors-text-title: var(--colors-violet-800, #3c2769);
+  --colors-text-white: var(--colors-basic-white, #ffffff);
   --colors-text-button-button-1: var(--colors-basic-white, #ffffff);
   --colors-text-button-button-2: var(--colors-basic-black, #000000);
   /* number */

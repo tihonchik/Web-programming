@@ -16,7 +16,8 @@ body {
 }
 
 main,
-header {
+header,
+footer {
   width: 100%;
 }
 
@@ -41,112 +42,85 @@ header {
 
 .top-header {
   display: flex;
-  padding: var(--spacing-spacing-md) var(--space-space-0);
-  justify-content: center;
+  padding: var(--spacing-md, 16px) 0;
   align-items: center;
-  gap: var(--gap-gap-0);
   align-self: stretch;
 
-  background: var(--colors-violet-violet-700, #6244a3);
+  background: var(--colors-backgroung-header-1);
 }
 .top-header__grid {
   display: inline-grid;
-  padding: var(--spacing-spacing-0) var(--space-space-40);
-  row-gap: var(--gap-gap-0);
-  column-gap: var(--gap-gap-0);
+  padding: 0 var(--space-40, 40px);
   grid-template-rows: repeat(1, fit-content(100%));
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .header_text {
   align-self: CENTER;
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 1;
   justify-self: CENTER;
-
-  color: var(--colors-basic-white, #fff);
+  color: var(--colors-text-white);
 }
 .header__close {
   align-self: CENTER;
-  grid-row: 1 / span 1;
-  grid-column: 3 / span 1;
   justify-self: end;
-
-  color: var(--colors-basic-white, #fff);
+  color: var(--colors-text-white);
 }
 
 .bottom-header {
   display: flex;
-  padding: var(--spacing-spacing-0);
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-0);
   align-self: stretch;
+  background: var(--colors-backgroung-page);
 }
 
 .bottom-header__grid {
   display: inline-grid;
-  padding: var(--spacing-spacing-sm) var(--spacing-spacing-xxxl);
-  row-gap: var(--spacing-spacing-0);
-  column-gap: var(--Spacing-spacing-0);
+  padding: var(--spacing-sm, 8px) var(--spacing-xxxl, 80px);
   grid-template-rows: repeat(1, fit-content(100%));
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .header__nav {
   display: inline-flex;
-  padding: var(--spacing-spacing-0);
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-lg);
-  grid-row: 1 / span 1;
-  grid-column: 2 / span 1;
+  gap: var(--gap-lg);
   justify-self: center;
 }
 
 .header__a {
-  color: var(--colors-grey-grey-800);
-
+  color: var(--colors-text-main);
   text-decoration: none;
 }
 .header__buttons {
   display: inline-flex;
-  padding: var(--spacing-spacing-0);
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-md);
-  grid-row: 1 / span 1;
-  grid-column: 3 / span 1;
+  gap: var(--gap-md);
   justify-self: end;
 }
 
 .button {
-  display: inline-flex;
-  padding: var(--spacing-spacing-md) var(--spacing-spacing-xl);
+  display: flex;
+  padding: var(--spacing-md) var(--spacing-xl);
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-md);
 
-  border-radius: var(--radius-radius-lg);
+  border-radius: var(--radius-lg);
   border: 0px;
-
-  text-align: center;
 }
 .header__left-button {
-  border: var(--border-border-size) solid var(--border-border-color);
-  border-color: var(--border-border-color);
-  color: var(--colors-basic-black);
-  background: var(--colors-basic-white);
-}
+  gap: var(--gap-md);
 
-.header__shoping_bag {
-  color: var(--colors-basic-black);
-  text-align: center;
+  border: var(--border-size) solid var(--colors-border);
+  background: var(--colors-backgroung-button-2);
+  color: var(--colors-text-button-button-2, #000);
 }
 
 .header__right-button {
-  color: var(--colors-basic-white);
-  background: var(--colors-pink-pink-500);
+  color: var(--colors-text-button-button-1);
+  background: var(--colors-backgroung-button-1);
 }
 
 .first-block {
