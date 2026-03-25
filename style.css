@@ -823,12 +823,18 @@ footer {
   text-decoration: none;
   align-self: stretch;
 }
-
-.rwelgth-block__content {
+.twelfth-block {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-lg);
+  align-self: stretch;
+  background: var(--colors-basic-white);
+}
+.twelgth-block__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-lg);
 }
 .twelfth-block__img {
   width: 275px;
