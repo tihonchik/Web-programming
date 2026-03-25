@@ -125,7 +125,7 @@
   --radius-sm: var(--radius-16, 16px);
   --radius-md: var(--radius-24, 24px);
   --radius-lg: var(--radius-64, 64px);
-  --radius-full: var(--radius-full, 1000000000px);
+  --radius-max: var(--radius-full, 1000000000px);
   --spacing-0: var(--space-0, 0px);
   --spacing-xs: var(--space-4, 4px);
   --spacing-sm: var(--space-8, 8px);

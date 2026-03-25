@@ -447,61 +447,68 @@ footer {
     no-repeat;
 }
 
+.sixth-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  background: var(--colors-backgroung-page);
+}
+
 .sixth-block__content {
   display: flex;
-  padding: var(--spacing-spacing-xxxl);
+  padding: var(--spacing-xxxl);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-xxxxl);
+  gap: var(--gap-xxxxl);
 }
 .sixth-block__top-part {
   display: flex;
-  padding: var(--spacing-spacing-0) var(--spacing-spacing-xxxxl);
+  padding: 0 var(--spacing-xxxxl);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-xl);
+  gap: var(--gap-xl);
   align-self: stretch;
 }
 .sixth-block__description {
-  color: var(--colors-grey-grey-800);
-  text-align: center;
   max-width: 770px;
+  color: var(--colors-text-main, #697586);
+  text-align: center;
 }
 .sixth-block__bottom-part {
   display: flex;
-  padding: var(--spacing-spacing-0);
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-xxxl);
+  gap: var(--gap-xxxl);
   align-self: stretch;
 }
 .sixth-block__card {
   display: flex;
-  padding: var(--spacing-spacing-0) var(--gap-gap-xl);
+  padding: var(--spacing-0) var(--gap-xl);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-xxl);
+  gap: var(--gap-xxl);
   flex: 1 0 0;
 }
 .sixth-block__icon {
   display: flex;
-  padding: var(--spacing-spacing-xl);
+  padding: var(--spacing-xl);
   justify-content: center;
   align-items: center;
-  gap: var(--gap-gap-0);
+  gap: var(--gap-0);
 
-  border-radius: var(--radius-radius-full);
-  background: var(--colors-violet-violet-500);
+  border-radius: var(--radius-full);
+  background: var(--colors-backgroung-surface);
 }
 .six-block__card-title {
-  color: var(--colors-violet-violet-800, #3c2769);
+  color: var(--colors-text-title);
   text-align: center;
 }
 .six-block__card-description {
-  color: var(--colors-grey-grey-800, #697586);
+  color: var(--colors-text-main);
   text-align: center;
 }
 
