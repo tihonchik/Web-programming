@@ -29,20 +29,21 @@ footer {
 }
 
 .top-block > * {
-  width: 1440px;
+  max-width: 1440px;
+  width: 100%;
 }
 
 .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   align-self: stretch;
 }
 
 .top-header {
   display: flex;
-  padding: var(--spacing-md, 16px) 0;
+  justify-content: center;
   align-items: center;
   align-self: stretch;
 
@@ -50,7 +51,8 @@ footer {
 }
 .top-header__grid {
   display: inline-grid;
-  padding: 0 var(--space-40, 40px);
+  padding: var(--spacing-md) var(--spacing-xxl);
+  flex: 1 0 0;
   grid-template-rows: repeat(1, fit-content(100%));
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -76,7 +78,8 @@ footer {
 
 .bottom-header__grid {
   display: inline-grid;
-  padding: var(--spacing-sm, 8px) var(--spacing-xxxl, 80px);
+  padding: var(--spacing-sm) var(--spacing-xxxl);
+  flex: 1 0 0;
   grid-template-rows: repeat(1, fit-content(100%));
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
