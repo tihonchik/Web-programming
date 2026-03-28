@@ -226,21 +226,32 @@ footer {
 .second-block__content {
   display: flex;
   padding: var(--spacing-xxl) var(--spacing-0);
-  justify-content: center;
+  justify-content: safe center;
   align-items: center;
   gap: var(--gap-lg);
+  flex: 1 0 0;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.second-block__content::-webkit-scrollbar {
+  display: none; /* Для Chrome, Safari */
 }
 .second-block__item {
   display: flex;
   padding: var(--spacing-lg) var(--spacing-xl);
   justify-content: center;
   align-items: center;
-  gap: var(--gap-0);
 
   border-radius: var(--radius-lg);
   background: var(--colors-backgroung-page);
 
   color: var(--colors-text-title);
+
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 
 .third-block {
