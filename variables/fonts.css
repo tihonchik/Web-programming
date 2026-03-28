@@ -1,0 +1,58 @@
+.MaterialIcons {
+  font-family: var(--fonts-material-icons-family), sans-serif;
+  font-size: var(--fonts-material-icons-size);
+  font-weight: var(--fonts-material-icons-weight);
+  line-height: var(--fonts-material-icons-height);
+  letter-spacing: var(--fonts-material-icons-letter-spacing);
+}
+.H1 {
+  font-family: var(--fonts-h1-family), sans-serif;
+  font-size: var(--fonts-h1-size);
+  font-weight: var(--fonts-h1-weight);
+  line-height: var(
+    --fonts-h1-heights
+  ); /* в ваших токенах тут heights с буквой 's' на конце */
+  letter-spacing: var(--fonts-h1-letter-spacing);
+}
+.H2 {
+  font-family: var(--fonts-h2-family), sans-serif;
+  font-size: var(--fonts-h2-size);
+  font-weight: var(--fonts-h2-weight);
+  line-height: var(--fonts-h2-height);
+  letter-spacing: var(--fonts-h2-letter-spacing);
+}
+.H3 {
+  font-family: var(--fonts-h3-family), sans-serif;
+  font-size: var(--fonts-h3-size);
+  font-weight: var(--fonts-h3-weight);
+  line-height: var(--fonts-h3-height);
+  letter-spacing: var(--fonts-h3-letter-spacing);
+}
+.H4 {
+  font-family: var(--fonts-h4-family), sans-serif;
+  font-size: var(--fonts-h4-size);
+  font-weight: var(--fonts-h4-weight);
+  line-height: var(--fonts-h4-height);
+  letter-spacing: var(--fonts-h4-letter-spacing);
+}
+.H5 {
+  font-family: var(--fonts-h5-family), sans-serif;
+  font-size: var(--fonts-h5-size);
+  font-weight: var(--fonts-h5-weight);
+  line-height: var(--fonts-h5-height);
+  letter-spacing: var(--fonts-h5-letter-spacing);
+}
+.Text {
+  font-family: var(--fonts-text-family), sans-serif;
+  font-size: var(--fonts-text-size);
+  font-weight: var(--fonts-text-weight);
+  line-height: var(--fonts-text-height);
+  letter-spacing: var(--fonts-text-letter-spacing);
+}
+.Smalltext {
+  font-family: var(--fonts-small-text-family), sans-serif;
+  font-size: var(--fonts-small-text-size);
+  font-weight: var(--fonts-small-text-weight);
+  line-height: var(--fonts-small-text-height);
+  letter-spacing: var(--fonts-small-text-letter-spacing);
+}
