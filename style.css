@@ -486,6 +486,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: var(--gap-xxxxl);
+  flex: 1 0 0;
 }
 .sixth-block__top-part {
   display: flex;
@@ -503,26 +504,32 @@ footer {
 }
 .sixth-block__bottom-part {
   display: flex;
-  justify-content: center;
+  justify-content: safe center;
   align-items: center;
   gap: var(--gap-xxxl);
   align-self: stretch;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
 }
 .sixth-block__card {
   display: flex;
+  min-width: 214px;
   padding: var(--spacing-0) var(--gap-xl);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: var(--gap-xxl);
   flex: 1 0 0;
+
+  scroll-snap-align: start;
 }
 .sixth-block__icon {
   display: flex;
   padding: var(--spacing-xl);
   justify-content: center;
   align-items: center;
-  gap: var(--gap-0);
 
   border-radius: var(--radius-full);
   background: var(--colors-backgroung-surface);
