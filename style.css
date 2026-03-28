@@ -412,11 +412,15 @@ footer {
   padding: var(--spacing-xxxl);
   justify-content: center;
   align-items: center;
-  gap: var(--gap-xxl);
+  align-content: center;
+  gap: var(--spacing-xl) var(--gap-xxl);
+  flex: 1 0 0;
+  flex-wrap: wrap;
 }
 
 .fifth-block__card {
   display: flex;
+  min-width: 334px;
   padding-top: var(--spacing-xxl);
   flex-direction: column;
   justify-content: center;
