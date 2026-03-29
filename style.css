@@ -776,10 +776,10 @@ footer {
   justify-content: center;
   align-items: center;
   gap: var(--gap-xxxxl);
+  flex: 1 0 0;
 }
 .eleventh-block__top-part {
   display: flex;
-  padding: var(--spacing-0);
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
@@ -789,7 +789,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: var(--spacing-lg);
+  gap: var(--gap-xl);
   flex: 1 0 0;
 }
 .eleventh-block__text {
@@ -801,6 +801,8 @@ footer {
 }
 .eleventh-block__bottom-part {
   display: flex;
+  height: 550px;
+  max-height: 550px;
   justify-content: center;
   align-items: center;
   gap: var(--gap-xxl);
@@ -809,10 +811,11 @@ footer {
 
 .eleventh-block__card {
   display: flex;
-  height: 500px;
+  min-width: 250px;
   flex-direction: column;
   align-items: center;
   flex: 1 0 0;
+  align-self: stretch;
 
   border-radius: var(--radius-sm);
   background: var(--colors-backgroung-card-2);
@@ -820,11 +823,12 @@ footer {
 
 .eleventh-block__card-img {
   display: flex;
-  height: 250px;
   padding: var(--spacing-lg) 0 0 var(--spacing-md);
   flex-direction: column;
   align-items: flex-start;
+  flex: 1 0 0;
   align-self: stretch;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .eleventh-block__card:nth-child(1) .eleventh-block__card-img {
