@@ -615,6 +615,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: var(--gap-xxl);
+  flex: 1 0 0;
 }
 .ninth-block__top-part {
   display: flex;
@@ -641,12 +642,13 @@ footer {
 
 .ninth-block__comment {
   display: flex;
+  min-width: 224px;
   max-width: 442px;
   padding: var(--spacing-md) var(--spacing-xxl);
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: var(--gap-xl, 24px);
+  gap: var(--gap-xl);
   justify-self: stretch;
 
   border-radius: var(--radius-sm);
