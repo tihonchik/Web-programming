@@ -803,10 +803,14 @@ footer {
   display: flex;
   height: 550px;
   max-height: 550px;
-  justify-content: center;
+  justify-content: save center;
   align-items: center;
   gap: var(--gap-xxl);
   align-self: stretch;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
 }
 
 .eleventh-block__card {
@@ -819,6 +823,8 @@ footer {
 
   border-radius: var(--radius-sm);
   background: var(--colors-backgroung-card-2);
+
+  scroll-snap-align: start;
 }
 
 .eleventh-block__card-img {
