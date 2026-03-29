@@ -61,6 +61,7 @@ footer {
   align-self: CENTER;
   justify-self: CENTER;
   color: var(--colors-text-white);
+  text-align: center;
 }
 .header__close {
   align-self: CENTER;
@@ -154,6 +155,7 @@ footer {
   flex: 1 0 0;
   align-self: stretch;
   border-radius: 0 0 0 32px;
+  object-fit: cover;
   background: url(./static/first-block/hero.png) lightgray 50% / cover no-repeat;
 }
 
@@ -164,18 +166,15 @@ footer {
   justify-content: center;
   align-items: flex-start;
   gap: var(--gap-xxl);
-  align-self: stretch;
 }
 .first-block__title {
   min-width: 315px;
   max-width: 541px;
-  align-self: stretch;
   color: var(--colors-text-title);
 }
 .first-block__text {
   min-width: 300px;
   max-width: 543px;
-  align-self: stretch;
   color: var(--colors-text-title);
 }
 .first-block__buttons {
@@ -207,12 +206,11 @@ footer {
 .first-block__text-icons {
   color: var(--colors-text-title);
 }
-.icons {
+.first-block__icons {
   display: flex;
   align-items: center;
   align-content: center;
   gap: var(--gap-md) var(--gap-lg);
-  align-self: stretch;
   flex-wrap: wrap;
 }
 

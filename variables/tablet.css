@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1104px) {
   :root {
     /* color */
     --colors-border: var(--colors-grey-800, #697586);
@@ -82,5 +82,21 @@
     );
     --fonts-small-text-family: var(--fonts-family-inter, Inter);
     --fonts-text-family: var(--fonts-family-inter, Inter);
+  }
+
+  .first-block__hero {
+    min-height: 400px;
+  }
+
+  .header__buttons {
+    display: none;
+  }
+
+  .seventh-block--reverse {
+    display: none;
+  }
+
+  .eleventh-block__bottom-part {
+    max-height: 420px;
   }
 }
