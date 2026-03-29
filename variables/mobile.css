@@ -1,4 +1,4 @@
-@media (min-width: 375px) and (max-width: 768px) {
+@media (max-width: 768px) {
   :root {
     /* color */
     --colors-border: var(--colors-grey-800, #697586);
@@ -143,5 +143,18 @@
 
   .eleventh-block__bottom-part {
     max-height: 240px;
+  }
+
+  .eleventh-block__top-part {
+    flex-direction: column;
+    gap: var(--gap-xl, 12px);
+  }
+
+  .eleventh-block__left-part {
+    align-items: center;
+  }
+
+  .seventh-block__description {
+    min-width: 310px;
   }
 }
