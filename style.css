@@ -926,9 +926,12 @@ footer {
 }
 .footer__top-part {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  align-content: center;
+  gap: var(--spacing-md) var(--gap-xxxxl);
   align-self: stretch;
+  flex-wrap: wrap;
 }
 .footer__left-part {
   display: flex;
@@ -938,7 +941,7 @@ footer {
   gap: var(--gap-xxl);
 }
 .footer__text {
-  color: var(--colors-text-main, #697586);
+  color: var(--colors-text-main);
 }
 .footer__text-box {
   display: flex;
@@ -957,7 +960,7 @@ footer {
 }
 .footer__button {
   background: var(--colors-backgroung-button-1);
-  color: var(--colors-text-button-button-1, #fff);
+  color: var(--colors-text-button-button-1);
 }
 
 .footer__right-part {
@@ -974,14 +977,16 @@ footer {
 }
 .footer__item-title {
   color: var(--colors-text-title);
+  text-align: center;
 }
 .footer__item {
   color: var(--colors-text-main);
+  text-align: center;
 }
 
 .footer__line {
-  width: 1280px;
-  height: 1px;
+  height: var(--border-size);
+  align-self: stretch;
   background: var(--colors-border);
 }
 .footer__bottom-part {
