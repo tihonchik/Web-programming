@@ -57,9 +57,9 @@
     --gap-xxl: var(--space-20, 20px);
     --gap-xxxl: var(--space-24, 24px);
     --gap-xxxxl: var(--space-64, 64px);
-    --radius-sm: var(--radius-12, 12px);
-    --radius-md: var(--radius-16, 16px);
-    --radius-lg: var(--radius-32, 32px);
+    --radius-sm: var(--radius-16, 16px);
+    --radius-md: var(--radius-24, 24px);
+    --radius-lg: var(--radius-64, 64px);
     --radius-max: var(--radius-full, 1000000000px);
     --spacing-0: var(--space-0, 0px);
     --spacing-sm: var(--space-4, 4px);
