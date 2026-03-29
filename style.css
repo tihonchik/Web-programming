@@ -272,12 +272,16 @@ footer {
   flex: 1 0 0;
 }
 .subject {
-  display: flex;
+  display: inline-flex;
   padding: var(--spacing-xs) var(--spacing-xl);
+  justify-content: center;
   align-items: center;
 
   border-radius: var(--radius-md);
   background: var(--colors-backgroung-surface);
+
+  color: var(--colors-text-title, #3c2769);
+  text-align: center;
 }
 .title {
   color: var(--colors-text-title);
@@ -554,17 +558,22 @@ footer {
   padding: var(--spacing-xxxl);
   justify-content: center;
   align-items: center;
+  align-content: center;
   gap: var(--gap-xxxxl);
+  flex: 1 0 0;
+  flex-wrap: wrap;
 }
 .seventh-block__img {
-  width: 576px;
   height: 576px;
+  min-width: 500px;
+  flex: 1 0 0;
   flex-shrink: 0;
   border-radius: 24px;
   object-fit: cover;
 }
 .seventh-block__description {
   display: flex;
+  min-width: 360px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
