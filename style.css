@@ -889,17 +889,24 @@ footer {
 }
 .twelgth-block__content {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: save center;
   gap: var(--gap-lg);
+  flex: 1 0 0;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
 }
 .twelfth-block__img {
-  width: 275px;
   height: 275px;
+  min-width: 275px;
+  flex: 1 0 0;
   flex-shrink: 0;
   border-radius: 16px;
 
   object-fit: cover;
+
+  scroll-snap-align: start;
 }
 .footer {
   display: flex;
