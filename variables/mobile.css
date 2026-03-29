@@ -19,11 +19,11 @@
     --border-size: 1px;
     --fonts-h1-letter-spacing: var(--fonts-letter-spacing-0, 0);
     --fonts-h1-size: var(--fonts-sizes-32, 32);
-    --fonts-h1-heights: var(--fonts-heights-48, 48);
+    --fonts-h1-heights: var(--fonts-heights-36, 36);
     --fonts-h1-weight: var(--fonts-weights-regular, 400);
     --fonts-h2-letter-spacing: var(--fonts-letter-spacing-0, 0);
+    --fonts-h2-height: var(--fonts-heights-28, 28);
     --fonts-h2-size: var(--fonts-sizes-28, 28);
-    --fonts-h2-height: var(--fonts-heights-44, 44);
     --fonts-h2-weight: var(--fonts-weights-regular, 400);
     --fonts-h3-letter-spacing: var(--fonts-letter-spacing-0, 0);
     --fonts-h3-size: var(--fonts-sizes-24, 24);
@@ -139,5 +139,9 @@
 
   .tenth-block__right-part {
     min-width: 320px;
+  }
+
+  .eleventh-block__bottom-part {
+    max-height: 240px;
   }
 }

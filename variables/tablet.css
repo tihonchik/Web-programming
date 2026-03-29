@@ -19,7 +19,7 @@
     --border-size: 1px;
     --fonts-h1-letter-spacing: var(--fonts-letter-spacing-0, 0);
     --fonts-h1-size: var(--fonts-sizes-32, 32);
-    --fonts-h1-heights: var(--fonts-heights-48, 48);
+    --fonts-h1-heights: var(--fonts-heights-36, 36);
     --fonts-h1-weight: var(--fonts-weights-regular, 400);
     --fonts-h2-letter-spacing: var(--fonts-letter-spacing-0, 0);
     --fonts-h2-size: var(--fonts-sizes-32, 32);
