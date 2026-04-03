@@ -1,0 +1,206 @@
+.button {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  filter: brightness(1.1);
+}
+
+.button:active {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}
+
+.footer__text-box:focus-within {
+  outline: none;
+  animation: pulse-border 1.5s infinite;
+}
+
+.fourth-block__card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.fourth-block__card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.fourth-block__card:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.fourth-block__bottom-part:hover .fourth-block__card:not(:hover) {
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+.header__nav .header__a:last-child {
+  font-weight: 700;
+}
+
+.header__a {
+  position: relative;
+  padding-bottom: 2px;
+}
+.header__a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--colors-text-main);
+  transition: width 0.3s ease;
+}
+.header__a:hover::after {
+  width: 100%;
+}
+
+.subject::before {
+  content: "✦ ";
+  color: var(--colors-text-title);
+}
+
+.footer__input::placeholder {
+  font-style: italic;
+  opacity: 0.5;
+}
+
+::selection {
+  background: var(--colors-backgroung-button-1);
+  color: white;
+}
+
+.first-block__text::first-letter {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.tenth-block__card-text::before {
+  content: "Q:";
+  margin-right: 10px;
+  font-weight: bold;
+  color: var(--colors-text-main);
+}
+
+.first-block__content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.first-block__hero {
+  animation: floating 5s ease-in-out infinite;
+}
+
+.header__close:hover {
+  animation: spin 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+.first-block__icon {
+  animation: slideIn 0.5s ease-out backwards;
+}
+
+.tenth-block__card:hover {
+  animation: gentle-shake 0.4s ease-in-out;
+}
+
+.tenth-block__card:hover .tenth-block__add {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.fourth-block__card:hover .fourth-block__img {
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+}
+
+.eleventh-block__link:hover {
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.footer {
+  animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes gentle-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(3px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .fourth-block__card:hover {
+    transform: none;
+  }
+  .first-block__hero {
+    animation-duration: 8s;
+  }
+}
