@@ -156,7 +156,8 @@ footer {
   align-self: stretch;
   border-radius: 0 0 0 32px;
   object-fit: cover;
-  background: url(./static/first-block/hero.png) lightgray 50% / cover no-repeat;
+  background: url(../static/first-block/hero.png) lightgray 50% / cover
+    no-repeat;
 }
 
 .first-block__top-part {
