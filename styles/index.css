@@ -465,12 +465,12 @@ footer {
 }
 
 .fifth-block__card:nth-child(1) .fifth-block__background-img {
-  background: url(./static/fifth-block/IMAGE\ 1.png) lightgray 50% / cover
+  background: url(../static/fifth-block/IMAGE\ 1.png) lightgray 50% / cover
     no-repeat;
 }
 
 .fifth-block__card:nth-child(2) .fifth-block__background-img {
-  background: url(./static/fifth-block/IMAGE\ 2.png) lightgray 50% / cover
+  background: url(../static/fifth-block/IMAGE\ 2.png) lightgray 50% / cover
     no-repeat;
 }
 
@@ -837,17 +837,17 @@ footer {
 }
 
 .eleventh-block__card:nth-child(1) .eleventh-block__card-img {
-  background: url(./static/eleventh-block/From\ our\ blog\ 1.png) lightgray
+  background: url(../static/eleventh-block/From\ our\ blog\ 1.png) lightgray
     50% / cover no-repeat;
 }
 
 .eleventh-block__card:nth-child(2) .eleventh-block__card-img {
-  background: url(./static/eleventh-block/From\ our\ blog\ 2.png) lightgray
+  background: url(../static/eleventh-block/From\ our\ blog\ 2.png) lightgray
     50% / cover no-repeat;
 }
 
 .eleventh-block__card:nth-child(3) .eleventh-block__card-img {
-  background: url(./static/eleventh-block/From\ our\ blog\ 3.png) lightgray
+  background: url(../static/eleventh-block/From\ our\ blog\ 3.png) lightgray
     50% / cover no-repeat;
 }
 

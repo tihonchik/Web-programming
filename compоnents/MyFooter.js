@@ -53,17 +53,17 @@ class MyFooter extends HTMLElement {
           </p>
           <div class="footer__icons">
             <img
-              src="./static/footer/Vector.png"
+              src="/static/footer/Vector.png"
               alt="facebook"
               class="footer__icon"
             />
             <img
-              src="./static/footer/Vector 1.png"
+              src="/static/footer/Vector 1.png"
               alt="instagram"
               class="footer__icon"
             />
             <img
-              src="./static/footer/Vector 2.png"
+              src="/static/footer/Vector 2.png"
               alt="twitter"
               class="footer__icon"
             />
