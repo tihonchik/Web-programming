@@ -124,11 +124,13 @@ const goods = [
   ),
 ];
 
+let displayedGoods = structuredClone(goods);
+
 const grid = document.querySelector(".catalog-grid");
 
 function renderCatalog(list) {
   grid.innerHTML = "";
-
+  displayedGoods = list;
   list.forEach((good) => {
     const card = new CatalogCard(good);
     grid.appendChild(card);
@@ -137,8 +139,77 @@ function renderCatalog(list) {
 
 renderCatalog(goods);
 
+const reset_button = document.querySelector(".reset-button");
+reset_button.addEventListener("click", (e) => {
+  renderCatalog(goods);
+});
+
 const first_button = document.querySelector(".first-button");
 first_button.addEventListener("click", (e) => {
-  const newGoods = goods.map((x) => x.addToCoast(x.coast));
+  const newGoods = displayedGoods.map((x) => x.addToCoast(x.coast));
+  renderCatalog(newGoods);
+});
+
+const second_button = document.querySelector(".second-button");
+second_button.addEventListener("click", (e) => {
+  const newGoods = displayedGoods.filter((x) => x.coast > 1000);
+  renderCatalog(newGoods);
+});
+
+const third_button = document.querySelector(".third-button");
+third_button.addEventListener("click", (e) => {
+  const newGoods = displayedGoods.sort((a, b) => a.coast - b.coast);
+  renderCatalog(newGoods);
+});
+
+const fourth_button = document.querySelector(".fourth-button");
+fourth_button.addEventListener("click", (e) => {
+  const newGoods = displayedGoods.sort((a, b) => b.coast - a.coast);
+  renderCatalog(newGoods);
+});
+
+const budgetButton = document.querySelector(".budget-button");
+budgetButton.addEventListener("click", () => {
+  const newGoods = goods.filter((x) => x.coast < 20);
+  renderCatalog(newGoods);
+});
+
+const sortAlphaButton = document.querySelector(".sort-alpha-button");
+sortAlphaButton.addEventListener("click", () => {
+  const newGoods = [...displayedGoods].sort((a, b) =>
+    a.title.localeCompare(b.title),
+  );
+  renderCatalog(newGoods);
+});
+
+const brandButton = document.querySelector(".brand-glow-button");
+brandButton.addEventListener("click", () => {
+  const newGoods = goods.filter((x) => x.company === "Glow & Co.");
+  renderCatalog(newGoods);
+});
+
+const largeSizeButton = document.querySelector(".large-size-button");
+largeSizeButton.addEventListener("click", () => {
+  const newGoods = goods.filter((x) => {
+    const num = parseFloat(x.volume);
+    return !isNaN(num) && num > 100;
+  });
+  renderCatalog(newGoods);
+});
+
+const faceButton = document.querySelector(".face-button");
+faceButton.addEventListener("click", () => {
+  const keyword = "face";
+  const newGoods = goods.filter(
+    (x) =>
+      x.title.toLowerCase().includes(keyword) ||
+      x.description.toLowerCase().includes(keyword),
+  );
+  renderCatalog(newGoods);
+});
+
+const shuffleButton = document.querySelector(".shuffle-button");
+shuffleButton.addEventListener("click", () => {
+  const newGoods = [...displayedGoods].sort(() => Math.random() - 0.5);
   renderCatalog(newGoods);
 });

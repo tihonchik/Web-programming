@@ -9,8 +9,14 @@ class Good {
   }
 
   addToCoast(number) {
-    this.coast = this.coast + number;
-    return this;
+    return new Good(
+      this.title,
+      this.description,
+      this.coast + number,
+      this.photoURL,
+      this.company,
+      this.volume,
+    );
   }
 }
 

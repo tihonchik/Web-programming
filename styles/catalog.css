@@ -711,6 +711,12 @@
   outline-offset: 2px;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
 /* Reduce motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,
