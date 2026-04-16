@@ -1,13 +1,5 @@
-class Good {
-  constructor(title, description, coast, photoURL, company, volume) {
-    this.title = title;
-    this.description = description;
-    this.coast = coast;
-    this.photoURL = photoURL;
-    this.company = company;
-    this.volume = volume;
-  }
-}
+import Good from "/models/Good.js";
+import CatalogCard from "/compоnents/CatalogCard.js";
 
 const goods = [
   new Good(
@@ -131,3 +123,16 @@ const goods = [
     "5 g",
   ),
 ];
+
+const grid = document.querySelector(".catalog-grid");
+
+function renderCatalog(list) {
+  grid.innerHTML = "";
+
+  list.forEach((good) => {
+    const card = new CatalogCard(good);
+    grid.appendChild(card);
+  });
+}
+
+renderCatalog(goods);
