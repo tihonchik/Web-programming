@@ -7,6 +7,11 @@ class Good {
     this.company = company;
     this.volume = volume;
   }
+
+  addToCoast(number) {
+    this.coast = this.coast + number;
+    return this;
+  }
 }
 
 export default Good;
