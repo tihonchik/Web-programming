@@ -124,6 +124,15 @@ const goods = [
   ),
 ];
 
+const newGood = new Good(
+  "Blush Compact - Peach",
+  "A natural-looking blush for a healthy, rosy glow.",
+  14.99,
+  "https://daplast.ru/local/cache/image/28/74/2483/banka-pet-kameliya-250-matovaya.jpg?v=1774619365",
+  "Soft Cheeks",
+  "5 g",
+);
+
 let displayedGoods = structuredClone(goods);
 
 const grid = document.querySelector(".catalog-grid");
@@ -168,48 +177,38 @@ fourth_button.addEventListener("click", (e) => {
   renderCatalog(newGoods);
 });
 
-const budgetButton = document.querySelector(".budget-button");
-budgetButton.addEventListener("click", () => {
-  const newGoods = goods.filter((x) => x.coast < 20);
+const fiveth_button = document.querySelector(".fiveth-button");
+fiveth_button.addEventListener("click", () => {
+  const newGoods = displayedGoods.slice(0, -1);
   renderCatalog(newGoods);
 });
 
-const sortAlphaButton = document.querySelector(".sort-alpha-button");
-sortAlphaButton.addEventListener("click", () => {
-  const newGoods = [...displayedGoods].sort((a, b) =>
-    a.title.localeCompare(b.title),
-  );
+const sixth_button = document.querySelector(".sixth-button");
+sixth_button.addEventListener("click", () => {
+  displayedGoods.push(newGood);
+  renderCatalog(displayedGoods);
+});
+
+const seventh_button = document.querySelector(".seventh-button");
+seventh_button.addEventListener("click", () => {
+  const newGoods = displayedGoods.concat(displayedGoods);
   renderCatalog(newGoods);
 });
 
-const brandButton = document.querySelector(".brand-glow-button");
-brandButton.addEventListener("click", () => {
-  const newGoods = goods.filter((x) => x.company === "Glow & Co.");
+const eight_button = document.querySelector(".eight-button");
+eight_button.addEventListener("click", () => {
+  const newGoods = [displayedGoods.find((x) => x.title.includes("Cream"))];
   renderCatalog(newGoods);
 });
 
-const largeSizeButton = document.querySelector(".large-size-button");
-largeSizeButton.addEventListener("click", () => {
-  const newGoods = goods.filter((x) => {
-    const num = parseFloat(x.volume);
-    return !isNaN(num) && num > 100;
-  });
+const nineth_button = document.querySelector(".nineth-button");
+nineth_button.addEventListener("click", () => {
+  const newGoods = displayedGoods.reverse();
   renderCatalog(newGoods);
 });
 
-const faceButton = document.querySelector(".face-button");
-faceButton.addEventListener("click", () => {
-  const keyword = "face";
-  const newGoods = goods.filter(
-    (x) =>
-      x.title.toLowerCase().includes(keyword) ||
-      x.description.toLowerCase().includes(keyword),
-  );
-  renderCatalog(newGoods);
-});
-
-const shuffleButton = document.querySelector(".shuffle-button");
-shuffleButton.addEventListener("click", () => {
+const tenth_button = document.querySelector(".tenth-button");
+tenth_button.addEventListener("click", () => {
   const newGoods = [...displayedGoods].sort(() => Math.random() - 0.5);
   renderCatalog(newGoods);
 });
