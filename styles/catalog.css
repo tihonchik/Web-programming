@@ -711,10 +711,27 @@
   outline-offset: 2px;
 }
 
-.buttons {
+.buttons,
+.catalog_search {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+.catalog_input {
+  width: 100%;
+  max-width: 300px;
+}
+
+select {
+  flex: 1 0 0;
+
+  border-radius: var(--radius-sm,);
+  border: var(--border-size) solid var(--colors-border);
+  background: var(--colors-backgroung-page);
+
+  width: 100%;
+  max-width: 100px;
 }
 
 /* Reduce motion preference */

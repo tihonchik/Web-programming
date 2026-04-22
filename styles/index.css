@@ -955,9 +955,8 @@ footer {
   gap: var(--gap-lg);
   align-self: stretch;
 }
-.footer__input {
+input {
   flex: 1 0 0;
-  align-self: stretch;
 
   border-radius: var(--radius-sm,);
   border: var(--border-size) solid var(--colors-border);

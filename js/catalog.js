@@ -212,3 +212,13 @@ tenth_button.addEventListener("click", () => {
   const newGoods = [...displayedGoods].sort(() => Math.random() - 0.5);
   renderCatalog(newGoods);
 });
+
+const input = document.querySelector(".catalog_input");
+const searchField = document.querySelector(".catalog_secelt");
+input.addEventListener("input", () => {
+  const newGoods = goods.filter((x) => {
+    const fieldValue = x[searchField.value];
+    return String(fieldValue).toLowerCase().includes(input.value.toLowerCase());
+  });
+  renderCatalog(newGoods);
+});
