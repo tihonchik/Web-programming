@@ -9,6 +9,7 @@ const goods = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZE9N1migHkVfIlBOZjDolUpq19gBODkQk8A&s",
     "Glow & Co.",
     "50 ml",
+    "Skin Care",
   ),
   new Good(
     "Vitamin C Serum",
@@ -17,6 +18,7 @@ const goods = [
     "https://images.prom.ua/6357933170_w1280_h640_6357933170.jpg",
     "Pure Radiance",
     "30 ml",
+    "Skin Care",
   ),
   new Good(
     "Lipstick - Ruby Red",
@@ -25,6 +27,7 @@ const goods = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi0KGCBUKWJaK7BO41uYyWujfGDB6D3RPJmA&s",
     "Chic Cosmetics",
     "4 g",
+    "Makeup",
   ),
   new Good(
     "Charcoal Face Mask",
@@ -33,6 +36,7 @@ const goods = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3QoduOBwIcQDqa_cFp6RMaM_G2uMYBW7cbQ&s",
     "Detox Essentials",
     "100 ml",
+    "Skin Care",
   ),
   new Good(
     "Eyelash Curler",
@@ -41,6 +45,7 @@ const goods = [
     "https://ir.ozone.ru/s3/multimedia-1-0/8570242944.jpg",
     "Beauty Tools Pro",
     "One Size",
+    "Accessories",
   ),
   new Good(
     "Nail Polish - Rose Gold",
@@ -49,6 +54,7 @@ const goods = [
     "https://img.freepik.com/free-photo/skin-care-banner-concept-with-lotion_23-2149449093.jpg?semt=ais_hybrid&w=740&q=80",
     "Mani Glam",
     "15 ml",
+    "Makeup",
   ),
   new Good(
     "Anti-Aging Eye Cream",
@@ -57,6 +63,7 @@ const goods = [
     "https://u.makeup.com.ua/f/f4/f4qr9jrrwpnd.jpg",
     "Youth Lab",
     "15 ml",
+    "Skin Care",
   ),
   new Good(
     "Shea Butter Body Lotion",
@@ -65,6 +72,7 @@ const goods = [
     "https://src.memorycode.ru/storage/app/public/35011/1686666888.jpg",
     "Nature's Care",
     "250 ml",
+    "Skin Care",
   ),
   new Good(
     "Eyeshadow Palette - Natural Tones",
@@ -73,6 +81,7 @@ const goods = [
     "https://www.jarsking.com/wp-content/uploads/2026/02/Dragonfruit-Bloom-skincare-bottle-design.webp",
     "Artistry Makeup",
     "12 x 1.5g",
+    "Makeup",
   ),
   new Good(
     "Facial Cleansing Brush",
@@ -81,6 +90,7 @@ const goods = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmj243oNv-EOjWNTEiXUp_y2uLn4TKDe2M0w&s",
     "Tech Skin",
     "One Size",
+    "Accessories",
   ),
   new Good(
     "Highlighter Stick",
@@ -89,6 +99,7 @@ const goods = [
     "https://sun9-34.userapi.com/s/v1/ig2/DTf_R2-IWR_ZfsQP0qjF_kLYpDrziLxoiO-r_wFCscZxkPnPP4C5PWPjDVhIPuoQVus2zIdmYMJ9C0EENkIyyglB.jpg?quality=96&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,660x495&from=bu&cs=640x0",
     "Glossy Glow",
     "4 g",
+    "Makeup",
   ),
   new Good(
     "Exfoliating Scrub",
@@ -97,6 +108,7 @@ const goods = [
     "https://avatars.mds.yandex.net/get-mpic/16857451/2a00000198c78aaad65b77fdb9f738fef25d/orig",
     "Skin Renewal Co.",
     "150 ml",
+    "Skin Care",
   ),
   new Good(
     "Mascara - Black Volume",
@@ -105,6 +117,7 @@ const goods = [
     "https://image-thumbs.shafastatic.net/-869895963_310_430",
     "Lash Queen",
     "8 ml",
+    "Makeup",
   ),
   new Good(
     "Face Oil - Argan",
@@ -113,6 +126,7 @@ const goods = [
     "https://grominltd.com/media/jar-60-gromin-1.jpg",
     "Organic Botanics",
     "30 ml",
+    "Skin Care",
   ),
   new Good(
     "Blush Compact - Peach",
@@ -121,6 +135,7 @@ const goods = [
     "https://daplast.ru/local/cache/image/28/74/2483/banka-pet-kameliya-250-matovaya.jpg?v=1774619365",
     "Soft Cheeks",
     "5 g",
+    "Makeup",
   ),
 ];
 
@@ -140,6 +155,16 @@ const grid = document.querySelector(".catalog-grid");
 function renderCatalog(list) {
   grid.innerHTML = "";
   displayedGoods = list;
+
+  if (list.length === 0) {
+    grid.innerHTML = `
+      <div class="no-results">
+        <h3>Товары не найдены</h3>
+        <p>Попробуйте изменить параметры поиска или сбросить фильтры.</p>
+      </div>`;
+    return;
+  }
+
   list.forEach((good) => {
     const card = new CatalogCard(good);
     grid.appendChild(card);
@@ -213,16 +238,6 @@ tenth_button.addEventListener("click", () => {
   renderCatalog(newGoods);
 });
 
-const input = document.querySelector(".catalog_input");
-const searchField = document.querySelector(".catalog_select");
-input.addEventListener("input", () => {
-  const newGoods = goods.filter((x) => {
-    const fieldValue = x[searchField.value];
-    return String(fieldValue).toLowerCase().includes(input.value.toLowerCase());
-  });
-  renderCatalog(newGoods);
-});
-
 const sort = document.querySelector(".catalog_sort");
 sort.addEventListener("change", () => {
   if (sort.value == "asc") {
@@ -232,3 +247,38 @@ sort.addEventListener("change", () => {
   }
   renderCatalog(displayedGoods);
 });
+
+let currentCategory = "all";
+const categoryButtons = document.querySelectorAll(".category-btn");
+
+categoryButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    categoryButtons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    currentCategory = btn.dataset.category;
+    applyAllFilters();
+  });
+});
+
+const input = document.querySelector(".catalog_input");
+const searchField = document.querySelector(".catalog_select");
+function applyAllFilters() {
+  const searchText = input.value.toLowerCase();
+  const searchKey = searchField.value;
+
+  const filtered = goods.filter((item) => {
+    const isCategoryMatch =
+      currentCategory === "all" || item.category === currentCategory;
+
+    const isSearchMatch = String(item[searchKey])
+      .toLowerCase()
+      .includes(searchText);
+
+    return isCategoryMatch && isSearchMatch;
+  });
+
+  renderCatalog(filtered);
+}
+input.addEventListener("input", applyAllFilters);
+searchField.addEventListener("change", applyAllFilters);

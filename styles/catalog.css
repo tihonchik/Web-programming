@@ -734,6 +734,30 @@ select {
   max-width: 150px;
 }
 
+.no-results {
+  grid-column: 1 / -1; /* Растянуть на всю ширину сетки */
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.category-filters {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #f4f4f4;
+  border-radius: 8px;
+}
+
+.category-filters label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
 /* Reduce motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,
