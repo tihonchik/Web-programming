@@ -214,11 +214,21 @@ tenth_button.addEventListener("click", () => {
 });
 
 const input = document.querySelector(".catalog_input");
-const searchField = document.querySelector(".catalog_secelt");
+const searchField = document.querySelector(".catalog_select");
 input.addEventListener("input", () => {
   const newGoods = goods.filter((x) => {
     const fieldValue = x[searchField.value];
     return String(fieldValue).toLowerCase().includes(input.value.toLowerCase());
   });
   renderCatalog(newGoods);
+});
+
+const sort = document.querySelector(".catalog_sort");
+sort.addEventListener("change", () => {
+  if (sort.value == "asc") {
+    displayedGoods.sort((a, b) => a.coast - b.coast);
+  } else {
+    displayedGoods.sort((a, b) => b.coast - a.coast);
+  }
+  renderCatalog(displayedGoods);
 });

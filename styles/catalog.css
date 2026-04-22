@@ -731,7 +731,7 @@ select {
   background: var(--colors-backgroung-page);
 
   width: 100%;
-  max-width: 100px;
+  max-width: 150px;
 }
 
 /* Reduce motion preference */
