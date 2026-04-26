@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:3000/";
 
-async function GetGoods(searchText, searchKey) {
+async function GetGoods(searchText, searchKey, sortField, sortType) {
   let goods = [];
 
   const url = new URL(baseUrl + "goods");
@@ -18,6 +18,12 @@ async function GetGoods(searchText, searchKey) {
       typeSearch = "gt";
     }
     url.searchParams.append(`${searchKey}:${typeSearch}`, searchText);
+  }
+  if (sortField && sortType) {
+    url.searchParams.append(
+      `_sort`,
+      sortType != "desc" ? sortField : "-" + sortField,
+    );
   }
 
   try {
