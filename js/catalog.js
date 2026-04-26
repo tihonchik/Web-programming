@@ -22,7 +22,7 @@ function renderCatalog(list) {
   });
 }
 
-let currentCategory = "";
+let currentCategory = [];
 const categoryContainer = document.querySelector(".catalog_filter");
 async function renderCategories() {
   const allGoods = await GetGoods();
@@ -36,9 +36,10 @@ async function renderCategories() {
   btnAll.classList.add("active");
   btnAll.classList.add("button");
   btnAll.addEventListener("click", () => {
-    currentCategory = "";
-    updateActiveButton(btnAll);
+    currentCategory = [];
+    DiactivateButtons();
     applyAllFilters();
+    btnAll.classList.add("active");
   });
   categoryContainer.appendChild(btnAll);
 
@@ -48,19 +49,19 @@ async function renderCategories() {
     btn.classList.add("button");
 
     btn.addEventListener("click", () => {
-      currentCategory = category;
-      updateActiveButton(btn);
+      currentCategory.push(category);
       applyAllFilters();
+      btn.classList.add("active");
+      btnAll.classList.remove("active");
     });
 
     categoryContainer.appendChild(btn);
   });
 }
 
-function updateActiveButton(clickedButton) {
+function DiactivateButtons() {
   const buttons = categoryContainer.querySelectorAll("button");
   buttons.forEach((btn) => btn.classList.remove("active"));
-  clickedButton.classList.add("active");
 }
 
 const input = document.querySelector(".catalog_input");

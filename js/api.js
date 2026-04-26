@@ -1,6 +1,12 @@
 const baseUrl = "http://localhost:3000/";
 
-async function GetGoods(searchText, searchKey, sortField, sortType, category) {
+async function GetGoods(
+  searchText,
+  searchKey,
+  sortField,
+  sortType,
+  categories,
+) {
   let goods = [];
 
   const url = new URL(baseUrl + "goods");
@@ -26,8 +32,8 @@ async function GetGoods(searchText, searchKey, sortField, sortType, category) {
     );
   }
 
-  if (category && category != "all") {
-    url.searchParams.append("category", category);
+  if (categories && categories.length != 0) {
+    url.searchParams.append("category:in", categories);
   }
 
   try {
