@@ -22,7 +22,46 @@ function renderCatalog(list) {
   });
 }
 
-renderCatalog(await GetGoods());
+let currentCategory = "";
+const categoryContainer = document.querySelector(".catalog_filter");
+async function renderCategories() {
+  const allGoods = await GetGoods();
+
+  const uniqueCategories = new Set(allGoods.map((good) => good.category));
+
+  categoryContainer.innerHTML = "";
+
+  const btnAll = document.createElement("button");
+  btnAll.textContent = "All";
+  btnAll.classList.add("active");
+  btnAll.classList.add("button");
+  btnAll.addEventListener("click", () => {
+    currentCategory = "";
+    updateActiveButton(btnAll);
+    applyAllFilters();
+  });
+  categoryContainer.appendChild(btnAll);
+
+  uniqueCategories.forEach((category) => {
+    const btn = document.createElement("button");
+    btn.textContent = category;
+    btn.classList.add("button");
+
+    btn.addEventListener("click", () => {
+      currentCategory = category;
+      updateActiveButton(btn);
+      applyAllFilters();
+    });
+
+    categoryContainer.appendChild(btn);
+  });
+}
+
+function updateActiveButton(clickedButton) {
+  const buttons = categoryContainer.querySelectorAll("button");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  clickedButton.classList.add("active");
+}
 
 const input = document.querySelector(".catalog_input");
 const searchField = document.querySelector(".catalog_select");
@@ -33,12 +72,20 @@ async function applyAllFilters() {
   const searchKey = searchField.value;
   const sort = sortField.value;
   const sortTyle = sortTypeField.value;
-  console.log(searchKey);
-  console.log("fff");
 
-  renderCatalog(await GetGoods(searchText, searchKey, sort, sortTyle));
+  renderCatalog(
+    await GetGoods(searchText, searchKey, sort, sortTyle, currentCategory),
+  );
 }
+
 input.addEventListener("input", applyAllFilters);
 searchField.addEventListener("change", applyAllFilters);
 sortField.addEventListener("change", applyAllFilters);
 sortTypeField.addEventListener("change", applyAllFilters);
+
+async function init() {
+  await renderCategories();
+  await applyAllFilters();
+}
+
+await init();

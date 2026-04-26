@@ -114,6 +114,11 @@ footer {
   border-radius: var(--radius-lg);
   border: 0px;
 }
+.button.active {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}
+
 .header__left-button {
   gap: var(--gap-md);
 
