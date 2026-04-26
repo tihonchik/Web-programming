@@ -1,7 +1,6 @@
 import Good from "/models/Good.js";
 import CatalogCard from "/compоnents/CatalogCard.js";
-
-const baseUrl = "http://localhost:3000/";
+import GetGoods from "/js/api.js";
 
 let displayedGoods = [];
 
@@ -26,13 +25,7 @@ function renderCatalog(list) {
   });
 }
 
-try {
-  const response = await fetch(baseUrl + "goods");
-  const result = await response.json();
-  displayedGoods = result;
-} catch {}
-
-renderCatalog(displayedGoods);
+renderCatalog(await GetGoods());
 
 const sort = document.querySelector(".catalog_sort");
 sort.addEventListener("change", () => {
@@ -59,22 +52,11 @@ categoryButtons.forEach((btn) => {
 
 const input = document.querySelector(".catalog_input");
 const searchField = document.querySelector(".catalog_select");
-function applyAllFilters() {
+async function applyAllFilters() {
   const searchText = input.value.toLowerCase();
   const searchKey = searchField.value;
 
-  const filtered = goods.filter((item) => {
-    const isCategoryMatch =
-      currentCategory === "all" || item.category === currentCategory;
-
-    const isSearchMatch = String(item[searchKey])
-      .toLowerCase()
-      .includes(searchText);
-
-    return isCategoryMatch && isSearchMatch;
-  });
-
-  renderCatalog(filtered);
+  renderCatalog(await GetGoods(searchText, searchKey));
 }
 input.addEventListener("input", applyAllFilters);
 searchField.addEventListener("change", applyAllFilters);
