@@ -750,6 +750,15 @@ select {
   border-radius: 8px;
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button.hidden {
+  display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

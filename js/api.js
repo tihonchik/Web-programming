@@ -6,9 +6,9 @@ async function GetGoods(
   sortField,
   sortType,
   categories,
+  perPage,
+  page,
 ) {
-  let goods = [];
-
   const url = new URL(baseUrl + "goods");
 
   if (searchText) {
@@ -36,12 +36,17 @@ async function GetGoods(
     url.searchParams.append("category:in", categories);
   }
 
+  if (perPage && page) {
+    url.searchParams.append("_page", page);
+    url.searchParams.append("_per_page", perPage);
+  }
+
   try {
     const response = await fetch(url);
     const result = await response.json();
-    goods = result;
+    return result;
   } catch {}
-  return goods;
+  return [];
 }
 
 export default GetGoods;

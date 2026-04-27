@@ -4,6 +4,10 @@ import GetGoods from "/js/api.js";
 import storage from "/js/storage.js";
 import FavoritesCard from "/compоnents/FavoritesCard.js";
 
+const perPage = 3;
+let currentPage = 1;
+let pages = 0;
+
 function render(list, type) {
   const grid = document.querySelector(`.${type}.catalog-grid`);
   grid.innerHTML = "";
@@ -93,11 +97,42 @@ async function applyAllFilters() {
   const sort = sortField.value;
   const sortTyle = sortTypeField.value;
 
-  render(
-    await GetGoods(searchText, searchKey, sort, sortTyle, currentCategory),
-    "catalog",
+  const respone = await GetGoods(
+    searchText,
+    searchKey,
+    sort,
+    sortTyle,
+    currentCategory,
+    perPage,
+    currentPage,
   );
+  let items;
+  const btns = document.querySelector(".buttons");
+  if (respone.data) {
+    items = respone.data;
+    pages = respone.pages;
+    btns.classList.remove("hidden");
+  } else {
+    items = respone;
+    btns.classList.add("hidden");
+  }
+
+  render(items, "catalog");
 }
+
+document.querySelector(".left").addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    applyAllFilters();
+  }
+});
+
+document.querySelector(".right").addEventListener("click", () => {
+  if (pages > currentPage) {
+    currentPage++;
+    applyAllFilters();
+  }
+});
 
 input.addEventListener("input", applyAllFilters);
 searchField.addEventListener("change", applyAllFilters);
