@@ -81,4 +81,20 @@ async function DeleteGood(type, id) {
   }
 }
 
-export { DeleteGood, GetGoods, AddGood };
+async function UpdateGood(type, good) {
+  const url = new URL(baseUrl + type + "/" + good.id);
+  try {
+    const response = await fetch(url, {
+      method: "PUT",
+      body: JSON.stringify(good),
+    });
+    if (!response.ok) {
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export { DeleteGood, GetGoods, AddGood, UpdateGood };

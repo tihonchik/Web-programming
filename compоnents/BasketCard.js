@@ -1,4 +1,4 @@
-import { DeleteGood } from "/js/api.js";
+import { DeleteGood, UpdateGood } from "/js/api.js";
 
 class BasketCard extends HTMLElement {
   constructor(good) {
@@ -15,15 +15,28 @@ class BasketCard extends HTMLElement {
 
   initEvents() {
     const removeBtn = this.querySelector(".remove_from_basket");
+    const addCountBtn = this.querySelector(".add_count");
+    const removeCountBtn = this.querySelector(".remove_count");
 
     removeBtn.addEventListener("click", () => {
       DeleteGood("basket", this.good.id);
       window.dispatchEvent(new CustomEvent("basketUpdated"));
     });
+
+    addCountBtn.addEventListener("click", () => {
+      this.good.count += 1;
+      UpdateGood("basket", this.good);
+    });
+
+    removeCountBtn.addEventListener("click", () => {
+      this.good.count -= 1;
+      UpdateGood("basket", this.good);
+    });
   }
 
   render(good) {
-    const { title, description, coast, photoURL, company, volume } = good;
+    const { id, title, description, coast, photoURL, company, volume, count } =
+      good;
 
     const formattedPrice =
       typeof coast === "number" ? `$${coast.toFixed(2)}` : coast;
@@ -45,8 +58,11 @@ class BasketCard extends HTMLElement {
             <div class="catalog-card__footer">
               <span class="catalog-card__price H4">${formattedPrice}</span>
             </div>
+            <span class="catalog-card__count H4">Count:${count}</span>
           </div>
           <button class="button remove_from_basket">Remove from basket</button>
+          <button class="button add_count">add count</button>
+          <button class="button remove_count">remove count</button>
         </article>
     `;
   }

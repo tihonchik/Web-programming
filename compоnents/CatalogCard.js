@@ -18,6 +18,7 @@ class CatalogCard extends HTMLElement {
     const favBtn = this.querySelector(".add_to_favorites");
 
     basketBtn.addEventListener("click", () => {
+      this.good.count = 1;
       AddGood("basket", this.good);
     });
     favBtn.addEventListener("click", () => {

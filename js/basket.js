@@ -75,6 +75,7 @@ const input = document.querySelector(".catalog_input");
 const searchField = document.querySelector(".catalog_select");
 const sortField = document.querySelector(".catalog_sort");
 const sortTypeField = document.querySelector(".catalog_sort_type");
+const Sum = document.querySelector(".Sum");
 async function applyAllFilters() {
   const searchText = input.value.toLowerCase();
   const searchKey = searchField.value;
@@ -101,6 +102,13 @@ async function applyAllFilters() {
     items = respone;
     btns.classList.add("hidden");
   }
+
+  const sumCoast = items
+    .reduce((acc, item) => {
+      return acc + item.coast * item.count;
+    }, 0)
+    .toFixed(2);
+  Sum.innerHTML = "All coast: " + sumCoast;
 
   render(items, "catalog");
 }

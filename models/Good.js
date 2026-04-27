@@ -8,6 +8,7 @@ class Good {
     company,
     volume,
     category,
+    count,
   ) {
     this.id = id;
     this.title = title;
@@ -17,6 +18,7 @@ class Good {
     this.company = company;
     this.volume = volume;
     this.category = category;
+    this.count = count;
   }
 
   addToCoast(number) {
@@ -29,6 +31,7 @@ class Good {
       this.company,
       this.volume,
       this.category,
+      this.count,
     );
   }
 }
