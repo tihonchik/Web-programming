@@ -716,11 +716,13 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .catalog_input {
   width: 100%;
   max-width: 300px;
+  min-width: 100px;
 }
 
 select {
@@ -732,6 +734,7 @@ select {
 
   width: 100%;
   max-width: 150px;
+  min-width: 100px;
 }
 
 .no-results {
@@ -754,6 +757,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .button.hidden {
   display: none !important;

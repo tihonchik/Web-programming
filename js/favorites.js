@@ -1,9 +1,10 @@
-import CatalogCard from "/compоnents/CatalogCard.js";
 import { GetGoods } from "/js/api.js";
+import FavoritesCard from "/compоnents/FavoritesCard.js";
 
 const perPage = 3;
 let currentPage = 1;
 let pages = 0;
+const type = "favorites";
 
 function render(list) {
   const grid = document.querySelector(`.catalog-grid`);
@@ -19,15 +20,19 @@ function render(list) {
   }
 
   list.forEach((good) => {
-    var card = new CatalogCard(good);
+    var card = new FavoritesCard(good);
     grid.appendChild(card);
   });
 }
 
+window.addEventListener("favoritesUpdated", () => {
+  applyAllFilters();
+});
+
 let currentCategory = [];
 const categoryContainer = document.querySelector(".catalog_filter");
 async function renderCategories() {
-  const allGoods = await GetGoods("goods");
+  const allGoods = await GetGoods(type);
 
   const uniqueCategories = new Set(allGoods.map((good) => good.category));
 
@@ -77,7 +82,7 @@ async function applyAllFilters() {
   const sortTyle = sortTypeField.value;
 
   const respone = await GetGoods(
-    "goods",
+    type,
     searchText,
     searchKey,
     sort,
@@ -97,7 +102,7 @@ async function applyAllFilters() {
     btns.classList.add("hidden");
   }
 
-  render(items);
+  render(items, "catalog");
 }
 
 document.querySelector(".left").addEventListener("click", () => {

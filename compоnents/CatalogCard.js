@@ -1,4 +1,4 @@
-import storage from "/js/storage.js";
+import { AddGood } from "/js/api.js";
 
 class CatalogCard extends HTMLElement {
   constructor(good) {
@@ -18,21 +18,11 @@ class CatalogCard extends HTMLElement {
     const favBtn = this.querySelector(".add_to_favorites");
 
     basketBtn.addEventListener("click", () => {
-      this.addToBasket();
-      window.dispatchEvent(new CustomEvent("basketUpdated"));
+      AddGood("basket", this.good);
     });
     favBtn.addEventListener("click", () => {
-      this.addToFavorites();
-      window.dispatchEvent(new CustomEvent("favoritesUpdated"));
+      AddGood("favorites", this.good);
     });
-  }
-
-  addToBasket() {
-    storage.add("basket", this.good);
-  }
-
-  addToFavorites() {
-    storage.add("favorites", this.good);
   }
 
   render(good) {

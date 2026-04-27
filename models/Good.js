@@ -1,5 +1,15 @@
 class Good {
-  constructor(title, description, coast, photoURL, company, volume, category) {
+  constructor(
+    id,
+    title,
+    description,
+    coast,
+    photoURL,
+    company,
+    volume,
+    category,
+  ) {
+    this.id = id;
     this.title = title;
     this.description = description;
     this.coast = coast;
@@ -11,6 +21,7 @@ class Good {
 
   addToCoast(number) {
     return new Good(
+      this.id,
       this.title,
       this.description,
       this.coast + number,

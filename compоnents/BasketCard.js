@@ -1,4 +1,4 @@
-import storage from "/js/storage.js";
+import { DeleteGood } from "/js/api.js";
 
 class BasketCard extends HTMLElement {
   constructor(good) {
@@ -17,13 +17,9 @@ class BasketCard extends HTMLElement {
     const removeBtn = this.querySelector(".remove_from_basket");
 
     removeBtn.addEventListener("click", () => {
-      this.RemoveFromBasket();
+      DeleteGood("basket", this.good.id);
       window.dispatchEvent(new CustomEvent("basketUpdated"));
     });
-  }
-
-  RemoveFromBasket() {
-    storage.remove("basket", this.good);
   }
 
   render(good) {

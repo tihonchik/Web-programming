@@ -1,6 +1,7 @@
 const baseUrl = "http://localhost:3000/";
 
 async function GetGoods(
+  type,
   searchText,
   searchKey,
   sortField,
@@ -9,7 +10,7 @@ async function GetGoods(
   perPage,
   page,
 ) {
-  const url = new URL(baseUrl + "goods");
+  const url = new URL(baseUrl + type);
 
   if (searchText) {
     let typeSearch;
@@ -49,4 +50,35 @@ async function GetGoods(
   return [];
 }
 
-export default GetGoods;
+async function AddGood(type, good) {
+  const url = new URL(baseUrl + type);
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(good),
+    });
+    if (!response.ok) {
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function DeleteGood(type, id) {
+  const url = new URL(baseUrl + type + "/" + id);
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+    });
+    if (!response.ok) {
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export { DeleteGood, GetGoods, AddGood };

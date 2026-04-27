@@ -14,8 +14,8 @@ class MyHeader extends HTMLElement {
           <div class="empty"></div>
           <nav class="header__nav">
             <a href="/pages/catalog.html" class="header__a Smalltext">Products</a>
-            <a href="" class="header__a Smalltext">Story</a>
-            <a href="" class="header__a Smalltext">Blog</a>
+            <a href="/pages/favorites.html" class="header__a Smalltext">Favorites</a>
+            <a href="/pages/Basket.html" class="header__a Smalltext">Basket</a>
             <a href="" class="header__a Smalltext">Collections</a>
             <a href="" class="header__a Smalltext">Contact</a>
           </nav>

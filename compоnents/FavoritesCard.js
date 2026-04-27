@@ -1,4 +1,4 @@
-import storage from "/js/storage.js";
+import { DeleteGood } from "/js/api.js";
 
 class FavoritesCard extends HTMLElement {
   constructor(good) {
@@ -17,13 +17,9 @@ class FavoritesCard extends HTMLElement {
     const removeBtn = this.querySelector(".remove_from_favorites");
 
     removeBtn.addEventListener("click", () => {
-      this.RemoveFromFavorites();
+      DeleteGood("favorites", this.good.id);
       window.dispatchEvent(new CustomEvent("favoritesUpdated"));
     });
-  }
-
-  RemoveFromFavorites() {
-    storage.remove("favorites", this.good);
   }
 
   render(good) {
