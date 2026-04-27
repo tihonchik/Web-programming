@@ -1,6 +1,6 @@
 import storage from "/js/storage.js";
 
-class CatalogCard extends HTMLElement {
+class BasketCard extends HTMLElement {
   constructor(good) {
     super();
     if (good) {
@@ -14,25 +14,16 @@ class CatalogCard extends HTMLElement {
   }
 
   initEvents() {
-    const basketBtn = this.querySelector(".add_to_basket");
-    const favBtn = this.querySelector(".add_to_favorites");
+    const removeBtn = this.querySelector(".remove_from_basket");
 
-    basketBtn.addEventListener("click", () => {
-      this.addToBasket();
+    removeBtn.addEventListener("click", () => {
+      this.RemoveFromBasket();
       window.dispatchEvent(new CustomEvent("basketUpdated"));
     });
-    favBtn.addEventListener("click", () => {
-      this.addToFavorites();
-      window.dispatchEvent(new CustomEvent("favoritesUpdated"));
-    });
   }
 
-  addToBasket() {
-    storage.add("basket", this.good);
-  }
-
-  addToFavorites() {
-    storage.add("favorites", this.good);
+  RemoveFromBasket() {
+    storage.remove("basket", this.good);
   }
 
   render(good) {
@@ -59,13 +50,12 @@ class CatalogCard extends HTMLElement {
               <span class="catalog-card__price H4">${formattedPrice}</span>
             </div>
           </div>
-          <button class="button add_to_basket">Add to basket</button>
-          <button class="button add_to_favorites">Add to favorites</button>
+          <button class="button remove_from_basket">Remove from basket</button>
         </article>
     `;
   }
 }
 
-customElements.define("catalog-card", CatalogCard);
+customElements.define("basket-card", BasketCard);
 
-export default CatalogCard;
+export default BasketCard;

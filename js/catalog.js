@@ -1,10 +1,11 @@
-import Good from "/models/Good.js";
 import CatalogCard from "/compоnents/CatalogCard.js";
+import BasketCard from "/compоnents/BasketCard.js";
 import GetGoods from "/js/api.js";
+import storage from "/js/storage.js";
+import FavoritesCard from "/compоnents/FavoritesCard.js";
 
-const grid = document.querySelector(".catalog-grid");
-
-function renderCatalog(list) {
+function render(list, type) {
+  const grid = document.querySelector(`.${type}.catalog-grid`);
   grid.innerHTML = "";
 
   if (list.length === 0) {
@@ -17,10 +18,28 @@ function renderCatalog(list) {
   }
 
   list.forEach((good) => {
-    const card = new CatalogCard(good);
+    if (type == "catalog") {
+      var card = new CatalogCard(good);
+    }
+    if (type == "basket") {
+      var card = new BasketCard(good);
+    }
+    if (type == "favorites") {
+      var card = new FavoritesCard(good);
+    }
     grid.appendChild(card);
   });
 }
+
+window.addEventListener("basketUpdated", () => {
+  const basket = storage.get("basket");
+  render(basket, "basket");
+});
+
+window.addEventListener("favoritesUpdated", () => {
+  const favorites = storage.get("favorites");
+  render(favorites, "favorites");
+});
 
 let currentCategory = [];
 const categoryContainer = document.querySelector(".catalog_filter");
@@ -74,8 +93,9 @@ async function applyAllFilters() {
   const sort = sortField.value;
   const sortTyle = sortTypeField.value;
 
-  renderCatalog(
+  render(
     await GetGoods(searchText, searchKey, sort, sortTyle, currentCategory),
+    "catalog",
   );
 }
 
@@ -87,6 +107,8 @@ sortTypeField.addEventListener("change", applyAllFilters);
 async function init() {
   await renderCategories();
   await applyAllFilters();
+  render(storage.get("basket"), "basket");
+  render(storage.get("favorites"), "favorites");
 }
 
 await init();
