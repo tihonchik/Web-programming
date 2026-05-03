@@ -46,8 +46,9 @@ async function GetGoods(
     const response = await fetch(url);
     const result = await response.json();
     return result;
-  } catch {}
-  return [];
+  } catch {
+    return [];
+  }
 }
 
 async function AddGood(type, good) {
@@ -103,4 +104,22 @@ async function UpdateGood(type, good) {
   }
 }
 
-export { DeleteGood, GetGoods, AddGood, UpdateGood };
+async function Register(user) {
+  try {
+    const response = await fetch("", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export { DeleteGood, GetGoods, AddGood, UpdateGood, Register };
