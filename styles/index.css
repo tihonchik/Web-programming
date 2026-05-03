@@ -923,7 +923,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-self: stretch;
   background: var(--colors-basic-white);
 }
 .footer__content {
@@ -933,6 +932,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: var(--spacing-xxl);
+  width: 100%;
 }
 .footer__top-part {
   display: flex;

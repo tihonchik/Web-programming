@@ -36,12 +36,51 @@
 
           <form class="login-form" id="registerForm">
             <div class="form-group">
-              <label for="name" class="form-label Smalltext">Full Name</label>
+              <label for="firstName" class="form-label Smalltext"
+                >First Name</label
+              >
               <input
                 type="text"
-                id="name"
+                id="firstName"
                 class="form-input Text"
-                placeholder="Enter your full name"
+                placeholder="Enter your first name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="lastName" class="form-label Smalltext"
+                >Last Name</label
+              >
+              <input
+                type="text"
+                id="lastName"
+                class="form-input Text"
+                placeholder="Enter your last name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="surnname" class="form-label Smalltext">Surname</label>
+              <input
+                type="text"
+                id="surname"
+                class="form-input Text"
+                placeholder="Enter your surname"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="nickname" class="form-label Smalltext"
+                >Nickname</label
+              >
+              <input
+                type="text"
+                id="nickname"
+                class="form-input Text"
+                placeholder="Enter your nickname"
                 required
               />
             </div>
@@ -58,7 +97,34 @@
             </div>
 
             <div class="form-group">
-              <label for="password" class="form-label Smalltext">Password</label>
+              <label for="number" class="form-label Smalltext">Number</label>
+              <input
+                type="text"
+                id="number"
+                class="form-input Text"
+                placeholder="Enter your belarus number"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="birthday" class="form-label Smalltext"
+                >Birthday</label
+              >
+              <input
+                type="date"
+                id="birthday"
+                class="form-input Text"
+                placeholder="Enter your birthday"
+                max="2010-05-03"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label Smalltext"
+                >Password</label
+              >
               <div class="password-wrapper">
                 <input
                   type="password"
@@ -67,18 +133,13 @@
                   placeholder="Create a password"
                   required
                 />
-                <button
-                  type="button"
-                  class="password-toggle"
-                  id="togglePassword"
-                >
-                  <span class="material-icons">visibility_off</span>
-                </button>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="confirmPassword" class="form-label Smalltext">Confirm Password</label>
+              <label for="confirmPassword" class="form-label Smalltext"
+                >Confirm Password</label
+              >
               <div class="password-wrapper">
                 <input
                   type="password"
@@ -87,13 +148,6 @@
                   placeholder="Confirm your password"
                   required
                 />
-                <button
-                  type="button"
-                  class="password-toggle"
-                  id="toggleConfirmPassword"
-                >
-                  <span class="material-icons">visibility_off</span>
-                </button>
               </div>
             </div>
 
@@ -117,7 +171,7 @@
       </div>
     </main>
 
-    <my-footer class="footer"></my-footer>
+    <my-footer class="footer top-block"></my-footer>
   </body>
   <script src="/components/MyHeader.js"></script>
   <script src="/components/MyFooter.js"></script>

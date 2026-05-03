@@ -1,22 +1,5 @@
 import { GetGoods } from "/js/api.js";
 
-function setupPasswordToggle(toggleBtnId, inputId) {
-  const toggleBtn = document.getElementById(toggleBtnId);
-  const input = document.getElementById(inputId);
-
-  if (toggleBtn && input) {
-    toggleBtn.addEventListener("click", () => {
-      const type = input.type === "password" ? "text" : "password";
-      input.type = type;
-
-      const icon = toggleBtn.querySelector(".material-icons");
-      icon.textContent = type === "password" ? "visibility_off" : "visibility";
-    });
-  }
-}
-
-setupPasswordToggle("togglePassword", "password");
-
 const loginForm = document.getElementById("loginForm");
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -29,7 +12,7 @@ loginForm.addEventListener("submit", async (e) => {
     const users = await GetGoods("users");
 
     const user = users.find(
-      (u) => u.email === email && u.password === password
+      (u) => u.email === email && u.password === password,
     );
 
     if (user) {
