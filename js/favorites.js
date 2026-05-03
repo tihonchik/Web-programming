@@ -1,5 +1,5 @@
 import { GetGoods } from "/js/api.js";
-import FavoritesCard from "/compоnents/FavoritesCard.js";
+import FavoritesCard from "/components/FavoritesCard.js";
 
 const perPage = 3;
 let currentPage = 1;

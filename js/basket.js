@@ -1,5 +1,5 @@
 import { GetGoods, DeleteGood } from "/js/api.js";
-import BasketCard from "/compоnents/BasketCard.js";
+import BasketCard from "/components/BasketCard.js";
 
 const perPage = 3;
 let currentPage = 1;
@@ -135,9 +135,7 @@ sortTypeField.addEventListener("change", applyAllFilters);
 const buyBtn = document.querySelector(".Buy");
 buyBtn.addEventListener("click", async () => {
   const items = await GetGoods("basket");
-  items.forEach(async (item) => {
-    await DeleteGood("basket", item.id);
-  });
+  await Promise.all(items.map((item) => DeleteGood("basket", item.id)));
   alert("Pass buy");
 });
 

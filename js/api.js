@@ -55,6 +55,9 @@ async function AddGood(type, good) {
   try {
     const response = await fetch(url, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(good),
     });
     if (!response.ok) {
@@ -86,6 +89,9 @@ async function UpdateGood(type, good) {
   try {
     const response = await fetch(url, {
       method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(good),
     });
     if (!response.ok) {

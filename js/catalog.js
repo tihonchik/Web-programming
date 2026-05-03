@@ -1,4 +1,4 @@
-import CatalogCard from "/compоnents/CatalogCard.js";
+import CatalogCard from "/components/CatalogCard.js";
 import { GetGoods } from "/js/api.js";
 
 const perPage = 3;
