@@ -136,4 +136,21 @@ async function GetUsers() {
   }
 }
 
-export { DeleteGood, GetGoods, AddGood, UpdateGood, Register, GetUsers };
+async function Login(email, password) {
+  try {
+    const url = new URL(baseUrl + "users");
+    url.searchParams.append("email", email);
+    url.searchParams.append("password", password);
+
+    const response = await fetch(url);
+    if (!response.ok) {
+      return null;
+    }
+    const users = await response.json();
+    return users.length > 0 ? users[0] : null;
+  } catch {
+    return null;
+  }
+}
+
+export { DeleteGood, GetGoods, AddGood, UpdateGood, Register, GetUsers, Login };

@@ -1,38 +1,65 @@
-import { GetGoods } from "/js/api.js";
+import { Login } from "/js/api.js";
+import { showError, hideError } from "/js/error.js";
 
 const loginForm = document.getElementById("loginForm");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
+function CheckEmail() {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email.value.trim() === "") {
+    showError("emailError", "Email is required");
+    return false;
+  } else if (!emailRegex.test(email.value)) {
+    showError("emailError", "Please enter a valid email address");
+    return false;
+  } else {
+    hideError("emailError");
+    return true;
+  }
+}
+
+email.addEventListener("input", CheckEmail);
+
+function CheckPassword() {
+  if (password.value.trim() === "") {
+    showError("passwordError", "Password is required");
+    return false;
+  } else {
+    hideError("passwordError");
+    return true;
+  }
+}
+
+password.addEventListener("input", CheckPassword);
+
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const remember = document.getElementById("remember").checked;
+  let success = true;
 
-  try {
-    const users = await GetGoods("users");
+  if (!CheckEmail()) {
+    success = false;
+  }
 
-    const user = users.find(
-      (u) => u.email === email && u.password === password,
-    );
+  if (!CheckPassword()) {
+    success = false;
+  }
 
-    if (user) {
-      if (remember) {
-        localStorage.setItem("currentUser", JSON.stringify(user));
-      } else {
-        sessionStorage.setItem("currentUser", JSON.stringify(user));
-      }
+  if (!success) {
+    return;
+  }
 
-      alert("Login successful! Redirecting...");
+  hideError("loginError");
 
-      setTimeout(() => {
-        window.location.href = "/pages/catalog.html";
-      }, 1000);
-    } else {
-      alert("Invalid email or password");
-    }
-  } catch (error) {
-    console.error("Login error:", error);
-    alert("An error occurred. Please try again.");
+  const user = await Login(email.value, password.value);
+
+  if (user) {
+    sessionStorage.setItem("currentUser", JSON.stringify(user));
+
+    window.location.href = "/pages/catalog.html";
+  } else {
+    showError("loginError", "Invalid email or password");
   }
 });
 

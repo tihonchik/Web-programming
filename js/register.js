@@ -1,5 +1,6 @@
 import { Register, GetUsers } from "/js/api.js";
 import User from "/models/User.js";
+import { showError, hideError } from "/js/error.js";
 
 const top100Passwords = [
   "password",
@@ -102,22 +103,6 @@ const top100Passwords = [
   "q1w2e3r4",
   "232323",
 ];
-
-function showError(id, message) {
-  const error = document.getElementById(id);
-  if (error) {
-    error.textContent = message;
-    error.style.display = "block";
-  }
-}
-
-function hideError(id) {
-  const error = document.getElementById(id);
-  if (error) {
-    error.textContent = "";
-    error.style.display = "none";
-  }
-}
 
 function generateRandomNickname() {
   const adjectives = [
@@ -409,5 +394,6 @@ registerForm.addEventListener("submit", async (e) => {
     nickname.value,
   );
 
-  alert(Register(newUser));
+  Register(newUser);
+  window.location.href = "/pages/login.html";
 });

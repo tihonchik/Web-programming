@@ -42,8 +42,8 @@
                 id="email"
                 class="form-input Text"
                 placeholder="Enter your email"
-                required
               />
+              <span class="error-message" id="emailError"></span>
             </div>
 
             <div class="form-group">
@@ -56,10 +56,11 @@
                   id="password"
                   class="form-input Text"
                   placeholder="Enter your password"
-                  required
                 />
               </div>
+              <span class="error-message" id="passwordError"></span>
             </div>
+            <span class="error-message" id="loginError"></span>
             <button type="submit" class="login-button button Smalltext">
               Sign In
             </button>
@@ -78,5 +79,5 @@
   </body>
   <script src="/components/MyHeader.js"></script>
   <script src="/components/MyFooter.js"></script>
-  <script src="/js/simple-login.js" type="module"></script>
+  <script src="/js/login.js" type="module"></script>
 </html>
