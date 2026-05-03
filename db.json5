@@ -153,6 +153,19 @@
   ],
   favorites: [],
   basket: [],
-  users: [],
+  users: [
+    {
+      id: "MV4Xb_rtPWU",
+      firstName: "f",
+      secondName: "f",
+      surname: "",
+      role: "user",
+      email: "tihonchik1@gmail.com",
+      number: "+375295263932",
+      birthday: "2010-04-27",
+      password: "String1!",
+      nickname: "MightyTiger220",
+    },
+  ],
   $schema: "./node_modules/json-server/schema.json",
 }

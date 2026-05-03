@@ -106,7 +106,7 @@ async function UpdateGood(type, good) {
 
 async function Register(user) {
   try {
-    const response = await fetch("", {
+    const response = await fetch(baseUrl + "users", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -122,4 +122,18 @@ async function Register(user) {
   }
 }
 
-export { DeleteGood, GetGoods, AddGood, UpdateGood, Register };
+async function GetUsers() {
+  try {
+    const response = await fetch(baseUrl + "users", {
+      method: "GET",
+    });
+    if (!response.ok) {
+      return [];
+    }
+    return response.json();
+  } catch {
+    return [];
+  }
+}
+
+export { DeleteGood, GetGoods, AddGood, UpdateGood, Register, GetUsers };

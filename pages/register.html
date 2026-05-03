@@ -37,28 +37,26 @@
           <form class="login-form" id="registerForm">
             <div class="form-group">
               <label for="firstName" class="form-label Smalltext"
-                >First Name</label
+                >First Name <span class="required">*</span></label
               >
               <input
                 type="text"
                 id="firstName"
                 class="form-input Text"
                 placeholder="Enter your first name"
-                required
               />
               <span class="error-message" id="firstNameError"></span>
             </div>
 
             <div class="form-group">
               <label for="lastName" class="form-label Smalltext"
-                >Last Name</label
+                >Last Name <span class="required">*</span></label
               >
               <input
                 type="text"
                 id="lastName"
                 class="form-input Text"
                 placeholder="Enter your last name"
-                required
               />
               <span class="error-message" id="lastNameError"></span>
             </div>
@@ -70,52 +68,52 @@
                 id="surname"
                 class="form-input Text"
                 placeholder="Enter your surname"
-                required
               />
               <span class="error-message" id="surnameError"></span>
             </div>
 
             <div class="form-group">
               <label for="nickname" class="form-label Smalltext"
-                >Nickname</label
+                >Nickname <span class="required">*</span></label
               >
               <input
                 type="text"
                 id="nickname"
                 class="form-input Text"
                 placeholder="Enter your nickname"
-                required
               />
               <span class="error-message" id="nicknameError"></span>
             </div>
 
             <div class="form-group">
-              <label for="email" class="form-label Smalltext">Email</label>
+              <label for="email" class="form-label Smalltext"
+                >Email <span class="required">*</span></label
+              >
               <input
                 type="email"
                 id="email"
                 class="form-input Text"
                 placeholder="Enter your email"
-                required
               />
               <span class="error-message" id="emailError"></span>
             </div>
 
             <div class="form-group">
-              <label for="number" class="form-label Smalltext">Number</label>
+              <label for="number" class="form-label Smalltext"
+                >Number <span class="required">*</span></label
+              >
               <input
                 type="text"
                 id="number"
                 class="form-input Text"
                 placeholder="Enter your belarus number"
-                required
               />
               <span class="error-message" id="numberError"></span>
             </div>
 
             <div class="form-group">
               <label for="birthday" class="form-label Smalltext"
-                >Birthday</label
+                >Birthday <span class="required">*</span></label
               >
               <input
                 type="date"
@@ -123,7 +121,6 @@
                 class="form-input Text"
                 placeholder="Enter your birthday"
                 max="2010-05-03"
-                required
               />
               <span class="error-message" id="birthdayError"></span>
             </div>
@@ -138,7 +135,6 @@
                   id="password"
                   class="form-input Text"
                   placeholder="Create a password"
-                  required
                 />
               </div>
               <span class="error-message" id="passwordError"></span>
@@ -154,15 +150,17 @@
                   id="confirmPassword"
                   class="form-input Text"
                   placeholder="Confirm your password"
-                  required
                 />
               </div>
               <span class="error-message" id="confirmPasswordError"></span>
             </div>
 
             <label class="checkbox-wrapper Smalltext">
-              <input type="checkbox" id="terms" required />
-              <span>I agree to the Terms and Conditions</span>
+              <input type="checkbox" id="terms" />
+              <span
+                >I agree to the Terms and Conditions
+                <span class="required">*</span></span
+              >
             </label>
             <span class="error-message" id="termsError"></span>
 
