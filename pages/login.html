@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/variables/primitives.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/variables/desktop.css" />
+    <link rel="stylesheet" href="/variables/tablet.css" />
+    <link rel="stylesheet" href="/variables/mobile.css" />
+    <link rel="stylesheet" href="/variables/fonts.css" />
+    <link rel="stylesheet" href="/styles/animation.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <my-header class="header"></my-header>
+
+    <main class="login-main top-block">
+      <div class="login-container">
+        <div class="login-card">
+          <div class="login-header">
+            <h1 class="login-title H2">Welcome Back</h1>
+            <p class="login-subtitle Text">Sign in to your account</p>
+          </div>
+
+          <form class="login-form" id="loginForm">
+            <div class="form-group">
+              <label for="email" class="form-label Smalltext">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="form-input Text"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label Smalltext"
+                >Password</label
+              >
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  class="form-input Text"
+                  placeholder="Enter your password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="togglePassword"
+                >
+                  <span class="material-icons">visibility_off</span>
+                </button>
+              </div>
+            </div>
+            <button type="submit" class="login-button button Smalltext">
+              Sign In
+            </button>
+          </form>
+          <div class="login-footer">
+            <p class="Smalltext">
+              Don't have an account?
+              <a href="#" class="register-link" id="showRegister">Sign up</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="register-card hidden" id="registerCard">
+          <div class="login-header">
+            <h1 class="login-title H2">Create Account</h1>
+            <p class="login-subtitle Text">Sign up to get started</p>
+          </div>
+
+          <form class="login-form" id="registerForm">
+            <div class="form-group">
+              <label for="regName" class="form-label Smalltext"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                id="regName"
+                class="form-input Text"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="regEmail" class="form-label Smalltext">Email</label>
+              <input
+                type="email"
+                id="regEmail"
+                class="form-input Text"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="regPassword" class="form-label Smalltext"
+                >Password</label
+              >
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="regPassword"
+                  class="form-input Text"
+                  placeholder="Create a password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="toggleRegPassword"
+                >
+                  <span class="material-icons">visibility_off</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regConfirmPassword" class="form-label Smalltext"
+                >Confirm Password</label
+              >
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="regConfirmPassword"
+                  class="form-input Text"
+                  placeholder="Confirm your password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="toggleConfirmPassword"
+                >
+                  <span class="material-icons">visibility_off</span>
+                </button>
+              </div>
+            </div>
+
+            <label class="checkbox-wrapper Smalltext">
+              <input type="checkbox" id="terms" required />
+              <span>I agree to the Terms and Conditions</span>
+            </label>
+
+            <button type="submit" class="login-button button Smalltext">
+              Create Account
+            </button>
+          </form>
+
+          <div class="login-footer">
+            <p class="Smalltext">
+              Already have an account?
+              <a href="#" class="register-link" id="showLogin">Sign in</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <my-footer class="footer"></my-footer>
+  </body>
+  <script src="/components/MyHeader.js"></script>
+  <script src="/components/MyFooter.js"></script>
+  <script src="/js/login.js" type="module"></script>
+</html>

@@ -24,9 +24,9 @@ class MyHeader extends HTMLElement {
               <p class="header__shoping_bag MaterialIcons">shopping_bag</p>
               <p class="Smalltext">Cart</p>
             </button>
-            <button class="header__right-button button Smalltext">
-              Subscribe
-            </button>
+            <a href="/pages/login.html" class="header__right-button button Smalltext">
+              Login
+            </a>
           </div>
         </div>
       </section>`;

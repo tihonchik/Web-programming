@@ -1,7 +1,7 @@
 import CatalogCard from "/components/CatalogCard.js";
 import { GetGoods } from "/js/api.js";
 
-const perPage = 3;
+const perPage = 8;
 let currentPage = 1;
 let pages = 0;
 

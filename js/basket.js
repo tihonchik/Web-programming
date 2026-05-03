@@ -1,7 +1,7 @@
 import { GetGoods, DeleteGood } from "/js/api.js";
 import BasketCard from "/components/BasketCard.js";
 
-const perPage = 3;
+const perPage = 8;
 let currentPage = 1;
 let pages = 0;
 const type = "basket";

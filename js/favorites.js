@@ -1,7 +1,7 @@
 import { GetGoods } from "/js/api.js";
 import FavoritesCard from "/components/FavoritesCard.js";
 
-const perPage = 3;
+const perPage = 8;
 let currentPage = 1;
 let pages = 0;
 const type = "favorites";
