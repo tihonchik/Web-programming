@@ -151,8 +151,8 @@
       category: "Makeup",
     },
   ],
-  favorites: [],
-  basket: [],
+  userFavorites: [{ userId: "MV4Xb_rtPWU", favId: "15", id: "FwXd_5zkKh8" }],
+  userBasket: [{ userId: "MV4Xb_rtPWU", goodId: "7", id: "z0hN7kIbjgU" }],
   users: [
     {
       id: "MV4Xb_rtPWU",

@@ -1,5 +1,6 @@
 import { Login } from "/js/api.js";
 import { showError, hideError } from "/js/error.js";
+import { setCurrentUser, isAuthenticated } from "/js/auth.js";
 
 const loginForm = document.getElementById("loginForm");
 const email = document.getElementById("email");
@@ -55,8 +56,7 @@ loginForm.addEventListener("submit", async (e) => {
   const user = await Login(email.value, password.value);
 
   if (user) {
-    sessionStorage.setItem("currentUser", JSON.stringify(user));
-
+    setCurrentUser(user);
     window.location.href = "/pages/catalog.html";
   } else {
     showError("loginError", "Invalid email or password");
@@ -64,11 +64,7 @@ loginForm.addEventListener("submit", async (e) => {
 });
 
 function checkAuth() {
-  const user =
-    localStorage.getItem("currentUser") ||
-    sessionStorage.getItem("currentUser");
-
-  if (user) {
+  if (isAuthenticated()) {
     window.location.href = "/pages/catalog.html";
   }
 }

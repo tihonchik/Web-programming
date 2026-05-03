@@ -1,4 +1,5 @@
-import { AddGood } from "/js/api.js";
+import { AddToUserBasket, AddToUserFavorites } from "/js/api.js";
+import { isAuthenticated, getCurrentUser } from "/js/auth.js";
 
 class CatalogCard extends HTMLElement {
   constructor(good) {
@@ -17,13 +18,22 @@ class CatalogCard extends HTMLElement {
     const basketBtn = this.querySelector(".add_to_basket");
     const favBtn = this.querySelector(".add_to_favorites");
 
-    basketBtn.addEventListener("click", () => {
-      this.good.count = 1;
-      AddGood("basket", this.good);
-    });
-    favBtn.addEventListener("click", () => {
-      AddGood("favorites", this.good);
-    });
+    if (basketBtn) {
+      basketBtn.addEventListener("click", async () => {
+        const user = getCurrentUser();
+        if (user) {
+          await AddToUserBasket(user.id, this.good.id);
+        }
+      });
+    }
+    if (favBtn) {
+      favBtn.addEventListener("click", async () => {
+        const user = getCurrentUser();
+        if (user) {
+          await AddToUserFavorites(user.id, this.good.id);
+        }
+      });
+    }
   }
 
   render(good) {
@@ -31,6 +41,11 @@ class CatalogCard extends HTMLElement {
 
     const formattedPrice =
       typeof coast === "number" ? `$${coast.toFixed(2)}` : coast;
+
+    const buttons = isAuthenticated()
+      ? `<button class="button add_to_basket">Add to basket</button>
+         <button class="button add_to_favorites">Add to favorites</button>`
+      : "";
 
     this.innerHTML = `
       <article class="catalog-card" data-category="${company.toLowerCase()}">
@@ -50,8 +65,7 @@ class CatalogCard extends HTMLElement {
               <span class="catalog-card__price H4">${formattedPrice}</span>
             </div>
           </div>
-          <button class="button add_to_basket">Add to basket</button>
-          <button class="button add_to_favorites">Add to favorites</button>
+          ${buttons}
         </article>
     `;
   }

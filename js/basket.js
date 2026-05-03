@@ -1,5 +1,10 @@
 import { GetGoods, DeleteGood } from "/js/api.js";
 import BasketCard from "/components/BasketCard.js";
+import { isAuthenticated } from "/js/auth.js";
+
+if (!isAuthenticated()) {
+  window.location.href = "/pages/login.html";
+}
 
 const perPage = 8;
 let currentPage = 1;

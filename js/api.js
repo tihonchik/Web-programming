@@ -153,4 +153,50 @@ async function Login(email, password) {
   }
 }
 
-export { DeleteGood, GetGoods, AddGood, UpdateGood, Register, GetUsers, Login };
+async function AddToUserBasket(userId, goodId) {
+  try {
+    const response = await fetch(baseUrl + "userBasket", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId, goodId }),
+    });
+    if (!response.ok) {
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function AddToUserFavorites(userId, favId) {
+  try {
+    const response = await fetch(baseUrl + "userFavorites", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId, favId }),
+    });
+    if (!response.ok) {
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export {
+  DeleteGood,
+  GetGoods,
+  AddGood,
+  UpdateGood,
+  Register,
+  GetUsers,
+  Login,
+  AddToUserBasket,
+  AddToUserFavorites,
+};
