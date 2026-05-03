@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/variables/fonts.css" />
     <link rel="stylesheet" href="/styles/animation.css" />
     <link rel="stylesheet" href="/styles/login.css" />
-    <title>Login</title>
+    <title>Register</title>
   </head>
   <body>
     <my-header class="header"></my-header>
@@ -30,11 +30,22 @@
       <div class="login-container">
         <div class="login-card">
           <div class="login-header">
-            <h1 class="login-title H2">Welcome Back</h1>
-            <p class="login-subtitle Text">Sign in to your account</p>
+            <h1 class="login-title H2">Create Account</h1>
+            <p class="login-subtitle Text">Sign up to get started</p>
           </div>
 
-          <form class="login-form" id="loginForm">
+          <form class="login-form" id="registerForm">
+            <div class="form-group">
+              <label for="name" class="form-label Smalltext">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-input Text"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
             <div class="form-group">
               <label for="email" class="form-label Smalltext">Email</label>
               <input
@@ -47,15 +58,13 @@
             </div>
 
             <div class="form-group">
-              <label for="password" class="form-label Smalltext"
-                >Password</label
-              >
+              <label for="password" class="form-label Smalltext">Password</label>
               <div class="password-wrapper">
                 <input
                   type="password"
                   id="password"
                   class="form-input Text"
-                  placeholder="Enter your password"
+                  placeholder="Create a password"
                   required
                 />
                 <button
@@ -67,14 +76,41 @@
                 </button>
               </div>
             </div>
+
+            <div class="form-group">
+              <label for="confirmPassword" class="form-label Smalltext">Confirm Password</label>
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  class="form-input Text"
+                  placeholder="Confirm your password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="toggleConfirmPassword"
+                >
+                  <span class="material-icons">visibility_off</span>
+                </button>
+              </div>
+            </div>
+
+            <label class="checkbox-wrapper Smalltext">
+              <input type="checkbox" id="terms" required />
+              <span>I agree to the Terms and Conditions</span>
+            </label>
+
             <button type="submit" class="login-button button Smalltext">
-              Sign In
+              Create Account
             </button>
           </form>
+
           <div class="login-footer">
             <p class="Smalltext">
-              Don't have an account?
-              <a href="/pages/register.html" class="register-link">Sign up</a>
+              Already have an account?
+              <a href="/pages/login.html" class="register-link">Sign in</a>
             </p>
           </div>
         </div>
@@ -85,5 +121,5 @@
   </body>
   <script src="/components/MyHeader.js"></script>
   <script src="/components/MyFooter.js"></script>
-  <script src="/js/simple-login.js" type="module"></script>
+  <script src="/js/register.js" type="module"></script>
 </html>
