@@ -1,4 +1,4 @@
-import { DeleteGood } from "/js/api.js";
+import { DeleteUserFavoriteItem } from "/js/api.js";
 
 class FavoritesCard extends HTMLElement {
   constructor(good) {
@@ -16,8 +16,8 @@ class FavoritesCard extends HTMLElement {
   initEvents() {
     const removeBtn = this.querySelector(".remove_from_favorites");
 
-    removeBtn.addEventListener("click", () => {
-      DeleteGood("favorites", this.good.id);
+    removeBtn.addEventListener("click", async () => {
+      await DeleteUserFavoriteItem(this.good.favoriteItemId);
       window.dispatchEvent(new CustomEvent("favoritesUpdated"));
     });
   }

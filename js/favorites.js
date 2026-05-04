@@ -1,6 +1,6 @@
-import { GetGoods } from "/js/api.js";
+import { GetUserFavorites, GetUserFavoritesFiltered } from "/js/api.js";
 import FavoritesCard from "/components/FavoritesCard.js";
-import { isAuthenticated } from "/js/auth.js";
+import { isAuthenticated, getCurrentUser } from "/js/auth.js";
 
 if (!isAuthenticated()) {
   window.location.href = "/pages/login.html";
@@ -9,7 +9,6 @@ if (!isAuthenticated()) {
 const perPage = 8;
 let currentPage = 1;
 let pages = 0;
-const type = "favorites";
 
 function render(list) {
   const grid = document.querySelector(`.catalog-grid`);
@@ -37,7 +36,8 @@ window.addEventListener("favoritesUpdated", () => {
 let currentCategory = [];
 const categoryContainer = document.querySelector(".catalog_filter");
 async function renderCategories() {
-  const allGoods = await GetGoods(type);
+  const user = getCurrentUser();
+  const allGoods = await GetUserFavorites(user.id);
 
   const uniqueCategories = new Set(allGoods.map((good) => good.category));
 
@@ -81,29 +81,31 @@ const searchField = document.querySelector(".catalog_select");
 const sortField = document.querySelector(".catalog_sort");
 const sortTypeField = document.querySelector(".catalog_sort_type");
 async function applyAllFilters() {
+  const user = getCurrentUser();
   const searchText = input.value.toLowerCase();
   const searchKey = searchField.value;
   const sort = sortField.value;
-  const sortTyle = sortTypeField.value;
+  const sortType = sortTypeField.value;
 
-  const respone = await GetGoods(
-    type,
+  const response = await GetUserFavoritesFiltered(
+    user.id,
     searchText,
     searchKey,
     sort,
-    sortTyle,
+    sortType,
     currentCategory,
     perPage,
     currentPage,
   );
+
   let items;
   const btns = document.querySelector(".buttons");
-  if (respone.data) {
-    items = respone.data;
-    pages = respone.pages;
+  if (response.data) {
+    items = response.data;
+    pages = response.pages;
     btns.classList.remove("hidden");
   } else {
-    items = respone;
+    items = response;
     btns.classList.add("hidden");
   }
 

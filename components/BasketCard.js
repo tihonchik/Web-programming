@@ -1,4 +1,4 @@
-import { DeleteGood, UpdateGood } from "/js/api.js";
+import { DeleteUserBasketItem, UpdateUserBasketItem } from "/js/api.js";
 
 class BasketCard extends HTMLElement {
   constructor(good) {
@@ -18,20 +18,31 @@ class BasketCard extends HTMLElement {
     const addCountBtn = this.querySelector(".add_count");
     const removeCountBtn = this.querySelector(".remove_count");
 
-    removeBtn.addEventListener("click", () => {
-      DeleteGood("basket", this.good.id);
+    removeBtn.addEventListener("click", async () => {
+      await DeleteUserBasketItem(this.good.basketItemId);
       window.dispatchEvent(new CustomEvent("basketUpdated"));
     });
 
-    addCountBtn.addEventListener("click", () => {
+    addCountBtn.addEventListener("click", async () => {
       this.good.count += 1;
-      UpdateGood("basket", this.good);
+      await UpdateUserBasketItem(this.good.basketItemId, this.good);
+      this.updateCountDisplay();
     });
 
-    removeCountBtn.addEventListener("click", () => {
-      this.good.count -= 1;
-      UpdateGood("basket", this.good);
+    removeCountBtn.addEventListener("click", async () => {
+      if (this.good.count > 1) {
+        this.good.count -= 1;
+        await UpdateUserBasketItem(this.good.basketItemId, this.good);
+        this.updateCountDisplay();
+      }
     });
+  }
+
+  updateCountDisplay() {
+    const countElement = this.querySelector(".catalog-card__count");
+    if (countElement) {
+      countElement.textContent = `Count:${this.good.count}`;
+    }
   }
 
   render(good) {
