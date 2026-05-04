@@ -504,6 +504,24 @@ async function GetUserOrders(userId) {
   }
 }
 
+async function AddReview(review) {
+  try {
+    const response = await fetch(baseUrl + "reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(review),
+    });
+    if (!response.ok) {
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export {
   DeleteGood,
   GetGoods,
@@ -523,4 +541,5 @@ export {
   DeleteUserBasketItem,
   DeleteUserFavoriteItem,
   GetUserOrders,
+  AddReview,
 };

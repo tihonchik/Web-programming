@@ -16,9 +16,7 @@ class OrderCard extends HTMLElement {
 
     if (reviewBtn) {
       reviewBtn.addEventListener("click", () => {
-        window.dispatchEvent(
-          new CustomEvent("openReviewModal", { detail: { order: this.order } }),
-        );
+        window.location.href = `/pages/review.html?orderId=${this.order.id}`;
       });
     }
   }

@@ -170,5 +170,23 @@
   orders: [
     { userId: "MV4Xb_rtPWU", goodId: "15", count: 1, id: "vBUnG5tw_ik" },
   ],
+  reviews: [
+    {
+      orderId: null,
+      userId: "MV4Xb_rtPWU",
+      rating: 3,
+      comment: "выаивыапвыпвыпмвы",
+      date: "2026-05-04T00:46:53.249Z",
+      id: "1WLBVj3omMw",
+    },
+    {
+      orderId: null,
+      userId: "MV4Xb_rtPWU",
+      rating: 3,
+      comment: "bgggg",
+      date: "2026-05-04T00:54:27.243Z",
+      id: "7BfWfOQY1lU",
+    },
+  ],
   $schema: "./node_modules/json-server/schema.json",
 }

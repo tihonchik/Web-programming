@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/variables/primitives.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/variables/desktop.css" />
+    <link rel="stylesheet" href="/variables/tablet.css" />
+    <link rel="stylesheet" href="/variables/mobile.css" />
+    <link rel="stylesheet" href="/variables/fonts.css" />
+    <link rel="stylesheet" href="/styles/animation.css" />
+    <link rel="stylesheet" href="/styles/review.css" />
+    <title>Leave Review</title>
+  </head>
+  <body>
+    <my-header class="header"></my-header>
+
+    <main class="review-main top-block">
+      <div class="review-container">
+        <h2 class="review-title H2">Leave a Review</h2>
+        <form class="review-form" id="reviewForm">
+          <div class="form-group">
+            <label for="rating" class="form-label SmallText">Rating</label>
+            <div class="rating-stars" id="ratingStars">
+              <span class="material-icons star" data-value="1">star_border</span>
+              <span class="material-icons star" data-value="2">star_border</span>
+              <span class="material-icons star" data-value="3">star_border</span>
+              <span class="material-icons star" data-value="4">star_border</span>
+              <span class="material-icons star" data-value="5">star_border</span>
+            </div>
+            <input type="hidden" id="rating" name="rating" required />
+            <span class="error-message SmallText" id="ratingError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="comment" class="form-label SmallText">Comment</label>
+            <textarea
+              id="comment"
+              name="comment"
+              class="form-textarea SmallText"
+              rows="5"
+              placeholder="Share your experience..."
+              required
+            ></textarea>
+            <span class="error-message SmallText" id="commentError"></span>
+          </div>
+
+          <button type="submit" class="button submit-btn">Submit Review</button>
+        </form>
+      </div>
+    </main>
+
+    <my-footer class="footer top-block"></my-footer>
+  </body>
+  <script src="/components/MyHeader.js" type="module"></script>
+  <script src="/components/MyFooter.js"></script>
+  <script src="/js/review.js" type="module"></script>
+</html>
