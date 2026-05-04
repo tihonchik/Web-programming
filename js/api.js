@@ -297,6 +297,28 @@ async function Buy(userId) {
     }
     const basketItems = await basketResponse.json();
 
+    if (basketItems.length === 0) {
+      return false;
+    }
+
+    const orderPromises = basketItems.map(async (item) => {
+      const order = {
+        userId: userId,
+        goodId: item.goodId,
+        count: item.count || 1,
+      };
+
+      return fetch(baseUrl + "orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(order),
+      });
+    });
+
+    await Promise.all(orderPromises);
+
     const deletePromises = basketItems.map((item) =>
       fetch(baseUrl + `userBasket/${item.id}`, { method: "DELETE" }),
     );
@@ -457,6 +479,31 @@ async function DeleteUserFavoriteItem(favoriteItemId) {
   }
 }
 
+async function GetUserOrders(userId) {
+  try {
+    const ordersResponse = await fetch(baseUrl + `orders?userId=${userId}`);
+    if (!ordersResponse.ok) {
+      return [];
+    }
+    const orders = await ordersResponse.json();
+
+    const ordersWithGoods = await Promise.all(
+      orders.map(async (order) => {
+        const goodResponse = await fetch(baseUrl + `goods/${order.goodId}`);
+        if (!goodResponse.ok) {
+          return order;
+        }
+        const good = await goodResponse.json();
+        return { ...order, good };
+      })
+    );
+
+    return ordersWithGoods;
+  } catch {
+    return [];
+  }
+}
+
 export {
   DeleteGood,
   GetGoods,
@@ -475,4 +522,5 @@ export {
   UpdateUserBasketItem,
   DeleteUserBasketItem,
   DeleteUserFavoriteItem,
+  GetUserOrders,
 };

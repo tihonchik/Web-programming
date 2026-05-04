@@ -27,7 +27,7 @@ class MyHeader extends HTMLElement {
             <a href="/pages/catalog.html" class="header__a Smalltext">Products</a>
             <a href="/pages/favorites.html" class="header__a Smalltext">Favorites</a>
             <a href="/pages/Basket.html" class="header__a Smalltext">Basket</a>
-            <a href="" class="header__a Smalltext">Contact</a>
+            <a href="/pages/orders.html" class="header__a Smalltext">Orders</a>
           </nav>
           <div class="header__buttons">
             <button class="header__left-button button">

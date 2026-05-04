@@ -1,0 +1,67 @@
+import OrderCard from "/components/OrderCard.js";
+import { GetUserOrders } from "/js/api.js";
+import { isAuthenticated, getCurrentUser } from "/js/auth.js";
+
+if (!isAuthenticated()) {
+  window.location.href = "/pages/login.html";
+}
+
+const perPage = 8;
+let currentPage = 1;
+let pages = 0;
+
+function render(list) {
+  const grid = document.querySelector(`.catalog-grid`);
+  grid.innerHTML = "";
+
+  if (list.length === 0) {
+    grid.innerHTML = `
+      <div class="no-results">
+        <h3>No orders found</h3>
+        <p>You haven't placed any orders yet.</p>
+      </div>`;
+    return;
+  }
+
+  list.forEach((order) => {
+    var card = new OrderCard(order);
+    grid.appendChild(card);
+  });
+}
+
+async function loadOrders() {
+  const user = getCurrentUser();
+  const orders = await GetUserOrders(user.id);
+
+  const btns = document.querySelector(".buttons");
+  if (orders.length > perPage) {
+    pages = Math.ceil(orders.length / perPage);
+    btns.classList.remove("hidden");
+    const start = (currentPage - 1) * perPage;
+    const end = start + perPage;
+    render(orders.slice(start, end));
+  } else {
+    btns.classList.add("hidden");
+    render(orders);
+  }
+}
+
+document.querySelector(".left").addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    loadOrders();
+  }
+});
+
+document.querySelector(".right").addEventListener("click", () => {
+  if (pages > currentPage) {
+    currentPage++;
+    loadOrders();
+  }
+});
+
+async function init() {
+  await loadOrders();
+}
+
+await init();
