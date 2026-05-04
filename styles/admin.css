@@ -1,0 +1,311 @@
+.admin-main {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-xxxl) var(--spacing-xxl);
+  background: var(--colors-backgroung-page);
+  min-height: calc(100vh - 200px);
+}
+
+.admin-container {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.admin-title {
+  color: var(--colors-text-title);
+  margin-bottom: var(--spacing-xxl);
+}
+
+.admin-tabs {
+  display: flex;
+  gap: var(--gap-md);
+  margin-bottom: var(--spacing-xl);
+  border-bottom: var(--border-size) solid var(--colors-border);
+}
+
+.tab-btn {
+  padding: var(--spacing-md) var(--spacing-xl);
+  border: none;
+  background: transparent;
+  color: var(--colors-text-secondary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  color: var(--colors-text-primary);
+}
+
+.tab-btn.active {
+  color: var(--colors-text-title);
+  border-bottom-color: var(--colors-backgroung-button-1);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.admin-filters {
+  display: flex;
+  gap: var(--gap-lg);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  min-width: 200px;
+}
+
+.filter-group.hidden {
+  display: none;
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--spacing-xl);
+}
+
+.admin-table-wrapper {
+  background: var(--colors-backgroung-card-2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table thead {
+  background: var(--colors-backgroung-surface);
+}
+
+.admin-table th {
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: left;
+  color: var(--colors-text-title);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-sm);
+  border-bottom: var(--border-size) solid var(--colors-border);
+}
+
+.admin-table td {
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--colors-text-main);
+  font-size: var(--text-sm);
+  border-bottom: var(--border-size) solid var(--colors-border);
+}
+
+.admin-table tbody tr:hover {
+  background: var(--colors-backgroung-surface);
+}
+
+.product-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.action-buttons {
+  display: flex;
+  gap: var(--gap-sm);
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--colors-backgroung-button-2);
+  color: var(--colors-text-button-button-2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+  background: var(--colors-backgroung-button-1);
+  color: var(--colors-text-button-button-1);
+}
+
+.action-btn.delete:hover {
+  background: var(--colors-error);
+  color: var(--colors-basic-white);
+}
+
+.action-btn .material-icons {
+  font-size: 18px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--colors-backgroung-card-2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-xl) var(--spacing-xxl);
+  border-bottom: var(--border-size) solid var(--colors-border);
+}
+
+.modal-title {
+  color: var(--colors-text-title);
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--colors-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: var(--colors-backgroung-button-2);
+  color: var(--colors-text-primary);
+}
+
+.product-form {
+  padding: var(--spacing-xxl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+.form-label {
+  color: var(--colors-text-main);
+  font-weight: var(--font-weight-medium);
+}
+
+.form-input,
+.form-textarea {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: var(--border-size) solid var(--colors-border);
+  background: var(--colors-backgroung-page);
+  color: var(--colors-text-primary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--colors-border-focus);
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.error-message {
+  color: var(--colors-error);
+  min-height: 20px;
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--gap-md);
+  justify-content: flex-end;
+  margin-top: var(--spacing-md);
+}
+
+.form-actions button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.button-secondary {
+  background: var(--colors-backgroung-button-2);
+  color: var(--colors-text-button-button-2);
+}
+
+.button-secondary:hover {
+  background: var(--colors-backgroung-surface);
+}
+
+@media (max-width: 768px) {
+  .admin-main {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--text-xs);
+  }
+
+  .product-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+
+  .modal-header,
+  .product-form {
+    padding: var(--spacing-lg);
+  }
+}

@@ -522,6 +522,32 @@ async function AddReview(review) {
   }
 }
 
+async function GetReviews() {
+  try {
+    const response = await fetch(baseUrl + "reviews");
+    if (!response.ok) {
+      return [];
+    }
+    return response.json();
+  } catch {
+    return [];
+  }
+}
+
+async function DeleteReview(reviewId) {
+  try {
+    const response = await fetch(baseUrl + `reviews/${reviewId}`, {
+      method: "DELETE",
+    });
+    if (!response.ok) {
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export {
   DeleteGood,
   GetGoods,
@@ -542,4 +568,6 @@ export {
   DeleteUserFavoriteItem,
   GetUserOrders,
   AddReview,
+  GetReviews,
+  DeleteReview,
 };

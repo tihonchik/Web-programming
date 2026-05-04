@@ -22,4 +22,9 @@ function isAuthenticated() {
   return getCurrentUser() !== null;
 }
 
-export { getCurrentUser, setCurrentUser, removeCurrentUser, isAuthenticated };
+function isAdmin() {
+  const user = getCurrentUser();
+  return user && user.role === "admin";
+}
+
+export { getCurrentUser, setCurrentUser, removeCurrentUser, isAuthenticated, isAdmin };

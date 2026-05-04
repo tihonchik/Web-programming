@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/variables/primitives.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/variables/desktop.css" />
+    <link rel="stylesheet" href="/variables/tablet.css" />
+    <link rel="stylesheet" href="/variables/mobile.css" />
+    <link rel="stylesheet" href="/variables/fonts.css" />
+    <link rel="stylesheet" href="/styles/animation.css" />
+    <link rel="stylesheet" href="/styles/admin.css" />
+    <title>Admin Panel</title>
+  </head>
+  <body>
+    <my-header class="header"></my-header>
+
+    <main class="admin-main top-block">
+      <div class="admin-container">
+        <h2 class="admin-title H2">Admin Panel</h2>
+
+        <div class="admin-tabs">
+          <button class="tab-btn active" data-tab="products">Products</button>
+          <button class="tab-btn" data-tab="reviews">Reviews</button>
+        </div>
+
+        <div class="tab-content active" id="productsTab">
+          <div class="admin-actions">
+            <button class="button" id="addProductBtn">Add New Product</button>
+          </div>
+
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                  <th>Category</th>
+                  <th>Volume</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-content" id="reviewsTab">
+          <div class="admin-filters">
+            <div class="filter-group">
+              <label for="filterType" class="form-label SmallText">Filter by:</label>
+              <select id="filterType" class="form-input SmallText">
+                <option value="all">All Reviews</option>
+                <option value="product">By Product</option>
+                <option value="user">By User</option>
+              </select>
+            </div>
+
+            <div class="filter-group hidden" id="productFilterGroup">
+              <label for="productFilter" class="form-label SmallText">Select Product:</label>
+              <select id="productFilter" class="form-input SmallText">
+              </select>
+            </div>
+
+            <div class="filter-group hidden" id="userFilterGroup">
+              <label for="userFilter" class="form-label SmallText">Select User:</label>
+              <select id="userFilter" class="form-input SmallText">
+              </select>
+            </div>
+          </div>
+
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Order ID</th>
+                  <th>User</th>
+                  <th>Product</th>
+                  <th>Rating</th>
+                  <th>Comment</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reviewsTableBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal hidden" id="productModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title H3" id="modalTitle">Add Product</h3>
+          <button class="modal-close" id="closeModal">
+            <span class="material-icons">close</span>
+          </button>
+        </div>
+
+        <form class="product-form" id="productForm">
+          <input type="hidden" id="productId" />
+
+          <div class="form-group">
+            <label for="title" class="form-label SmallText">Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              class="form-input SmallText"
+              required
+            />
+            <span class="error-message SmallText" id="titleError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="description" class="form-label SmallText">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              class="form-textarea SmallText"
+              rows="3"
+              required
+            ></textarea>
+            <span class="error-message SmallText" id="descriptionError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="coast" class="form-label SmallText">Price</label>
+            <input
+              type="number"
+              id="coast"
+              name="coast"
+              class="form-input SmallText"
+              step="0.01"
+              min="0"
+              required
+            />
+            <span class="error-message SmallText" id="coastError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="photoURL" class="form-label SmallText">Photo URL</label>
+            <input
+              type="url"
+              id="photoURL"
+              name="photoURL"
+              class="form-input SmallText"
+              required
+            />
+            <span class="error-message SmallText" id="photoURLError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="category" class="form-label SmallText">Category</label>
+            <input
+              type="text"
+              id="category"
+              name="category"
+              class="form-input SmallText"
+              required
+            />
+            <span class="error-message SmallText" id="categoryError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="company" class="form-label SmallText">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              class="form-input SmallText"
+              required
+            />
+            <span class="error-message SmallText" id="companyError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="volume" class="form-label SmallText">Volume</label>
+            <input
+              type="text"
+              id="volume"
+              name="volume"
+              class="form-input SmallText"
+              required
+            />
+            <span class="error-message SmallText" id="volumeError"></span>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="button button-secondary" id="cancelBtn">
+              Cancel
+            </button>
+            <button type="submit" class="button">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <my-footer class="footer top-block"></my-footer>
+  </body>
+  <script src="/components/MyHeader.js" type="module"></script>
+  <script src="/components/MyFooter.js"></script>
+  <script src="/js/admin.js" type="module"></script>
+</html>

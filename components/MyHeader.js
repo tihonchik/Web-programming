@@ -1,4 +1,4 @@
-import { isAuthenticated, removeCurrentUser } from "/js/auth.js";
+import { isAuthenticated, removeCurrentUser, isAdmin } from "/js/auth.js";
 
 class MyHeader extends HTMLElement {
   connectedCallback() {
@@ -9,6 +9,10 @@ class MyHeader extends HTMLElement {
       : `<a href="/pages/login.html" class="header__right-button button Smalltext">
            Login
          </a>`;
+
+    const adminLink = isAdmin()
+      ? `<a href="/pages/admin.html" class="header__a Smalltext">Admin</a>`
+      : "";
 
     this.innerHTML = `<section class="top-header top-block">
         <div class="top-header__grid">
@@ -28,6 +32,7 @@ class MyHeader extends HTMLElement {
             <a href="/pages/favorites.html" class="header__a Smalltext">Favorites</a>
             <a href="/pages/Basket.html" class="header__a Smalltext">Basket</a>
             <a href="/pages/orders.html" class="header__a Smalltext">Orders</a>
+            ${adminLink}
           </nav>
           <div class="header__buttons">
             <button class="header__left-button button">
