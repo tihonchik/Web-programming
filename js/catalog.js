@@ -12,8 +12,8 @@ function render(list) {
   if (list.length === 0) {
     grid.innerHTML = `
       <div class="no-results">
-        <h3>Товары не найдены</h3>
-        <p>Попробуйте изменить параметры поиска или сбросить фильтры.</p>
+        <h3>No goods found</h3>
+        <p>You haven't placed any orders yet.</p>
       </div>`;
     return;
   }

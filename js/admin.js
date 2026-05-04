@@ -53,7 +53,6 @@ tabBtns.forEach((btn) => {
   });
 });
 
-// Reviews filters
 const filterType = document.getElementById("filterType");
 const productFilterGroup = document.getElementById("productFilterGroup");
 const userFilterGroup = document.getElementById("userFilterGroup");
@@ -80,17 +79,11 @@ filterType.addEventListener("change", () => {
 productFilter.addEventListener("change", renderReviews);
 userFilter.addEventListener("change", renderReviews);
 
-addProductBtn.addEventListener("click", () => {
-  openModal();
-});
+addProductBtn.addEventListener("click", openModal);
 
-closeModal.addEventListener("click", () => {
-  closeModalWindow();
-});
+closeModal.addEventListener("click", closeModalWindow);
 
-cancelBtn.addEventListener("click", () => {
-  closeModalWindow();
-});
+cancelBtn.addEventListener("click", closeModalWindow);
 
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {
