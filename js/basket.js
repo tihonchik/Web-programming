@@ -6,6 +6,7 @@ import {
 } from "/js/api.js";
 import BasketCard from "/components/BasketCard.js";
 import { isAuthenticated, getCurrentUser } from "/js/auth.js";
+import { notify } from "/components/MyToast.js";
 
 if (!isAuthenticated()) {
   window.location.href = "/pages/login.html";
@@ -149,10 +150,10 @@ buyBtn.addEventListener("click", async () => {
   const user = getCurrentUser();
   const success = await Buy(user.id);
   if (success) {
-    alert("Purchase successful!");
+    notify("Purchase successful!", "success");
     await init();
   } else {
-    alert("Purchase failed. Please try again.");
+    notify("Purchase failed. Please try again.", "error");
   }
 });
 

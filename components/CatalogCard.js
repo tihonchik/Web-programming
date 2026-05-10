@@ -1,5 +1,6 @@
 import { AddToUserBasket, AddToUserFavorites } from "/js/api.js";
 import { isAuthenticated, getCurrentUser } from "/js/auth.js";
+import { notify } from "/components/MyToast.js";
 
 class CatalogCard extends HTMLElement {
   constructor(good, onView) {
@@ -25,7 +26,12 @@ class CatalogCard extends HTMLElement {
         e.stopPropagation();
         const user = getCurrentUser();
         if (user) {
-          await AddToUserBasket(user.id, this.good.id);
+          const success = await AddToUserBasket(user.id, this.good.id);
+          if (success) {
+            notify("Added to basket!", "success");
+          } else {
+            notify("Failed to add to basket", "error");
+          }
         }
       });
     }
@@ -35,7 +41,12 @@ class CatalogCard extends HTMLElement {
         e.stopPropagation();
         const user = getCurrentUser();
         if (user) {
-          await AddToUserFavorites(user.id, this.good.id);
+          const success = await AddToUserFavorites(user.id, this.good.id);
+          if (success) {
+            notify("Added to favorites!", "success");
+          } else {
+            notify("Failed to add to favorites", "error");
+          }
         }
       });
     }

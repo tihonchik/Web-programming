@@ -1,4 +1,5 @@
 import { DeleteUserFavoriteItem } from "/js/api.js";
+import { notify } from "/components/MyToast.js";
 
 class FavoritesCard extends HTMLElement {
   constructor(good, onView) {
@@ -21,8 +22,13 @@ class FavoritesCard extends HTMLElement {
     if (removeBtn) {
       removeBtn.addEventListener("click", async (e) => {
         e.stopPropagation();
-        await DeleteUserFavoriteItem(this.good.favoriteItemId);
-        window.dispatchEvent(new CustomEvent("favoritesUpdated"));
+        const success = await DeleteUserFavoriteItem(this.good.favoriteItemId);
+        if (success) {
+          notify("Removed from favorites!", "success");
+          window.dispatchEvent(new CustomEvent("favoritesUpdated"));
+        } else {
+          notify("Failed to remove from favorites", "error");
+        }
       });
     }
 

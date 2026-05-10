@@ -1,4 +1,5 @@
 import { DeleteUserBasketItem, UpdateUserBasketItem } from "/js/api.js";
+import { notify } from "/components/MyToast.js";
 
 class BasketCard extends HTMLElement {
   constructor(good) {
@@ -19,21 +20,34 @@ class BasketCard extends HTMLElement {
     const removeCountBtn = this.querySelector(".remove_count");
 
     removeBtn.addEventListener("click", async () => {
-      await DeleteUserBasketItem(this.good.basketItemId);
-      window.dispatchEvent(new CustomEvent("basketUpdated"));
+      const success = await DeleteUserBasketItem(this.good.basketItemId);
+      if (success) {
+        notify("Removed from basket!", "success");
+        window.dispatchEvent(new CustomEvent("basketUpdated"));
+      } else {
+        notify("Failed to remove from basket", "error");
+      }
     });
 
     addCountBtn.addEventListener("click", async () => {
       this.good.count += 1;
-      await UpdateUserBasketItem(this.good.basketItemId, this.good);
-      this.updateCountDisplay();
+      const success = await UpdateUserBasketItem(this.good.basketItemId, this.good);
+      if (success) {
+        this.updateCountDisplay();
+      } else {
+        notify("Failed to update count", "error");
+      }
     });
 
     removeCountBtn.addEventListener("click", async () => {
       if (this.good.count > 1) {
         this.good.count -= 1;
-        await UpdateUserBasketItem(this.good.basketItemId, this.good);
-        this.updateCountDisplay();
+        const success = await UpdateUserBasketItem(this.good.basketItemId, this.good);
+        if (success) {
+          this.updateCountDisplay();
+        } else {
+          notify("Failed to update count", "error");
+        }
       }
     });
   }

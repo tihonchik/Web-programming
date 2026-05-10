@@ -1,6 +1,7 @@
 import { isAuthenticated, getCurrentUser } from "/js/auth.js";
 import { AddReview } from "/js/api.js";
 import { showError, hideError } from "/js/error.js";
+import { notify } from "/components/MyToast.js";
 
 if (!isAuthenticated()) {
   window.location.href = "/pages/login.html";
@@ -83,9 +84,9 @@ reviewForm.addEventListener("submit", async (e) => {
   const success = await AddReview(review);
 
   if (success) {
-    alert("Review submitted successfully!");
+    notify("Review submitted successfully!", "success");
     window.location.href = "/pages/orders.html";
   } else {
-    alert("Failed to submit review. Please try again.");
+    notify("Failed to submit review. Please try again.", "error");
   }
 });

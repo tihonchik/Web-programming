@@ -14,7 +14,7 @@ import ReviewAdminCard from "/components/ReviewAdminCard.js";
 import { notify } from "/components/MyToast.js";
 
 if (!isAuthenticated() || !isAdmin()) {
-  alert("Access denied. Admin only.");
+  notify("Access denied. Admin only.", "error");
   window.location.href = "/index.html";
 }
 
@@ -108,9 +108,10 @@ async function handleDeleteProduct(productId, productTitle) {
   if (confirm(`Are you sure you want to delete "${productTitle}"?`)) {
     const success = await DeleteGood(productId);
     if (success) {
+      notify("Product deleted successfully!", "success");
       await loadProducts();
     } else {
-      alert("Failed to delete product. Please try again.");
+      notify("Failed to delete product. Please try again.", "error");
     }
   }
 }
@@ -148,9 +149,10 @@ async function handleDeleteReview(reviewId) {
   if (confirm("Are you sure you want to delete this review?")) {
     const success = await DeleteReview(reviewId);
     if (success) {
+      notify("Review deleted successfully!", "success");
       await loadReviews();
     } else {
-      alert("Failed to delete review. Please try again.");
+      notify("Failed to delete review. Please try again.", "error");
     }
   }
 }
