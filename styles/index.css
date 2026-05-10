@@ -1161,3 +1161,46 @@ input {
   .parallax-layer {
   }
 }
+
+.footer__content.reveal-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer__line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s ease-out 0.2s;
+}
+
+my-footer.is-visible .footer__content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+my-footer.is-visible .footer__line {
+  transform: scaleX(1);
+}
+
+.footer__icon {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+my-footer.is-visible .footer__icon:nth-child(1) {
+  transition-delay: 0.4s;
+  opacity: 1;
+  transform: scale(1);
+}
+my-footer.is-visible .footer__icon:nth-child(2) {
+  transition-delay: 0.5s;
+  opacity: 1;
+  transform: scale(1);
+}
+my-footer.is-visible .footer__icon:nth-child(3) {
+  transition-delay: 0.6s;
+  opacity: 1;
+  transform: scale(1);
+}
