@@ -11,6 +11,7 @@ import {
 import { isAuthenticated, isAdmin } from "/js/auth.js";
 import BasketAdminCard from "/components/BasketAdminCard.js";
 import ReviewAdminCard from "/components/ReviewAdminCard.js";
+import { notify } from "/components/MyToast.js";
 
 if (!isAuthenticated() || !isAdmin()) {
   alert("Access denied. Admin only.");
@@ -97,8 +98,9 @@ appModal.addEventListener("save", async (e) => {
   if (success) {
     appModal.close();
     await loadProducts();
+    notify("Product saved successfully!", "success");
   } else {
-    alert("Failed to save product. Please try again.");
+    notify("Error saving product!", "error");
   }
 });
 
