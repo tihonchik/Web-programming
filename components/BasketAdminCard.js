@@ -4,8 +4,6 @@ class BasketAdminCard {
       this.product = product;
       this.onEdit = onEdit;
       this.onDelete = onDelete;
-      const row = this.render();
-      return row;
     }
   }
 
@@ -41,9 +39,7 @@ class BasketAdminCard {
     });
 
     deleteBtn.addEventListener("click", async () => {
-      if (confirm(`Are you sure you want to delete "${this.product.title}"?`)) {
-        this.onDelete(this.product.id);
-      }
+      this.onDelete(this.product.id);
     });
 
     return row;

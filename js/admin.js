@@ -11,6 +11,7 @@ import {
 import { isAuthenticated, isAdmin } from "/js/auth.js";
 import BasketAdminCard from "/components/BasketAdminCard.js";
 import { showError, hideError } from "/js/error.js";
+import ReviewAdminCard from "/components/ReviewAdminCard.js";
 
 if (!isAuthenticated() || !isAdmin()) {
   alert("Access denied. Admin only.");
@@ -287,27 +288,36 @@ function renderProducts() {
   }
 
   products.forEach((product) => {
-    const row = new BasketAdminCard(product, handleEdit, handleDelete);
-    productsTableBody.appendChild(row);
+    const card = new BasketAdminCard(product, openModal, handleDeleteProduct);
+    productsTableBody.appendChild(card.render());
   });
-}
-
-function handleEdit(product) {
-  openModal(product);
-}
-
-async function handleDelete(productId) {
-  const success = await DeleteGood(productId);
-  if (success) {
-    await loadProducts();
-  } else {
-    alert("Failed to delete product. Please try again.");
-  }
 }
 
 async function loadProducts() {
   products = (await GetGoods()).items;
   renderProducts();
+}
+
+async function handleDeleteProduct(productId, productTitle) {
+  if (confirm(`Are you sure you want to delete "${productTitle}"?`)) {
+    const success = await DeleteGood(productId);
+    if (success) {
+      await loadProducts();
+    } else {
+      alert("Failed to delete product. Please try again.");
+    }
+  }
+}
+
+async function handleDeleteReview(reviewId) {
+  if (confirm("Are you sure you want to delete this review?")) {
+    const success = await DeleteReview(reviewId);
+    if (success) {
+      await loadReviews();
+    } else {
+      alert("Failed to delete review. Please try again.");
+    }
+  }
 }
 
 async function loadReviews() {
@@ -385,39 +395,8 @@ function renderReviews() {
     const user = users.find((u) => u.id === review.userId);
     const order = orders.find((o) => o.id === review.orderId);
     const product = products.find((p) => p.id === order?.goodId);
-
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${review.id}</td>
-      <td>${review.orderId}</td>
-      <td>${user ? `${user.firstName} ${user.lastName}` : "Unknown"}</td>
-      <td>${product ? product.title : "Unknown"}</td>
-      <td>${"⭐".repeat(review.rating)}</td>
-      <td>${review.comment}</td>
-      <td>${new Date(review.date).toLocaleDateString()}</td>
-      <td>
-        <div class="action-buttons">
-          <button class="action-btn delete" data-id="${review.id}">
-            <span class="material-icons">delete</span>
-          </button>
-        </div>
-      </td>
-    `;
-    reviewsTableBody.appendChild(row);
-  });
-
-  document.querySelectorAll("#reviewsTableBody .delete").forEach((btn) => {
-    btn.addEventListener("click", async () => {
-      const reviewId = btn.dataset.id;
-      if (confirm("Are you sure you want to delete this review?")) {
-        const success = await DeleteReview(reviewId);
-        if (success) {
-          await loadReviews();
-        } else {
-          alert("Failed to delete review. Please try again.");
-        }
-      }
-    });
+    const card = new ReviewAdminCard(review, user, product, handleDeleteReview);
+    reviewsTableBody.appendChild(card.render());
   });
 }
 
