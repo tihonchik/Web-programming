@@ -241,7 +241,7 @@ footer {
 }
 
 .second-block__content::-webkit-scrollbar {
-  display: none; /* Для Chrome, Safari */
+  display: none;
 }
 .second-block__item {
   display: flex;
@@ -1016,4 +1016,67 @@ input {
 
 .footer__icon {
   fill: var(--colors-vector);
+}
+
+.sixth-block__bottom-part.marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-sixth 25s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  gap: var(--gap-lg);
+  padding: 20px var(--gap-lg);
+}
+
+.sixth-block__card {
+  flex-shrink: 0;
+  width: 380px;
+  background: var(--colors-backgroung-card-2);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+@keyframes scroll-sixth {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .sixth-block__card {
+    width: 280px;
+  }
+  .marquee-track {
+    animation-duration: 15s;
+  }
 }
