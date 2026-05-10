@@ -5,6 +5,14 @@ const perPage = 8;
 let currentPage = 1;
 let pages = 0;
 
+const detailModal = document.getElementById("detailModal");
+
+function handleViewDetails(good) {
+  if (detailModal) {
+    detailModal.open("view", good);
+  }
+}
+
 function render(list) {
   const grid = document.querySelector(`.catalog-grid`);
   grid.innerHTML = "";
@@ -19,7 +27,7 @@ function render(list) {
   }
 
   list.forEach((good) => {
-    var card = new CatalogCard(good);
+    var card = new CatalogCard(good, handleViewDetails);
     grid.appendChild(card);
   });
 }

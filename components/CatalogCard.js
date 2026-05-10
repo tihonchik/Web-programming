@@ -2,11 +2,12 @@ import { AddToUserBasket, AddToUserFavorites } from "/js/api.js";
 import { isAuthenticated, getCurrentUser } from "/js/auth.js";
 
 class CatalogCard extends HTMLElement {
-  constructor(good) {
+  constructor(good, onView) {
     super();
     if (good) {
-      this.render(good);
       this.good = good;
+      this.onView = onView;
+      this.render(good);
     }
   }
 
@@ -17,20 +18,33 @@ class CatalogCard extends HTMLElement {
   initEvents() {
     const basketBtn = this.querySelector(".add_to_basket");
     const favBtn = this.querySelector(".add_to_favorites");
+    const article = this.querySelector(".catalog-card");
 
     if (basketBtn) {
-      basketBtn.addEventListener("click", async () => {
+      basketBtn.addEventListener("click", async (e) => {
+        e.stopPropagation();
         const user = getCurrentUser();
         if (user) {
           await AddToUserBasket(user.id, this.good.id);
         }
       });
     }
+
     if (favBtn) {
-      favBtn.addEventListener("click", async () => {
+      favBtn.addEventListener("click", async (e) => {
+        e.stopPropagation();
         const user = getCurrentUser();
         if (user) {
           await AddToUserFavorites(user.id, this.good.id);
+        }
+      });
+    }
+
+    if (article) {
+      article.style.cursor = "pointer";
+      article.addEventListener("click", () => {
+        if (this.onView) {
+          this.onView(this.good);
         }
       });
     }

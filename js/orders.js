@@ -6,6 +6,14 @@ if (!isAuthenticated()) {
   window.location.href = "/pages/login.html";
 }
 
+const detailModal = document.getElementById("detailModal");
+
+function handleViewDetails(product) {
+  if (detailModal && product) {
+    detailModal.open("view", product);
+  }
+}
+
 function render(list) {
   const grid = document.querySelector(`.catalog-grid`);
   grid.innerHTML = "";
@@ -20,7 +28,7 @@ function render(list) {
   }
 
   list.forEach((order) => {
-    var card = new OrderCard(order);
+    var card = new OrderCard(order, handleViewDetails);
     grid.appendChild(card);
   });
 }
@@ -28,7 +36,6 @@ function render(list) {
 async function loadOrders() {
   const user = getCurrentUser();
   const orders = await GetUserOrders(user.id);
-
   render(orders);
 }
 

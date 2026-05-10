@@ -1,11 +1,12 @@
 import { DeleteUserFavoriteItem } from "/js/api.js";
 
 class FavoritesCard extends HTMLElement {
-  constructor(good) {
+  constructor(good, onView) {
     super();
     if (good) {
-      this.render(good);
       this.good = good;
+      this.onView = onView;
+      this.render(good);
     }
   }
 
@@ -15,11 +16,24 @@ class FavoritesCard extends HTMLElement {
 
   initEvents() {
     const removeBtn = this.querySelector(".remove_from_favorites");
+    const article = this.querySelector(".catalog-card");
 
-    removeBtn.addEventListener("click", async () => {
-      await DeleteUserFavoriteItem(this.good.favoriteItemId);
-      window.dispatchEvent(new CustomEvent("favoritesUpdated"));
-    });
+    if (removeBtn) {
+      removeBtn.addEventListener("click", async (e) => {
+        e.stopPropagation();
+        await DeleteUserFavoriteItem(this.good.favoriteItemId);
+        window.dispatchEvent(new CustomEvent("favoritesUpdated"));
+      });
+    }
+
+    if (article) {
+      article.style.cursor = "pointer";
+      article.addEventListener("click", () => {
+        if (this.onView) {
+          this.onView(this.good);
+        }
+      });
+    }
   }
 
   render(good) {
@@ -53,5 +67,4 @@ class FavoritesCard extends HTMLElement {
 }
 
 customElements.define("favorites-card", FavoritesCard);
-
 export default FavoritesCard;

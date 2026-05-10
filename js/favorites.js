@@ -10,6 +10,14 @@ const perPage = 8;
 let currentPage = 1;
 let pages = 0;
 
+const detailModal = document.getElementById("detailModal");
+
+function handleViewDetails(good) {
+  if (detailModal) {
+    detailModal.open("view", good);
+  }
+}
+
 function render(list) {
   const grid = document.querySelector(`.catalog-grid`);
   grid.innerHTML = "";
@@ -18,13 +26,13 @@ function render(list) {
     grid.innerHTML = `
       <div class="no-results">
         <h3>No goods found</h3>
-        <p>You haven't placed any orders yet.</p>
+        <p>Your favorites list is empty.</p>
       </div>`;
     return;
   }
 
   list.forEach((good) => {
-    var card = new FavoritesCard(good);
+    var card = new FavoritesCard(good, handleViewDetails);
     grid.appendChild(card);
   });
 }

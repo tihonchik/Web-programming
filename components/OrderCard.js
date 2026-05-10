@@ -1,9 +1,10 @@
 class OrderCard extends HTMLElement {
-  constructor(order) {
+  constructor(order, onView) {
     super();
     if (order) {
-      this.render(order);
       this.order = order;
+      this.onView = onView;
+      this.render(order);
     }
   }
 
@@ -13,10 +14,21 @@ class OrderCard extends HTMLElement {
 
   initEvents() {
     const reviewBtn = this.querySelector(".leave_review");
+    const article = this.querySelector(".catalog-card");
 
     if (reviewBtn) {
-      reviewBtn.addEventListener("click", () => {
+      reviewBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
         window.location.href = `/pages/review.html?orderId=${this.order.id}`;
+      });
+    }
+
+    if (article) {
+      article.style.cursor = "pointer";
+      article.addEventListener("click", () => {
+        if (this.onView && this.order.good) {
+          this.onView(this.order.good);
+        }
       });
     }
   }
@@ -54,5 +66,4 @@ class OrderCard extends HTMLElement {
 }
 
 customElements.define("order-card", OrderCard);
-
 export default OrderCard;

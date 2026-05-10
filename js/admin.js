@@ -10,7 +10,6 @@ import {
 } from "/js/api.js";
 import { isAuthenticated, isAdmin } from "/js/auth.js";
 import BasketAdminCard from "/components/BasketAdminCard.js";
-import { showError, hideError } from "/js/error.js";
 import ReviewAdminCard from "/components/ReviewAdminCard.js";
 
 if (!isAuthenticated() || !isAdmin()) {
@@ -22,14 +21,9 @@ let products = [];
 let reviews = [];
 let users = [];
 let orders = [];
-let editingProductId = null;
 
-const modal = document.getElementById("productModal");
+const appModal = document.getElementById("appModal");
 const addProductBtn = document.getElementById("addProductBtn");
-const closeModal = document.getElementById("closeModal");
-const cancelBtn = document.getElementById("cancelBtn");
-const productForm = document.getElementById("productForm");
-const modalTitle = document.getElementById("modalTitle");
 const productsTableBody = document.getElementById("productsTableBody");
 const reviewsTableBody = document.getElementById("reviewsTableBody");
 
@@ -39,10 +33,14 @@ const tabBtnReviews = document.getElementById("btn-reviews");
 const productsTab = document.getElementById("productsTab");
 const reviewsTab = document.getElementById("reviewsTab");
 
+const filterType = document.getElementById("filterType");
+const productFilterGroup = document.getElementById("productFilterGroup");
+const userFilterGroup = document.getElementById("userFilterGroup");
+const productFilter = document.getElementById("productFilter");
+const userFilter = document.getElementById("userFilter");
+
 tabBtnProducts.addEventListener("click", () => {
-  tabBtns.forEach((btn) => {
-    btn.classList.remove("active");
-  });
+  tabBtns.forEach((btn) => btn.classList.remove("active"));
   tabBtnProducts.classList.add("active");
   productsTab.classList.add("active");
   reviewsTab.classList.remove("active");
@@ -50,20 +48,12 @@ tabBtnProducts.addEventListener("click", () => {
 });
 
 tabBtnReviews.addEventListener("click", () => {
-  tabBtns.forEach((btn) => {
-    btn.classList.remove("active");
-  });
+  tabBtns.forEach((btn) => btn.classList.remove("active"));
   tabBtnReviews.classList.add("active");
   reviewsTab.classList.add("active");
   productsTab.classList.remove("active");
   loadReviews();
 });
-
-const filterType = document.getElementById("filterType");
-const productFilterGroup = document.getElementById("productFilterGroup");
-const userFilterGroup = document.getElementById("userFilterGroup");
-const productFilter = document.getElementById("productFilter");
-const userFilter = document.getElementById("userFilter");
 
 filterType.addEventListener("change", () => {
   const type = filterType.value;
@@ -86,192 +76,42 @@ productFilter.addEventListener("change", renderReviews);
 userFilter.addEventListener("change", renderReviews);
 
 addProductBtn.addEventListener("click", () => {
-  openModal();
+  appModal.open("add");
 });
 
-closeModal.addEventListener("click", closeModalWindow);
-
-cancelBtn.addEventListener("click", closeModalWindow);
-
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    closeModalWindow();
-  }
-});
-
-function openModal(product = null) {
-  modal.classList.remove("hidden");
-
-  if (product) {
-    modalTitle.textContent = "Edit Product";
-    editingProductId = product.id;
-    document.getElementById("productId").value = product.id;
-    document.getElementById("title").value = product.title;
-    document.getElementById("description").value = product.description;
-    document.getElementById("coast").value = product.coast;
-    document.getElementById("photoURL").value = product.photoURL;
-    document.getElementById("category").value = product.category;
-    document.getElementById("company").value = product.company;
-    document.getElementById("volume").value = product.volume;
-  } else {
-    modalTitle.textContent = "Add Product";
-    editingProductId = null;
-    productForm.reset();
-  }
+function handleEditProduct(product) {
+  appModal.open("edit", product);
 }
 
-function closeModalWindow() {
-  modal.classList.add("hidden");
-  productForm.reset();
-  editingProductId = null;
-  clearErrors();
-}
-
-function clearErrors() {
-  const fields = [
-    "titleError",
-    "descriptionError",
-    "coastError",
-    "photoURLError",
-    "categoryError",
-    "companyError",
-    "volumeError",
-  ];
-  fields.forEach((field) => hideError(field));
-}
-
-const title = document.getElementById("title");
-const description = document.getElementById("description");
-const coast = document.getElementById("coast");
-const photoURL = document.getElementById("photoURL");
-const category = document.getElementById("category");
-const company = document.getElementById("company");
-const volume = document.getElementById("volume");
-
-function checkTitle() {
-  if (title.value.trim() === "") {
-    showError("titleError", "Title is required");
-    return false;
-  }
-  hideError("titleError");
-  return true;
-}
-
-function checkDescription() {
-  if (description.value.trim() === "") {
-    showError("descriptionError", "Description is required");
-    return false;
-  }
-  hideError("descriptionError");
-  return true;
-}
-
-function checkCoast() {
-  const value = parseFloat(coast.value);
-  if (coast.value.trim() === "") {
-    showError("coastError", "Price is required");
-    return false;
-  } else if (isNaN(value) || value <= 0) {
-    showError("coastError", "Price must be a positive number");
-    return false;
-  }
-  hideError("coastError");
-  return true;
-}
-
-function checkPhotoURL() {
-  if (photoURL.value.trim() === "") {
-    showError("photoURLError", "Photo URL is required");
-    return false;
-  }
-  hideError("photoURLError");
-  return true;
-}
-
-function checkCategory() {
-  if (category.value.trim() === "") {
-    showError("categoryError", "Category is required");
-    return false;
-  }
-  hideError("categoryError");
-  return true;
-}
-
-function checkCompany() {
-  if (company.value.trim() === "") {
-    showError("companyError", "Company is required");
-    return false;
-  }
-  hideError("companyError");
-  return true;
-}
-
-function checkVolume() {
-  if (volume.value.trim() === "") {
-    showError("volumeError", "Volume is required");
-    return false;
-  }
-  hideError("volumeError");
-  return true;
-}
-
-productForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const isTitleValid = checkTitle();
-  const isDescValid = checkDescription();
-  const isCoastValid = checkCoast();
-  const isPhotoValid = checkPhotoURL();
-  const isCatValid = checkCategory();
-  const isCompValid = checkCompany();
-  const isVolValid = checkVolume();
-
-  const formIsValid =
-    isTitleValid &&
-    isDescValid &&
-    isCoastValid &&
-    isPhotoValid &&
-    isCatValid &&
-    isCompValid &&
-    isVolValid;
-
-  if (!formIsValid) {
-    return;
-  }
-
-  const product = {
-    title: title.value.trim(),
-    description: description.value.trim(),
-    coast: parseFloat(coast.value),
-    photoURL: photoURL.value.trim(),
-    category: category.value.trim(),
-    company: company.value.trim(),
-    volume: volume.value.trim(),
-  };
+appModal.addEventListener("save", async (e) => {
+  const { productData, mode, id } = e.detail;
 
   let success;
-  if (editingProductId) {
-    product.id = editingProductId;
-    success = await UpdateGood(product);
+  if (mode === "edit") {
+    productData.id = id;
+    success = await UpdateGood(productData);
   } else {
-    success = await AddGood(product);
+    success = await AddGood(productData);
   }
 
   if (success) {
-    closeModalWindow();
+    appModal.close();
     await loadProducts();
   } else {
     alert("Failed to save product. Please try again.");
   }
 });
 
-title.addEventListener("input", checkTitle);
-description.addEventListener("input", checkDescription);
-coast.addEventListener("input", checkCoast);
-photoURL.addEventListener("input", checkPhotoURL);
-category.addEventListener("input", checkCategory);
-company.addEventListener("input", checkCompany);
-volume.addEventListener("input", checkVolume);
+async function handleDeleteProduct(productId, productTitle) {
+  if (confirm(`Are you sure you want to delete "${productTitle}"?`)) {
+    const success = await DeleteGood(productId);
+    if (success) {
+      await loadProducts();
+    } else {
+      alert("Failed to delete product. Please try again.");
+    }
+  }
+}
 
 function renderProducts() {
   productsTableBody.innerHTML = "";
@@ -288,7 +128,11 @@ function renderProducts() {
   }
 
   products.forEach((product) => {
-    const card = new BasketAdminCard(product, openModal, handleDeleteProduct);
+    const card = new BasketAdminCard(
+      product,
+      handleEditProduct,
+      handleDeleteProduct,
+    );
     productsTableBody.appendChild(card.render());
   });
 }
@@ -296,17 +140,6 @@ function renderProducts() {
 async function loadProducts() {
   products = (await GetGoods()).items;
   renderProducts();
-}
-
-async function handleDeleteProduct(productId, productTitle) {
-  if (confirm(`Are you sure you want to delete "${productTitle}"?`)) {
-    const success = await DeleteGood(productId);
-    if (success) {
-      await loadProducts();
-    } else {
-      alert("Failed to delete product. Please try again.");
-    }
-  }
 }
 
 async function handleDeleteReview(reviewId) {

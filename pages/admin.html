@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/styles/admin.css" />
     <title>Admin Panel</title>
     <link rel="icon" type="image/png" href="/static/favicon.png?" />
+    <link rel="stylesheet" href="/styles/modal.css" />
   </head>
   <body>
     <pre-loader></pre-loader>
@@ -113,116 +114,12 @@
       </div>
     </main>
 
-    <div class="modal hidden" id="productModal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title H3" id="modalTitle">Add Product</h3>
-          <button class="modal-close" id="closeModal">
-            <span class="material-icons">close</span>
-          </button>
-        </div>
-
-        <form class="product-form" id="productForm">
-          <input type="hidden" id="productId" />
-
-          <div class="form-group">
-            <label for="title" class="form-label SmallText">Title</label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              class="form-input SmallText"
-            />
-            <span class="error-message SmallText" id="titleError"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="description" class="form-label SmallText"
-              >Description</label
-            >
-            <textarea
-              id="description"
-              name="description"
-              class="form-textarea SmallText"
-              rows="3"
-            ></textarea>
-            <span class="error-message SmallText" id="descriptionError"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="coast" class="form-label SmallText">Price</label>
-            <input
-              type="number"
-              id="coast"
-              name="coast"
-              class="form-input SmallText"
-              step="0.01"
-              min="0"
-            />
-            <span class="error-message SmallText" id="coastError"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="photoURL" class="form-label SmallText">Photo URL</label>
-            <input
-              type="url"
-              id="photoURL"
-              name="photoURL"
-              class="form-input SmallText"
-            />
-            <span class="error-message SmallText" id="photoURLError"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="category" class="form-label SmallText">Category</label>
-            <input
-              type="text"
-              id="category"
-              name="category"
-              class="form-input SmallText"
-            />
-            <span class="error-message SmallText" id="categoryError"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="company" class="form-label SmallText">Company</label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              class="form-input SmallText"
-            />
-            <span class="error-message SmallText" id="companyError"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="volume" class="form-label SmallText">Volume</label>
-            <input
-              type="text"
-              id="volume"
-              name="volume"
-              class="form-input SmallText"
-            />
-            <span class="error-message SmallText" id="volumeError"></span>
-          </div>
-
-          <div class="form-actions">
-            <button
-              type="button"
-              class="button button-secondary"
-              id="cancelBtn"
-            >
-              Cancel
-            </button>
-            <button type="submit" class="button">Save</button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <product-modal id="appModal"></product-modal>
 
     <my-footer class="footer top-block"></my-footer>
   </body>
   <script src="/components/MyHeader.js" type="module"></script>
   <script src="/components/MyFooter.js"></script>
   <script src="/js/admin.js" type="module"></script>
+  <script src="/components/ProductModal.js" type="module"></script>
 </html>
