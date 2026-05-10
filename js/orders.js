@@ -6,10 +6,6 @@ if (!isAuthenticated()) {
   window.location.href = "/pages/login.html";
 }
 
-const perPage = 8;
-let currentPage = 1;
-let pages = 0;
-
 function render(list) {
   const grid = document.querySelector(`.catalog-grid`);
   grid.innerHTML = "";
@@ -33,32 +29,8 @@ async function loadOrders() {
   const user = getCurrentUser();
   const orders = await GetUserOrders(user.id);
 
-  const btns = document.querySelector(".buttons");
-  if (orders.length > perPage) {
-    pages = Math.ceil(orders.length / perPage);
-    btns.classList.remove("hidden");
-    const start = (currentPage - 1) * perPage;
-    const end = start + perPage;
-    render(orders.slice(start, end));
-  } else {
-    btns.classList.add("hidden");
-    render(orders);
-  }
+  render(orders);
 }
-
-document.querySelector(".left").addEventListener("click", () => {
-  if (currentPage > 1) {
-    currentPage--;
-    loadOrders();
-  }
-});
-
-document.querySelector(".right").addEventListener("click", () => {
-  if (pages > currentPage) {
-    currentPage++;
-    loadOrders();
-  }
-});
 
 async function init() {
   await loadOrders();

@@ -9,7 +9,8 @@ import {
   GetUserOrders,
 } from "/js/api.js";
 import { isAuthenticated, isAdmin } from "/js/auth.js";
-import AdminCard from "/components/AdminCard.js";
+import BasketAdminCard from "/components/BasketAdminCard.js";
+import { showError, hideError } from "/js/error.js";
 
 if (!isAuthenticated() || !isAdmin()) {
   alert("Access denied. Admin only.");
@@ -32,25 +33,29 @@ const productsTableBody = document.getElementById("productsTableBody");
 const reviewsTableBody = document.getElementById("reviewsTableBody");
 
 const tabBtns = document.querySelectorAll(".tab-btn");
+const tabBtnProducts = document.getElementById("btn-products");
+const tabBtnReviews = document.getElementById("btn-reviews");
 const productsTab = document.getElementById("productsTab");
 const reviewsTab = document.getElementById("reviewsTab");
 
-tabBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const tabName = btn.dataset.tab;
-
-    tabBtns.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    if (tabName === "products") {
-      productsTab.classList.add("active");
-      reviewsTab.classList.remove("active");
-    } else if (tabName === "reviews") {
-      productsTab.classList.remove("active");
-      reviewsTab.classList.add("active");
-      loadReviews();
-    }
+tabBtnProducts.addEventListener("click", () => {
+  tabBtns.forEach((btn) => {
+    btn.classList.remove("active");
   });
+  tabBtnProducts.classList.add("active");
+  productsTab.classList.add("active");
+  reviewsTab.classList.remove("active");
+  loadProducts();
+});
+
+tabBtnReviews.addEventListener("click", () => {
+  tabBtns.forEach((btn) => {
+    btn.classList.remove("active");
+  });
+  tabBtnReviews.classList.add("active");
+  reviewsTab.classList.add("active");
+  productsTab.classList.remove("active");
+  loadReviews();
 });
 
 const filterType = document.getElementById("filterType");
@@ -79,7 +84,9 @@ filterType.addEventListener("change", () => {
 productFilter.addEventListener("change", renderReviews);
 userFilter.addEventListener("change", renderReviews);
 
-addProductBtn.addEventListener("click", openModal);
+addProductBtn.addEventListener("click", () => {
+  openModal();
+});
 
 closeModal.addEventListener("click", closeModalWindow);
 
@@ -110,8 +117,6 @@ function openModal(product = null) {
     editingProductId = null;
     productForm.reset();
   }
-
-  validateForm();
 }
 
 function closeModalWindow() {
@@ -121,94 +126,134 @@ function closeModalWindow() {
   clearErrors();
 }
 
-function showError(fieldId, message) {
-  const errorElement = document.getElementById(`${fieldId}Error`);
-  errorElement.textContent = message;
-  errorElement.classList.add("show");
-  errorElement.style.display = "block";
-}
-
-function hideError(fieldId) {
-  const errorElement = document.getElementById(`${fieldId}Error`);
-  errorElement.textContent = "";
-  errorElement.classList.remove("show");
-  errorElement.style.display = "none";
-}
-
 function clearErrors() {
   const fields = [
-    "title",
-    "description",
-    "coast",
-    "photoURL",
-    "category",
-    "company",
-    "volume",
+    "titleError",
+    "descriptionError",
+    "coastError",
+    "photoURLError",
+    "categoryError",
+    "companyError",
+    "volumeError",
   ];
   fields.forEach((field) => hideError(field));
 }
 
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+const coast = document.getElementById("coast");
+const photoURL = document.getElementById("photoURL");
+const category = document.getElementById("category");
+const company = document.getElementById("company");
+const volume = document.getElementById("volume");
+
+function checkTitle() {
+  if (title.value.trim() === "") {
+    showError("titleError", "Title is required");
+    return false;
+  }
+  hideError("titleError");
+  return true;
+}
+
+function checkDescription() {
+  if (description.value.trim() === "") {
+    showError("descriptionError", "Description is required");
+    return false;
+  }
+  hideError("descriptionError");
+  return true;
+}
+
+function checkCoast() {
+  const value = parseFloat(coast.value);
+  if (coast.value.trim() === "") {
+    showError("coastError", "Price is required");
+    return false;
+  } else if (isNaN(value) || value <= 0) {
+    showError("coastError", "Price must be a positive number");
+    return false;
+  }
+  hideError("coastError");
+  return true;
+}
+
+function checkPhotoURL() {
+  if (photoURL.value.trim() === "") {
+    showError("photoURLError", "Photo URL is required");
+    return false;
+  }
+  hideError("photoURLError");
+  return true;
+}
+
+function checkCategory() {
+  if (category.value.trim() === "") {
+    showError("categoryError", "Category is required");
+    return false;
+  }
+  hideError("categoryError");
+  return true;
+}
+
+function checkCompany() {
+  if (company.value.trim() === "") {
+    showError("companyError", "Company is required");
+    return false;
+  }
+  hideError("companyError");
+  return true;
+}
+
+function checkVolume() {
+  if (volume.value.trim() === "") {
+    showError("volumeError", "Volume is required");
+    return false;
+  }
+  hideError("volumeError");
+  return true;
+}
+
 productForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  clearErrors();
 
-  const product = {
-    title: document.getElementById("title").value.trim(),
-    description: document.getElementById("description").value.trim(),
-    coast: parseFloat(document.getElementById("coast").value),
-    photoURL: document.getElementById("photoURL").value.trim(),
-    category: document.getElementById("category").value.trim(),
-    company: document.getElementById("company").value.trim(),
-    volume: document.getElementById("volume").value.trim(),
-  };
+  const isTitleValid = checkTitle();
+  const isDescValid = checkDescription();
+  const isCoastValid = checkCoast();
+  const isPhotoValid = checkPhotoURL();
+  const isCatValid = checkCategory();
+  const isCompValid = checkCompany();
+  const isVolValid = checkVolume();
 
-  let isValid = true;
+  const formIsValid =
+    isTitleValid &&
+    isDescValid &&
+    isCoastValid &&
+    isPhotoValid &&
+    isCatValid &&
+    isCompValid &&
+    isVolValid;
 
-  if (!product.title) {
-    showError("title", "Title is required");
-    isValid = false;
-  }
-
-  if (!product.description) {
-    showError("description", "Description is required");
-    isValid = false;
-  }
-
-  if (!product.coast || product.coast <= 0) {
-    showError("coast", "Price must be greater than 0");
-    isValid = false;
-  }
-
-  if (!product.photoURL) {
-    showError("photoURL", "Photo URL is required");
-    isValid = false;
-  }
-
-  if (!product.category) {
-    showError("category", "Category is required");
-    isValid = false;
-  }
-
-  if (!product.company) {
-    showError("company", "Company is required");
-    isValid = false;
-  }
-
-  if (!product.volume) {
-    showError("volume", "Volume is required");
-    isValid = false;
-  }
-
-  if (!isValid) {
+  if (!formIsValid) {
     return;
   }
+
+  const product = {
+    title: title.value.trim(),
+    description: description.value.trim(),
+    coast: parseFloat(coast.value),
+    photoURL: photoURL.value.trim(),
+    category: category.value.trim(),
+    company: company.value.trim(),
+    volume: volume.value.trim(),
+  };
 
   let success;
   if (editingProductId) {
     product.id = editingProductId;
-    success = await UpdateGood("goods", product);
+    success = await UpdateGood(product);
   } else {
-    success = await AddGood("goods", product);
+    success = await AddGood(product);
   }
 
   if (success) {
@@ -219,35 +264,13 @@ productForm.addEventListener("submit", async (e) => {
   }
 });
 
-function validateForm() {
-  const title = document.getElementById("title").value.trim();
-  const description = document.getElementById("description").value.trim();
-  const coast = parseFloat(document.getElementById("coast").value);
-  const photoURL = document.getElementById("photoURL").value.trim();
-  const category = document.getElementById("category").value.trim();
-  const company = document.getElementById("company").value.trim();
-  const volume = document.getElementById("volume").value.trim();
-
-  const isValid =
-    title &&
-    description &&
-    coast > 0 &&
-    photoURL &&
-    category &&
-    company &&
-    volume;
-
-  const submitBtn = productForm.querySelector('button[type="submit"]');
-  submitBtn.disabled = !isValid;
-}
-
-document.getElementById("title").addEventListener("input", validateForm);
-document.getElementById("description").addEventListener("input", validateForm);
-document.getElementById("coast").addEventListener("input", validateForm);
-document.getElementById("photoURL").addEventListener("input", validateForm);
-document.getElementById("category").addEventListener("input", validateForm);
-document.getElementById("company").addEventListener("input", validateForm);
-document.getElementById("volume").addEventListener("input", validateForm);
+title.addEventListener("input", checkTitle);
+description.addEventListener("input", checkDescription);
+coast.addEventListener("input", checkCoast);
+photoURL.addEventListener("input", checkPhotoURL);
+category.addEventListener("input", checkCategory);
+company.addEventListener("input", checkCompany);
+volume.addEventListener("input", checkVolume);
 
 function renderProducts() {
   productsTableBody.innerHTML = "";
@@ -264,8 +287,7 @@ function renderProducts() {
   }
 
   products.forEach((product) => {
-    const card = new AdminCard(product, handleEdit, handleDelete);
-    const row = card.render();
+    const row = new BasketAdminCard(product, handleEdit, handleDelete);
     productsTableBody.appendChild(row);
   });
 }
@@ -275,7 +297,7 @@ function handleEdit(product) {
 }
 
 async function handleDelete(productId) {
-  const success = await DeleteGood("goods", productId);
+  const success = await DeleteGood(productId);
   if (success) {
     await loadProducts();
   } else {
@@ -284,7 +306,7 @@ async function handleDelete(productId) {
 }
 
 async function loadProducts() {
-  products = await GetGoods("goods");
+  products = (await GetGoods()).items;
   renderProducts();
 }
 

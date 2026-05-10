@@ -1,5 +1,6 @@
 import { isAuthenticated, getCurrentUser } from "/js/auth.js";
 import { AddReview } from "/js/api.js";
+import { showError, hideError } from "/js/error.js";
 
 if (!isAuthenticated()) {
   window.location.href = "/pages/login.html";
@@ -15,16 +16,12 @@ if (!orderId) {
 let selectedRating = 0;
 
 const stars = document.querySelectorAll(".star");
-const ratingInput = document.getElementById("rating");
-const ratingError = document.getElementById("ratingError");
-const commentError = document.getElementById("commentError");
 
 stars.forEach((star) => {
   star.addEventListener("click", () => {
     selectedRating = parseInt(star.dataset.value);
-    ratingInput.value = selectedRating;
-    updateStars();
-    hideError(ratingError);
+    highlightStars(selectedRating);
+    hideError("ratingError");
   });
 
   star.addEventListener("mouseenter", () => {
@@ -34,7 +31,7 @@ stars.forEach((star) => {
 });
 
 document.querySelector(".rating-stars").addEventListener("mouseleave", () => {
-  updateStars();
+  highlightStars(selectedRating);
 });
 
 function highlightStars(count) {
@@ -49,22 +46,6 @@ function highlightStars(count) {
   });
 }
 
-function updateStars() {
-  highlightStars(selectedRating);
-}
-
-function showError(element, message) {
-  element.textContent = message;
-  element.classList.add("show");
-  element.style.display = "block";
-}
-
-function hideError(element) {
-  element.textContent = "";
-  element.classList.remove("show");
-  element.style.display = "none";
-}
-
 const reviewForm = document.getElementById("reviewForm");
 reviewForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -72,18 +53,18 @@ reviewForm.addEventListener("submit", async (e) => {
   let isValid = true;
 
   if (selectedRating === 0) {
-    showError(ratingError, "Please select a rating");
+    showError("ratingError", "Please select a rating");
     isValid = false;
   } else {
-    hideError(ratingError);
+    hideError("ratingError");
   }
 
   const comment = document.getElementById("comment").value.trim();
   if (!comment) {
-    showError(commentError, "Comment is required");
+    showError("commentError", "Comment is required");
     isValid = false;
   } else {
-    hideError(commentError);
+    hideError("commentError");
   }
 
   if (!isValid) {

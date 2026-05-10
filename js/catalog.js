@@ -27,7 +27,7 @@ function render(list) {
 let currentCategory = [];
 const categoryContainer = document.querySelector(".catalog_filter");
 async function renderCategories() {
-  const allGoods = await GetGoods("goods");
+  const allGoods = (await GetGoods()).items;
 
   const uniqueCategories = new Set(allGoods.map((good) => good.category));
 
@@ -77,7 +77,6 @@ async function applyAllFilters() {
   const sortTyle = sortTypeField.value;
 
   const respone = await GetGoods(
-    "goods",
     searchText,
     searchKey,
     sort,
@@ -86,14 +85,12 @@ async function applyAllFilters() {
     perPage,
     currentPage,
   );
-  let items;
+  const items = respone.items;
+  pages = respone.pages;
   const btns = document.querySelector(".buttons");
-  if (respone.data) {
-    items = respone.data;
-    pages = respone.pages;
+  if (pages) {
     btns.classList.remove("hidden");
   } else {
-    items = respone;
     btns.classList.add("hidden");
   }
 

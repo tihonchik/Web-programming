@@ -1,7 +1,6 @@
 const baseUrl = "http://localhost:3000/";
 
 async function GetGoods(
-  type,
   searchText,
   searchKey,
   sortField,
@@ -10,7 +9,7 @@ async function GetGoods(
   perPage,
   page,
 ) {
-  const url = new URL(baseUrl + type);
+  const url = new URL(baseUrl + "goods");
 
   if (searchText) {
     let typeSearch;
@@ -45,14 +44,32 @@ async function GetGoods(
   try {
     const response = await fetch(url);
     const result = await response.json();
-    return result;
+    let items;
+    let pages;
+    if (result.data) {
+      items = result.data;
+      pages = result.pages;
+    } else {
+      items = result;
+    }
+    return { items, pages };
   } catch {
     return [];
   }
 }
 
-async function AddGood(type, good) {
-  const url = new URL(baseUrl + type);
+async function GetGood(id) {
+  try {
+    const response = await fetch(baseUrl + "goods/" + id);
+    const result = await response.json();
+    return result;
+  } catch {
+    return {};
+  }
+}
+
+async function AddGood(good) {
+  const url = new URL(baseUrl + "goods");
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -70,8 +87,8 @@ async function AddGood(type, good) {
   }
 }
 
-async function DeleteGood(type, id) {
-  const url = new URL(baseUrl + type + "/" + id);
+async function DeleteGood(id) {
+  const url = new URL(baseUrl + "goods/" + id);
   try {
     const response = await fetch(url, {
       method: "DELETE",
@@ -85,8 +102,8 @@ async function DeleteGood(type, id) {
   }
 }
 
-async function UpdateGood(type, good) {
-  const url = new URL(baseUrl + type + "/" + good.id);
+async function UpdateGood(good) {
+  const url = new URL(baseUrl + "goods/" + good.id);
   try {
     const response = await fetch(url, {
       method: "PUT",
@@ -198,11 +215,10 @@ async function GetUserBasket(userId) {
     const basketItems = await basketResponse.json();
 
     const goodsPromises = basketItems.map(async (item) => {
-      const goodResponse = await fetch(baseUrl + `goods/${item.goodId}`);
-      if (!goodResponse.ok) {
+      const good = await GetGood(item.goodId);
+      if (!good) {
         return null;
       }
-      const good = await goodResponse.json();
       return { ...good, count: item.count || 1, basketItemId: item.id };
     });
 
@@ -224,31 +240,7 @@ async function GetUserBasketFiltered(
   page,
 ) {
   try {
-    const basketResponse = await fetch(baseUrl + `userBasket?userId=${userId}`);
-    if (!basketResponse.ok) {
-      return [];
-    }
-    const basketItems = await basketResponse.json();
-
-    if (basketItems.length === 0) {
-      return [];
-    }
-
-    const goodsPromises = basketItems.map(async (item) => {
-      const goodResponse = await fetch(baseUrl + `goods/${item.goodId}`);
-      if (!goodResponse.ok) {
-        return null;
-      }
-      const good = await goodResponse.json();
-      return {
-        ...good,
-        count: item.count || 1,
-        basketItemId: item.id,
-      };
-    });
-
-    let goods = await Promise.all(goodsPromises);
-    goods = goods.filter((good) => good !== null);
+    let goods = await GetUserBasket(userId);
 
     if (searchText) {
       goods = goods.filter((good) => {
@@ -341,11 +333,7 @@ async function GetUserFavorites(userId) {
     const favoritesItems = await favoritesResponse.json();
 
     const goodsPromises = favoritesItems.map(async (item) => {
-      const goodResponse = await fetch(baseUrl + `goods/${item.favId}`);
-      if (!goodResponse.ok) {
-        return null;
-      }
-      const good = await goodResponse.json();
+      const good = await GetGood(item.favId);
       return { ...good, favoriteItemId: item.id };
     });
 
@@ -367,32 +355,7 @@ async function GetUserFavoritesFiltered(
   page,
 ) {
   try {
-    const favoritesResponse = await fetch(
-      baseUrl + `userFavorites?userId=${userId}`,
-    );
-    if (!favoritesResponse.ok) {
-      return [];
-    }
-    const favoritesItems = await favoritesResponse.json();
-
-    if (favoritesItems.length === 0) {
-      return [];
-    }
-
-    const goodsPromises = favoritesItems.map(async (item) => {
-      const goodResponse = await fetch(baseUrl + `goods/${item.favId}`);
-      if (!goodResponse.ok) {
-        return null;
-      }
-      const good = await goodResponse.json();
-      return {
-        ...good,
-        favoriteItemId: item.id,
-      };
-    });
-
-    let goods = await Promise.all(goodsPromises);
-    goods = goods.filter((good) => good !== null);
+    let goods = await GetUserFavorites(userId);
 
     if (searchText) {
       goods = goods.filter((good) => {
@@ -495,7 +458,7 @@ async function GetUserOrders(userId) {
         }
         const good = await goodResponse.json();
         return { ...order, good };
-      })
+      }),
     );
 
     return ordersWithGoods;
@@ -551,6 +514,7 @@ async function DeleteReview(reviewId) {
 export {
   DeleteGood,
   GetGoods,
+  GetGood,
   AddGood,
   UpdateGood,
   Register,

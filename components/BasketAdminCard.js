@@ -1,8 +1,12 @@
-class AdminCard {
+class BasketAdminCard {
   constructor(product, onEdit, onDelete) {
-    this.product = product;
-    this.onEdit = onEdit;
-    this.onDelete = onDelete;
+    if (product && onEdit && onDelete) {
+      this.product = product;
+      this.onEdit = onEdit;
+      this.onDelete = onDelete;
+      const row = this.render();
+      return row;
+    }
   }
 
   render() {
@@ -27,8 +31,7 @@ class AdminCard {
             <span class="material-icons">delete</span>
           </button>
         </div>
-      </td>
-    `;
+      </td>`;
 
     const editBtn = row.querySelector(".edit");
     const deleteBtn = row.querySelector(".delete");
@@ -47,4 +50,4 @@ class AdminCard {
   }
 }
 
-export default AdminCard;
+export default BasketAdminCard;

@@ -2,10 +2,10 @@ import { DeleteUserBasketItem, UpdateUserBasketItem } from "/js/api.js";
 
 class BasketCard extends HTMLElement {
   constructor(good) {
-    super();
     if (good) {
-      this.render(good);
+      super();
       this.good = good;
+      this.render();
     }
   }
 
@@ -45,9 +45,9 @@ class BasketCard extends HTMLElement {
     }
   }
 
-  render(good) {
+  render() {
     const { id, title, description, coast, photoURL, company, volume, count } =
-      good;
+      this.good;
 
     const formattedPrice =
       typeof coast === "number" ? `$${coast.toFixed(2)}` : coast;
