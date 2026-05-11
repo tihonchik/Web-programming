@@ -12,6 +12,14 @@ if (!isAuthenticated()) {
   window.location.href = "/pages/login.html";
 }
 
+const detailModal = document.getElementById("detailModal");
+
+function handleViewDetails(good) {
+  if (detailModal) {
+    detailModal.open("view", good);
+  }
+}
+
 const perPage = 8;
 let currentPage = 1;
 let pages = 0;
@@ -30,7 +38,7 @@ function render(list) {
   }
 
   list.forEach((good) => {
-    var card = new BasketCard(good);
+    var card = new BasketCard(good, handleViewDetails);
     grid.appendChild(card);
   });
 }

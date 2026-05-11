@@ -2,10 +2,11 @@ import { DeleteUserBasketItem, UpdateUserBasketItem } from "/js/api.js";
 import { notify } from "/components/MyToast.js";
 
 class BasketCard extends HTMLElement {
-  constructor(good) {
+  constructor(good, onView) {
     if (good) {
       super();
       this.good = good;
+      this.onView = onView;
       this.render();
     }
   }
@@ -18,6 +19,7 @@ class BasketCard extends HTMLElement {
     const removeBtn = this.querySelector(".remove_from_basket");
     const addCountBtn = this.querySelector(".add_count");
     const removeCountBtn = this.querySelector(".remove_count");
+    const article = this.querySelector(".catalog-card");
 
     removeBtn.addEventListener("click", async () => {
       const success = await DeleteUserBasketItem(this.good.basketItemId);
@@ -50,6 +52,15 @@ class BasketCard extends HTMLElement {
         }
       }
     });
+
+    if (article) {
+      article.style.cursor = "pointer";
+      article.addEventListener("click", () => {
+        if (this.onView) {
+          this.onView(this.good);
+        }
+      });
+    }
   }
 
   updateCountDisplay() {
