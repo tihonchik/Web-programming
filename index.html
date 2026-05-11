@@ -811,33 +811,83 @@
           </div>
         </div>
       </section>
-      <section class="twelfth-block top-block">
-        <div class="twelgth-block__content">
-          <img
-            src="/static/twelfth-block/1.png"
-            alt="img"
-            class="twelfth-block__img"
-          />
-          <img
-            src="/static/twelfth-block/2.png"
-            alt="img"
-            class="twelfth-block__img"
-          />
-          <img
-            src="/static/twelfth-block/3.png"
-            alt="img"
-            class="twelfth-block__img"
-          />
-          <img
-            src="/static/twelfth-block/4.png"
-            alt="img"
-            class="twelfth-block__img"
-          />
-          <img
-            src="/static/twelfth-block/5.png"
-            alt="img"
-            class="twelfth-block__img"
-          />
+      <section class="media-gallery top-block" id="interactive-gallery">
+        <div class="media-gallery__content">
+          <div class="media-gallery__header">
+            <p class="subject Text" style="text-align: center">Experience</p>
+            <h2 class="title H2" style="text-align: center">
+              Interactive Media Gallery
+            </h2>
+            <p
+              class="Text"
+              style="
+                text-align: center;
+                margin-top: 10px;
+                color: var(--colors-grey-800);
+              "
+            >
+              Discover the harmony of visual and sound.
+            </p>
+          </div>
+          <div class="media-gallery__main">
+            <div class="media-gallery__display" id="mediaDisplay">
+              <div class="play-indicator" id="playIndicator">
+                <span class="bar"></span><span class="bar"></span
+                ><span class="bar"></span>
+              </div>
+              <img
+                src="https://images.unsplash.com/photo-1615397323068-1bcce5fb0049?auto=format&fit=crop&w=800&q=80"
+                alt="gallery"
+                id="galleryImage"
+                class="media-gallery__img transition-active"
+              />
+              <video
+                id="galleryVideo"
+                class="media-gallery__video hidden"
+                controls
+              >
+                <source
+                  src="https://www.w3schools.com/html/mov_bbb.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support HTML video.
+              </video>
+            </div>
+            <div class="media-gallery__controls">
+              <button class="button Smalltext" id="btnRandomMedia">
+                <span class="MaterialIcons" style="margin-right: 8px"
+                  >shuffle</span
+                >
+                Discover Magic
+              </button>
+              <button
+                class="button Smalltext"
+                id="btnPlayVideo"
+                style="background-color: var(--colors-backgroung-header-1)"
+              >
+                <span class="MaterialIcons" style="margin-right: 8px"
+                  >play_circle</span
+                >
+                Watch Video
+              </button>
+              <div class="volume-control">
+                <span
+                  class="MaterialIcons"
+                  style="color: var(--colors-violet-700)"
+                  >volume_up</span
+                >
+                <input
+                  type="range"
+                  id="volumeSlider"
+                  class="volume-slider"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value="0.5"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -852,4 +902,5 @@
   <script src="/components/MyHeader.js" type="module"></script>
   <script src="/components/MyFooter.js"></script>
   <script src="/js/parallax.js" defer></script>
+  <script src="/js/media.js" type="module"></script>
 </html>

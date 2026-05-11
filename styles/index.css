@@ -1204,3 +1204,154 @@ my-footer.is-visible .footer__icon:nth-child(3) {
   opacity: 1;
   transform: scale(1);
 }
+
+/* --- Интерактивная Медиагалерея --- */
+.media-gallery__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl, 32px);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.media-gallery__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg, 24px);
+  background-color: var(--colors-grey-500);
+  padding: var(--spacing-xl, 32px);
+  border-radius: var(--radius-md, 24px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.media-gallery__display {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm, 16px);
+  overflow: hidden;
+  background-color: var(--colors-basic-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-gallery__img,
+.media-gallery__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out; /* Плавный переход */
+}
+
+.media-gallery__video {
+  object-fit: contain;
+}
+
+/* Классы для анимации появления/исчезновения */
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-1 {
+  opacity: 1;
+}
+.hidden {
+  display: none !important;
+}
+
+.media-gallery__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md, 16px);
+}
+
+/* Ползунок громкости */
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--colors-basic-white);
+  padding: 8px 16px;
+  border-radius: var(--radius-max);
+  border: 1px solid var(--colors-grey-700);
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  width: 100px;
+  height: 4px;
+  background: var(--colors-grey-700);
+  border-radius: 2px;
+  outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--colors-pink-500);
+  cursor: pointer;
+}
+
+/* Визуальный индикатор (Эквалайзер) */
+.play-indicator {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 24px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.play-indicator.playing {
+  opacity: 1;
+}
+
+.play-indicator .bar {
+  width: 4px;
+  background-color: var(--colors-pink-500);
+  animation: bounce 1s infinite ease-in-out;
+}
+
+.play-indicator .bar:nth-child(1) {
+  animation-delay: -0.2s;
+}
+.play-indicator .bar:nth-child(2) {
+  animation-delay: -0.4s;
+}
+.play-indicator .bar:nth-child(3) {
+  animation-delay: -0.6s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    height: 8px;
+  }
+  50% {
+    height: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .media-gallery__controls {
+    flex-direction: column;
+    width: 100%;
+  }
+  .media-gallery__controls button,
+  .volume-control {
+    width: 100%;
+    justify-content: center;
+  }
+}
