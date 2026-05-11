@@ -1,43 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
   const mediaCollection = [
     {
-      img: "https://img.youtube.com/vi/GtRwAp2WFGk/hqdefault.jpg",
+      img: "https://img.youtube.com/vi/GtRwAp2WFGk/maxresdefault.jpg",
       audio:
         "https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg",
     },
     {
-      img: "https://img.youtube.com/vi/BoaZcur_3F0/hqdefault.jpg",
+      img: "https://img.youtube.com/vi/BoaZcur_3F0/maxresdefault.jpg",
       audio:
         "https://actions.google.com/sounds/v1/nature/forest_birds_and_insects.ogg",
     },
     {
-      img: "https://img.youtube.com/vi/URDVkllQubY/hqdefault.jpg",
+      img: "https://img.youtube.com/vi/URDVkllQubY/maxresdefault.jpg",
       audio: "https://actions.google.com/sounds/v1/animals/cat_purr_close.ogg",
     },
     {
-      img: "https://img.youtube.com/vi/4oJPLckECz0/hqdefault.jpg",
+      img: "https://img.youtube.com/vi/4oJPLckECz0/maxresdefault.jpg",
       audio: "https://actions.google.com/sounds/v1/weather/rain_on_roof.ogg",
     },
     {
-      img: "https://img.youtube.com/vi/8US6V0hJss0/hqdefault.jpg",
+      img: "https://img.youtube.com/vi/8US6V0hJss0/maxresdefault.jpg",
       audio: "https://actions.google.com/sounds/v1/ambiences/coffee_shop.ogg",
     },
     {
-      img: "https://img.youtube.com/vi/DSIt9_K7rh4/hqdefault.jpg",
+      img: "https://img.youtube.com/vi/DSIt9_K7rh4/maxresdefault.jpg",
       audio:
         "https://actions.google.com/sounds/v1/science_fiction/space_wind.ogg",
     },
     {
-      img: "https://img.youtube.com/vi/-F96veJnVqM/hqdefault.jpg",
+      img: "https://img.youtube.com/vi/-F96veJnVqM/maxresdefault.jpg",
       audio: "https://actions.google.com/sounds/v1/water/water_stream.ogg",
     },
     {
-      img: "https://img.youtube.com/vi/Z-oPPUP5-Kg/hqdefault.jpg",
+      img: "https://img.youtube.com/vi/Z-oPPUP5-Kg/maxresdefault.jpg",
       audio:
         "https://actions.google.com/sounds/v1/transportation/train_pass_by.ogg",
     },
     {
-      img: "https://img.youtube.com/vi/Um1SxgmxtuQ/hqdefault.jpg",
+      img: "https://img.youtube.com/vi/Um1SxgmxtuQ/maxresdefault.jpg",
       audio: "https://actions.google.com/sounds/v1/crowds/crowd_cheering.ogg",
     },
   ];
@@ -50,6 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const volumeSlider = document.getElementById("volumeSlider");
 
   let currentAudio = new Audio();
+
+  const initialItem =
+    mediaCollection[Math.floor(Math.random() * mediaCollection.length)];
+  imgEl.src = initialItem.img;
+  currentAudio.src = initialItem.audio;
+
   currentAudio.volume = volumeSlider.value;
 
   volumeSlider.addEventListener("input", (e) => {
