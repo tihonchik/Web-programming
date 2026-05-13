@@ -71,13 +71,13 @@ class ProductModal extends HTMLElement {
   renderViewMode() {
     const p = this.product;
     this.modalBody.innerHTML = `
-      <div style="display: flex; gap: 20px; align-items: flex-start; margin-top: 15px;">
-        <img src="${p.photoURL}" alt="${p.title}" style="width: 200px; height: 200px; object-fit: cover; border-radius: 8px;">
+      <div style="display: flex; gap: var(--spacing-xl); align-items: flex-start; margin-top: var(--spacing-md);">
+        <img src="${p.photoURL}" alt="${p.title}" style="width: 200px; height: 200px; object-fit: cover; border-radius: var(--radius-sm);">
         <div>
-          <h4 class="H3" style="margin: 0 0 10px 0;">${p.title}</h4>
-          <p class="SmallText" style="color: gray; margin-bottom: 10px;">${p.category} | ${p.company} | ${p.volume}</p>
-          <p class="SmallText" style="margin-bottom: 15px;">${p.description}</p>
-          <div style="font-size: 24px; font-weight: bold; color: #0d47a1;">$${p.coast.toFixed(2)}</div>
+          <h4 class="H3" style="margin: 0 0 var(--gap-md) 0;">${p.title}</h4>
+          <p class="SmallText" style="color: var(--colors-grey-800); margin-bottom: var(--gap-md);">${p.category} | ${p.company} | ${p.volume}</p>
+          <p class="SmallText" style="margin-bottom: var(--spacing-md);">${p.description}</p>
+          <div style="font-size: var(--fonts-sizes-24); font-weight: var(--fonts-weights-bold); color: var(--colors-text-title);">$${p.coast.toFixed(2)}</div>
         </div>
       </div>
     `;
@@ -123,7 +123,7 @@ class ProductModal extends HTMLElement {
           <input type="text" id="volume" class="form-input SmallText" value="${p.volume || ""}" />
           <span class="error-message SmallText" id="volumeError"></span>
         </div>
-        <div class="form-actions" style="margin-top: 20px;">
+        <div class="form-actions" style="margin-top: var(--spacing-xl);">
           <button type="button" class="button button-secondary" id="cancelBtn">Cancel</button>
           <button type="submit" class="button">Save</button>
         </div>

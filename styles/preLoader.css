@@ -1,7 +1,7 @@
 pre-loader {
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--colors-backgroung-page);
   position: fixed;
   top: 0;
   z-index: 10000;
@@ -17,17 +17,17 @@ pre-loader.hide {
 }
 
 .loader {
-  width: 75px;
-  height: 75px;
-  border: 10px solid #6244a3;
+  width: var(--space-64);
+  height: var(--space-64);
+  border: var(--space-8) solid var(--colors-backgroung-header-1);
   border-radius: 50%;
-  border-left-color: #cf4d74;
+  border-left-color: var(--colors-backgroung-button-1);
   animation: loader 1.3s linear infinite;
 }
 
 @keyframes loader {
   0% {
-    transform: rotate(0deg); /* Для плавности лучше добавлять 0% */
+    transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);

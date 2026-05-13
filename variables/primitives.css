@@ -9,6 +9,11 @@
   --colors-violet-500: #edebf7;
   --colors-violet-700: #6244a3;
   --colors-violet-800: #030303;
+  --colors-success: #4caf50;
+  --colors-error: #f44336;
+  --colors-error-red: #ef4444;
+  --colors-info: #2196f3;
+  --colors-warning: #ffc107;
   /* number */
   --fonts-heights-8: 8px;
   --fonts-heights-12: 12px;

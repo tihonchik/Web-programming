@@ -27,17 +27,16 @@
   padding: var(--spacing-md) var(--spacing-xl);
   border: none;
   background: transparent;
-  color: var(--colors-text-secondary);
+  color: var(--colors-text-main);
   font-family: inherit;
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--fonts-weights-medium);
   cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all var(--transition-fast);
+  border-bottom: var(--spacing-xs) solid transparent;
+  transition: all 0.3s ease;
 }
 
 .tab-btn:hover {
-  color: var(--colors-text-primary);
+  color: var(--colors-text-title);
 }
 
 .tab-btn.active {
@@ -80,7 +79,7 @@
 .admin-table-wrapper {
   background: var(--colors-backgroung-card-2);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 var(--space-8) var(--space-24) rgba(0, 0, 0, 0.15);
   overflow-x: auto;
 }
 
@@ -97,15 +96,13 @@
   padding: var(--spacing-md) var(--spacing-lg);
   text-align: left;
   color: var(--colors-text-title);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--text-sm);
+  font-weight: var(--fonts-weights-bold);
   border-bottom: var(--border-size) solid var(--colors-border);
 }
 
 .admin-table td {
   padding: var(--spacing-md) var(--spacing-lg);
   color: var(--colors-text-main);
-  font-size: var(--text-sm);
   border-bottom: var(--border-size) solid var(--colors-border);
 }
 
@@ -114,8 +111,8 @@
 }
 
 .product-image {
-  width: 60px;
-  height: 60px;
+  width: var(--space-64);
+  height: var(--space-64);
   object-fit: cover;
   border-radius: var(--radius-sm);
 }
@@ -129,14 +126,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: var(--space-36);
+  height: var(--space-36);
   border: none;
   border-radius: var(--radius-sm);
   background: var(--colors-backgroung-button-2);
   color: var(--colors-text-button-button-2);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.3s ease;
 }
 
 .action-btn:hover {
@@ -145,12 +142,12 @@
 }
 
 .action-btn.delete:hover {
-  background: var(--colors-error);
+  background: var(--colors-pink-500);
   color: var(--colors-basic-white);
 }
 
 .action-btn .material-icons {
-  font-size: 18px;
+  font-size: var(--fonts-sizes-16);
 }
 
 @media (max-width: 768px) {
@@ -161,11 +158,10 @@
   .admin-table th,
   .admin-table td {
     padding: var(--spacing-sm) var(--spacing-md);
-    font-size: var(--text-xs);
   }
 
   .product-image {
-    width: 40px;
-    height: 40px;
+    width: var(--space-40);
+    height: var(--space-40);
   }
 }

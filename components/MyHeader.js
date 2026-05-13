@@ -33,7 +33,7 @@ class MyHeader extends HTMLElement {
           width: 100vw;
           height: 100vh;
           background-color: rgba(0, 0, 0, 0.4);
-          backdrop-filter: blur(4px);
+          backdrop-filter: blur(var(--space-4));
           z-index: 999;
           opacity: 0;
           visibility: hidden;
@@ -52,7 +52,7 @@ class MyHeader extends HTMLElement {
           display: flex;
           flex-direction: column;
           padding: var(--spacing-xl, 32px);
-          box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+          box-shadow: -5px 0 var(--spacing-xl) rgba(0,0,0,0.1);
           transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -98,7 +98,7 @@ class MyHeader extends HTMLElement {
         }
 
         .mobile-divider {
-          height: 1px;
+          height: var(--border-size);
           background-color: var(--colors-grey-700, #cdd5df);
           margin: var(--spacing-xl, 32px) 0;
         }
@@ -176,8 +176,8 @@ class MyHeader extends HTMLElement {
           ${adminLink ? `<a href="/pages/admin.html">Admin</a>` : ""}
         </nav>
         <div class="mobile-divider"></div>
-        <div class="mobile-actions">          
-          <div style="display: flex; width: 100%; justify-content: center; margin-top: 10px;">
+        <div class="mobile-actions">
+          <div style="display: flex; width: 100%; justify-content: center; margin-top: var(--gap-md);">
             ${authButton}
           </div>
         </div>

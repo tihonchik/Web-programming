@@ -14,14 +14,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10000; /* Увеличил, чтобы точно было над всем */
-  backdrop-filter: blur(4px);
+  z-index: 10000;
+  backdrop-filter: blur(var(--space-4));
 }
 
 .modal-content {
   background: var(--colors-backgroung-card-2);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 var(--space-8) var(--space-24) rgba(0, 0, 0, 0.2);
   width: 90%;
   max-width: 600px;
   max-height: 90vh;
@@ -44,14 +44,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: var(--space-36);
+  height: var(--space-36);
   border: none;
   border-radius: var(--radius-sm);
   background: transparent;
-  color: var(--colors-text-secondary);
+  color: var(--colors-text-main);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.3s ease;
 }
 
 /* Стили формы (нужны и в админке, и если форма будет в модалке) */
@@ -78,12 +78,12 @@
   border-radius: var(--radius-md);
   border: var(--border-size) solid var(--colors-border);
   background: var(--colors-backgroung-page);
-  color: var(--colors-text-primary);
+  color: var(--colors-text-title);
   font-family: inherit;
 }
 
 .error-message {
-  color: var(--colors-error);
+  color: var(--colors-pink-500);
   display: none;
 }
 

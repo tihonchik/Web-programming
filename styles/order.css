@@ -3,6 +3,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 64px;
-  color: var(--colors-text-secondary);
+  font-size: var(--fonts-sizes-64);
+  color: var(--colors-text-main);
 }

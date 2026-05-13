@@ -159,7 +159,7 @@ footer {
   min-height: 700px;
   flex: 1 0 0;
   align-self: stretch;
-  border-radius: 0 0 0 32px;
+  border-radius: 0 0 0 var(--space-32);
   object-fit: cover;
   background: url(../static/first-block/hero.png) lightgray 50% / cover
     no-repeat;
@@ -466,7 +466,7 @@ footer {
 .fifth-block__background-img {
   height: 372px;
   align-self: stretch;
-  border-radius: 0 0 24px 24px;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
 }
 
 .fifth-block__card:nth-child(1) .fifth-block__background-img {
@@ -572,7 +572,7 @@ footer {
   min-width: 500px;
   flex: 1 0 0;
   flex-shrink: 0;
-  border-radius: 24px;
+  border-radius: var(--radius-md);
   object-fit: cover;
 }
 .seventh-block__description {
@@ -666,8 +666,8 @@ footer {
   align-self: stretch;
 }
 .ninth-block__star {
-  width: 20px;
-  height: 19px;
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
   fill: var(--colors-vector);
 }
 .ninth-block__comment-text {
@@ -680,8 +680,8 @@ footer {
   align-self: stretch;
 }
 .ninth-block__img {
-  width: 61.579px;
-  height: 56px;
+  width: var(--space-64);
+  height: var(--space-64);
   object-fit: cover;
 }
 .ninth-block__name-job {
@@ -912,7 +912,7 @@ footer {
   min-width: 275px;
   flex: 1 0 0;
   flex-shrink: 0;
-  border-radius: 16px;
+  border-radius: var(--radius-sm);
 
   object-fit: cover;
 
@@ -963,7 +963,7 @@ footer {
 input {
   flex: 1 0 0;
 
-  border-radius: var(--radius-sm,);
+  border-radius: var(--radius-sm);
   border: var(--border-size) solid var(--colors-border);
   background: var(--colors-backgroung-page);
 }
@@ -1051,7 +1051,7 @@ input {
 .marquee-group {
   display: flex;
   gap: var(--gap-lg);
-  padding: 20px var(--gap-lg);
+  padding: var(--spacing-xl) var(--gap-lg);
 }
 
 .sixth-block__card {
@@ -1060,7 +1060,7 @@ input {
   background: var(--colors-backgroung-card-2);
   padding: var(--spacing-xl);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 var(--space-4) var(--spacing-md) rgba(0, 0, 0, 0.1);
 }
 
 @keyframes scroll-sixth {
@@ -1091,7 +1091,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid var(--colors-border);
+  border-top: var(--border-size) solid var(--colors-border);
 }
 
 .parallax-layer {
@@ -1122,7 +1122,7 @@ input {
   position: absolute;
   left: -100px;
   top: 10%;
-  filter: blur(20px);
+  filter: blur(var(--spacing-xl));
 }
 .svg-shape {
   position: absolute;
@@ -1144,7 +1144,7 @@ input {
 @media (max-width: 768px) {
   .parallax-section {
     height: auto;
-    padding: 100px 0;
+    padding: var(--space-80) 0;
   }
 
   .svg-blob {
@@ -1152,7 +1152,7 @@ input {
     left: -50px;
   }
   .svg-shape {
-    width: 60px;
+    width: var(--space-64);
   }
   .svg-sparkle {
     display: none;
@@ -1164,7 +1164,7 @@ input {
 
 .footer__content.reveal-element {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(var(--space-32));
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1209,7 +1209,7 @@ my-footer.is-visible .footer__icon:nth-child(3) {
 .media-gallery__content {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl, 32px);
+  gap: var(--spacing-xl);
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -1217,18 +1217,18 @@ my-footer.is-visible .footer__icon:nth-child(3) {
 .media-gallery__main {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg, 24px);
+  gap: var(--spacing-lg);
   background-color: var(--colors-grey-500);
-  padding: var(--spacing-xl, 32px);
-  border-radius: var(--radius-md, 24px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  box-shadow: 0 var(--gap-md) var(--space-32) rgba(0, 0, 0, 0.05);
 }
 
 .media-gallery__display {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: var(--radius-sm, 16px);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   background-color: var(--colors-basic-black);
   display: flex;
@@ -1241,7 +1241,7 @@ my-footer.is-visible .footer__icon:nth-child(3) {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.5s ease-in-out; /* Плавный переход */
+  transition: opacity 0.5s ease-in-out;
 }
 
 .media-gallery__video {
@@ -1264,34 +1264,34 @@ my-footer.is-visible .footer__icon:nth-child(3) {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-md, 16px);
+  gap: var(--spacing-md);
 }
 
 /* Ползунок громкости */
 .volume-control {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--gap-sm);
   background: var(--colors-basic-white);
-  padding: 8px 16px;
+  padding: var(--gap-sm) var(--spacing-md);
   border-radius: var(--radius-max);
-  border: 1px solid var(--colors-grey-700);
+  border: var(--border-size) solid var(--colors-grey-700);
 }
 
 .volume-slider {
   -webkit-appearance: none;
   width: 100px;
-  height: 4px;
+  height: var(--space-4);
   background: var(--colors-grey-700);
-  border-radius: 2px;
+  border-radius: var(--radius-2);
   outline: none;
 }
 
 .volume-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: var(--spacing-md);
+  height: var(--spacing-md);
   border-radius: 50%;
   background: var(--colors-pink-500);
   cursor: pointer;
@@ -1300,15 +1300,15 @@ my-footer.is-visible .footer__icon:nth-child(3) {
 /* Визуальный индикатор (Эквалайзер) */
 .play-indicator {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
   display: flex;
-  gap: 3px;
+  gap: var(--spacing-xs);
   align-items: flex-end;
-  height: 24px;
-  padding: 8px;
+  height: var(--spacing-xl);
+  padding: var(--gap-sm);
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   z-index: 10;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1319,7 +1319,7 @@ my-footer.is-visible .footer__icon:nth-child(3) {
 }
 
 .play-indicator .bar {
-  width: 4px;
+  width: var(--space-4);
   background-color: var(--colors-pink-500);
   animation: bounce 1s infinite ease-in-out;
 }
@@ -1337,10 +1337,10 @@ my-footer.is-visible .footer__icon:nth-child(3) {
 @keyframes bounce {
   0%,
   100% {
-    height: 8px;
+    height: var(--gap-sm);
   }
   50% {
-    height: 24px;
+    height: var(--spacing-xl);
   }
 }
 
