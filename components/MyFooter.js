@@ -4,7 +4,7 @@ class MyFooter extends HTMLElement {
       <div class="footer__content reveal-element">
         <hr class="footer__line" />
         <div class="footer__bottom-part">
-          <p class="footer__powered Smalltext">
+          <p class="footer__powered Smalltext" data-i18n="footer.copyright">
             © Beautico by Minimal Square . Powered by Webflow .
           </p>
           <div class="footer__icons">

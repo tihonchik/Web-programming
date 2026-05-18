@@ -1,22 +1,27 @@
 import { isAuthenticated, removeCurrentUser, isAdmin } from "/js/auth.js";
+import {
+  translatePage,
+  loadTranslationPage,
+  getCurentLang,
+} from "/js/translation.js";
 
 class MyHeader extends HTMLElement {
   connectedCallback() {
     const authButton = isAuthenticated()
-      ? `<button class="header__right-button button Smalltext logout-btn">
+      ? `<button class="header__right-button button Smalltext logout-btn" data-i18n="header.logout">
            Logout
          </button>`
-      : `<a href="/pages/login.html" class="header__right-button button Smalltext">
+      : `<a href="/pages/login.html" class="header__right-button button Smalltext" data-i18n="header.login">
            Login
          </a>`;
 
     const adminLink = isAdmin()
-      ? `<a href="/pages/admin.html" class="header__a Smalltext">Admin</a>`
+      ? `<a href="/pages/admin.html" class="header__a Smalltext" data-i18n="header.admin">Admin</a>`
       : "";
 
     this.innerHTML = `
       <style>
-       
+
         .burger-menu-btn {
           display: none;
           background: none;
@@ -24,6 +29,37 @@ class MyHeader extends HTMLElement {
           color: var(--colors-basic-black, #000);
           cursor: pointer;
           padding: var(--spacing-sm, 8px);
+        }
+
+        .language-switcher {
+          display: flex;
+          gap: var(--spacing-xs, 4px);
+          align-items: center;
+        }
+
+        .lang-btn {
+          background: none;
+          border: 1px solid var(--colors-grey-700, #cdd5df);
+          color: var(--colors-text-title, #3c2769);
+          cursor: pointer;
+          padding: var(--spacing-xs, 4px) var(--spacing-sm, 8px);
+          border-radius: var(--radius-xs, 4px);
+          font-family: var(--fonts-smalltext-family, Roboto);
+          font-size: var(--fonts-sizes-14, 14px);
+          font-weight: 500;
+          transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+          background-color: var(--colors-backgroung-button-1, #e8d5f2);
+          border-color: var(--colors-violet-700, #7c3aed);
+        }
+
+        .lang-btn.active {
+          background-color: var(--colors-backgroung-button-1, #e8d5f2);
+          border-color: var(--colors-violet-700, #7c3aed);
+          color: var(--colors-violet-700, #7c3aed);
+          font-weight: 600;
         }
 
         .mobile-overlay {
@@ -131,7 +167,7 @@ class MyHeader extends HTMLElement {
       <section class="top-header top-block">
         <div class="top-header__grid">
           <div class="empty"></div>
-          <p class="header_text Smalltext">
+          <p class="header_text Smalltext" data-i18n="header.topBanner">
             Free worldwide shipping for orders over $55. Shop now
           </p>
           <p class="header__close MaterialIcons">close</p>
@@ -141,18 +177,22 @@ class MyHeader extends HTMLElement {
       <section class="bottom-header top-block">
         <div class="bottom-header__grid">
           <div class="empty"></div>
-          
+
           <!-- Десктопная навигация -->
           <nav class="header__nav">
-            <a href="/index.html" class="header__a Smalltext">Home</a>
-            <a href="/pages/catalog.html" class="header__a Smalltext">Catalog</a>
-            <a href="/pages/favorites.html" class="header__a Smalltext">Favorites</a>
-            <a href="/pages/Basket.html" class="header__a Smalltext">Basket</a>
-            <a href="/pages/orders.html" class="header__a Smalltext">Orders</a>
+            <a href="/index.html" class="header__a Smalltext" data-i18n="header.home">Home</a>
+            <a href="/pages/catalog.html" class="header__a Smalltext" data-i18n="header.catalog">Catalog</a>
+            <a href="/pages/favorites.html" class="header__a Smalltext" data-i18n="header.favorites">Favorites</a>
+            <a href="/pages/Basket.html" class="header__a Smalltext" data-i18n="header.basket">Basket</a>
+            <a href="/pages/orders.html" class="header__a Smalltext" data-i18n="header.orders">Orders</a>
             ${adminLink}
           </nav>
-          
+
           <div class="header__buttons">
+            <div class="language-switcher">
+              <button class="lang-btn" data-lang="en">EN</button>
+              <button class="lang-btn" data-lang="ru">RU</button>
+            </div>
             ${authButton}
           </div>
 
@@ -168,15 +208,19 @@ class MyHeader extends HTMLElement {
           <button class="close-menu-btn MaterialIcons" id="closeMenuBtn">close</button>
         </div>
         <nav class="mobile-nav">
-          <a href="/index.html">Home</a>
-          <a href="/pages/catalog.html">Products</a>
-          <a href="/pages/favorites.html">Favorites</a>
-          <a href="/pages/Basket.html">Basket</a>
-          <a href="/pages/orders.html">Orders</a>
-          ${adminLink ? `<a href="/pages/admin.html">Admin</a>` : ""}
+          <a href="/index.html" data-i18n="header.home">Home</a>
+          <a href="/pages/catalog.html" data-i18n="header.catalog">Products</a>
+          <a href="/pages/favorites.html" data-i18n="header.favorites">Favorites</a>
+          <a href="/pages/Basket.html" data-i18n="header.basket">Basket</a>
+          <a href="/pages/orders.html" data-i18n="header.orders">Orders</a>
+          ${adminLink ? `<a href="/pages/admin.html" data-i18n="header.admin">Admin</a>` : ""}
         </nav>
         <div class="mobile-divider"></div>
         <div class="mobile-actions">
+          <div class="language-switcher" style="justify-content: center;">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+          </div>
           <div style="display: flex; width: 100%; justify-content: center; margin-top: var(--gap-md);">
             ${authButton}
           </div>
@@ -198,6 +242,7 @@ class MyHeader extends HTMLElement {
     const closeBtn = this.querySelector("#closeMenuBtn");
     const overlay = this.querySelector("#mobileOverlay");
     const mobileMenu = this.querySelector("#mobileMenu");
+    const translateBtns = this.querySelectorAll("[data-lang]");
 
     const openMenu = () => {
       mobileMenu.classList.add("open");
@@ -210,6 +255,28 @@ class MyHeader extends HTMLElement {
       overlay.classList.remove("open");
       document.body.style.overflow = "";
     };
+
+    const updateActiveLanguageButton = () => {
+      const curentLang = getCurentLang();
+      translateBtns.forEach((btn) => {
+        if (btn.dataset.lang === curentLang) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+    };
+
+    translateBtns.forEach((translateBtn) => {
+      const lang = translateBtn.dataset.lang;
+      translateBtn.addEventListener("click", () => {
+        translatePage(lang);
+        updateActiveLanguageButton();
+      });
+    });
+
+    loadTranslationPage();
+    updateActiveLanguageButton();
 
     openBtn.addEventListener("click", openMenu);
     closeBtn.addEventListener("click", closeMenu);
