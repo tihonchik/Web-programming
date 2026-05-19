@@ -68,8 +68,8 @@ class CatalogCard extends HTMLElement {
       typeof coast === "number" ? `$${coast.toFixed(2)}` : coast;
 
     const buttons = isAuthenticated()
-      ? `<button class="button add_to_basket">Add to basket</button>
-         <button class="button add_to_favorites">Add to favorites</button>`
+      ? `<button class="button add_to_basket" data-i18n="catalog.addToBasket">Add to basket</button>
+         <button class="button add_to_favorites" data-i18n="catalog.addToFavorites">Add to favorites</button>`
       : "";
 
     this.innerHTML = `

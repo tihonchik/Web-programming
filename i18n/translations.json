@@ -279,7 +279,13 @@
       "addCount": "add count",
       "removeCount": "remove count",
       "left": "left",
-      "right": "right"
+      "right": "right",
+      "noGoods": "No goods found",
+      "noOrders": "You haven't placed any orders yet.",
+      "allCategories": "All",
+      "totalCoast": "All coast:",
+      "purchaseSuccess": "Purchase successful!",
+      "purchaseError": "Purchase failed. Please try again."
     },
     "favorites": {
       "searchPlaceholder": "Search in favorites...",
@@ -649,7 +655,13 @@
       "addCount": "добавить количество",
       "removeCount": "убрать количество",
       "left": "назад",
-      "right": "вперед"
+      "right": "вперед",
+      "noGoods": "Товары не найдены",
+      "noOrders": "Вы еще не сделали ни одного заказа.",
+      "allCategories": "Все",
+      "totalCoast": "Общая стоимость:",
+      "purchaseSuccess": "Покупка успешна!",
+      "purchaseError": "Покупка не удалась. Попробуйте еще раз."
     },
     "favorites": {
       "searchPlaceholder": "Поиск в избранном...",
