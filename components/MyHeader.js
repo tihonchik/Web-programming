@@ -4,7 +4,7 @@ import {
   loadTranslationPage,
   getCurentLang,
 } from "/js/translation.js";
-import { getFromLocalStorage, setToLocalStorage } from "/js/localStotage.js";
+import { getCurrentTheme, setTheme, loadTheme } from "/js/theme.js";
 
 class MyHeader extends HTMLElement {
   connectedCallback() {
@@ -307,19 +307,6 @@ class MyHeader extends HTMLElement {
       });
     };
 
-    const getCurrentTheme = () => {
-      return getFromLocalStorage("theme") || "light";
-    };
-
-    const setTheme = (theme) => {
-      setToLocalStorage("theme", theme);
-      if (theme === "dark") {
-        document.body.classList.add("theme-dark");
-      } else {
-        document.body.classList.remove("theme-dark");
-      }
-    };
-
     const updateActiveThemeButton = () => {
       const currentTheme = getCurrentTheme();
       themeBtns.forEach((btn) => {
@@ -329,12 +316,6 @@ class MyHeader extends HTMLElement {
           btn.classList.remove("active");
         }
       });
-    };
-
-    const loadTheme = () => {
-      const theme = getCurrentTheme();
-      setTheme(theme);
-      updateActiveThemeButton();
     };
 
     themeBtns.forEach((themeBtn) => {
@@ -356,6 +337,7 @@ class MyHeader extends HTMLElement {
     loadTranslationPage();
     updateActiveLanguageButton();
     loadTheme();
+    updateActiveThemeButton();
 
     openBtn.addEventListener("click", openMenu);
     closeBtn.addEventListener("click", closeMenu);
