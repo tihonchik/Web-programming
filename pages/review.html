@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/styles/toast.css" />
     <title>Leave Review</title>
     <link rel="icon" type="image/png" href="/static/favicon.png?" />
+    <link rel="stylesheet" href="/variables/dark-theme.css" />
   </head>
   <body>
     <pre-loader></pre-loader>
@@ -35,7 +36,12 @@
         <h2 class="review-title H2" data-i18n="review.title">Leave a Review</h2>
         <form class="review-form" id="reviewForm">
           <div class="form-group">
-            <label for="rating" class="form-label SmallText" data-i18n="review.rating">Rating</label>
+            <label
+              for="rating"
+              class="form-label SmallText"
+              data-i18n="review.rating"
+              >Rating</label
+            >
             <div class="rating-stars" id="ratingStars">
               <span class="material-icons star" data-value="1"
                 >star_border</span
@@ -57,7 +63,12 @@
           </div>
 
           <div class="form-group">
-            <label for="comment" class="form-label SmallText" data-i18n="review.comment">Comment</label>
+            <label
+              for="comment"
+              class="form-label SmallText"
+              data-i18n="review.comment"
+              >Comment</label
+            >
             <textarea
               id="comment"
               name="comment"
@@ -69,7 +80,13 @@
             <span class="error-message SmallText" id="commentError"></span>
           </div>
 
-          <button type="submit" class="button submit-btn" data-i18n="review.submit">Submit Review</button>
+          <button
+            type="submit"
+            class="button submit-btn"
+            data-i18n="review.submit"
+          >
+            Submit Review
+          </button>
         </form>
       </div>
     </main>

@@ -1,0 +1,31 @@
+.theme-dark {
+  --colors-backgroung-page: var(--colors-dark-bg, #0f1115);
+
+  --colors-backgroung-surface: var(--colors-dark-surface, #1a1c23);
+
+  --colors-backgroung-card: var(--colors-dark-card, #252730);
+  --colors-backgroung-card-2: var(--colors-dark-card, #252730);
+
+  --colors-backgroung-header-1: var(--colors-dark-card);
+
+  --colors-text-title: var(--colors-dark-text-title, #f8fafc);
+
+  --colors-text-main: var(--colors-dark-text-main, #94a3b8);
+
+  --colors-text-subject: var(--colors-dark-text-subject, #c4b5fd);
+
+  --colors-backgroung-button-1: var(--colors-pink-500, #cf4d74);
+  --colors-text-button-button-1: var(--colors-basic-white, #ffffff);
+
+  --colors-backgroung-button-2: var(--colors-dark-surface, #1a1c23);
+  --colors-text-button-button-2: var(--colors-basic-white, #ffffff);
+
+  --colors-border: var(--colors-dark-border, #353742);
+
+  --colors-vector: var(--colors-basic-white, #ffffff);
+}
+
+.theme-dark .first-block__icon,
+.theme-dark .sixth-block__icon img {
+  filter: invert(1) brightness(2);
+}

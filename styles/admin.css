@@ -165,3 +165,7 @@
     height: var(--space-40);
   }
 }
+
+.add_new_product {
+  background-color: var(--colors-text-button-2);
+}

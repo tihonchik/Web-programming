@@ -27,22 +27,33 @@
     <title>Catalog</title>
     <link rel="icon" type="image/png" href="/static/favicon.png?" />
     <link rel="stylesheet" href="/styles/modal.css" />
+    <link rel="stylesheet" href="/variables/dark-theme.css" />
   </head>
   <body>
     <pre-loader></pre-loader>
     <my-header class="header"></my-header>
     <main class="catalog-main top-block">
       <div class="catalog_search">
-        <input class="catalog_input H3" type="text" data-i18n-placeholder="favorites.searchPlaceholder" />
+        <input
+          class="catalog_input H3"
+          type="text"
+          data-i18n-placeholder="favorites.searchPlaceholder"
+        />
         <select name="type" id="type" class="catalog_select H4">
           <option value="title" data-i18n="favorites.filterTitle">title</option>
-          <option value="description" data-i18n="favorites.filterDescription">description</option>
+          <option value="description" data-i18n="favorites.filterDescription">
+            description
+          </option>
           <option value="coast" data-i18n="favorites.filterCoast">coast</option>
-          <option value="coast" data-i18n="favorites.filterVolume">volume</option>
+          <option value="coast" data-i18n="favorites.filterVolume">
+            volume
+          </option>
         </select>
         <select name="sort" id="sort" class="catalog_sort H4">
           <option value="title" data-i18n="favorites.sortTitle">title</option>
-          <option value="description" data-i18n="favorites.sortDescription">description</option>
+          <option value="description" data-i18n="favorites.sortDescription">
+            description
+          </option>
           <option value="coast" data-i18n="favorites.sortCoast">coast</option>
           <option value="coast" data-i18n="favorites.sortVolume">volume</option>
         </select>

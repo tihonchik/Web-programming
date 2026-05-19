@@ -1,5 +1,14 @@
 :root {
-  /* color */
+  --colors-dark-bg: #15181f;
+  --colors-dark-surface: #1a1c23;
+  --colors-dark-card: #252730;
+
+  --colors-dark-border: #353742;
+
+  --colors-dark-text-title: #f8fafc;
+  --colors-dark-text-main: #94a3b8;
+  --colors-dark-text-subject: #c4b5fd;
+
   --colors-basic-black: #000000;
   --colors-basic-white: #ffffff;
   --colors-grey-500: #f3f5f7;
@@ -14,7 +23,7 @@
   --colors-error-red: #ef4444;
   --colors-info: #2196f3;
   --colors-warning: #ffc107;
-  /* number */
+
   --fonts-heights-8: 8px;
   --fonts-heights-12: 12px;
   --fonts-heights-16: 16px;
@@ -69,7 +78,7 @@
   --space-64: 64px;
   --space-80: 80px;
   --space-160: 160px;
-  /* string */
+
   --fonts-family-inter: Inter;
   --fonts-family-material-icons: Material Icons;
   --fonts-family-roboto: Roboto;

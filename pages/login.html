@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="/variables/fonts.css" />
     <link rel="stylesheet" href="/styles/animation.css" />
     <link rel="stylesheet" href="/styles/login.css" />
+    <link rel="stylesheet" href="/variables/dark-theme.css" />
     <title>Login</title>
     <link rel="icon" type="image/png" href="/static/favicon.png?" />
   </head>
@@ -34,12 +35,19 @@
         <div class="login-card">
           <div class="login-header">
             <h1 class="login-title H2" data-i18n="login.title">Welcome Back</h1>
-            <p class="login-subtitle Text" data-i18n="login.subtitle">Sign in to your account</p>
+            <p class="login-subtitle Text" data-i18n="login.subtitle">
+              Sign in to your account
+            </p>
           </div>
 
           <form class="login-form" id="loginForm">
             <div class="form-group">
-              <label for="email" class="form-label Smalltext" data-i18n="login.email">Email</label>
+              <label
+                for="email"
+                class="form-label Smalltext"
+                data-i18n="login.email"
+                >Email</label
+              >
               <input
                 type="email"
                 id="email"
@@ -51,7 +59,12 @@
             </div>
 
             <div class="form-group">
-              <label for="password" class="form-label Smalltext" data-i18n="login.password">Password</label>
+              <label
+                for="password"
+                class="form-label Smalltext"
+                data-i18n="login.password"
+                >Password</label
+              >
               <div class="password-wrapper">
                 <input
                   type="password"
@@ -64,14 +77,23 @@
               <span class="error-message" id="passwordError"></span>
             </div>
             <span class="error-message" id="loginError"></span>
-            <button type="submit" class="login-button button Smalltext" data-i18n="login.signIn">
+            <button
+              type="submit"
+              class="login-button button Smalltext"
+              data-i18n="login.signIn"
+            >
               Sign In
             </button>
           </form>
           <div class="login-footer">
             <p class="Smalltext">
               <span data-i18n="login.noAccount">Don't have an account?</span>
-              <a href="/pages/register.html" class="register-link" data-i18n="login.signUp">Sign up</a>
+              <a
+                href="/pages/register.html"
+                class="register-link"
+                data-i18n="login.signUp"
+                >Sign up</a
+              >
             </p>
           </div>
         </div>

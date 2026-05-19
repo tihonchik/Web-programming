@@ -179,6 +179,7 @@
   padding: var(--spacing-md) var(--spacing-xl);
   margin-top: var(--spacing-sm);
   transition: all 0.3s ease;
+  background-color: var(--colors-backgroung-button-1);
 }
 
 .login-button:hover {

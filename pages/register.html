@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="/variables/fonts.css" />
     <link rel="stylesheet" href="/styles/animation.css" />
     <link rel="stylesheet" href="/styles/login.css" />
+    <link rel="stylesheet" href="/variables/dark-theme.css" />
     <title>Register</title>
     <link rel="icon" type="image/png" href="/static/favicon.png?" />
   </head>
@@ -33,14 +34,19 @@
       <div class="login-container">
         <div class="login-card">
           <div class="login-header">
-            <h1 class="login-title H2" data-i18n="register.title">Create Account</h1>
-            <p class="login-subtitle Text" data-i18n="register.subtitle">Sign up to get started</p>
+            <h1 class="login-title H2" data-i18n="register.title">
+              Create Account
+            </h1>
+            <p class="login-subtitle Text" data-i18n="register.subtitle">
+              Sign up to get started
+            </p>
           </div>
 
           <form class="login-form" id="registerForm">
             <div class="form-group">
               <label for="firstName" class="form-label Smalltext"
-                ><span data-i18n="register.firstName">First Name</span> <span class="required">*</span></label
+                ><span data-i18n="register.firstName">First Name</span>
+                <span class="required">*</span></label
               >
               <input
                 type="text"
@@ -54,7 +60,8 @@
 
             <div class="form-group">
               <label for="lastName" class="form-label Smalltext"
-                ><span data-i18n="register.lastName">Last Name</span> <span class="required">*</span></label
+                ><span data-i18n="register.lastName">Last Name</span>
+                <span class="required">*</span></label
               >
               <input
                 type="text"
@@ -67,7 +74,12 @@
             </div>
 
             <div class="form-group">
-              <label for="surnname" class="form-label Smalltext" data-i18n="register.surname">Surname</label>
+              <label
+                for="surnname"
+                class="form-label Smalltext"
+                data-i18n="register.surname"
+                >Surname</label
+              >
               <input
                 type="text"
                 id="surname"
@@ -80,7 +92,8 @@
 
             <div class="form-group">
               <label for="nickname" class="form-label Smalltext"
-                ><span data-i18n="register.nickname">Nickname</span> <span class="required">*</span></label
+                ><span data-i18n="register.nickname">Nickname</span>
+                <span class="required">*</span></label
               >
               <input
                 type="text"
@@ -94,7 +107,8 @@
 
             <div class="form-group">
               <label for="email" class="form-label Smalltext"
-                ><span data-i18n="register.email">Email</span> <span class="required">*</span></label
+                ><span data-i18n="register.email">Email</span>
+                <span class="required">*</span></label
               >
               <input
                 type="email"
@@ -108,7 +122,8 @@
 
             <div class="form-group">
               <label for="number" class="form-label Smalltext"
-                ><span data-i18n="register.number">Number</span> <span class="required">*</span></label
+                ><span data-i18n="register.number">Number</span>
+                <span class="required">*</span></label
               >
               <input
                 type="text"
@@ -122,7 +137,8 @@
 
             <div class="form-group">
               <label for="birthday" class="form-label Smalltext"
-                ><span data-i18n="register.birthday">Birthday</span> <span class="required">*</span></label
+                ><span data-i18n="register.birthday">Birthday</span>
+                <span class="required">*</span></label
               >
               <input
                 type="date"
@@ -136,7 +152,12 @@
             </div>
 
             <div class="form-group">
-              <label for="password" class="form-label Smalltext" data-i18n="register.password">Password</label>
+              <label
+                for="password"
+                class="form-label Smalltext"
+                data-i18n="register.password"
+                >Password</label
+              >
               <div class="password-wrapper">
                 <input
                   type="password"
@@ -150,7 +171,12 @@
             </div>
 
             <div class="form-group">
-              <label for="confirmPassword" class="form-label Smalltext" data-i18n="register.confirmPassword">Confirm Password</label>
+              <label
+                for="confirmPassword"
+                class="form-label Smalltext"
+                data-i18n="register.confirmPassword"
+                >Confirm Password</label
+              >
               <div class="password-wrapper">
                 <input
                   type="password"
@@ -166,21 +192,34 @@
             <label class="checkbox-wrapper Smalltext">
               <input type="checkbox" id="terms" />
               <span
-                ><span data-i18n="register.agreeTerms">I agree to the Terms and Conditions</span>
+                ><span data-i18n="register.agreeTerms"
+                  >I agree to the Terms and Conditions</span
+                >
                 <span class="required">*</span></span
               >
             </label>
             <span class="error-message" id="termsError"></span>
 
-            <button type="submit" class="login-button button Smalltext" data-i18n="register.createAccount">
+            <button
+              type="submit"
+              class="login-button button Smalltext"
+              data-i18n="register.createAccount"
+            >
               Create Account
             </button>
           </form>
 
           <div class="login-footer">
             <p class="Smalltext">
-              <span data-i18n="register.haveAccount">Already have an account?</span>
-              <a href="/pages/login.html" class="register-link" data-i18n="register.signIn">Sign in</a>
+              <span data-i18n="register.haveAccount"
+                >Already have an account?</span
+              >
+              <a
+                href="/pages/login.html"
+                class="register-link"
+                data-i18n="register.signIn"
+                >Sign in</a
+              >
             </p>
           </div>
         </div>
