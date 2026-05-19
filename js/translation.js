@@ -10,7 +10,11 @@ function setLang(lang) {
 
 function getAllDataI18N() {
   const items = document.querySelectorAll("[data-i18n]");
+  return items;
+}
 
+function getAllDataI18NPlaceholder() {
+  const items = document.querySelectorAll("[data-i18n-placeholder]");
   return items;
 }
 
@@ -46,17 +50,26 @@ async function translatePage(lang) {
     }, translations[lang]);
 
     if (translatedText) {
-      if (item.tagName === "INPUT" || item.tagName === "TEXTAREA") {
-        if (keyPath.toLowerCase().includes("placeholder")) {
-          item.placeholder = translatedText;
-        } else {
-          item.value = translatedText;
-        }
-      } else {
-        item.textContent = translatedText;
-      }
+      item.textContent = translatedText;
     } else {
       console.warn(`Перевод не найден для ключа: ${keyPath} [${lang}]`);
+    }
+  });
+
+  const placeholderItems = getAllDataI18NPlaceholder();
+
+  placeholderItems.forEach((item) => {
+    const keyPath = item.dataset.i18nPlaceholder;
+    const keys = keyPath.split(".");
+
+    const translatedText = keys.reduce((obj, key) => {
+      return obj && obj[key] !== undefined ? obj[key] : null;
+    }, translations[lang]);
+
+    if (translatedText) {
+      item.placeholder = translatedText;
+    } else {
+      console.warn(`Перевод не найден для placeholder ключа: ${keyPath} [${lang}]`);
     }
   });
 
