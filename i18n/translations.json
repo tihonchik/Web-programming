@@ -364,7 +364,13 @@
       "rating": "Rating",
       "comment": "Comment",
       "commentPlaceholder": "Share your experience...",
-      "submit": "Submit Review"
+      "submit": "Submit Review",
+      "errors": {
+        "ratingRequired": "Please select a rating",
+        "commentRequired": "Comment is required"
+      },
+      "submitSuccess": "Review submitted successfully!",
+      "submitError": "Failed to submit review. Please try again."
     },
     "modal": {
       "productDetails": "Product Details",
@@ -749,7 +755,13 @@
       "rating": "Рейтинг",
       "comment": "Комментарий",
       "commentPlaceholder": "Поделитесь своим опытом...",
-      "submit": "Отправить отзыв"
+      "submit": "Отправить отзыв",
+      "errors": {
+        "ratingRequired": "Пожалуйста, выберите рейтинг",
+        "commentRequired": "Комментарий обязателен"
+      },
+      "submitSuccess": "Отзыв успешно отправлен!",
+      "submitError": "Не удалось отправить отзыв. Попробуйте еще раз."
     },
     "modal": {
       "productDetails": "Детали продукта",

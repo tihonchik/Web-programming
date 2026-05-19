@@ -59,7 +59,7 @@ class OrderCard extends HTMLElement {
               <span class="catalog-card__price H4"></span>
             </div>
           </div>
-          <button class="button leave_review">Leave Review</button>
+          <button class="button leave_review" data-i18n="orders.leaveReview">Leave Review</button>
         </article>
     `;
   }

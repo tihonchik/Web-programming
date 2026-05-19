@@ -2,6 +2,7 @@ import { isAuthenticated, getCurrentUser } from "/js/auth.js";
 import { AddReview } from "/js/api.js";
 import { showError, hideError } from "/js/error.js";
 import { notify } from "/components/MyToast.js";
+import { getTranslation } from "/js/translation.js";
 
 if (!isAuthenticated()) {
   window.location.href = "/pages/login.html";
@@ -54,7 +55,7 @@ reviewForm.addEventListener("submit", async (e) => {
   let isValid = true;
 
   if (selectedRating === 0) {
-    showError("ratingError", "Please select a rating");
+    showError("ratingError", await getTranslation("review.errors.ratingRequired"));
     isValid = false;
   } else {
     hideError("ratingError");
@@ -62,7 +63,7 @@ reviewForm.addEventListener("submit", async (e) => {
 
   const comment = document.getElementById("comment").value.trim();
   if (!comment) {
-    showError("commentError", "Comment is required");
+    showError("commentError", await getTranslation("review.errors.commentRequired"));
     isValid = false;
   } else {
     hideError("commentError");
@@ -84,9 +85,9 @@ reviewForm.addEventListener("submit", async (e) => {
   const success = await AddReview(review);
 
   if (success) {
-    notify("Review submitted successfully!", "success");
+    notify(await getTranslation("review.submitSuccess"), "success");
     window.location.href = "/pages/orders.html";
   } else {
-    notify("Failed to submit review. Please try again.", "error");
+    notify(await getTranslation("review.submitError"), "error");
   }
 });
