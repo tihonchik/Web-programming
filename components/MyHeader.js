@@ -4,6 +4,7 @@ import {
   loadTranslationPage,
   getCurentLang,
 } from "/js/translation.js";
+import { getFromLocalStorage, setToLocalStorage } from "/js/localStotage.js";
 
 class MyHeader extends HTMLElement {
   connectedCallback() {
@@ -60,6 +61,36 @@ class MyHeader extends HTMLElement {
           border-color: var(--colors-violet-700, #7c3aed);
           color: var(--colors-violet-700, #7c3aed);
           font-weight: 600;
+        }
+
+        .theme-switcher {
+          display: flex;
+          gap: var(--spacing-xs, 4px);
+          align-items: center;
+        }
+
+        .theme-btn {
+          background: none;
+          border: 1px solid var(--colors-grey-700, #cdd5df);
+          color: var(--colors-text-title, #3c2769);
+          cursor: pointer;
+          padding: var(--spacing-xs, 4px) var(--spacing-sm, 8px);
+          border-radius: var(--radius-xs, 4px);
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .theme-btn:hover {
+          background-color: var(--colors-backgroung-button-1, #e8d5f2);
+          border-color: var(--colors-violet-700, #7c3aed);
+        }
+
+        .theme-btn.active {
+          background-color: var(--colors-backgroung-button-1, #e8d5f2);
+          border-color: var(--colors-violet-700, #7c3aed);
+          color: var(--colors-violet-700, #7c3aed);
         }
 
         .mobile-overlay {
@@ -189,6 +220,10 @@ class MyHeader extends HTMLElement {
           </nav>
 
           <div class="header__buttons">
+            <div class="theme-switcher">
+              <button class="theme-btn MaterialIcons" data-theme="light">light_mode</button>
+              <button class="theme-btn MaterialIcons" data-theme="dark">dark_mode</button>
+            </div>
             <div class="language-switcher">
               <button class="lang-btn" data-lang="en">EN</button>
               <button class="lang-btn" data-lang="ru">RU</button>
@@ -217,6 +252,10 @@ class MyHeader extends HTMLElement {
         </nav>
         <div class="mobile-divider"></div>
         <div class="mobile-actions">
+          <div class="theme-switcher" style="justify-content: center;">
+            <button class="theme-btn MaterialIcons" data-theme="light">light_mode</button>
+            <button class="theme-btn MaterialIcons" data-theme="dark">dark_mode</button>
+          </div>
           <div class="language-switcher" style="justify-content: center;">
             <button class="lang-btn" data-lang="en">EN</button>
             <button class="lang-btn" data-lang="ru">RU</button>
@@ -243,6 +282,7 @@ class MyHeader extends HTMLElement {
     const overlay = this.querySelector("#mobileOverlay");
     const mobileMenu = this.querySelector("#mobileMenu");
     const translateBtns = this.querySelectorAll("[data-lang]");
+    const themeBtns = this.querySelectorAll("[data-theme]");
 
     const openMenu = () => {
       mobileMenu.classList.add("open");
@@ -267,6 +307,44 @@ class MyHeader extends HTMLElement {
       });
     };
 
+    const getCurrentTheme = () => {
+      return getFromLocalStorage("theme") || "light";
+    };
+
+    const setTheme = (theme) => {
+      setToLocalStorage("theme", theme);
+      if (theme === "dark") {
+        document.body.classList.add("theme-dark");
+      } else {
+        document.body.classList.remove("theme-dark");
+      }
+    };
+
+    const updateActiveThemeButton = () => {
+      const currentTheme = getCurrentTheme();
+      themeBtns.forEach((btn) => {
+        if (btn.dataset.theme === currentTheme) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+    };
+
+    const loadTheme = () => {
+      const theme = getCurrentTheme();
+      setTheme(theme);
+      updateActiveThemeButton();
+    };
+
+    themeBtns.forEach((themeBtn) => {
+      themeBtn.addEventListener("click", () => {
+        const theme = themeBtn.dataset.theme;
+        setTheme(theme);
+        updateActiveThemeButton();
+      });
+    });
+
     translateBtns.forEach((translateBtn) => {
       const lang = translateBtn.dataset.lang;
       translateBtn.addEventListener("click", () => {
@@ -277,6 +355,7 @@ class MyHeader extends HTMLElement {
 
     loadTranslationPage();
     updateActiveLanguageButton();
+    loadTheme();
 
     openBtn.addEventListener("click", openMenu);
     closeBtn.addEventListener("click", closeMenu);
