@@ -33,31 +33,39 @@
     <my-header class="header"></my-header>
     <main class="catalog-main top-block">
       <div class="catalog_search">
-        <input class="catalog_input H3" type="text" />
+        <input
+          class="catalog_input H3"
+          type="text"
+          data-i18n-placeholder="basket.searchPlaceholder"
+        />
         <select name="type" id="type" class="catalog_select H4">
-          <option value="title">title</option>
-          <option value="description">description</option>
-          <option value="coast">coast</option>
-          <option value="coast">volume</option>
+          <option value="title" data-i18n="basket.filterTitle">title</option>
+          <option value="description" data-i18n="basket.filterDescription">
+            description
+          </option>
+          <option value="coast" data-i18n="basket.filterCoast">coast</option>
+          <option value="coast" data-i18n="basket.filterVolume">volume</option>
         </select>
         <select name="sort" id="sort" class="catalog_sort H4">
-          <option value="title">title</option>
-          <option value="description">description</option>
-          <option value="coast">coast</option>
-          <option value="coast">volume</option>
+          <option value="title" data-i18n="basket.sortTitle">title</option>
+          <option value="description" data-i18n="basket.sortDescription">
+            description
+          </option>
+          <option value="coast" data-i18n="basket.sortCoast">coast</option>
+          <option value="coast" data-i18n="basket.sortVolume">volume</option>
         </select>
         <select name="sortType" id="sortType" class="catalog_sort_type H4">
-          <option value="asc">sort ASC</option>
-          <option value="desc">sort DESC</option>
+          <option value="asc" data-i18n="basket.sortAsc">sort ASC</option>
+          <option value="desc" data-i18n="basket.sortDesc">sort DESC</option>
         </select>
         <div class="catalog_filter H4"></div>
         <p class="H3 Sum"></p>
-        <button class="button Buy">Buy</button>
+        <button class="button Buy" data-i18n="basket.buy">Buy</button>
       </div>
       <div class="catalog-grid basket"></div>
       <div class="buttons">
-        <button class="left button">left</button>
-        <button class="right button">right</button>
+        <button class="left button" data-i18n="basket.left">left</button>
+        <button class="right button" data-i18n="basket.right">right</button>
       </div>
     </main>
     <my-footer class="footer top-block"></my-footer>

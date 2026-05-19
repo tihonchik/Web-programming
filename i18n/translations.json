@@ -285,7 +285,11 @@
       "allCategories": "All",
       "totalCoast": "All coast:",
       "purchaseSuccess": "Purchase successful!",
-      "purchaseError": "Purchase failed. Please try again."
+      "purchaseError": "Purchase failed. Please try again.",
+      "count": "Count:",
+      "removedSuccess": "Removed from basket!",
+      "removedError": "Failed to remove from basket",
+      "updateError": "Failed to update count"
     },
     "favorites": {
       "searchPlaceholder": "Search in favorites...",
@@ -661,7 +665,11 @@
       "allCategories": "Все",
       "totalCoast": "Общая стоимость:",
       "purchaseSuccess": "Покупка успешна!",
-      "purchaseError": "Покупка не удалась. Попробуйте еще раз."
+      "purchaseError": "Покупка не удалась. Попробуйте еще раз.",
+      "count": "Количество:",
+      "removedSuccess": "Удалено из корзины!",
+      "removedError": "Не удалось удалить из корзины",
+      "updateError": "Не удалось обновить количество"
     },
     "favorites": {
       "searchPlaceholder": "Поиск в избранном...",

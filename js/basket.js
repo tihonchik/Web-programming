@@ -7,6 +7,7 @@ import {
 import BasketCard from "/components/BasketCard.js";
 import { isAuthenticated, getCurrentUser } from "/js/auth.js";
 import { notify } from "/components/MyToast.js";
+import { getTranslation } from "/js/translation.js";
 
 if (!isAuthenticated()) {
   window.location.href = "/pages/login.html";
@@ -24,15 +25,15 @@ const perPage = 8;
 let currentPage = 1;
 let pages = 0;
 
-function render(list) {
+async function render(list) {
   const grid = document.querySelector(`.catalog-grid`);
   grid.innerHTML = "";
 
   if (list.length === 0) {
     grid.innerHTML = `
       <div class="no-results">
-        <h3>No goods found</h3>
-        <p>You haven't placed any orders yet.</p>
+        <h3>${await getTranslation("basket.noGoods")}</h3>
+        <p>${await getTranslation("basket.noOrders")}</p>
       </div>`;
     return;
   }
@@ -58,7 +59,7 @@ async function renderCategories() {
   categoryContainer.innerHTML = "";
 
   const btnAll = document.createElement("button");
-  btnAll.textContent = "All";
+  btnAll.textContent = await getTranslation("basket.allCategories");
   btnAll.classList.add("active");
   btnAll.classList.add("button");
   btnAll.addEventListener("click", () => {
@@ -129,9 +130,9 @@ async function applyAllFilters() {
       return acc + item.coast * item.count;
     }, 0)
     .toFixed(2);
-  Sum.innerHTML = "All coast: " + sumCoast;
+  Sum.innerHTML = (await getTranslation("basket.totalCoast")) + " " + sumCoast;
 
-  render(items, "catalog");
+  await render(items, "catalog");
 }
 
 document.querySelector(".left").addEventListener("click", () => {
@@ -158,10 +159,10 @@ buyBtn.addEventListener("click", async () => {
   const user = getCurrentUser();
   const success = await Buy(user.id);
   if (success) {
-    notify("Purchase successful!", "success");
+    notify(await getTranslation("basket.purchaseSuccess"), "success");
     await init();
   } else {
-    notify("Purchase failed. Please try again.", "error");
+    notify(await getTranslation("basket.purchaseError"), "error");
   }
 });
 
