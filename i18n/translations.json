@@ -190,7 +190,13 @@
       "passwordPlaceholder": "Enter your password",
       "signIn": "Sign In",
       "noAccount": "Don't have an account?",
-      "signUp": "Sign up"
+      "signUp": "Sign up",
+      "errors": {
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "passwordRequired": "Password is required",
+        "invalidCredentials": "Invalid email or password"
+      }
     },
     "register": {
       "title": "Create Account",
@@ -216,7 +222,28 @@
       "agreeTerms": "I agree to the Terms and Conditions",
       "createAccount": "Create Account",
       "haveAccount": "Already have an account?",
-      "signIn": "Sign in"
+      "signIn": "Sign in",
+      "errors": {
+        "termsRequired": "You must agree to the terms",
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "nicknameRequired": "Nickname is required",
+        "nicknameExists": "Such a nickname already exists",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "birthdayRequired": "Birthday is required",
+        "ageRestriction": "You must be at least 16 years old",
+        "passwordRequired": "Please confirm your password",
+        "passwordMismatch": "The passwords don't match",
+        "passwordTooShort": "The password must be at least 8 characters long.",
+        "passwordTooLong": "The password must be shorter than 21 characters.",
+        "passwordNoDigit": "The password must contain at least one digit.",
+        "passwordNoUppercase": "The password must contain at least one uppercase letter.",
+        "passwordNoSpecial": "The password must contain at least one special character.",
+        "passwordTooCommon": "This password is too common. Please choose a stronger password.",
+        "numberRequired": "Phone number is required",
+        "numberInvalid": "Format: +375XXXXXXXXX (9 digits after +375)"
+      }
     },
     "catalog": {
       "searchPlaceholder": "Search products...",
@@ -520,7 +547,13 @@
       "passwordPlaceholder": "Введите ваш пароль",
       "signIn": "Войти",
       "noAccount": "Нет аккаунта?",
-      "signUp": "Зарегистрироваться"
+      "signUp": "Зарегистрироваться",
+      "errors": {
+        "emailRequired": "Email обязателен",
+        "emailInvalid": "Пожалуйста, введите корректный email адрес",
+        "passwordRequired": "Пароль обязателен",
+        "invalidCredentials": "Неверный email или пароль"
+      }
     },
     "register": {
       "title": "Создать аккаунт",
@@ -546,7 +579,28 @@
       "agreeTerms": "Я согласен с Условиями использования",
       "createAccount": "Создать аккаунт",
       "haveAccount": "Уже есть аккаунт?",
-      "signIn": "Войти"
+      "signIn": "Войти",
+      "errors": {
+        "termsRequired": "Вы должны согласиться с условиями",
+        "firstNameRequired": "Имя обязательно",
+        "lastNameRequired": "Фамилия обязательна",
+        "nicknameRequired": "Никнейм обязателен",
+        "nicknameExists": "Такой никнейм уже существует",
+        "emailRequired": "Email обязателен",
+        "emailInvalid": "Пожалуйста, введите корректный email адрес",
+        "birthdayRequired": "Дата рождения обязательна",
+        "ageRestriction": "Вам должно быть не менее 16 лет",
+        "passwordRequired": "Пожалуйста, подтвердите ваш пароль",
+        "passwordMismatch": "Пароли не совпадают",
+        "passwordTooShort": "Пароль должен содержать не менее 8 символов.",
+        "passwordTooLong": "Пароль должен быть короче 21 символа.",
+        "passwordNoDigit": "Пароль должен содержать хотя бы одну цифру.",
+        "passwordNoUppercase": "Пароль должен содержать хотя бы одну заглавную букву.",
+        "passwordNoSpecial": "Пароль должен содержать хотя бы один специальный символ.",
+        "passwordTooCommon": "Этот пароль слишком распространенный. Пожалуйста, выберите более надежный пароль.",
+        "numberRequired": "Номер телефона обязателен",
+        "numberInvalid": "Формат: +375XXXXXXXXX (9 цифр после +375)"
+      }
     },
     "catalog": {
       "searchPlaceholder": "Поиск товаров...",

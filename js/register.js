@@ -1,6 +1,7 @@
 import { Register, GetUsers } from "/js/api.js";
 import User from "/models/User.js";
 import { showError, hideError } from "/js/error.js";
+import { getTranslation } from "/js/translation.js";
 
 const top100Passwords = [
   "password",
@@ -163,21 +164,24 @@ const checkbox = document.getElementById("terms");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirmPassword");
 
-function CheckCheckBox() {
+async function CheckCheckBox() {
   if (checkbox.checked) {
     hideError("termsError");
     return true;
   } else {
-    showError("termsError", "You must agree to the terms");
+    showError("termsError", await getTranslation("register.errors.termsRequired"));
     return false;
   }
 }
 
 checkbox.addEventListener("input", CheckCheckBox);
 
-function CheckFirstName() {
+async function CheckFirstName() {
   if (firstName.value.trim() === "") {
-    showError("firstNameError", "First name is required");
+    showError(
+      "firstNameError",
+      await getTranslation("register.errors.firstNameRequired"),
+    );
     return false;
   } else {
     hideError("firstNameError");
@@ -186,9 +190,12 @@ function CheckFirstName() {
 }
 firstName.addEventListener("input", CheckFirstName);
 
-function CheckLastName() {
+async function CheckLastName() {
   if (lastName.value.trim() === "") {
-    showError("lastNameError", "Last name is required");
+    showError(
+      "lastNameError",
+      await getTranslation("register.errors.lastNameRequired"),
+    );
     return false;
   } else {
     hideError("lastNameError");
@@ -197,9 +204,12 @@ function CheckLastName() {
 }
 lastName.addEventListener("input", CheckLastName);
 
-function CheckNickname() {
+async function CheckNickname() {
   if (nickname.value.trim() === "") {
-    showError("nicknameError", "Nickname is required");
+    showError(
+      "nicknameError",
+      await getTranslation("register.errors.nicknameRequired"),
+    );
     return false;
   } else {
     hideError("nicknameError");
@@ -208,13 +218,13 @@ function CheckNickname() {
 }
 nickname.addEventListener("input", CheckNickname);
 
-function CheckEmail() {
+async function CheckEmail() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (email.value.trim() === "") {
-    showError("emailError", "Email is required");
+    showError("emailError", await getTranslation("register.errors.emailRequired"));
     return false;
   } else if (!emailRegex.test(email.value)) {
-    showError("emailError", "Please enter a valid email address");
+    showError("emailError", await getTranslation("register.errors.emailInvalid"));
     return false;
   } else {
     hideError("emailError");
@@ -223,9 +233,12 @@ function CheckEmail() {
 }
 email.addEventListener("input", CheckEmail);
 
-function CheckBirthday() {
+async function CheckBirthday() {
   if (birthday.value === "") {
-    showError("birthdayError", "Birthday is required");
+    showError(
+      "birthdayError",
+      await getTranslation("register.errors.birthdayRequired"),
+    );
     return false;
   } else {
     const birthDate = new Date(birthday.value);
@@ -238,7 +251,10 @@ function CheckBirthday() {
       age < 16 ||
       (age === 16 && (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)))
     ) {
-      showError("birthdayError", "You must be at least 16 years old");
+      showError(
+        "birthdayError",
+        await getTranslation("register.errors.ageRestriction"),
+      );
       return false;
     } else {
       hideError("birthdayError");
@@ -248,12 +264,18 @@ function CheckBirthday() {
 }
 birthday.addEventListener("input", CheckBirthday);
 
-function CheckConfirmPassword() {
+async function CheckConfirmPassword() {
   if (confirmPassword.value.trim() === "") {
-    showError("confirmPasswordError", "Please confirm your password");
+    showError(
+      "confirmPasswordError",
+      await getTranslation("register.errors.passwordRequired"),
+    );
     return false;
   } else if (confirmPassword.value !== password.value) {
-    showError("confirmPasswordError", "The passwords don't match");
+    showError(
+      "confirmPasswordError",
+      await getTranslation("register.errors.passwordMismatch"),
+    );
     return false;
   } else {
     hideError("confirmPasswordError");
@@ -262,37 +284,35 @@ function CheckConfirmPassword() {
 }
 confirmPassword.addEventListener("input", CheckConfirmPassword);
 
-function ValidatePassword(password) {
+async function ValidatePassword(password) {
   const result = {
     success: true,
     message: "",
   };
   if (password.length < 8) {
     result.success = false;
-    result.message = "The password must be at least 8 characters long.";
+    result.message = await getTranslation("register.errors.passwordTooShort");
   } else if (password.length > 20) {
     result.success = false;
-    result.message = "The password must be shorter than 21 characters.";
+    result.message = await getTranslation("register.errors.passwordTooLong");
   } else if (!/\d/.test(password)) {
     result.success = false;
-    result.message = "The password must contain at least one digit.";
+    result.message = await getTranslation("register.errors.passwordNoDigit");
   } else if (!/[A-Z]/.test(password)) {
     result.success = false;
-    result.message = "The password must contain at least one uppercase letter.";
+    result.message = await getTranslation("register.errors.passwordNoUppercase");
   } else if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
     result.success = false;
-    result.message =
-      "The password must contain at least one special character.";
+    result.message = await getTranslation("register.errors.passwordNoSpecial");
   } else if (top100Passwords.includes(password.toLowerCase())) {
     result.success = false;
-    result.message =
-      "This password is too common. Please choose a stronger password.";
+    result.message = await getTranslation("register.errors.passwordTooCommon");
   }
   return result;
 }
 
-function CheckPassword() {
-  const result = ValidatePassword(password.value);
+async function CheckPassword() {
+  const result = await ValidatePassword(password.value);
   if (result.success) {
     hideError("passwordError");
   } else {
@@ -303,7 +323,7 @@ function CheckPassword() {
 
 password.addEventListener("input", CheckPassword);
 
-function ValidateNumber(number) {
+async function ValidateNumber(number) {
   const belarusPhoneRegex = /^\+375\d{9}$/;
   const result = {
     success: true,
@@ -311,16 +331,16 @@ function ValidateNumber(number) {
   };
   if (!number || number.trim() === "") {
     result.success = false;
-    result.message = "Phone number is required";
+    result.message = await getTranslation("register.errors.numberRequired");
   } else if (!belarusPhoneRegex.test(number)) {
     result.success = false;
-    result.message = "Format: +375XXXXXXXXX (9 digits after +375)";
+    result.message = await getTranslation("register.errors.numberInvalid");
   }
   return result;
 }
 
-function CheckNumber() {
-  const result = ValidateNumber(number.value);
+async function CheckNumber() {
+  const result = await ValidateNumber(number.value);
   if (result.success) {
     hideError("numberError");
   } else {
@@ -335,45 +355,48 @@ const registerForm = document.querySelector(".login-form");
 registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   let success = true;
-  if (!CheckCheckBox()) {
+  if (!(await CheckCheckBox())) {
     success = false;
   }
 
-  if (!CheckFirstName()) {
+  if (!(await CheckFirstName())) {
     success = false;
   }
 
-  if (!CheckLastName()) {
+  if (!(await CheckLastName())) {
     success = false;
   }
 
-  if (!CheckNickname()) {
+  if (!(await CheckNickname())) {
     success = false;
   }
 
-  if (!CheckEmail()) {
+  if (!(await CheckEmail())) {
     success = false;
   }
 
-  if (!CheckBirthday()) {
+  if (!(await CheckBirthday())) {
     success = false;
   }
 
-  if (!CheckPassword()) {
+  if (!(await CheckPassword())) {
     success = false;
   }
 
-  if (!CheckConfirmPassword()) {
+  if (!(await CheckConfirmPassword())) {
     success = false;
   }
 
-  if (!CheckNumber()) {
+  if (!(await CheckNumber())) {
     success = false;
   }
 
   const users = await GetUsers();
   if (users.some((user) => user.nickname === nickname.value)) {
-    showError("nicknameError", "Such a nickname already exists");
+    showError(
+      "nicknameError",
+      await getTranslation("register.errors.nicknameExists"),
+    );
     success = false;
   }
 

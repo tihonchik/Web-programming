@@ -41,13 +41,10 @@ async function translatePage(lang) {
 
   const items = getAllDataI18N();
 
-  items.forEach((item) => {
-    const keyPath = item.dataset.i18n;
-    const keys = keyPath.split(".");
+  items.forEach(async (item) => {
+    const key = item.dataset.i18n;
 
-    const translatedText = keys.reduce((obj, key) => {
-      return obj && obj[key] !== undefined ? obj[key] : null;
-    }, translations[lang]);
+    const translatedText = await getTranslation(key);
 
     if (translatedText) {
       item.textContent = translatedText;
@@ -58,18 +55,17 @@ async function translatePage(lang) {
 
   const placeholderItems = getAllDataI18NPlaceholder();
 
-  placeholderItems.forEach((item) => {
-    const keyPath = item.dataset.i18nPlaceholder;
-    const keys = keyPath.split(".");
+  placeholderItems.forEach(async (item) => {
+    const key = item.dataset.i18nPlaceholder;
 
-    const translatedText = keys.reduce((obj, key) => {
-      return obj && obj[key] !== undefined ? obj[key] : null;
-    }, translations[lang]);
+    const translatedText = await getTranslation(key);
 
     if (translatedText) {
       item.placeholder = translatedText;
     } else {
-      console.warn(`Перевод не найден для placeholder ключа: ${keyPath} [${lang}]`);
+      console.warn(
+        `Перевод не найден для placeholder ключа: ${keyPath} [${lang}]`,
+      );
     }
   });
 
@@ -81,4 +77,21 @@ function loadTranslationPage() {
   translatePage(lang);
 }
 
-export { translatePage, loadTranslationPage, getCurentLang };
+async function getTranslation(key) {
+  const translations = await getTranslations();
+  if (!translations) return key;
+  const lang = getCurentLang();
+  const keys = key.split(".");
+  const translatedText = keys.reduce((obj, k) => {
+    return obj && obj[k] !== undefined ? obj[k] : null;
+  }, translations[lang]);
+  return translatedText || key;
+}
+
+export {
+  translatePage,
+  loadTranslationPage,
+  getCurentLang,
+  getTranslations,
+  getTranslation,
+};
