@@ -384,7 +384,17 @@
       "company": "Company",
       "volume": "Volume",
       "cancel": "Cancel",
-      "save": "Save"
+      "save": "Save",
+      "errors": {
+        "titleRequired": "Title is required",
+        "descriptionRequired": "Description is required",
+        "priceRequired": "Price is required",
+        "pricePositive": "Price must be a positive number",
+        "photoURLRequired": "Photo URL is required",
+        "categoryRequired": "Category is required",
+        "companyRequired": "Company is required",
+        "volumeRequired": "Volume is required"
+      }
     },
     "orders": {
       "leaveReview": "Leave Review"
@@ -775,7 +785,17 @@
       "company": "Компания",
       "volume": "Объем",
       "cancel": "Отмена",
-      "save": "Сохранить"
+      "save": "Сохранить",
+      "errors": {
+        "titleRequired": "Название обязательно",
+        "descriptionRequired": "Описание обязательно",
+        "priceRequired": "Цена обязательна",
+        "pricePositive": "Цена должна быть положительным числом",
+        "photoURLRequired": "URL фото обязателен",
+        "categoryRequired": "Категория обязательна",
+        "companyRequired": "Компания обязательна",
+        "volumeRequired": "Объем обязателен"
+      }
     },
     "orders": {
       "leaveReview": "Оставить отзыв"

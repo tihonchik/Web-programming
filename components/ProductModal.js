@@ -1,4 +1,5 @@
 import { showError, hideError } from "/js/error.js";
+import { getTranslation } from "/js/translation.js";
 
 class ProductModal extends HTMLElement {
   connectedCallback() {
@@ -31,16 +32,18 @@ class ProductModal extends HTMLElement {
     `;
   }
 
-  open(mode, product = null) {
+  async open(mode, product = null) {
     this.mode = mode;
     this.product = product;
 
     if (mode === "view") {
-      this.modalTitle.textContent = "Product Details";
+      this.modalTitle.setAttribute("data-i18n", "modal.productDetails");
+      this.modalTitle.textContent = await getTranslation("modal.productDetails");
       this.renderViewMode();
     } else {
-      this.modalTitle.textContent =
-        mode === "edit" ? "Edit Product" : "Add Product";
+      const titleKey = mode === "edit" ? "modal.editProduct" : "modal.addProduct";
+      this.modalTitle.setAttribute("data-i18n", titleKey);
+      this.modalTitle.textContent = await getTranslation(titleKey);
       this.renderFormMode();
     }
 
@@ -89,43 +92,43 @@ class ProductModal extends HTMLElement {
     this.modalBody.innerHTML = `
       <form class="product-form" id="productForm">
         <div class="form-group">
-          <label class="form-label SmallText">Title</label>
+          <label class="form-label SmallText" data-i18n="modal.title">Title</label>
           <input type="text" id="title" class="form-input SmallText" value="${p.title || ""}" />
           <span class="error-message SmallText" id="titleError"></span>
         </div>
         <div class="form-group">
-          <label class="form-label SmallText">Description</label>
+          <label class="form-label SmallText" data-i18n="modal.description">Description</label>
           <textarea id="description" class="form-textarea SmallText" rows="3">${p.description || ""}</textarea>
           <span class="error-message SmallText" id="descriptionError"></span>
         </div>
         <div class="form-group">
-          <label class="form-label SmallText">Price</label>
+          <label class="form-label SmallText" data-i18n="modal.price">Price</label>
           <input type="number" id="coast" class="form-input SmallText" step="0.01" min="0" value="${p.coast || ""}" />
           <span class="error-message SmallText" id="coastError"></span>
         </div>
         <div class="form-group">
-          <label class="form-label SmallText">Photo URL</label>
+          <label class="form-label SmallText" data-i18n="modal.photoURL">Photo URL</label>
           <input type="url" id="photoURL" class="form-input SmallText" value="${p.photoURL || ""}" />
           <span class="error-message SmallText" id="photoURLError"></span>
         </div>
         <div class="form-group">
-          <label class="form-label SmallText">Category</label>
+          <label class="form-label SmallText" data-i18n="modal.category">Category</label>
           <input type="text" id="category" class="form-input SmallText" value="${p.category || ""}" />
           <span class="error-message SmallText" id="categoryError"></span>
         </div>
         <div class="form-group">
-          <label class="form-label SmallText">Company</label>
+          <label class="form-label SmallText" data-i18n="modal.company">Company</label>
           <input type="text" id="company" class="form-input SmallText" value="${p.company || ""}" />
           <span class="error-message SmallText" id="companyError"></span>
         </div>
         <div class="form-group">
-          <label class="form-label SmallText">Volume</label>
+          <label class="form-label SmallText" data-i18n="modal.volume">Volume</label>
           <input type="text" id="volume" class="form-input SmallText" value="${p.volume || ""}" />
           <span class="error-message SmallText" id="volumeError"></span>
         </div>
         <div class="form-actions" style="margin-top: var(--spacing-xl);">
-          <button type="button" class="button button-secondary" id="cancelBtn">Cancel</button>
-          <button type="submit" class="button">Save</button>
+          <button type="button" class="button button-secondary" id="cancelBtn" data-i18n="modal.cancel">Cancel</button>
+          <button type="submit" class="button" data-i18n="modal.save">Save</button>
         </div>
       </form>
     `;
@@ -154,17 +157,17 @@ class ProductModal extends HTMLElement {
     this.inputs.company.addEventListener("input", () => this.checkCompany());
     this.inputs.volume.addEventListener("input", () => this.checkVolume());
 
-    this.querySelector("#productForm").addEventListener("submit", (e) => {
+    this.querySelector("#productForm").addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const isValid =
-        this.checkTitle() &
-        this.checkDescription() &
-        this.checkCoast() &
-        this.checkPhotoURL() &
-        this.checkCategory() &
-        this.checkCompany() &
-        this.checkVolume();
+        await this.checkTitle() &
+        await this.checkDescription() &
+        await this.checkCoast() &
+        await this.checkPhotoURL() &
+        await this.checkCategory() &
+        await this.checkCompany() &
+        await this.checkVolume();
 
       if (!isValid) return;
 
@@ -186,67 +189,67 @@ class ProductModal extends HTMLElement {
     });
   }
 
-  checkTitle() {
+  async checkTitle() {
     if (this.inputs.title.value.trim() === "") {
-      showError("titleError", "Title is required");
+      showError("titleError", await getTranslation("modal.errors.titleRequired"));
       return false;
     }
     hideError("titleError");
     return true;
   }
 
-  checkDescription() {
+  async checkDescription() {
     if (this.inputs.description.value.trim() === "") {
-      showError("descriptionError", "Description is required");
+      showError("descriptionError", await getTranslation("modal.errors.descriptionRequired"));
       return false;
     }
     hideError("descriptionError");
     return true;
   }
 
-  checkCoast() {
+  async checkCoast() {
     const value = parseFloat(this.inputs.coast.value);
     if (this.inputs.coast.value.trim() === "") {
-      showError("coastError", "Price is required");
+      showError("coastError", await getTranslation("modal.errors.priceRequired"));
       return false;
     } else if (isNaN(value) || value <= 0) {
-      showError("coastError", "Price must be a positive number");
+      showError("coastError", await getTranslation("modal.errors.pricePositive"));
       return false;
     }
     hideError("coastError");
     return true;
   }
 
-  checkPhotoURL() {
+  async checkPhotoURL() {
     if (this.inputs.photoURL.value.trim() === "") {
-      showError("photoURLError", "Photo URL is required");
+      showError("photoURLError", await getTranslation("modal.errors.photoURLRequired"));
       return false;
     }
     hideError("photoURLError");
     return true;
   }
 
-  checkCategory() {
+  async checkCategory() {
     if (this.inputs.category.value.trim() === "") {
-      showError("categoryError", "Category is required");
+      showError("categoryError", await getTranslation("modal.errors.categoryRequired"));
       return false;
     }
     hideError("categoryError");
     return true;
   }
 
-  checkCompany() {
+  async checkCompany() {
     if (this.inputs.company.value.trim() === "") {
-      showError("companyError", "Company is required");
+      showError("companyError", await getTranslation("modal.errors.companyRequired"));
       return false;
     }
     hideError("companyError");
     return true;
   }
 
-  checkVolume() {
+  async checkVolume() {
     if (this.inputs.volume.value.trim() === "") {
-      showError("volumeError", "Volume is required");
+      showError("volumeError", await getTranslation("modal.errors.volumeRequired"));
       return false;
     }
     hideError("volumeError");
