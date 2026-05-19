@@ -12,9 +12,10 @@ import { isAuthenticated, isAdmin } from "/js/auth.js";
 import BasketAdminCard from "/components/BasketAdminCard.js";
 import ReviewAdminCard from "/components/ReviewAdminCard.js";
 import { notify } from "/components/MyToast.js";
+import { getTranslation } from "/js/translation.js";
 
 if (!isAuthenticated() || !isAdmin()) {
-  notify("Access denied. Admin only.", "error");
+  notify(await getTranslation("admin.accessDenied"), "error");
   window.location.href = "/index.html";
 }
 
@@ -98,32 +99,33 @@ appModal.addEventListener("save", async (e) => {
   if (success) {
     appModal.close();
     await loadProducts();
-    notify("Product saved successfully!", "success");
+    notify(await getTranslation("admin.products.savedSuccess"), "success");
   } else {
-    notify("Error saving product!", "error");
+    notify(await getTranslation("admin.products.savedError"), "error");
   }
 });
 
 async function handleDeleteProduct(productId, productTitle) {
-  if (confirm(`Are you sure you want to delete "${productTitle}"?`)) {
+  const confirmMessage = (await getTranslation("admin.products.deleteConfirm")).replace("{title}", productTitle);
+  if (confirm(confirmMessage)) {
     const success = await DeleteGood(productId);
     if (success) {
-      notify("Product deleted successfully!", "success");
+      notify(await getTranslation("admin.products.deletedSuccess"), "success");
       await loadProducts();
     } else {
-      notify("Failed to delete product. Please try again.", "error");
+      notify(await getTranslation("admin.products.deletedError"), "error");
     }
   }
 }
 
-function renderProducts() {
+async function renderProducts() {
   productsTableBody.innerHTML = "";
 
   if (products.length === 0) {
     productsTableBody.innerHTML = `
       <tr>
         <td colspan="8" style="text-align: center; padding: 40px;">
-          No products found
+          ${await getTranslation("admin.products.noProducts")}
         </td>
       </tr>
     `;
@@ -146,13 +148,13 @@ async function loadProducts() {
 }
 
 async function handleDeleteReview(reviewId) {
-  if (confirm("Are you sure you want to delete this review?")) {
+  if (confirm(await getTranslation("admin.reviews.deleteConfirm"))) {
     const success = await DeleteReview(reviewId);
     if (success) {
-      notify("Review deleted successfully!", "success");
+      notify(await getTranslation("admin.reviews.deletedSuccess"), "success");
       await loadReviews();
     } else {
-      notify("Failed to delete review. Please try again.", "error");
+      notify(await getTranslation("admin.reviews.deletedError"), "error");
     }
   }
 }
@@ -173,8 +175,8 @@ async function loadReviews() {
   renderReviews();
 }
 
-function loadProductsFilter() {
-  productFilter.innerHTML = '<option value="">All Products</option>';
+async function loadProductsFilter() {
+  productFilter.innerHTML = `<option value="">${await getTranslation("admin.reviews.allProducts")}</option>`;
   products.forEach((product) => {
     const option = document.createElement("option");
     option.value = product.id;
@@ -183,8 +185,8 @@ function loadProductsFilter() {
   });
 }
 
-function loadUsersFilter() {
-  userFilter.innerHTML = '<option value="">All Users</option>';
+async function loadUsersFilter() {
+  userFilter.innerHTML = `<option value="">${await getTranslation("admin.reviews.allUsers")}</option>`;
   users.forEach((user) => {
     const option = document.createElement("option");
     option.value = user.id;
@@ -193,7 +195,7 @@ function loadUsersFilter() {
   });
 }
 
-function renderReviews() {
+async function renderReviews() {
   reviewsTableBody.innerHTML = "";
 
   let filteredReviews = [...reviews];
@@ -221,7 +223,7 @@ function renderReviews() {
     reviewsTableBody.innerHTML = `
       <tr>
         <td colspan="8" style="text-align: center; padding: 40px;">
-          No reviews found
+          ${await getTranslation("admin.reviews.noReviews")}
         </td>
       </tr>
     `;

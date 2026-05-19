@@ -33,34 +33,34 @@
     <my-header class="header"></my-header>
     <main class="admin-main top-block">
       <div class="admin-container">
-        <h2 class="admin-title H2">Admin Panel</h2>
+        <h2 class="admin-title H2" data-i18n="admin.title">Admin Panel</h2>
 
         <div class="admin-tabs">
-          <button class="tab-btn active" id="btn-products" data-tab="products">
+          <button class="tab-btn active" id="btn-products" data-tab="products" data-i18n="admin.tabs.products">
             Products
           </button>
-          <button class="tab-btn" id="btn-reviews" data-tab="reviews">
+          <button class="tab-btn" id="btn-reviews" data-tab="reviews" data-i18n="admin.tabs.reviews">
             Reviews
           </button>
         </div>
 
         <div class="tab-content active" id="productsTab">
           <div class="admin-actions">
-            <button class="button" id="addProductBtn">Add New Product</button>
+            <button class="button" id="addProductBtn" data-i18n="admin.products.addNew">Add New Product</button>
           </div>
 
           <div class="admin-table-wrapper">
             <table class="admin-table">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Description</th>
-                  <th>Price</th>
-                  <th>Category</th>
-                  <th>Volume</th>
-                  <th>Actions</th>
+                  <th data-i18n="admin.products.id">ID</th>
+                  <th data-i18n="admin.products.image">Image</th>
+                  <th data-i18n="admin.products.title">Title</th>
+                  <th data-i18n="admin.products.description">Description</th>
+                  <th data-i18n="admin.products.price">Price</th>
+                  <th data-i18n="admin.products.category">Category</th>
+                  <th data-i18n="admin.products.volume">Volume</th>
+                  <th data-i18n="admin.products.actions">Actions</th>
                 </tr>
               </thead>
               <tbody id="productsTableBody"></tbody>
@@ -71,24 +71,24 @@
         <div class="tab-content" id="reviewsTab">
           <div class="admin-filters">
             <div class="filter-group">
-              <label for="filterType" class="form-label SmallText"
+              <label for="filterType" class="form-label SmallText" data-i18n="admin.reviews.filterBy"
                 >Filter by:</label
               >
               <select id="filterType" class="form-input SmallText">
-                <option value="all">All Reviews</option>
-                <option value="product">By Product</option>
-                <option value="user">By User</option>
+                <option value="all" data-i18n="admin.reviews.allReviews">All Reviews</option>
+                <option value="product" data-i18n="admin.reviews.byProduct">By Product</option>
+                <option value="user" data-i18n="admin.reviews.byUser">By User</option>
               </select>
             </div>
             <div class="filter-group hidden" id="productFilterGroup">
-              <label for="productFilter" class="form-label SmallText"
+              <label for="productFilter" class="form-label SmallText" data-i18n="admin.reviews.selectProduct"
                 >Select Product:</label
               >
               <select id="productFilter" class="form-input SmallText"></select>
             </div>
 
             <div class="filter-group hidden" id="userFilterGroup">
-              <label for="userFilter" class="form-label SmallText"
+              <label for="userFilter" class="form-label SmallText" data-i18n="admin.reviews.selectUser"
                 >Select User:</label
               >
               <select id="userFilter" class="form-input SmallText"></select>
@@ -98,14 +98,14 @@
             <table class="admin-table">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Order ID</th>
-                  <th>User</th>
-                  <th>Product</th>
-                  <th>Rating</th>
-                  <th>Comment</th>
-                  <th>Date</th>
-                  <th>Actions</th>
+                  <th data-i18n="admin.reviews.id">ID</th>
+                  <th data-i18n="admin.reviews.orderId">Order ID</th>
+                  <th data-i18n="admin.reviews.user">User</th>
+                  <th data-i18n="admin.reviews.product">Product</th>
+                  <th data-i18n="admin.reviews.rating">Rating</th>
+                  <th data-i18n="admin.reviews.comment">Comment</th>
+                  <th data-i18n="admin.reviews.date">Date</th>
+                  <th data-i18n="admin.reviews.actions">Actions</th>
                 </tr>
               </thead>
               <tbody id="reviewsTableBody"></tbody>

@@ -312,7 +312,13 @@
         "price": "Price",
         "category": "Category",
         "volume": "Volume",
-        "actions": "Actions"
+        "actions": "Actions",
+        "noProducts": "No products found",
+        "deleteConfirm": "Are you sure you want to delete \"{title}\"?",
+        "deletedSuccess": "Product deleted successfully!",
+        "deletedError": "Failed to delete product. Please try again.",
+        "savedSuccess": "Product saved successfully!",
+        "savedError": "Error saving product!"
       },
       "reviews": {
         "filterBy": "Filter by:",
@@ -328,8 +334,15 @@
         "rating": "Rating",
         "comment": "Comment",
         "date": "Date",
-        "actions": "Actions"
-      }
+        "actions": "Actions",
+        "noReviews": "No reviews found",
+        "allProducts": "All Products",
+        "allUsers": "All Users",
+        "deleteConfirm": "Are you sure you want to delete this review?",
+        "deletedSuccess": "Review deleted successfully!",
+        "deletedError": "Failed to delete review. Please try again."
+      },
+      "accessDenied": "Access denied. Admin only."
     },
     "review": {
       "title": "Leave a Review",
@@ -669,7 +682,13 @@
         "price": "Цена",
         "category": "Категория",
         "volume": "Объем",
-        "actions": "Действия"
+        "actions": "Действия",
+        "noProducts": "Товары не найдены",
+        "deleteConfirm": "Вы уверены, что хотите удалить \"{title}\"?",
+        "deletedSuccess": "Товар успешно удален!",
+        "deletedError": "Не удалось удалить товар. Попробуйте еще раз.",
+        "savedSuccess": "Товар успешно сохранен!",
+        "savedError": "Ошибка при сохранении товара!"
       },
       "reviews": {
         "filterBy": "Фильтр по:",
@@ -685,8 +704,15 @@
         "rating": "Рейтинг",
         "comment": "Комментарий",
         "date": "Дата",
-        "actions": "Действия"
-      }
+        "actions": "Действия",
+        "noReviews": "Отзывы не найдены",
+        "allProducts": "Все товары",
+        "allUsers": "Все пользователи",
+        "deleteConfirm": "Вы уверены, что хотите удалить этот отзыв?",
+        "deletedSuccess": "Отзыв успешно удален!",
+        "deletedError": "Не удалось удалить отзыв. Попробуйте еще раз."
+      },
+      "accessDenied": "Доступ запрещен. Только для администраторов."
     },
     "review": {
       "title": "Оставить отзыв",
