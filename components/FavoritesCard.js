@@ -1,5 +1,6 @@
 import { DeleteUserFavoriteItem } from "/js/api.js";
 import { notify } from "/components/MyToast.js";
+import { getTranslation } from "/js/translation.js";
 
 class FavoritesCard extends HTMLElement {
   constructor(good, onView) {
@@ -15,7 +16,7 @@ class FavoritesCard extends HTMLElement {
     this.initEvents();
   }
 
-  initEvents() {
+  async initEvents() {
     const removeBtn = this.querySelector(".remove_from_favorites");
     const article = this.querySelector(".catalog-card");
 
@@ -24,10 +25,10 @@ class FavoritesCard extends HTMLElement {
         e.stopPropagation();
         const success = await DeleteUserFavoriteItem(this.good.favoriteItemId);
         if (success) {
-          notify("Removed from favorites!", "success");
+          notify(await getTranslation("favorites.removedSuccess"), "success");
           window.dispatchEvent(new CustomEvent("favoritesUpdated"));
         } else {
-          notify("Failed to remove from favorites", "error");
+          notify(await getTranslation("favorites.removedError"), "error");
         }
       });
     }
@@ -66,7 +67,7 @@ class FavoritesCard extends HTMLElement {
               <span class="catalog-card__price H4">${formattedPrice}</span>
             </div>
           </div>
-          <button class="button remove_from_favorites">Remove from favorites</button>
+          <button class="button remove_from_favorites" data-i18n="favorites.removeFromFavorites">Remove from favorites</button>
         </article>
     `;
   }

@@ -33,29 +33,29 @@
     <my-header class="header"></my-header>
     <main class="catalog-main top-block">
       <div class="catalog_search">
-        <input class="catalog_input H3" type="text" />
+        <input class="catalog_input H3" type="text" data-i18n-placeholder="favorites.searchPlaceholder" />
         <select name="type" id="type" class="catalog_select H4">
-          <option value="title">title</option>
-          <option value="description">description</option>
-          <option value="coast">coast</option>
-          <option value="coast">volume</option>
+          <option value="title" data-i18n="favorites.filterTitle">title</option>
+          <option value="description" data-i18n="favorites.filterDescription">description</option>
+          <option value="coast" data-i18n="favorites.filterCoast">coast</option>
+          <option value="coast" data-i18n="favorites.filterVolume">volume</option>
         </select>
         <select name="sort" id="sort" class="catalog_sort H4">
-          <option value="title">title</option>
-          <option value="description">description</option>
-          <option value="coast">coast</option>
-          <option value="coast">volume</option>
+          <option value="title" data-i18n="favorites.sortTitle">title</option>
+          <option value="description" data-i18n="favorites.sortDescription">description</option>
+          <option value="coast" data-i18n="favorites.sortCoast">coast</option>
+          <option value="coast" data-i18n="favorites.sortVolume">volume</option>
         </select>
         <select name="sortType" id="sortType" class="catalog_sort_type H4">
-          <option value="asc">sort ASC</option>
-          <option value="desc">sort DESC</option>
+          <option value="asc" data-i18n="favorites.sortAsc">sort ASC</option>
+          <option value="desc" data-i18n="favorites.sortDesc">sort DESC</option>
         </select>
         <div class="catalog_filter H4"></div>
       </div>
       <div class="catalog-grid favorites"></div>
       <div class="buttons">
-        <button class="left button">left</button>
-        <button class="right button">right</button>
+        <button class="left button" data-i18n="favorites.left">left</button>
+        <button class="right button" data-i18n="favorites.right">right</button>
       </div>
     </main>
 

@@ -1,6 +1,7 @@
 import { GetUserFavorites, GetUserFavoritesFiltered } from "/js/api.js";
 import FavoritesCard from "/components/FavoritesCard.js";
 import { isAuthenticated, getCurrentUser } from "/js/auth.js";
+import { getTranslation } from "/js/translation.js";
 
 if (!isAuthenticated()) {
   window.location.href = "/pages/login.html";
@@ -18,15 +19,15 @@ function handleViewDetails(good) {
   }
 }
 
-function render(list) {
+async function render(list) {
   const grid = document.querySelector(`.catalog-grid`);
   grid.innerHTML = "";
 
   if (list.length === 0) {
     grid.innerHTML = `
       <div class="no-results">
-        <h3>No goods found</h3>
-        <p>Your favorites list is empty.</p>
+        <h3>${await getTranslation("favorites.noGoods")}</h3>
+        <p>${await getTranslation("favorites.emptyList")}</p>
       </div>`;
     return;
   }
@@ -52,7 +53,7 @@ async function renderCategories() {
   categoryContainer.innerHTML = "";
 
   const btnAll = document.createElement("button");
-  btnAll.textContent = "All";
+  btnAll.textContent = await getTranslation("favorites.allCategories");
   btnAll.classList.add("active");
   btnAll.classList.add("button");
   btnAll.addEventListener("click", () => {
@@ -117,7 +118,7 @@ async function applyAllFilters() {
     btns.classList.add("hidden");
   }
 
-  render(items, "catalog");
+  await render(items, "catalog");
 }
 
 document.querySelector(".left").addEventListener("click", () => {

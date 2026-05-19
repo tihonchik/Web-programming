@@ -305,7 +305,12 @@
       "sortDesc": "sort DESC",
       "left": "left",
       "right": "right",
-      "removeFromFavorites": "Remove from favorites"
+      "removeFromFavorites": "Remove from favorites",
+      "noGoods": "No goods found",
+      "emptyList": "Your favorites list is empty.",
+      "allCategories": "All",
+      "removedSuccess": "Removed from favorites!",
+      "removedError": "Failed to remove from favorites"
     },
     "admin": {
       "title": "Admin Panel",
@@ -685,7 +690,12 @@
       "sortDesc": "сортировка по убыванию",
       "left": "назад",
       "right": "вперед",
-      "removeFromFavorites": "Удалить из избранного"
+      "removeFromFavorites": "Удалить из избранного",
+      "noGoods": "Товары не найдены",
+      "emptyList": "Ваш список избранного пуст.",
+      "allCategories": "Все",
+      "removedSuccess": "Удалено из избранного!",
+      "removedError": "Не удалось удалить из избранного"
     },
     "admin": {
       "title": "Панель администратора",
