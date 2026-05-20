@@ -8,12 +8,14 @@ class BasketCard extends HTMLElement {
       super();
       this.good = good;
       this.onView = onView;
-      this.render();
     }
   }
 
-  connectedCallback() {
-    this.initEvents();
+  async connectedCallback() {
+    if (this.good) {
+      await this.render();
+      this.initEvents();
+    }
   }
 
   async initEvents() {
@@ -34,7 +36,10 @@ class BasketCard extends HTMLElement {
 
     addCountBtn.addEventListener("click", async () => {
       this.good.count += 1;
-      const success = await UpdateUserBasketItem(this.good.basketItemId, this.good);
+      const success = await UpdateUserBasketItem(
+        this.good.basketItemId,
+        this.good,
+      );
       if (success) {
         await this.updateCountDisplay();
       } else {
@@ -45,7 +50,10 @@ class BasketCard extends HTMLElement {
     removeCountBtn.addEventListener("click", async () => {
       if (this.good.count > 1) {
         this.good.count -= 1;
-        const success = await UpdateUserBasketItem(this.good.basketItemId, this.good);
+        const success = await UpdateUserBasketItem(
+          this.good.basketItemId,
+          this.good,
+        );
         if (success) {
           await this.updateCountDisplay();
         } else {

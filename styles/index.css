@@ -13,6 +13,7 @@ body {
   align-items: center;
 
   font-optical-sizing: none;
+  background-color: var(--colors-backgroung-page);
 }
 
 main,

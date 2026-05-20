@@ -90,6 +90,7 @@
   margin-top: var(--spacing-md);
   padding: var(--spacing-md) var(--spacing-xl);
   transition: all 0.3s ease;
+  background-color: var(--colors-backgroung-button-2);
 }
 
 .submit-btn:hover {

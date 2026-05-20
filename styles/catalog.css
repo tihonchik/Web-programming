@@ -764,3 +764,32 @@ select {
     transition-duration: 0.01ms !important;
   }
 }
+
+.add_to_basket,
+.add_to_favorites,
+.remove_from_favorites,
+.remove_from_basket,
+.add_count,
+.remove_count,
+.Buy,
+.leave_review {
+  background-color: var(--colors-backgroung-button-2);
+}
+
+.catalog_filter .button {
+  background-color: var(--colors-backgroung-button-2);
+}
+
+.right,
+.left .button {
+  background-color: var(--colors-backgroung-button-2);
+}
+
+.left,
+.right .button {
+  background-color: var(--colors-backgroung-button-2);
+}
+
+select {
+  color: var(--colors-text-main);
+}
