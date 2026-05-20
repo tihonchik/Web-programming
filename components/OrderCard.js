@@ -1,15 +1,19 @@
+import { getTranslation } from "/js/translation.js";
+
 class OrderCard extends HTMLElement {
   constructor(order, onView) {
     super();
     if (order) {
       this.order = order;
       this.onView = onView;
-      this.render(order);
     }
   }
 
-  connectedCallback() {
-    this.initEvents();
+  async connectedCallback() {
+    if (this.order) {
+      await this.render();
+      this.initEvents();
+    }
   }
 
   initEvents() {
@@ -33,8 +37,8 @@ class OrderCard extends HTMLElement {
     }
   }
 
-  render(order) {
-    const { id, userId, goodId, count, good } = order;
+  async render() {
+    const { id, userId, goodId, count, good } = this.order;
 
     const title = good ? good.title : `Order #${id}`;
     const photoURL = good ? good.photoURL : "";
@@ -59,7 +63,9 @@ class OrderCard extends HTMLElement {
               <span class="catalog-card__price H4"></span>
             </div>
           </div>
-          <button class="button leave_review" data-i18n="orders.leaveReview">Leave Review</button>
+          <button class="button leave_review" data-i18n="orders.leaveReview">
+            ${await getTranslation("orders.leaveReview")}
+          </button>
         </article>
     `;
   }

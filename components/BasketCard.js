@@ -105,9 +105,16 @@ class BasketCard extends HTMLElement {
             </div>
             <span class="catalog-card__count H4">${await getTranslation("basket.count")}${count}</span>
           </div>
-          <button class="button remove_from_basket" data-i18n="basket.removeFromBasket">Remove from basket</button>
-          <button class="button add_count" data-i18n="basket.addCount">add count</button>
-          <button class="button remove_count" data-i18n="basket.removeCount">remove count</button>
+          <!-- Получаем переводы асинхронно при генерации карточки -->
+          <button class="button remove_from_basket" data-i18n="basket.removeFromBasket">
+            ${await getTranslation("basket.removeFromBasket")}
+          </button>
+          <button class="button add_count" data-i18n="basket.addCount">
+            ${await getTranslation("basket.addCount")}
+          </button>
+          <button class="button remove_count" data-i18n="basket.removeCount">
+            ${await getTranslation("basket.removeCount")}
+          </button>
         </article>
     `;
   }

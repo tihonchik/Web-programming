@@ -1,6 +1,7 @@
 import { AddToUserBasket, AddToUserFavorites } from "/js/api.js";
 import { isAuthenticated, getCurrentUser } from "/js/auth.js";
 import { notify } from "/components/MyToast.js";
+import { getTranslation } from "/js/translation.js";
 
 class CatalogCard extends HTMLElement {
   constructor(good, onView) {
@@ -8,12 +9,14 @@ class CatalogCard extends HTMLElement {
     if (good) {
       this.good = good;
       this.onView = onView;
-      this.render(good);
     }
   }
 
-  connectedCallback() {
-    this.initEvents();
+  async connectedCallback() {
+    if (this.good) {
+      await this.render();
+      this.initEvents();
+    }
   }
 
   initEvents() {
@@ -28,9 +31,12 @@ class CatalogCard extends HTMLElement {
         if (user) {
           const success = await AddToUserBasket(user.id, this.good.id);
           if (success) {
-            notify("Added to basket!", "success");
+            notify(
+              await getTranslation("catalog.addedToBasketSuccess"),
+              "success",
+            );
           } else {
-            notify("Failed to add to basket", "error");
+            notify(await getTranslation("catalog.addedToBasketError"), "error");
           }
         }
       });
@@ -43,9 +49,15 @@ class CatalogCard extends HTMLElement {
         if (user) {
           const success = await AddToUserFavorites(user.id, this.good.id);
           if (success) {
-            notify("Added to favorites!", "success");
+            notify(
+              await getTranslation("catalog.addedToFavoritesSuccess"),
+              "success",
+            );
           } else {
-            notify("Failed to add to favorites", "error");
+            notify(
+              await getTranslation("catalog.addedToFavoritesError"),
+              "error",
+            );
           }
         }
       });
@@ -61,15 +73,19 @@ class CatalogCard extends HTMLElement {
     }
   }
 
-  render(good) {
-    const { title, description, coast, photoURL, company, volume } = good;
+  async render() {
+    const { title, description, coast, photoURL, company, volume } = this.good;
 
     const formattedPrice =
       typeof coast === "number" ? `$${coast.toFixed(2)}` : coast;
 
     const buttons = isAuthenticated()
-      ? `<button class="button add_to_basket" data-i18n="catalog.addToBasket">Add to basket</button>
-         <button class="button add_to_favorites" data-i18n="catalog.addToFavorites">Add to favorites</button>`
+      ? `<button class="button add_to_basket" data-i18n="catalog.addToBasket">
+           ${await getTranslation("catalog.addToBasket")}
+         </button>
+         <button class="button add_to_favorites" data-i18n="catalog.addToFavorites">
+           ${await getTranslation("catalog.addToFavorites")}
+         </button>`
       : "";
 
     this.innerHTML = `

@@ -8,15 +8,17 @@ class FavoritesCard extends HTMLElement {
     if (good) {
       this.good = good;
       this.onView = onView;
-      this.render(good);
     }
   }
 
-  connectedCallback() {
-    this.initEvents();
+  async connectedCallback() {
+    if (this.good) {
+      await this.render();
+      this.initEvents();
+    }
   }
 
-  async initEvents() {
+  initEvents() {
     const removeBtn = this.querySelector(".remove_from_favorites");
     const article = this.querySelector(".catalog-card");
 
@@ -43,8 +45,8 @@ class FavoritesCard extends HTMLElement {
     }
   }
 
-  render(good) {
-    const { title, description, coast, photoURL, company, volume } = good;
+  async render() {
+    const { title, description, coast, photoURL, company, volume } = this.good;
 
     const formattedPrice =
       typeof coast === "number" ? `$${coast.toFixed(2)}` : coast;
@@ -67,7 +69,9 @@ class FavoritesCard extends HTMLElement {
               <span class="catalog-card__price H4">${formattedPrice}</span>
             </div>
           </div>
-          <button class="button remove_from_favorites" data-i18n="favorites.removeFromFavorites">Remove from favorites</button>
+          <button class="button remove_from_favorites" data-i18n="favorites.removeFromFavorites">
+            ${await getTranslation("favorites.removeFromFavorites")}
+          </button>
         </article>
     `;
   }
