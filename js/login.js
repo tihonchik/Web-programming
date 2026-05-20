@@ -141,7 +141,9 @@ async function ValidatePassword(password) {
     result.message = await getTranslation("register.errors.passwordNoDigit");
   } else if (!/[A-Z]/.test(password)) {
     result.success = false;
-    result.message = await getTranslation("register.errors.passwordNoUppercase");
+    result.message = await getTranslation(
+      "register.errors.passwordNoUppercase",
+    );
   } else if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
     result.success = false;
     result.message = await getTranslation("register.errors.passwordNoSpecial");
@@ -190,7 +192,10 @@ loginForm.addEventListener("submit", async (e) => {
     setCurrentUser(user);
     window.location.href = "/pages/catalog.html";
   } else {
-    showError("loginError", await getTranslation("login.errors.invalidCredentials"));
+    showError(
+      "loginError",
+      await getTranslation("login.errors.invalidCredentials"),
+    );
   }
 });
 

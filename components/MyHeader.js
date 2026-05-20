@@ -5,6 +5,7 @@ import {
   getCurentLang,
 } from "/js/translation.js";
 import { getCurrentTheme, setTheme, loadTheme } from "/js/theme.js";
+import { getCurrentUser } from "/js/auth.js";
 
 class MyHeader extends HTMLElement {
   connectedCallback() {
@@ -296,8 +297,14 @@ class MyHeader extends HTMLElement {
       document.body.style.overflow = "";
     };
 
+    const user = getCurrentUser();
+    let id = null;
+    if (user) {
+      id = user.id;
+    }
+
     const updateActiveLanguageButton = () => {
-      const curentLang = getCurentLang();
+      const curentLang = getCurentLang(id);
       translateBtns.forEach((btn) => {
         if (btn.dataset.lang === curentLang) {
           btn.classList.add("active");
@@ -308,7 +315,7 @@ class MyHeader extends HTMLElement {
     };
 
     const updateActiveThemeButton = () => {
-      const currentTheme = getCurrentTheme();
+      const currentTheme = getCurrentTheme(id);
       themeBtns.forEach((btn) => {
         if (btn.dataset.theme === currentTheme) {
           btn.classList.add("active");
@@ -321,7 +328,7 @@ class MyHeader extends HTMLElement {
     themeBtns.forEach((themeBtn) => {
       themeBtn.addEventListener("click", () => {
         const theme = themeBtn.dataset.theme;
-        setTheme(theme);
+        setTheme(theme, id);
         updateActiveThemeButton();
       });
     });
@@ -329,14 +336,14 @@ class MyHeader extends HTMLElement {
     translateBtns.forEach((translateBtn) => {
       const lang = translateBtn.dataset.lang;
       translateBtn.addEventListener("click", () => {
-        translatePage(lang);
+        translatePage(lang, id);
         updateActiveLanguageButton();
       });
     });
 
-    loadTranslationPage();
+    loadTranslationPage(id);
     updateActiveLanguageButton();
-    loadTheme();
+    loadTheme(id);
     updateActiveThemeButton();
 
     openBtn.addEventListener("click", openMenu);

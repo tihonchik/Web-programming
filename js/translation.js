@@ -1,11 +1,14 @@
 import { getFromLocalStorage, setToLocalStorage } from "/js/localStotage.js";
 
+let id = null;
+
 function getCurentLang() {
-  return getFromLocalStorage("lang");
+  return getFromLocalStorage(`lang-${id}`) || "en";
 }
 
-function setLang(lang) {
-  setToLocalStorage("lang", lang);
+function setLang(lang, ID) {
+  id = ID;
+  setToLocalStorage(`lang-${id}`, lang);
 }
 
 function getAllDataI18N() {
@@ -33,8 +36,8 @@ async function getTranslations() {
   }
 }
 
-async function translatePage(lang) {
-  setLang(lang);
+async function translatePage(lang, ID) {
+  setLang(lang, ID);
 
   const translations = await getTranslations();
   if (!translations) return;
@@ -72,9 +75,10 @@ async function translatePage(lang) {
   document.documentElement.lang = lang;
 }
 
-function loadTranslationPage() {
+function loadTranslationPage(ID) {
+  id = ID;
   const lang = getCurentLang();
-  translatePage(lang);
+  translatePage(lang, id);
 }
 
 async function getTranslation(key) {
