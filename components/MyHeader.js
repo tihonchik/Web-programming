@@ -243,6 +243,7 @@ class MyHeader extends HTMLElement {
               <button class="lang-btn" data-lang="en">EN</button>
               <button class="lang-btn" data-lang="ru">RU</button>
             </div>
+            <button class="theme-btn MaterialIcons" data-reset="true" title="Reset settings">restart_alt</button>
             ${authButton}
           </div>
 
@@ -279,6 +280,9 @@ class MyHeader extends HTMLElement {
             <button class="lang-btn" data-lang="en">EN</button>
             <button class="lang-btn" data-lang="ru">RU</button>
           </div>
+          <div style="display: flex; justify-content: center; align-items: center; gap: var(--spacing-xs, 4px);">
+            <button class="theme-btn MaterialIcons" data-reset="true" title="Reset settings">restart_alt</button>
+          </div>
           <div style="display: flex; width: 100%; justify-content: center; margin-top: var(--gap-md);">
             ${authButton}
           </div>
@@ -303,6 +307,7 @@ class MyHeader extends HTMLElement {
     const translateBtns = this.querySelectorAll("[data-lang]");
     const themeBtns = this.querySelectorAll("[data-theme]");
     const imageBtns = this.querySelectorAll("[data-image]");
+    const resetBtns = this.querySelectorAll("[data-reset]");
 
     const openMenu = () => {
       mobileMenu.classList.add("open");
@@ -387,6 +392,19 @@ class MyHeader extends HTMLElement {
       translateBtn.addEventListener("click", () => {
         translatePage(lang, id);
         updateActiveLanguageButton();
+      });
+    });
+
+    resetBtns.forEach((resetBtn) => {
+      resetBtn.addEventListener("click", () => {
+        setTheme("light", id);
+        updateActiveThemeButton();
+
+        translatePage("en", id);
+        updateActiveLanguageButton();
+
+        localStorage.setItem("hide-images", "false");
+        updateActiveImageButton();
       });
     });
 
