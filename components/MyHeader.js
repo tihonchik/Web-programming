@@ -104,6 +104,134 @@ class MyHeader extends HTMLElement {
           background-image: none !important;
         }
 
+        .settings-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 10000;
+          backdrop-filter: blur(var(--space-4));
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .settings-modal.open {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .settings-modal-content {
+          background: var(--colors-backgroung-card-2);
+          border-radius: var(--radius-lg);
+          box-shadow: 0 var(--space-8) var(--space-24) rgba(0, 0, 0, 0.2);
+          width: 90%;
+          max-width: 500px;
+          max-height: 90vh;
+          overflow-y: auto;
+        }
+
+        .settings-modal-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: var(--spacing-xl) var(--spacing-xxl);
+          border-bottom: var(--border-size) solid var(--colors-border);
+        }
+
+        .settings-modal-title {
+          color: var(--colors-text-title);
+          font-family: var(--fonts-h3-family, Roboto);
+          font-size: var(--fonts-sizes-32, 32px);
+          font-weight: 600;
+        }
+
+        .settings-modal-close {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: var(--space-36);
+          height: var(--space-36);
+          border: none;
+          border-radius: var(--radius-sm);
+          background: transparent;
+          color: var(--colors-text-main);
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .settings-modal-close:hover {
+          background-color: var(--colors-backgroung-button-1);
+          color: var(--colors-violet-700);
+        }
+
+        .settings-modal-body {
+          padding: var(--spacing-xxl);
+          display: flex;
+          flex-direction: column;
+          gap: var(--spacing-xl);
+        }
+
+        .settings-group {
+          display: flex;
+          flex-direction: column;
+          gap: var(--spacing-md);
+        }
+
+        .settings-group-title {
+          color: var(--colors-text-title);
+          font-family: var(--fonts-h5-family, Roboto);
+          font-size: var(--fonts-sizes-18, 18px);
+          font-weight: 600;
+        }
+
+        .settings-group-description {
+          color: var(--colors-text-main);
+          font-family: var(--fonts-smalltext-family, Roboto);
+          font-size: var(--fonts-sizes-14, 14px);
+          margin-bottom: var(--spacing-sm);
+        }
+
+        .settings-options {
+          display: flex;
+          gap: var(--spacing-sm);
+          flex-wrap: wrap;
+        }
+
+        .settings-divider {
+          height: var(--border-size);
+          background-color: var(--colors-grey-700);
+          margin: var(--spacing-sm) 0;
+        }
+
+        .settings-reset-btn {
+          width: 100%;
+          padding: var(--spacing-sm) var(--spacing-md);
+          background-color: var(--colors-backgroung-button-1);
+          color: var(--colors-violet-700);
+          border: 1px solid var(--colors-violet-700);
+          border-radius: var(--radius-sm);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--spacing-xs);
+          font-family: var(--fonts-smalltext-family, Roboto);
+          font-size: var(--fonts-sizes-14, 14px);
+          font-weight: 500;
+          transition: all 0.3s ease;
+        }
+
+        .settings-reset-btn:hover {
+          background-color: var(--colors-violet-700);
+          color: var(--colors-backgroung-card-2);
+        }
+
         .mobile-overlay {
           position: fixed;
           top: 0;
@@ -231,19 +359,7 @@ class MyHeader extends HTMLElement {
           </nav>
 
           <div class="header__buttons">
-            <div class="theme-switcher">
-              <button class="theme-btn MaterialIcons" data-theme="light">light_mode</button>
-              <button class="theme-btn MaterialIcons" data-theme="dark">dark_mode</button>
-            </div>
-            <div class="theme-switcher">
-              <button class="theme-btn MaterialIcons" data-image="show" title="Show images">image</button>
-              <button class="theme-btn MaterialIcons" data-image="hide" title="Hide images">image_not_supported</button>
-            </div>
-            <div class="language-switcher">
-              <button class="lang-btn" data-lang="en">EN</button>
-              <button class="lang-btn" data-lang="ru">RU</button>
-            </div>
-            <button class="theme-btn MaterialIcons" data-reset="true" title="Reset settings">restart_alt</button>
+            <button class="theme-btn MaterialIcons" id="openSettingsBtn" title="Settings">settings</button>
             ${authButton}
           </div>
 
@@ -288,6 +404,69 @@ class MyHeader extends HTMLElement {
           </div>
         </div>
       </div>
+
+      <!-- Модальное окно настроек -->
+      <div class="settings-modal" id="settingsModal">
+        <div class="settings-modal-content">
+          <div class="settings-modal-header">
+            <h3 class="settings-modal-title" data-i18n="settings.title">Settings</h3>
+            <button class="settings-modal-close MaterialIcons" id="closeSettingsBtn">close</button>
+          </div>
+          <div class="settings-modal-body">
+            <div class="settings-group">
+              <h4 class="settings-group-title" data-i18n="settings.language.title">Language</h4>
+              <p class="settings-group-description" data-i18n="settings.language.description">Choose your preferred language</p>
+              <div class="settings-options">
+                <button class="lang-btn" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="ru">Русский</button>
+              </div>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <div class="settings-group">
+              <h4 class="settings-group-title" data-i18n="settings.theme.title">Theme</h4>
+              <p class="settings-group-description" data-i18n="settings.theme.description">Choose your preferred theme</p>
+              <div class="settings-options">
+                <button class="theme-btn" data-theme="light">
+                  <span class="MaterialIcons" style="margin-right: 4px;">light_mode</span>
+                  <span data-i18n="settings.theme.light">Light</span>
+                </button>
+                <button class="theme-btn" data-theme="dark">
+                  <span class="MaterialIcons" style="margin-right: 4px;">dark_mode</span>
+                  <span data-i18n="settings.theme.dark">Dark</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <div class="settings-group">
+              <h4 class="settings-group-title" data-i18n="settings.images.title">Images</h4>
+              <p class="settings-group-description" data-i18n="settings.images.description">Show or hide images on the page</p>
+              <div class="settings-options">
+                <button class="theme-btn" data-image="show">
+                  <span class="MaterialIcons" style="margin-right: 4px;">image</span>
+                  <span data-i18n="settings.images.show">Show images</span>
+                </button>
+                <button class="theme-btn" data-image="hide">
+                  <span class="MaterialIcons" style="margin-right: 4px;">image_not_supported</span>
+                  <span data-i18n="settings.images.hide">Hide images</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <div class="settings-group">
+              <button class="settings-reset-btn" data-reset="true">
+                <span class="MaterialIcons">restart_alt</span>
+                <span data-i18n="settings.reset">Reset all settings</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     `;
 
     if (isAuthenticated()) {
@@ -308,6 +487,9 @@ class MyHeader extends HTMLElement {
     const themeBtns = this.querySelectorAll("[data-theme]");
     const imageBtns = this.querySelectorAll("[data-image]");
     const resetBtns = this.querySelectorAll("[data-reset]");
+    const openSettingsBtn = this.querySelector("#openSettingsBtn");
+    const closeSettingsBtn = this.querySelector("#closeSettingsBtn");
+    const settingsModal = this.querySelector("#settingsModal");
 
     const openMenu = () => {
       mobileMenu.classList.add("open");
@@ -318,6 +500,16 @@ class MyHeader extends HTMLElement {
     const closeMenu = () => {
       mobileMenu.classList.remove("open");
       overlay.classList.remove("open");
+      document.body.style.overflow = "";
+    };
+
+    const openSettings = () => {
+      settingsModal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeSettings = () => {
+      settingsModal.classList.remove("open");
       document.body.style.overflow = "";
     };
 
@@ -417,6 +609,13 @@ class MyHeader extends HTMLElement {
     openBtn.addEventListener("click", openMenu);
     closeBtn.addEventListener("click", closeMenu);
     overlay.addEventListener("click", closeMenu);
+    openSettingsBtn.addEventListener("click", openSettings);
+    closeSettingsBtn.addEventListener("click", closeSettings);
+    settingsModal.addEventListener("click", (e) => {
+      if (e.target === settingsModal) {
+        closeSettings();
+      }
+    });
   }
 }
 

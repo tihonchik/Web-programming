@@ -11,6 +11,26 @@
       "login": "Login",
       "logout": "Logout"
     },
+    "settings": {
+      "title": "Settings",
+      "language": {
+        "title": "Language",
+        "description": "Choose your preferred language"
+      },
+      "theme": {
+        "title": "Theme",
+        "description": "Choose your preferred theme",
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "images": {
+        "title": "Images",
+        "description": "Show or hide images on the page",
+        "show": "Show images",
+        "hide": "Hide images"
+      },
+      "reset": "Reset all settings"
+    },
     "footer": {
       "copyright": "© Beautico by Minimal Square . Powered by Webflow ."
     },
@@ -411,6 +431,26 @@
       "admin": "Админ",
       "login": "Войти",
       "logout": "Выйти"
+    },
+    "settings": {
+      "title": "Настройки",
+      "language": {
+        "title": "Язык",
+        "description": "Выберите предпочитаемый язык"
+      },
+      "theme": {
+        "title": "Тема",
+        "description": "Выберите предпочитаемую тему",
+        "light": "Светлая",
+        "dark": "Темная"
+      },
+      "images": {
+        "title": "Изображения",
+        "description": "Показать или скрыть изображения на странице",
+        "show": "Показать изображения",
+        "hide": "Скрыть изображения"
+      },
+      "reset": "Сбросить все настройки"
     },
     "footer": {
       "copyright": "© Beautico от Minimal Square . Работает на Webflow ."
