@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/preLoader.css" />
+    <script src="/components/preLoader.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/variables/primitives.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/variables/desktop.css" />
+    <link rel="stylesheet" href="/variables/tablet.css" />
+    <link rel="stylesheet" href="/variables/mobile.css" />
+    <link rel="stylesheet" href="/variables/fonts.css" />
+    <link rel="stylesheet" href="/styles/animation.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+    <link rel="stylesheet" href="/variables/dark-theme.css" />
+    <title>Register</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png?" />
+  </head>
+  <body>
+    <pre-loader></pre-loader>
+    <my-header class="header"></my-header>
+    <main class="login-main top-block">
+      <div class="login-container">
+        <div class="login-card">
+          <div class="login-header">
+            <h1 class="login-title H2" data-i18n="register.title">
+              Create Account
+            </h1>
+            <p class="login-subtitle Text" data-i18n="register.subtitle">
+              Sign up to get started
+            </p>
+          </div>
+
+          <form class="login-form" id="registerForm">
+            <div class="form-group">
+              <label for="firstName" class="form-label Smalltext"
+                ><span data-i18n="register.firstName">First Name</span>
+                <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="firstName"
+                class="form-input Text"
+                placeholder="Enter your first name"
+                data-i18n-placeholder="register.firstNamePlaceholder"
+              />
+              <span class="error-message" id="firstNameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="lastName" class="form-label Smalltext"
+                ><span data-i18n="register.lastName">Last Name</span>
+                <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="lastName"
+                class="form-input Text"
+                placeholder="Enter your last name"
+                data-i18n-placeholder="register.lastNamePlaceholder"
+              />
+              <span class="error-message" id="lastNameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label
+                for="surnname"
+                class="form-label Smalltext"
+                data-i18n="register.surname"
+                >Surname</label
+              >
+              <input
+                type="text"
+                id="surname"
+                class="form-input Text"
+                placeholder="Enter your surname"
+                data-i18n-placeholder="register.surnamePlaceholder"
+              />
+              <span class="error-message" id="surnameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="nickname" class="form-label Smalltext"
+                ><span data-i18n="register.nickname">Nickname</span>
+                <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="nickname"
+                class="form-input Text"
+                placeholder="Enter your nickname"
+                data-i18n-placeholder="register.nicknamePlaceholder"
+              />
+              <span class="error-message" id="nicknameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label Smalltext"
+                ><span data-i18n="register.email">Email</span>
+                <span class="required">*</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                class="form-input Text"
+                placeholder="Enter your email"
+                data-i18n-placeholder="register.emailPlaceholder"
+              />
+              <span class="error-message" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="number" class="form-label Smalltext"
+                ><span data-i18n="register.number">Number</span>
+                <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="number"
+                class="form-input Text"
+                placeholder="Enter your belarus number"
+                data-i18n-placeholder="register.numberPlaceholder"
+              />
+              <span class="error-message" id="numberError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="birthday" class="form-label Smalltext"
+                ><span data-i18n="register.birthday">Birthday</span>
+                <span class="required">*</span></label
+              >
+              <input
+                type="date"
+                id="birthday"
+                class="form-input Text"
+                placeholder="Enter your birthday"
+                data-i18n-placeholder="register.birthdayPlaceholder"
+                max="2010-05-03"
+              />
+              <span class="error-message" id="birthdayError"></span>
+            </div>
+
+            <div class="form-group">
+              <label
+                for="password"
+                class="form-label Smalltext"
+                data-i18n="register.password"
+                >Password</label
+              >
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  class="form-input Text"
+                  placeholder="Create a password"
+                  data-i18n-placeholder="register.passwordPlaceholder"
+                />
+              </div>
+              <span class="error-message" id="passwordError"></span>
+            </div>
+
+            <div class="form-group">
+              <label
+                for="confirmPassword"
+                class="form-label Smalltext"
+                data-i18n="register.confirmPassword"
+                >Confirm Password</label
+              >
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  class="form-input Text"
+                  placeholder="Confirm your password"
+                  data-i18n-placeholder="register.confirmPasswordPlaceholder"
+                />
+              </div>
+              <span class="error-message" id="confirmPasswordError"></span>
+            </div>
+
+            <label class="checkbox-wrapper Smalltext">
+              <input type="checkbox" id="terms" />
+              <span
+                ><span data-i18n="register.agreeTerms"
+                  >I agree to the Terms and Conditions</span
+                >
+                <span class="required">*</span></span
+              >
+            </label>
+            <span class="error-message" id="termsError"></span>
+
+            <button
+              type="submit"
+              class="login-button button Smalltext"
+              data-i18n="register.createAccount"
+            >
+              Create Account
+            </button>
+          </form>
+
+          <div class="login-footer">
+            <p class="Smalltext">
+              <span data-i18n="register.haveAccount"
+                >Already have an account?</span
+              >
+              <a
+                href="/pages/login.html"
+                class="register-link"
+                data-i18n="register.signIn"
+                >Sign in</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <my-footer class="footer top-block"></my-footer>
+  </body>
+  <script src="/components/MyHeader.js" type="module"></script>
+  <script src="/components/MyFooter.js"></script>
+  <script src="/js/register.js" type="module"></script>
+</html>

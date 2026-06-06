@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/preLoader.css" />
+    <script src="/components/preLoader.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/variables/primitives.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/variables/desktop.css" />
+    <link rel="stylesheet" href="/variables/tablet.css" />
+    <link rel="stylesheet" href="/variables/mobile.css" />
+    <link rel="stylesheet" href="/variables/fonts.css" />
+    <link rel="stylesheet" href="/styles/animation.css" />
+    <link rel="stylesheet" href="/styles/admin.css" />
+    <title>Admin Panel</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png?" />
+    <link rel="stylesheet" href="/styles/modal.css" />
+    <link rel="stylesheet" href="/styles/toast.css" />
+    <link rel="stylesheet" href="/variables/dark-theme.css" />
+  </head>
+  <body>
+    <pre-loader></pre-loader>
+    <my-header class="header"></my-header>
+    <main class="admin-main top-block">
+      <div class="admin-container">
+        <h2 class="admin-title H2" data-i18n="admin.title">Admin Panel</h2>
+
+        <div class="admin-tabs">
+          <button
+            class="tab-btn active"
+            id="btn-products"
+            data-tab="products"
+            data-i18n="admin.tabs.products"
+          >
+            Products
+          </button>
+          <button
+            class="tab-btn"
+            id="btn-reviews"
+            data-tab="reviews"
+            data-i18n="admin.tabs.reviews"
+          >
+            Reviews
+          </button>
+        </div>
+
+        <div class="tab-content active" id="productsTab">
+          <div class="admin-actions">
+            <button
+              class="button add_new_product"
+              id="addProductBtn"
+              data-i18n="admin.products.addNew"
+            >
+              Add New Product
+            </button>
+          </div>
+
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th data-i18n="admin.products.id">ID</th>
+                  <th data-i18n="admin.products.image">Image</th>
+                  <th data-i18n="admin.products.title">Title</th>
+                  <th data-i18n="admin.products.description">Description</th>
+                  <th data-i18n="admin.products.price">Price</th>
+                  <th data-i18n="admin.products.category">Category</th>
+                  <th data-i18n="admin.products.volume">Volume</th>
+                  <th data-i18n="admin.products.actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-content" id="reviewsTab">
+          <div class="admin-filters">
+            <div class="filter-group">
+              <label
+                for="filterType"
+                class="form-label SmallText"
+                data-i18n="admin.reviews.filterBy"
+                >Filter by:</label
+              >
+              <select id="filterType" class="form-input SmallText">
+                <option value="all" data-i18n="admin.reviews.allReviews">
+                  All Reviews
+                </option>
+                <option value="product" data-i18n="admin.reviews.byProduct">
+                  By Product
+                </option>
+                <option value="user" data-i18n="admin.reviews.byUser">
+                  By User
+                </option>
+              </select>
+            </div>
+            <div class="filter-group hidden" id="productFilterGroup">
+              <label
+                for="productFilter"
+                class="form-label SmallText"
+                data-i18n="admin.reviews.selectProduct"
+                >Select Product:</label
+              >
+              <select id="productFilter" class="form-input SmallText"></select>
+            </div>
+
+            <div class="filter-group hidden" id="userFilterGroup">
+              <label
+                for="userFilter"
+                class="form-label SmallText"
+                data-i18n="admin.reviews.selectUser"
+                >Select User:</label
+              >
+              <select id="userFilter" class="form-input SmallText"></select>
+            </div>
+          </div>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th data-i18n="admin.reviews.id">ID</th>
+                  <th data-i18n="admin.reviews.orderId">Order ID</th>
+                  <th data-i18n="admin.reviews.user">User</th>
+                  <th data-i18n="admin.reviews.product">Product</th>
+                  <th data-i18n="admin.reviews.rating">Rating</th>
+                  <th data-i18n="admin.reviews.comment">Comment</th>
+                  <th data-i18n="admin.reviews.date">Date</th>
+                  <th data-i18n="admin.reviews.actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reviewsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+    <my-footer class="footer top-block"></my-footer>
+    <product-modal id="appModal"></product-modal>
+    <my-toast></my-toast>
+  </body>
+  <script src="/components/MyHeader.js" type="module"></script>
+  <script src="/components/MyFooter.js"></script>
+  <script src="/js/admin.js" type="module"></script>
+  <script src="/components/ProductModal.js" type="module"></script>
+  <script src="/components/MyToast.js" type="module"></script>
+</html>

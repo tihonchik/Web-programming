@@ -1,0 +1,1313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/preLoader.css" />
+    <script src="/components/preLoader.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/variables/primitives.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/variables/desktop.css" />
+    <link rel="stylesheet" href="/variables/tablet.css" />
+    <link rel="stylesheet" href="/variables/mobile.css" />
+    <link rel="stylesheet" href="/variables/fonts.css" />
+    <link rel="stylesheet" href="/styles/animation.css" />
+    <link rel="stylesheet" href="/variables/dark-theme.css" />
+    <title>Lab 3</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png?" />
+  </head>
+  <body>
+    <pre-loader> </pre-loader>
+    <my-header class="header"></my-header>
+    <main class="main">
+      <section class="first-block top-block">
+        <div class="first-block__content">
+          <div class="first-block__left-part">
+            <div class="first-block__top-part">
+              <h1 class="first-block__title H1" data-i18n="home.hero.title">
+                Hydrated skin in 3 easy steps
+              </h1>
+              <p
+                class="first-block__text Text"
+                data-i18n="home.hero.description"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse varius enim in eros elementum tristique duis Cursus
+                mi quis viverra ornare.
+              </p>
+              <div class="first-block__buttons">
+                <button
+                  class="first-block__left-button button Smalltext"
+                  data-i18n="home.hero.shopNow"
+                >
+                  Shop now
+                </button>
+                <button
+                  class="first-block__right-button button Smalltext"
+                  data-i18n="home.hero.ourStory"
+                >
+                  Our story
+                </button>
+              </div>
+            </div>
+            <div class="first-block__bottom-part">
+              <p
+                class="first-block__text-icons Text"
+                data-i18n="home.hero.trusted"
+              >
+                Trusted by the world's best companies
+              </p>
+              <div class="first-block__icons">
+                <img
+                  src="/static/first-block/icons/Frame.svg"
+                  alt="icon"
+                  class="first-block__icon"
+                />
+                <img
+                  src="/static/first-block/icons/Frame-1.svg"
+                  alt="icon"
+                  class="first-block__icon"
+                />
+                <img
+                  src="/static/first-block/icons/Frame-2.svg"
+                  alt="icon"
+                  class="first-block__icon"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="first-block__hero"></div>
+        </div>
+      </section>
+      <section class="parallax-section" id="parallax-section">
+        <div class="parallax-layer layer-bg" data-speed="0.1">
+          <svg
+            width="400"
+            height="400"
+            viewBox="0 0 200 200"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="svg-blob"
+          >
+            <path
+              d="M160 100C160 144.183 144.183 180 100 180C55.8172 180 20 144.183 20 100C20 55.8172 55.8172 20 100 20C144.183 20 160 55.8172 160 100Z"
+              fill="var(--colors-backgroung-button-2)"
+              fill-opacity="0.3"
+            />
+          </svg>
+        </div>
+
+        <div class="parallax-layer layer-reverse" data-speed="-0.3">
+          <svg width="120" height="120" viewBox="0 0 100 100" class="svg-shape">
+            <rect
+              x="20"
+              y="20"
+              width="60"
+              height="60"
+              rx="10"
+              transform="rotate(15 50 50)"
+              stroke="var(--colors-backgroung-button-1)"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        <div class="parallax-layer layer-content" data-speed="0.4">
+          <div class="parallax-text">
+            <p class="subject" data-i18n="home.parallax.subject">
+              Premium Quality
+            </p>
+            <h2 class="H2" data-i18n="home.parallax.title">
+              Natural Care for You
+            </h2>
+            <p class="Text" data-i18n="home.parallax.description">
+              Discover our organic ingredients and unique formulas.
+            </p>
+          </div>
+        </div>
+        <div class="parallax-layer layer-fast" data-speed="0.8">
+          <svg
+            width="60"
+            height="60"
+            viewBox="0 0 24 24"
+            class="svg-sparkle s1"
+          >
+            <path
+              d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"
+              fill="var(--colors-backgroung-button-1)"
+            />
+          </svg>
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            class="svg-sparkle s2"
+          >
+            <path
+              d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"
+              fill="var(--colors-backgroung-button-1)"
+              opacity="0.6"
+            />
+          </svg>
+        </div>
+      </section>
+      <section class="second-block top-block">
+        <div class="second-block__content">
+          <p
+            class="second-block__item Text"
+            data-i18n="home.features.healthySupplement"
+          >
+            Healthy supplement
+          </p>
+          <p
+            class="second-block__item Text"
+            data-i18n="home.features.glutenFree"
+          >
+            Gluten-free
+          </p>
+          <p
+            class="second-block__item Text"
+            data-i18n="home.features.naturalProducts"
+          >
+            Natural products
+          </p>
+          <p
+            class="second-block__item Text"
+            data-i18n="home.features.freeShipping"
+          >
+            Free shipping
+          </p>
+          <p
+            class="second-block__item Text"
+            data-i18n="home.features.ecoFriendly"
+          >
+            Eco-friendly
+          </p>
+          <p class="second-block__item Text" data-i18n="home.features.vitamins">
+            Vitamins
+          </p>
+        </div>
+      </section>
+      <section class="third-block top-block">
+        <div class="third-block__content">
+          <p
+            class="third-block__subject subject Text"
+            data-i18n="home.about.subject"
+          >
+            About us
+          </p>
+          <h2 class="third-block__title title H2" data-i18n="home.about.title">
+            The beautiful story
+          </h2>
+          <p class="third-block__text Text" data-i18n="home.about.description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+          <div class="third-block__buttons">
+            <button
+              class="third-block__left-button button Smalltext"
+              data-i18n="home.about.ourStory"
+            >
+              Our story
+            </button>
+            <button
+              class="third-block__right-button button Smalltext"
+              data-i18n="home.about.contactUs"
+            >
+              Contact us
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="fourth-block top-block">
+        <div class="fourth-block__content">
+          <div class="fourth-block__top-part">
+            <p
+              class="third-block__subject subject Text"
+              data-i18n="home.bestSellers.subject"
+            >
+              Best sellers
+            </p>
+            <h2
+              class="third-block__title title H2"
+              data-i18n="home.bestSellers.title"
+            >
+              The most trusted products by our customers
+            </h2>
+          </div>
+          <div class="fourth-block__bottom-part">
+            <div class="fourth-block__card">
+              <img
+                src="/static/fourth-block/1.png"
+                alt="cream"
+                class="fourth-block__img"
+              />
+              <div class="four-block__card-info">
+                <div class="fourth-block__texts">
+                  <div class="fourth-block__name-price">
+                    <h4
+                      class="fourth-block__name H4"
+                      data-i18n="home.bestSellers.product1.name"
+                    >
+                      Clean
+                    </h4>
+                    <p
+                      class="fourth-block__price Text"
+                      data-i18n="home.bestSellers.product1.price"
+                    >
+                      $ 32.00 USD
+                    </p>
+                  </div>
+                  <p
+                    class="fourth-block__description Text"
+                    data-i18n="home.bestSellers.product1.description"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </p>
+                </div>
+                <button
+                  class="fourth-block__button button Smalltext"
+                  data-i18n="home.products.details"
+                >
+                  Product details
+                </button>
+              </div>
+            </div>
+            <div class="fourth-block__card">
+              <img
+                src="/static/fourth-block/2.png"
+                alt="cream"
+                class="fourth-block__img"
+              />
+              <div class="four-block__card-info">
+                <div class="fourth-block__texts">
+                  <div class="fourth-block__name-price">
+                    <h4
+                      class="fourth-block__name H4"
+                      data-i18n="home.bestSellers.product2.name"
+                    >
+                      Tone
+                    </h4>
+                    <p
+                      class="fourth-block__price Text"
+                      data-i18n="home.bestSellers.product2.price"
+                    >
+                      $ 17.00 USD
+                    </p>
+                  </div>
+                  <p
+                    class="fourth-block__description Text"
+                    data-i18n="home.bestSellers.product2.description"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </p>
+                </div>
+                <button
+                  class="fourth-block__button button Smalltext"
+                  data-i18n="home.products.details"
+                >
+                  Product details
+                </button>
+              </div>
+            </div>
+            <div class="fourth-block__card">
+              <img
+                src="/static/fourth-block/3.png"
+                alt="cream"
+                class="fourth-block__img"
+              />
+              <div class="four-block__card-info">
+                <div class="fourth-block__texts">
+                  <div class="fourth-block__name-price">
+                    <h4
+                      class="fourth-block__name H4"
+                      data-i18n="home.bestSellers.product3.name"
+                    >
+                      Soft
+                    </h4>
+                    <p
+                      class="fourth-block__price Text"
+                      data-i18n="home.bestSellers.product3.price"
+                    >
+                      $ 54.00 USD
+                    </p>
+                  </div>
+                  <p
+                    class="fourth-block__description Text"
+                    data-i18n="home.bestSellers.product3.description"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </p>
+                </div>
+                <button
+                  class="fourth-block__button button Smalltext"
+                  data-i18n="home.products.details"
+                >
+                  Product details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="fifth-block top-block">
+        <div class="fifth-block__content">
+          <div class="fifth-block__card">
+            <div class="fifth-block__description">
+              <h3
+                class="fifth-block__title H3"
+                data-i18n="home.collections.creams.title"
+              >
+                Best selling creams
+              </h3>
+              <p
+                class="fifth-block__text Text"
+                data-i18n="home.collections.creams.description"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse varius enim in eros elementum tristique.
+              </p>
+              <button
+                class="fifth-block__button button Smalltext"
+                data-i18n="home.collections.shopNow"
+              >
+                Shop now
+              </button>
+            </div>
+            <div class="fifth-block__background-img"></div>
+          </div>
+          <div class="fifth-block__card">
+            <div class="fifth-block__description">
+              <h3
+                class="fifth-block__title H3"
+                data-i18n="home.collections.lotions.title"
+              >
+                Best selling lotions
+              </h3>
+              <p
+                class="fifth-block__text Text"
+                data-i18n="home.collections.lotions.description"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse varius enim in eros elementum tristique.
+              </p>
+              <button
+                class="fifth-block__button button Smalltext"
+                data-i18n="home.collections.shopNow"
+              >
+                Shop now
+              </button>
+            </div>
+            <div class="fifth-block__background-img"></div>
+          </div>
+        </div>
+      </section>
+      <section class="sixth-block top-block">
+        <div class="sixth-block__content">
+          <div class="sixth-block__top-part">
+            <p
+              class="sixth-block subject subject Text"
+              data-i18n="home.howItWorks.subject"
+            >
+              How it works
+            </p>
+            <h2
+              class="sixth-block__title title H2"
+              data-i18n="home.howItWorks.title"
+            >
+              It’s easy as 1, 2, 3
+            </h2>
+            <p
+              class="sixth-block__description Text"
+              data-i18n="home.howItWorks.description"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              suspendisse varius enim in eros. Elementum tristique duis cursus,
+              mi quis viverra ornare eros dolor.
+            </p>
+          </div>
+          <div class="sixth-block__bottom-part marquee">
+            <div class="marquee-track">
+              <!-- Группа 1 -->
+              <div class="marquee-group">
+                <div class="sixth-block__card">
+                  <div class="sixth-block__icon">
+                    <img src="/static/sixth-block/Vector.svg" alt="icon" />
+                  </div>
+                  <h4
+                    class="six-block__card-title H4"
+                    data-i18n="home.howItWorks.step1.title"
+                  >
+                    Apply the product
+                  </h4>
+                  <p
+                    class="six-block__card-description Smalltext"
+                    data-i18n="home.howItWorks.step1.description"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+                <div class="sixth-block__card">
+                  <div class="sixth-block__icon">
+                    <img src="/static/sixth-block/Vector 1.svg" alt="icon" />
+                  </div>
+                  <h4
+                    class="six-block__card-title H4"
+                    data-i18n="home.howItWorks.step2.title"
+                  >
+                    Wait for the skin
+                  </h4>
+                  <p
+                    class="six-block__card-description Smalltext"
+                    data-i18n="home.howItWorks.step2.description"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+                <div class="sixth-block__card">
+                  <div class="sixth-block__icon">
+                    <img src="/static/sixth-block/Vector 2.svg" alt="icon" />
+                  </div>
+                  <h4
+                    class="six-block__card-title H4"
+                    data-i18n="home.howItWorks.step3.title"
+                  >
+                    And that’s it
+                  </h4>
+                  <p
+                    class="six-block__card-description Smalltext"
+                    data-i18n="home.howItWorks.step3.description"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Группа 2 (Копия для бесшовности) -->
+              <div class="marquee-group">
+                <div class="sixth-block__card">
+                  <div class="sixth-block__icon">
+                    <img src="/static/sixth-block/Vector.svg" alt="icon" />
+                  </div>
+                  <h4
+                    class="six-block__card-title H4"
+                    data-i18n="home.howItWorks.step1.title"
+                  >
+                    Apply the product
+                  </h4>
+                  <p
+                    class="six-block__card-description Smalltext"
+                    data-i18n="home.howItWorks.step1.description"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+                <div class="sixth-block__card">
+                  <div class="sixth-block__icon">
+                    <img src="/static/sixth-block/Vector 1.svg" alt="icon" />
+                  </div>
+                  <h4
+                    class="six-block__card-title H4"
+                    data-i18n="home.howItWorks.step2.title"
+                  >
+                    Wait for the skin
+                  </h4>
+                  <p
+                    class="six-block__card-description Smalltext"
+                    data-i18n="home.howItWorks.step2.description"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+                <div class="sixth-block__card">
+                  <div class="sixth-block__icon">
+                    <img src="/static/sixth-block/Vector 2.svg" alt="icon" />
+                  </div>
+                  <h4
+                    class="six-block__card-title H4"
+                    data-i18n="home.howItWorks.step3.title"
+                  >
+                    And that’s it
+                  </h4>
+                  <p
+                    class="six-block__card-description Smalltext"
+                    data-i18n="home.howItWorks.step3.description"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="seventh-block top-block">
+        <div class="seventh-block__content">
+          <img
+            src="/static/seventh-block/IMAGE 1.png"
+            alt="girl"
+            class="seventh-block__img"
+          />
+          <div class="seventh-block__description">
+            <p
+              class="seventh-block__subject subject Text"
+              data-i18n="home.skinCollection.oily.subject"
+            >
+              Smooth skin collection
+            </p>
+            <h2
+              class="seventh-block__title title H2"
+              data-i18n="home.skinCollection.oily.title"
+            >
+              For oily face skin
+            </h2>
+            <p
+              class="seventh-block__text Text"
+              data-i18n="home.skinCollection.oily.description"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              suspendisse Varius enim in eros elementum tristique, duis cursus
+              mi quis viverra ornare, eros dolor interdum nulla ut commodo.
+            </p>
+            <div class="seventh-block__buttons">
+              <button
+                class="seventh-block__left-button button Smalltext"
+                data-i18n="home.skinCollection.shopNow"
+              >
+                Shop now
+              </button>
+              <button
+                class="seventh-block__right-button button Smalltext"
+                data-i18n="home.skinCollection.exploreMore"
+              >
+                Explore more
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="seventh-block top-block seventh-block--reverse">
+        <div class="seventh-block__content">
+          <div class="seventh-block__description">
+            <p
+              class="seventh-block__subject subject Text"
+              data-i18n="home.skinCollection.body.subject"
+            >
+              Smooth skin collection
+            </p>
+            <h2
+              class="seventh-block__title title H2"
+              data-i18n="home.skinCollection.body.title"
+            >
+              For body skin
+            </h2>
+            <p
+              class="seventh-block__text Text"
+              data-i18n="home.skinCollection.body.description"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              suspendisse Varius enim in eros elementum tristique, duis cursus
+              mi quis viverra ornare, eros dolor interdum nulla ut commodo.
+            </p>
+            <div class="seventh-block__buttons">
+              <button
+                class="seventh-block__left-button button Smalltext"
+                data-i18n="home.skinCollection.shopNow"
+              >
+                Shop now
+              </button>
+              <button
+                class="seventh-block__right-button button Smalltext"
+                data-i18n="home.skinCollection.exploreMore"
+              >
+                Explore more
+              </button>
+            </div>
+          </div>
+          <img
+            src="/static/seventh-block/IMAGE 2.png"
+            alt="girl"
+            class="seventh-block__img"
+          />
+        </div>
+      </section>
+      <section class="ninth-block top-block">
+        <div class="ninth-block__content">
+          <div class="ninth-block__top-part">
+            <p
+              class="ninth-block__subject subject Text"
+              data-i18n="home.testimonials.subject"
+            >
+              Testimonials
+            </p>
+            <h2
+              class="ninth-block__title title H2"
+              data-i18n="home.testimonials.title"
+            >
+              What our customers say
+            </h2>
+            <p
+              class="ninth-block__text Smalltext"
+              data-i18n="home.testimonials.description"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div class="ninth-block__grid">
+            <div class="ninth-block__comment comment-1">
+              <div class="ninth-block__stars">
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+              </div>
+              <p
+                class="ninth-block__comment-text Text"
+                data-i18n="home.testimonials.review1.text"
+              >
+                "Nulla facilisi. Sed sit amet commodo quam, ac viverra turpis.
+                Maecenas vitae pulvinar lacus. Suspendisse cursus turpis vel
+                ante laoreet vehicula."
+              </p>
+              <div class="ninth-block__people">
+                <img
+                  src="/static/ninth-block/IMAGE 1.png"
+                  alt="people"
+                  class="ninth-block__img"
+                />
+                <div class="ninth-block__name-job">
+                  <h5
+                    class="ninth-block__name H5"
+                    data-i18n="home.testimonials.review1.name"
+                  >
+                    Orlando Diggs
+                  </h5>
+                  <p
+                    class="ninth-block__job Smalltext"
+                    data-i18n="home.testimonials.review1.job"
+                  >
+                    Photographer
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="ninth-block__comment comment-2">
+              <div class="ninth-block__stars">
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+              </div>
+              <p
+                class="ninth-block__comment-text Text"
+                data-i18n="home.testimonials.review2.text"
+              >
+                "Sed mattis scelerisque metus. Mauris ultricies, dui id finibus
+                pretium, neque sapien vestibulum lectus, id tincidunt risus
+                nulla at magna. Nulla rhoncus dolor at est vehicula, vel gravida
+                risus vulputate libero."
+              </p>
+              <div class="ninth-block__people">
+                <img
+                  src="/static/ninth-block/IMAGE 2.png"
+                  alt="people"
+                  class="ninth-block__img"
+                />
+                <div class="ninth-block__name-job">
+                  <h5
+                    class="ninth-block__name H5"
+                    data-i18n="home.testimonials.review2.name"
+                  >
+                    Mollie Hall
+                  </h5>
+                  <p
+                    class="ninth-block__job Smalltext"
+                    data-i18n="home.testimonials.review2.job"
+                  >
+                    Biologist
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="ninth-block__comment comment-3">
+              <div class="ninth-block__stars">
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+              </div>
+              <p
+                class="ninth-block__comment-text Text"
+                data-i18n="home.testimonials.review3.text"
+              >
+                "Duis sit amet mi et mauris sollicitudin semper. Donec quam
+                justo, accumsan condimentum sollicitudin sed, posuere ac lacus
+                etiam saggitis sed nisi."
+              </p>
+              <div class="ninth-block__people">
+                <img
+                  src="/static/ninth-block/IMAGE 3.png"
+                  alt="people"
+                  class="ninth-block__img"
+                />
+                <div class="ninth-block__name-job">
+                  <h5
+                    class="ninth-block__name H5"
+                    data-i18n="home.testimonials.review3.name"
+                  >
+                    Lori Bryson
+                  </h5>
+                  <p
+                    class="ninth-block__job Smalltext"
+                    data-i18n="home.testimonials.review3.job"
+                  >
+                    Blogger
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="ninth-block__comment comment-4">
+              <div class="ninth-block__stars">
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+              </div>
+              <p
+                class="ninth-block__comment-text Text"
+                data-i18n="home.testimonials.review4.text"
+              >
+                "Maecenas tellus mauris, sagittis a dui sed, porta convallis
+                est. Morbi sapien massa, semper non tincidunt sed, lobortis vel
+                nisl. Curabitur fermentum eget justo nec efficitur."
+              </p>
+              <div class="ninth-block__people">
+                <img
+                  src="/static/ninth-block/IMAGE 4.png"
+                  alt="people"
+                  class="ninth-block__img"
+                />
+                <div class="ninth-block__name-job">
+                  <h5
+                    class="ninth-block__name H5"
+                    data-i18n="home.testimonials.review4.name"
+                  >
+                    Kate Morrison
+                  </h5>
+                  <p
+                    class="ninth-block__job Smalltext"
+                    data-i18n="home.testimonials.review4.job"
+                  >
+                    Makeup Artist
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="ninth-block__comment comment-5">
+              <div class="ninth-block__stars">
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+              </div>
+              <p
+                class="ninth-block__comment-text Text"
+                data-i18n="home.testimonials.review5.text"
+              >
+                "Phasellus laoreet posuere est quis euismod. In facilisis sem
+                non tincidunt feugiat. Mauris vitae elit eget quam sollicitudin
+                gravida. Praesent imperdiet viverra justo nec ullamcorper. In
+                dictum felis at mauris fringilla pulvinar."
+              </p>
+              <div class="ninth-block__people">
+                <img
+                  src="/static/ninth-block/IMAGE 5.png"
+                  alt="people"
+                  class="ninth-block__img"
+                />
+                <div class="ninth-block__name-job">
+                  <h5
+                    class="ninth-block__name H5"
+                    data-i18n="home.testimonials.review5.name"
+                  >
+                    Koray Okumus
+                  </h5>
+                  <p
+                    class="ninth-block__job Smalltext"
+                    data-i18n="home.testimonials.review5.job"
+                  >
+                    Writter
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="ninth-block__comment comment-6">
+              <div class="ninth-block__stars">
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+                <img
+                  src="/static/ninth-block/Vector.svg"
+                  alt="star"
+                  class="ninth-block__star"
+                />
+              </div>
+              <p
+                class="ninth-block__comment-text Text"
+                data-i18n="home.testimonials.review6.text"
+              >
+                "Etiam sagittis nec tortor in scelerisque. Sed et bibendum nisi,
+                sit amet varius libero. Maecenas posuere convallis tellus, at
+                hendrerit sem."
+              </p>
+              <div class="ninth-block__people">
+                <img
+                  src="/static/ninth-block/IMAGE 6.png"
+                  alt="people"
+                  class="ninth-block__img"
+                />
+                <div class="ninth-block__name-job">
+                  <h5
+                    class="ninth-block__name H5"
+                    data-i18n="home.testimonials.review6.name"
+                  >
+                    Noah Pierre
+                  </h5>
+                  <p
+                    class="ninth-block__job Smalltext"
+                    data-i18n="home.testimonials.review6.job"
+                  >
+                    Dermatologist
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="tenth-block top-block">
+        <div class="tenth-block__content">
+          <div class="tenth-block__left-part">
+            <h2 class="tenth-block__title title H2" data-i18n="home.faq.title">
+              Frequently asked questions
+            </h2>
+            <p class="tenth-block__text Text" data-i18n="home.faq.description">
+              Frequently asked questions ordered by popularity. Remember that if
+              the visitor has not committed to the call to action, they may
+              still have questions (doubts) that can be answered.
+            </p>
+            <button
+              class="tenth-block__button button Smalltext"
+              data-i18n="home.faq.contactUs"
+            >
+              Contact us
+            </button>
+          </div>
+          <div class="tenth-block__right-part">
+            <div class="tenth-block__card">
+              <p
+                class="tenth-block__card-text Smalltext"
+                data-i18n="home.faq.question1"
+              >
+                Are the fragrances in your products natural and safe?
+              </p>
+              <p class="tenth-block__add MaterialIcons">add</p>
+            </div>
+            <div class="tenth-block__card">
+              <p
+                class="tenth-block__card-text Smalltext"
+                data-i18n="home.faq.question2"
+              >
+                Are Beautico products vegan?
+              </p>
+              <p class="tenth-block__add MaterialIcons">add</p>
+            </div>
+            <div class="tenth-block__card">
+              <p
+                class="tenth-block__card-text Smalltext"
+                data-i18n="home.faq.question3"
+              >
+                What are the expiry dates for Beautico products?
+              </p>
+              <p class="tenth-block__add MaterialIcons">add</p>
+            </div>
+            <div class="tenth-block__card">
+              <p
+                class="tenth-block__card-text Smalltext"
+                data-i18n="home.faq.question4"
+              >
+                Does Beautico products give me an allergic reaction?
+              </p>
+              <p class="tenth-block__add MaterialIcons">add</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="eleventh-block top-block">
+        <div class="eleventh-block__content">
+          <div class="eleventh-block__top-part">
+            <div class="eleventh-block__left-part">
+              <p
+                class="eleventh-block__subject subject Text"
+                data-i18n="home.blog.subject"
+              >
+                Latest posts
+              </p>
+              <h2
+                class="eleventh-block__title title H2"
+                data-i18n="home.blog.title"
+              >
+                From our blog
+              </h2>
+              <p
+                class="eleventh-block__text Text"
+                data-i18n="home.blog.description"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+            <button
+              class="eleventh-block__top-button button Smalltext"
+              data-i18n="home.blog.viewAll"
+            >
+              View all posts
+            </button>
+          </div>
+          <div class="eleventh-block__bottom-part">
+            <div class="eleventh-block__card">
+              <div class="eleventh-block__card-img">
+                <button
+                  class="eleventh-block__card-button button Smalltext"
+                  data-i18n="home.blog.post1.category"
+                >
+                  Anti aging
+                </button>
+              </div>
+              <div class="eleventh-block__description">
+                <h4
+                  class="eleventh-block__card-title H4"
+                  data-i18n="home.blog.post1.title"
+                >
+                  Dry acne prone skincare routine
+                </h4>
+                <p
+                  class="eleventh-block__card-text Smalltext"
+                  data-i18n="home.blog.post1.text"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse varius enim in eros.
+                </p>
+                <a
+                  href=""
+                  class="eleventh-block__link Smalltext"
+                  data-i18n="home.blog.readMore"
+                  >Read more</a
+                >
+              </div>
+            </div>
+            <div class="eleventh-block__card">
+              <div class="eleventh-block__card-img">
+                <button
+                  class="eleventh-block__card-button button Smalltext"
+                  data-i18n="home.blog.post2.category"
+                >
+                  Anti aging
+                </button>
+              </div>
+              <div class="eleventh-block__description">
+                <h4
+                  class="eleventh-block__card-title H4"
+                  data-i18n="home.blog.post2.title"
+                >
+                  How to use products for sensitive skin
+                </h4>
+                <p
+                  class="eleventh-block__card-text Smalltext"
+                  data-i18n="home.blog.post2.text"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse varius enim in eros.
+                </p>
+                <a
+                  href=""
+                  class="eleventh-block__link Smalltext"
+                  data-i18n="home.blog.readMore"
+                  >Read more</a
+                >
+              </div>
+            </div>
+            <div class="eleventh-block__card">
+              <div class="eleventh-block__card-img">
+                <button
+                  class="eleventh-block__card-button button Smalltext"
+                  data-i18n="home.blog.post3.category"
+                >
+                  Anti aging
+                </button>
+              </div>
+              <div class="eleventh-block__description">
+                <h4
+                  class="eleventh-block__card-title H4"
+                  data-i18n="home.blog.post3.title"
+                >
+                  5 ingredients to calm down stressed out skin
+                </h4>
+                <p
+                  class="eleventh-block__card-text Smalltext"
+                  data-i18n="home.blog.post3.text"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse varius enim in eros.
+                </p>
+                <a
+                  href=""
+                  class="eleventh-block__link Smalltext"
+                  data-i18n="home.blog.readMore"
+                  >Read more</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="media-gallery top-block" id="interactive-gallery">
+        <div class="media-gallery__content">
+          <div class="media-gallery__header">
+            <p
+              class="subject Text"
+              style="text-align: center"
+              data-i18n="home.gallery.subject"
+            >
+              Experience
+            </p>
+            <h2
+              class="title H2"
+              style="text-align: center"
+              data-i18n="home.gallery.title"
+            >
+              Interactive Media Gallery
+            </h2>
+            <p
+              class="Text"
+              style="
+                text-align: center;
+                margin-top: 10px;
+                color: var(--colors-grey-800);
+              "
+              data-i18n="home.gallery.description"
+            >
+              Discover the harmony of visual and sound.
+            </p>
+          </div>
+          <div class="media-gallery__main">
+            <div class="media-gallery__display" id="mediaDisplay">
+              <div class="play-indicator" id="playIndicator">
+                <span class="bar"></span><span class="bar"></span
+                ><span class="bar"></span>
+              </div>
+              <img
+                src="https://images.unsplash.com/photo-1615397323068-1bcce5fb0049?auto=format&fit=crop&w=800&q=80"
+                alt="gallery"
+                id="galleryImage"
+                class="media-gallery__img transition-active"
+              />
+              <video
+                id="galleryVideo"
+                class="media-gallery__video hidden"
+                controls
+              >
+                <source
+                  src="https://www.w3schools.com/html/mov_bbb.mp4"
+                  type="video/mp4"
+                />
+                <span data-i18n="home.gallery.videoNotSupported">Your browser does not support HTML video.</span>
+              </video>
+            </div>
+            <div class="media-gallery__controls">
+              <button class="button Smalltext" id="btnRandomMedia">
+                <span class="MaterialIcons" style="margin-right: 8px"
+                  >shuffle</span
+                >
+                <span data-i18n="home.gallery.discoverMagic"
+                  >Discover Magic</span
+                >
+              </button>
+              <button
+                class="button Smalltext"
+                id="btnPlayVideo"
+                style="background-color: var(--colors-backgroung-header-1)"
+              >
+                <span class="MaterialIcons" style="margin-right: 8px"
+                  >play_circle</span
+                >
+                <span data-i18n="home.gallery.watchVideo">Watch Video</span>
+              </button>
+              <div class="volume-control">
+                <span
+                  class="MaterialIcons"
+                  style="color: var(--colors-violet-700)"
+                  >volume_up</span
+                >
+                <input
+                  type="range"
+                  id="volumeSlider"
+                  class="volume-slider"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value="0.5"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      async
+      src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac73e6f2dec90a8132edad6d915cb5b0d11202bdeeac48849e253ce9dd6c9110e&amp;width=100%25&amp;height=720&amp;lang=ru_RU&amp;scroll=true"
+    ></script>
+    <my-footer class="footer top-block"></my-footer>
+  </body>
+  <script src="/components/MyHeader.js" type="module"></script>
+  <script src="/components/MyFooter.js"></script>
+  <script src="/js/parallax.js" defer></script>
+  <script src="/js/media.js" type="module"></script>
+</html>

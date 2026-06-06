@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/preLoader.css" />
+    <script src="/components/preLoader.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/variables/primitives.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/variables/desktop.css" />
+    <link rel="stylesheet" href="/variables/tablet.css" />
+    <link rel="stylesheet" href="/variables/mobile.css" />
+    <link rel="stylesheet" href="/variables/fonts.css" />
+    <link rel="stylesheet" href="/styles/animation.css" />
+    <link rel="stylesheet" href="/styles/catalog.css" />
+    <link rel="stylesheet" href="/styles/toast.css" />
+    <title>Catalog</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png?" />
+    <link rel="stylesheet" href="/styles/modal.css" />
+    <link rel="stylesheet" href="/variables/dark-theme.css" />
+  </head>
+  <body>
+    <pre-loader></pre-loader>
+    <my-header class="header"></my-header>
+    <main class="catalog-main top-block">
+      <div class="catalog_search">
+        <input
+          class="catalog_input H3"
+          type="text"
+          data-i18n-placeholder="catalog.searchPlaceholder"
+        />
+        <select name="type" id="type" class="catalog_select H4">
+          <option value="title" data-i18n="catalog.filterTitle">title</option>
+          <option value="description" data-i18n="catalog.filterDescription">
+            description
+          </option>
+          <option value="coast" data-i18n="catalog.filterCoast">coast</option>
+          <option value="coast" data-i18n="catalog.filterVolume">volume</option>
+        </select>
+        <select name="sort" id="sort" class="catalog_sort H4">
+          <option value="title" data-i18n="catalog.sortTitle">title</option>
+          <option value="description" data-i18n="catalog.sortDescription">
+            description
+          </option>
+          <option value="coast" data-i18n="catalog.sortCoast">coast</option>
+          <option value="coast" data-i18n="catalog.sortVolume">volume</option>
+        </select>
+        <select name="sortType" id="sortType" class="catalog_sort_type H4">
+          <option value="asc" data-i18n="catalog.sortAsc">sort ASC</option>
+          <option value="desc" data-i18n="catalog.sortDesc">sort DESC</option>
+        </select>
+        <div class="catalog_filter H4"></div>
+      </div>
+      <div class="catalog-grid"></div>
+      <div class="buttons">
+        <button class="left button" data-i18n="catalog.left">left</button>
+        <button class="right button" data-i18n="catalog.right">right</button>
+      </div>
+    </main>
+
+    <my-footer class="footer top-block"></my-footer>
+    <product-modal id="detailModal"></product-modal>
+    <my-toast></my-toast>
+  </body>
+  <script src="/components/MyHeader.js" type="module"></script>
+  <script src="/components/MyFooter.js"></script>
+  <script src="/components/MyToast.js" type="module"></script>
+  <script src="/js/catalog.js" type="module"></script>
+  <script src="/components/ProductModal.js" type="module"></script>
+</html>

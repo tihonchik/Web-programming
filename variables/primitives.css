@@ -1,0 +1,85 @@
+:root {
+  --colors-dark-bg: #15181f;
+  --colors-dark-surface: #1a1c23;
+  --colors-dark-card: #252730;
+
+  --colors-dark-border: #353742;
+
+  --colors-dark-text-title: #f8fafc;
+  --colors-dark-text-main: #94a3b8;
+  --colors-dark-text-subject: #c4b5fd;
+
+  --colors-basic-black: #000000;
+  --colors-basic-white: #ffffff;
+  --colors-grey-500: #f3f5f7;
+  --colors-grey-700: #cdd5df;
+  --colors-grey-800: #697586;
+  --colors-pink-500: #cf4d74;
+  --colors-violet-500: #edebf7;
+  --colors-violet-700: #6244a3;
+  --colors-violet-800: #030303;
+  --colors-success: #4caf50;
+  --colors-error: #f44336;
+  --colors-error-red: #ef4444;
+  --colors-info: #2196f3;
+  --colors-warning: #ffc107;
+
+  --fonts-heights-8: 8px;
+  --fonts-heights-12: 12px;
+  --fonts-heights-16: 16px;
+  --fonts-heights-20: 20px;
+  --fonts-heights-24: 24px;
+  --fonts-heights-28: 28px;
+  --fonts-heights-32: 32px;
+  --fonts-heights-36: 36px;
+  --fonts-heights-40: 40px;
+  --fonts-heights-44: 44px;
+  --fonts-heights-48: 48px;
+  --fonts-heights-60: 60px;
+  --fonts-heights-68: 68px;
+  --fonts-letter-spacing-0: 0px;
+  --fonts-sizes-4: 4px;
+  --fonts-sizes-8: 8px;
+  --fonts-sizes-10: 10px;
+  --fonts-sizes-12: 12px;
+  --fonts-sizes-14: 14px;
+  --fonts-sizes-16: 16px;
+  --fonts-sizes-20: 20px;
+  --fonts-sizes-24: 24px;
+  --fonts-sizes-28: 28px;
+  --fonts-sizes-32: 32px;
+  --fonts-sizes-56: 56px;
+  --fonts-sizes-64: 64px;
+  --fonts-weights-regular: 400px;
+  --fonts-weights-medium: 500px;
+  --fonts-weights-bold: 700px;
+  --radius-0: 0px;
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-24: 24px;
+  --radius-32: 32px;
+  --radius-64: 64px;
+  --radius-full: 1000000000px;
+  --space-0: 0px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-36: 36px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-160: 160px;
+
+  --fonts-family-inter: Inter;
+  --fonts-family-material-icons: Material Icons;
+  --fonts-family-roboto: Roboto;
+}

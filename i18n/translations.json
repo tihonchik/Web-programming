@@ -1,0 +1,866 @@
+{
+  "en": {
+    "header": {
+      "topBanner": "Free worldwide shipping for orders over $55. Shop now",
+      "home": "Home",
+      "catalog": "Catalog",
+      "favorites": "Favorites",
+      "basket": "Basket",
+      "orders": "Orders",
+      "admin": "Admin",
+      "login": "Login",
+      "logout": "Logout"
+    },
+    "settings": {
+      "title": "Settings",
+      "language": {
+        "title": "Language",
+        "description": "Choose your preferred language"
+      },
+      "theme": {
+        "title": "Theme",
+        "description": "Choose your preferred theme",
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "images": {
+        "title": "Images",
+        "description": "Show or hide images on the page",
+        "show": "Show images",
+        "hide": "Hide images"
+      },
+      "fontSize": {
+        "title": "Font Size",
+        "description": "Adjust text size for better readability",
+        "normal": "100%",
+        "large": "150%",
+        "xlarge": "200%"
+      },
+      "reset": "Reset all settings"
+    },
+    "footer": {
+      "copyright": "© Beautico by Minimal Square . Powered by Webflow ."
+    },
+    "home": {
+      "hero": {
+        "title": "Hydrated skin in 3 easy steps",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique duis Cursus mi quis viverra ornare.",
+        "shopNow": "Shop now",
+        "ourStory": "Our story",
+        "trusted": "Trusted by the world's best companies"
+      },
+      "parallax": {
+        "subject": "Premium Quality",
+        "title": "Natural Care for You",
+        "description": "Discover our organic ingredients and unique formulas."
+      },
+      "features": {
+        "healthySupplement": "Healthy supplement",
+        "glutenFree": "Gluten-free",
+        "naturalProducts": "Natural products",
+        "freeShipping": "Free shipping",
+        "ecoFriendly": "Eco-friendly",
+        "vitamins": "Vitamins"
+      },
+      "about": {
+        "subject": "About us",
+        "title": "The beautiful story",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "ourStory": "Our story",
+        "contactUs": "Contact us"
+      },
+      "bestSellers": {
+        "subject": "Best sellers",
+        "title": "The most trusted products by our customers",
+        "product1": {
+          "name": "Clean",
+          "price": "$ 32.00 USD",
+          "description": "Lorem ipsum dolor sit amet"
+        },
+        "product2": {
+          "name": "Tone",
+          "price": "$ 17.00 USD",
+          "description": "Lorem ipsum dolor sit amet"
+        },
+        "product3": {
+          "name": "Soft",
+          "price": "$ 54.00 USD",
+          "description": "Lorem ipsum dolor sit amet"
+        }
+      },
+      "products": {
+        "details": "Product details"
+      },
+      "collections": {
+        "creams": {
+          "title": "Best selling creams",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+        },
+        "lotions": {
+          "title": "Best selling lotions",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+        },
+        "shopNow": "Shop now"
+      },
+      "howItWorks": {
+        "subject": "How it works",
+        "title": "It's easy as 1, 2, 3",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, suspendisse varius enim in eros. Elementum tristique duis cursus, mi quis viverra ornare eros dolor.",
+        "step1": {
+          "title": "Apply the product",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        "step2": {
+          "title": "Wait for the skin",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        "step3": {
+          "title": "And that's it",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        }
+      },
+      "skinCollection": {
+        "oily": {
+          "subject": "Smooth skin collection",
+          "title": "For oily face skin",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit suspendisse Varius enim in eros elementum tristique, duis cursus mi quis viverra ornare, eros dolor interdum nulla ut commodo."
+        },
+        "body": {
+          "subject": "Smooth skin collection",
+          "title": "For body skin",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit suspendisse Varius enim in eros elementum tristique, duis cursus mi quis viverra ornare, eros dolor interdum nulla ut commodo."
+        },
+        "shopNow": "Shop now",
+        "exploreMore": "Explore more"
+      },
+      "testimonials": {
+        "subject": "Testimonials",
+        "title": "What our customers say",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "review1": {
+          "text": "\"Nulla facilisi. Sed sit amet commodo quam, ac viverra turpis. Maecenas vitae pulvinar lacus. Suspendisse cursus turpis vel ante laoreet vehicula.\"",
+          "name": "Orlando Diggs",
+          "job": "Photographer"
+        },
+        "review2": {
+          "text": "\"Sed mattis scelerisque metus. Mauris ultricies, dui id finibus pretium, neque sapien vestibulum lectus, id tincidunt risus nulla at magna. Nulla rhoncus dolor at est vehicula, vel gravida risus vulputate libero.\"",
+          "name": "Mollie Hall",
+          "job": "Biologist"
+        },
+        "review3": {
+          "text": "\"Duis sit amet mi et mauris sollicitudin semper. Donec quam justo, accumsan condimentum sollicitudin sed, posuere ac lacus etiam saggitis sed nisi.\"",
+          "name": "Lori Bryson",
+          "job": "Blogger"
+        },
+        "review4": {
+          "text": "\"Maecenas tellus mauris, sagittis a dui sed, porta convallis est. Morbi sapien massa, semper non tincidunt sed, lobortis vel nisl. Curabitur fermentum eget justo nec efficitur.\"",
+          "name": "Kate Morrison",
+          "job": "Makeup Artist"
+        },
+        "review5": {
+          "text": "\"Phasellus laoreet posuere est quis euismod. In facilisis sem non tincidunt feugiat. Mauris vitae elit eget quam sollicitudin gravida. Praesent imperdiet viverra justo nec ullamcorper. In dictum felis at mauris fringilla pulvinar.\"",
+          "name": "Koray Okumus",
+          "job": "Writter"
+        },
+        "review6": {
+          "text": "\"Etiam sagittis nec tortor in scelerisque. Sed et bibendum nisi, sit amet varius libero. Maecenas posuere convallis tellus, at hendrerit sem.\"",
+          "name": "Noah Pierre",
+          "job": "Dermatologist"
+        }
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "description": "Frequently asked questions ordered by popularity. Remember that if the visitor has not committed to the call to action, they may still have questions (doubts) that can be answered.",
+        "contactUs": "Contact us",
+        "question1": "Are the fragrances in your products natural and safe?",
+        "question2": "Are Beautico products vegan?",
+        "question3": "What are the expiry dates for Beautico products?",
+        "question4": "Does Beautico products give me an allergic reaction?"
+      },
+      "blog": {
+        "subject": "Latest posts",
+        "title": "From our blog",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "viewAll": "View all posts",
+        "readMore": "Read more",
+        "post1": {
+          "category": "Anti aging",
+          "title": "Dry acne prone skincare routine",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+        },
+        "post2": {
+          "category": "Anti aging",
+          "title": "How to use products for sensitive skin",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+        },
+        "post3": {
+          "category": "Anti aging",
+          "title": "5 ingredients to calm down stressed out skin",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+        }
+      },
+      "gallery": {
+        "subject": "Experience",
+        "title": "Interactive Media Gallery",
+        "description": "Discover the harmony of visual and sound.",
+        "discoverMagic": "Discover Magic",
+        "watchVideo": "Watch Video",
+        "videoNotSupported": "Your browser does not support HTML video."
+      }
+    },
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your account",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "signIn": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "errors": {
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "passwordRequired": "Password is required",
+        "invalidCredentials": "Invalid email or password"
+      }
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Sign up to get started",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter your last name",
+      "surname": "Surname",
+      "surnamePlaceholder": "Enter your surname",
+      "nickname": "Nickname",
+      "nicknamePlaceholder": "Enter your nickname",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "number": "Number",
+      "numberPlaceholder": "Enter your belarus number",
+      "birthday": "Birthday",
+      "birthdayPlaceholder": "Enter your birthday",
+      "password": "Password",
+      "passwordPlaceholder": "Create a password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "agreeTerms": "I agree to the Terms and Conditions",
+      "createAccount": "Create Account",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "errors": {
+        "termsRequired": "You must agree to the terms",
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "nicknameRequired": "Nickname is required",
+        "nicknameExists": "Such a nickname already exists",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "birthdayRequired": "Birthday is required",
+        "ageRestriction": "You must be at least 16 years old",
+        "passwordRequired": "Please confirm your password",
+        "passwordMismatch": "The passwords don't match",
+        "passwordTooShort": "The password must be at least 8 characters long.",
+        "passwordTooLong": "The password must be shorter than 21 characters.",
+        "passwordNoDigit": "The password must contain at least one digit.",
+        "passwordNoUppercase": "The password must contain at least one uppercase letter.",
+        "passwordNoSpecial": "The password must contain at least one special character.",
+        "passwordTooCommon": "This password is too common. Please choose a stronger password.",
+        "numberRequired": "Phone number is required",
+        "numberInvalid": "Format: +375XXXXXXXXX (9 digits after +375)"
+      }
+    },
+    "catalog": {
+      "searchPlaceholder": "Search products...",
+      "filterTitle": "title",
+      "filterDescription": "description",
+      "filterCoast": "coast",
+      "filterVolume": "volume",
+      "sortTitle": "title",
+      "sortDescription": "description",
+      "sortCoast": "coast",
+      "sortVolume": "volume",
+      "sortAsc": "sort ASC",
+      "sortDesc": "sort DESC",
+      "left": "left",
+      "right": "right",
+      "addToBasket": "Add to basket",
+      "addToFavorites": "Add to favorites",
+      "addedToBasketSuccess": "Added to basket!",
+      "addedToBasketError": "Failed to add to basket",
+      "addedToFavoritesSuccess": "Added to favorites!",
+      "addedToFavoritesError": "Failed to add to favorites"
+    },
+    "basket": {
+      "searchPlaceholder": "Search in basket...",
+      "filterTitle": "title",
+      "filterDescription": "description",
+      "filterCoast": "coast",
+      "filterVolume": "volume",
+      "sortTitle": "title",
+      "sortDescription": "description",
+      "sortCoast": "coast",
+      "sortVolume": "volume",
+      "sortAsc": "sort ASC",
+      "sortDesc": "sort DESC",
+      "buy": "Buy",
+      "removeFromBasket": "Remove from basket",
+      "addCount": "add count",
+      "removeCount": "remove count",
+      "left": "left",
+      "right": "right",
+      "noGoods": "No goods found",
+      "noOrders": "You haven't placed any orders yet.",
+      "allCategories": "All",
+      "totalCoast": "All coast:",
+      "purchaseSuccess": "Purchase successful!",
+      "purchaseError": "Purchase failed. Please try again.",
+      "count": "Count:",
+      "removedSuccess": "Removed from basket!",
+      "removedError": "Failed to remove from basket",
+      "updateError": "Failed to update count"
+    },
+    "favorites": {
+      "searchPlaceholder": "Search in favorites...",
+      "filterTitle": "title",
+      "filterDescription": "description",
+      "filterCoast": "coast",
+      "filterVolume": "volume",
+      "sortTitle": "title",
+      "sortDescription": "description",
+      "sortCoast": "coast",
+      "sortVolume": "volume",
+      "sortAsc": "sort ASC",
+      "sortDesc": "sort DESC",
+      "left": "left",
+      "right": "right",
+      "removeFromFavorites": "Remove from favorites",
+      "noGoods": "No goods found",
+      "emptyList": "Your favorites list is empty.",
+      "allCategories": "All",
+      "removedSuccess": "Removed from favorites!",
+      "removedError": "Failed to remove from favorites"
+    },
+    "admin": {
+      "title": "Admin Panel",
+      "tabs": {
+        "products": "Products",
+        "reviews": "Reviews"
+      },
+      "products": {
+        "addNew": "Add New Product",
+        "id": "ID",
+        "image": "Image",
+        "title": "Title",
+        "description": "Description",
+        "price": "Price",
+        "category": "Category",
+        "volume": "Volume",
+        "actions": "Actions",
+        "noProducts": "No products found",
+        "deleteConfirm": "Are you sure you want to delete \"{title}\"?",
+        "deletedSuccess": "Product deleted successfully!",
+        "deletedError": "Failed to delete product. Please try again.",
+        "savedSuccess": "Product saved successfully!",
+        "savedError": "Error saving product!"
+      },
+      "reviews": {
+        "filterBy": "Filter by:",
+        "allReviews": "All Reviews",
+        "byProduct": "By Product",
+        "byUser": "By User",
+        "selectProduct": "Select Product:",
+        "selectUser": "Select User:",
+        "id": "ID",
+        "orderId": "Order ID",
+        "user": "User",
+        "product": "Product",
+        "rating": "Rating",
+        "comment": "Comment",
+        "date": "Date",
+        "actions": "Actions",
+        "noReviews": "No reviews found",
+        "allProducts": "All Products",
+        "allUsers": "All Users",
+        "deleteConfirm": "Are you sure you want to delete this review?",
+        "deletedSuccess": "Review deleted successfully!",
+        "deletedError": "Failed to delete review. Please try again."
+      },
+      "accessDenied": "Access denied. Admin only."
+    },
+    "review": {
+      "title": "Leave a Review",
+      "rating": "Rating",
+      "comment": "Comment",
+      "commentPlaceholder": "Share your experience...",
+      "submit": "Submit Review",
+      "errors": {
+        "ratingRequired": "Please select a rating",
+        "commentRequired": "Comment is required"
+      },
+      "submitSuccess": "Review submitted successfully!",
+      "submitError": "Failed to submit review. Please try again."
+    },
+    "modal": {
+      "productDetails": "Product Details",
+      "editProduct": "Edit Product",
+      "addProduct": "Add Product",
+      "title": "Title",
+      "description": "Description",
+      "price": "Price",
+      "photoURL": "Photo URL",
+      "category": "Category",
+      "company": "Company",
+      "volume": "Volume",
+      "cancel": "Cancel",
+      "save": "Save",
+      "errors": {
+        "titleRequired": "Title is required",
+        "descriptionRequired": "Description is required",
+        "priceRequired": "Price is required",
+        "pricePositive": "Price must be a positive number",
+        "photoURLRequired": "Photo URL is required",
+        "categoryRequired": "Category is required",
+        "companyRequired": "Company is required",
+        "volumeRequired": "Volume is required"
+      }
+    },
+    "orders": {
+      "leaveReview": "Leave Review"
+    }
+  },
+  "ru": {
+    "header": {
+      "topBanner": "Бесплатная доставка по всему миру для заказов от $55. Купить сейчас",
+      "home": "Главная",
+      "catalog": "Каталог",
+      "favorites": "Избранное",
+      "basket": "Корзина",
+      "orders": "Заказы",
+      "admin": "Админ",
+      "login": "Войти",
+      "logout": "Выйти"
+    },
+    "settings": {
+      "title": "Настройки",
+      "language": {
+        "title": "Язык",
+        "description": "Выберите предпочитаемый язык"
+      },
+      "theme": {
+        "title": "Тема",
+        "description": "Выберите предпочитаемую тему",
+        "light": "Светлая",
+        "dark": "Темная"
+      },
+      "images": {
+        "title": "Изображения",
+        "description": "Показать или скрыть изображения на странице",
+        "show": "Показать изображения",
+        "hide": "Скрыть изображения"
+      },
+      "fontSize": {
+        "title": "Размер шрифта",
+        "description": "Настройте размер текста для лучшей читаемости",
+        "normal": "100%",
+        "large": "150%",
+        "xlarge": "200%"
+      },
+      "reset": "Сбросить все настройки"
+    },
+    "footer": {
+      "copyright": "© Beautico от Minimal Square . Работает на Webflow ."
+    },
+    "home": {
+      "hero": {
+        "title": "Увлажненная кожа за 3 простых шага",
+        "description": "Увлажните вашу кожу всего за три простых шага. Наши продукты помогут вам достичь идеального результата быстро и эффективно.",
+        "shopNow": "Купить сейчас",
+        "ourStory": "Наша история",
+        "trusted": "Нам доверяют лучшие компании мира"
+      },
+      "parallax": {
+        "subject": "Премиум качество",
+        "title": "Натуральный уход для вас",
+        "description": "Откройте для себя наши органические ингредиенты и уникальные формулы."
+      },
+      "features": {
+        "healthySupplement": "Здоровая добавка",
+        "glutenFree": "Без глютена",
+        "naturalProducts": "Натуральные продукты",
+        "freeShipping": "Бесплатная доставка",
+        "ecoFriendly": "Экологично",
+        "vitamins": "Витамины"
+      },
+      "about": {
+        "subject": "О нас",
+        "title": "Прекрасная история",
+        "description": "Мы создаем натуральную косметику высочайшего качества. Наша миссия - помочь вам чувствовать себя уверенно и красиво каждый день, используя только лучшие ингредиенты природы.",
+        "ourStory": "Наша история",
+        "contactUs": "Связаться с нами"
+      },
+      "bestSellers": {
+        "subject": "Бестселлеры",
+        "title": "Самые популярные продукты среди наших клиентов",
+        "product1": {
+          "name": "Чистый",
+          "price": "$ 32.00 USD",
+          "description": "Очищающий крем для лица"
+        },
+        "product2": {
+          "name": "Тон",
+          "price": "$ 17.00 USD",
+          "description": "Тонизирующий лосьон для кожи"
+        },
+        "product3": {
+          "name": "Мягкий",
+          "price": "$ 54.00 USD",
+          "description": "Увлажняющий крем премиум класса"
+        }
+      },
+      "products": {
+        "details": "Детали продукта"
+      },
+      "collections": {
+        "creams": {
+          "title": "Бестселлеры кремов",
+          "description": "Откройте для себя нашу коллекцию лучших кремов для ухода за кожей. Натуральные ингредиенты и проверенные формулы для вашей красоты."
+        },
+        "lotions": {
+          "title": "Бестселлеры лосьонов",
+          "description": "Попробуйте наши популярные лосьоны для тела. Глубокое увлажнение и питание вашей кожи с первого применения."
+        },
+        "shopNow": "Купить сейчас"
+      },
+      "howItWorks": {
+        "subject": "Как это работает",
+        "title": "Это просто как 1, 2, 3",
+        "description": "Три простых шага к идеальной коже. Следуйте нашим рекомендациям и наслаждайтесь результатом уже через несколько дней применения.",
+        "step1": {
+          "title": "Нанесите продукт",
+          "description": "Нанесите средство на чистую кожу легкими массажными движениями."
+        },
+        "step2": {
+          "title": "Подождите пока впитается",
+          "description": "Дайте продукту полностью впитаться в течение нескольких минут."
+        },
+        "step3": {
+          "title": "И это все",
+          "description": "Наслаждайтесь результатом - ваша кожа увлажнена и сияет здоровьем."
+        }
+      },
+      "skinCollection": {
+        "oily": {
+          "subject": "Коллекция для гладкой кожи",
+          "title": "Для жирной кожи лица",
+          "description": "Специально разработанная линейка средств для жирной кожи лица. Контролирует выработку кожного сала, матирует и сужает поры, придавая коже здоровый и ухоженный вид."
+        },
+        "body": {
+          "subject": "Коллекция для гладкой кожи",
+          "title": "Для кожи тела",
+          "description": "Комплексный уход за кожей тела. Наши средства глубоко увлажняют, питают и делают кожу невероятно мягкой и бархатистой на ощупь."
+        },
+        "shopNow": "Купить сейчас",
+        "exploreMore": "Узнать больше"
+      },
+      "testimonials": {
+        "subject": "Отзывы",
+        "title": "Что говорят наши клиенты",
+        "description": "Реальные отзывы наших довольных клиентов о продукции.",
+        "review1": {
+          "text": "\"Невероятные результаты! Моя кожа стала более увлажненной и сияющей уже после первой недели использования. Очень довольна качеством продукции.\"",
+          "name": "Орландо Диггс",
+          "job": "Фотограф"
+        },
+        "review2": {
+          "text": "\"Отличные средства для ухода за кожей. Натуральный состав и приятная текстура. Использую уже несколько месяцев и вижу заметные улучшения. Рекомендую всем!\"",
+          "name": "Молли Холл",
+          "job": "Биолог"
+        },
+        "review3": {
+          "text": "\"Лучшая косметика, которую я пробовала! Кожа стала мягкой, гладкой и ухоженной. Очень нравится, что все продукты натуральные и безопасные.\"",
+          "name": "Лори Брайсон",
+          "job": "Блогер"
+        },
+        "review4": {
+          "text": "\"Прекрасное качество и эффективность. Моя кожа преобразилась - исчезли сухость и шелушение. Буду заказывать еще, очень довольна результатом!\"",
+          "name": "Кейт Моррисон",
+          "job": "Визажист"
+        },
+        "review5": {
+          "text": "\"Замечательная продукция! Использую всю линейку средств и результат превзошел все ожидания. Кожа выглядит здоровой, увлажненной и сияющей. Всем советую попробовать!\"",
+          "name": "Корай Окумус",
+          "job": "Писатель"
+        },
+        "review6": {
+          "text": "\"Как дерматолог, я рекомендую эти средства своим пациентам. Натуральный состав, гипоаллергенность и доказанная эффективность - именно то, что нужно для здоровой кожи.\"",
+          "name": "Ноа Пьер",
+          "job": "Дерматолог"
+        }
+      },
+      "faq": {
+        "title": "Часто задаваемые вопросы",
+        "description": "Часто задаваемые вопросы, отсортированные по популярности. Помните, что если посетитель не совершил действие, у него все еще могут быть вопросы (сомнения), на которые можно ответить.",
+        "contactUs": "Связаться с нами",
+        "question1": "Ароматы в ваших продуктах натуральные и безопасные?",
+        "question2": "Продукты Beautico веганские?",
+        "question3": "Каковы сроки годности продуктов Beautico?",
+        "question4": "Могут ли продукты Beautico вызвать у меня аллергическую реакцию?"
+      },
+      "blog": {
+        "subject": "Последние посты",
+        "title": "Из нашего блога",
+        "description": "Полезные статьи и советы по уходу за кожей от наших экспертов.",
+        "viewAll": "Посмотреть все посты",
+        "readMore": "Читать далее",
+        "post1": {
+          "category": "Антивозрастной",
+          "title": "Уход за сухой кожей, склонной к акне",
+          "text": "Узнайте, как правильно ухаживать за сухой кожей с акне. Эффективные советы и рекомендации от дерматологов."
+        },
+        "post2": {
+          "category": "Антивозрастной",
+          "title": "Как использовать продукты для чувствительной кожи",
+          "text": "Пошаговое руководство по уходу за чувствительной кожей. Выбирайте правильные средства и избегайте раздражений."
+        },
+        "post3": {
+          "category": "Антивозрастной",
+          "title": "5 ингредиентов для успокоения стрессовой кожи",
+          "text": "Откройте для себя натуральные ингредиенты, которые помогут успокоить раздраженную и стрессовую кожу."
+        }
+      },
+      "gallery": {
+        "subject": "Опыт",
+        "title": "Интерактивная медиа галерея",
+        "description": "Откройте для себя гармонию визуального и звука.",
+        "discoverMagic": "Открыть магию",
+        "watchVideo": "Смотреть видео",
+        "videoNotSupported": "Ваш браузер не поддерживает HTML видео."
+      }
+    },
+    "login": {
+      "title": "С возвращением",
+      "subtitle": "Войдите в свой аккаунт",
+      "email": "Email",
+      "emailPlaceholder": "Введите ваш email",
+      "password": "Пароль",
+      "passwordPlaceholder": "Введите ваш пароль",
+      "signIn": "Войти",
+      "noAccount": "Нет аккаунта?",
+      "signUp": "Зарегистрироваться",
+      "errors": {
+        "emailRequired": "Email обязателен",
+        "emailInvalid": "Пожалуйста, введите корректный email адрес",
+        "passwordRequired": "Пароль обязателен",
+        "invalidCredentials": "Неверный email или пароль"
+      }
+    },
+    "register": {
+      "title": "Создать аккаунт",
+      "subtitle": "Зарегистрируйтесь, чтобы начать",
+      "firstName": "Имя",
+      "firstNamePlaceholder": "Введите ваше имя",
+      "lastName": "Фамилия",
+      "lastNamePlaceholder": "Введите вашу фамилию",
+      "surname": "Отчество",
+      "surnamePlaceholder": "Введите ваше отчество",
+      "nickname": "Никнейм",
+      "nicknamePlaceholder": "Введите ваш никнейм",
+      "email": "Email",
+      "emailPlaceholder": "Введите ваш email",
+      "number": "Номер",
+      "numberPlaceholder": "Введите ваш белорусский номер",
+      "birthday": "Дата рождения",
+      "birthdayPlaceholder": "Введите вашу дату рождения",
+      "password": "Пароль",
+      "passwordPlaceholder": "Создайте пароль",
+      "confirmPassword": "Подтвердите пароль",
+      "confirmPasswordPlaceholder": "Подтвердите ваш пароль",
+      "agreeTerms": "Я согласен с Условиями использования",
+      "createAccount": "Создать аккаунт",
+      "haveAccount": "Уже есть аккаунт?",
+      "signIn": "Войти",
+      "errors": {
+        "termsRequired": "Вы должны согласиться с условиями",
+        "firstNameRequired": "Имя обязательно",
+        "lastNameRequired": "Фамилия обязательна",
+        "nicknameRequired": "Никнейм обязателен",
+        "nicknameExists": "Такой никнейм уже существует",
+        "emailRequired": "Email обязателен",
+        "emailInvalid": "Пожалуйста, введите корректный email адрес",
+        "birthdayRequired": "Дата рождения обязательна",
+        "ageRestriction": "Вам должно быть не менее 16 лет",
+        "passwordRequired": "Пожалуйста, подтвердите ваш пароль",
+        "passwordMismatch": "Пароли не совпадают",
+        "passwordTooShort": "Пароль должен содержать не менее 8 символов.",
+        "passwordTooLong": "Пароль должен быть короче 21 символа.",
+        "passwordNoDigit": "Пароль должен содержать хотя бы одну цифру.",
+        "passwordNoUppercase": "Пароль должен содержать хотя бы одну заглавную букву.",
+        "passwordNoSpecial": "Пароль должен содержать хотя бы один специальный символ.",
+        "passwordTooCommon": "Этот пароль слишком распространенный. Пожалуйста, выберите более надежный пароль.",
+        "numberRequired": "Номер телефона обязателен",
+        "numberInvalid": "Формат: +375XXXXXXXXX (9 цифр после +375)"
+      }
+    },
+    "catalog": {
+      "searchPlaceholder": "Поиск товаров...",
+      "filterTitle": "название",
+      "filterDescription": "описание",
+      "filterCoast": "цена",
+      "filterVolume": "объем",
+      "sortTitle": "название",
+      "sortDescription": "описание",
+      "sortCoast": "цена",
+      "sortVolume": "объем",
+      "sortAsc": "сортировка по возрастанию",
+      "sortDesc": "сортировка по убыванию",
+      "left": "назад",
+      "right": "вперед",
+      "addToBasket": "Добавить в корзину",
+      "addToFavorites": "Добавить в избранное",
+      "addedToBasketSuccess": "Добавлено в корзину!",
+      "addedToBasketError": "Не удалось добавить в корзину",
+      "addedToFavoritesSuccess": "Добавлено в избранное!",
+      "addedToFavoritesError": "Не удалось добавить в избранное"
+    },
+    "basket": {
+      "searchPlaceholder": "Поиск в корзине...",
+      "filterTitle": "название",
+      "filterDescription": "описание",
+      "filterCoast": "цена",
+      "filterVolume": "объем",
+      "sortTitle": "название",
+      "sortDescription": "описание",
+      "sortCoast": "цена",
+      "sortVolume": "объем",
+      "sortAsc": "сортировка по возрастанию",
+      "sortDesc": "сортировка по убыванию",
+      "buy": "Купить",
+      "removeFromBasket": "Удалить из корзины",
+      "addCount": "добавить количество",
+      "removeCount": "убрать количество",
+      "left": "назад",
+      "right": "вперед",
+      "noGoods": "Товары не найдены",
+      "noOrders": "Вы еще не сделали ни одного заказа.",
+      "allCategories": "Все",
+      "totalCoast": "Общая стоимость:",
+      "purchaseSuccess": "Покупка успешна!",
+      "purchaseError": "Покупка не удалась. Попробуйте еще раз.",
+      "count": "Количество:",
+      "removedSuccess": "Удалено из корзины!",
+      "removedError": "Не удалось удалить из корзины",
+      "updateError": "Не удалось обновить количество"
+    },
+    "favorites": {
+      "searchPlaceholder": "Поиск в избранном...",
+      "filterTitle": "название",
+      "filterDescription": "описание",
+      "filterCoast": "цена",
+      "filterVolume": "объем",
+      "sortTitle": "название",
+      "sortDescription": "описание",
+      "sortCoast": "цена",
+      "sortVolume": "объем",
+      "sortAsc": "сортировка по возрастанию",
+      "sortDesc": "сортировка по убыванию",
+      "left": "назад",
+      "right": "вперед",
+      "removeFromFavorites": "Удалить из избранного",
+      "noGoods": "Товары не найдены",
+      "emptyList": "Ваш список избранного пуст.",
+      "allCategories": "Все",
+      "removedSuccess": "Удалено из избранного!",
+      "removedError": "Не удалось удалить из избранного"
+    },
+    "admin": {
+      "title": "Панель администратора",
+      "tabs": {
+        "products": "Товары",
+        "reviews": "Отзывы"
+      },
+      "products": {
+        "addNew": "Добавить новый товар",
+        "id": "ID",
+        "image": "Изображение",
+        "title": "Название",
+        "description": "Описание",
+        "price": "Цена",
+        "category": "Категория",
+        "volume": "Объем",
+        "actions": "Действия",
+        "noProducts": "Товары не найдены",
+        "deleteConfirm": "Вы уверены, что хотите удалить \"{title}\"?",
+        "deletedSuccess": "Товар успешно удален!",
+        "deletedError": "Не удалось удалить товар. Попробуйте еще раз.",
+        "savedSuccess": "Товар успешно сохранен!",
+        "savedError": "Ошибка при сохранении товара!"
+      },
+      "reviews": {
+        "filterBy": "Фильтр по:",
+        "allReviews": "Все отзывы",
+        "byProduct": "По товару",
+        "byUser": "По пользователю",
+        "selectProduct": "Выберите товар:",
+        "selectUser": "Выберите пользователя:",
+        "id": "ID",
+        "orderId": "ID заказа",
+        "user": "Пользователь",
+        "product": "Товар",
+        "rating": "Рейтинг",
+        "comment": "Комментарий",
+        "date": "Дата",
+        "actions": "Действия",
+        "noReviews": "Отзывы не найдены",
+        "allProducts": "Все товары",
+        "allUsers": "Все пользователи",
+        "deleteConfirm": "Вы уверены, что хотите удалить этот отзыв?",
+        "deletedSuccess": "Отзыв успешно удален!",
+        "deletedError": "Не удалось удалить отзыв. Попробуйте еще раз."
+      },
+      "accessDenied": "Доступ запрещен. Только для администраторов."
+    },
+    "review": {
+      "title": "Оставить отзыв",
+      "rating": "Рейтинг",
+      "comment": "Комментарий",
+      "commentPlaceholder": "Поделитесь своим опытом...",
+      "submit": "Отправить отзыв",
+      "errors": {
+        "ratingRequired": "Пожалуйста, выберите рейтинг",
+        "commentRequired": "Комментарий обязателен"
+      },
+      "submitSuccess": "Отзыв успешно отправлен!",
+      "submitError": "Не удалось отправить отзыв. Попробуйте еще раз."
+    },
+    "modal": {
+      "productDetails": "Детали продукта",
+      "editProduct": "Редактировать товар",
+      "addProduct": "Добавить товар",
+      "title": "Название",
+      "description": "Описание",
+      "price": "Цена",
+      "photoURL": "URL фото",
+      "category": "Категория",
+      "company": "Компания",
+      "volume": "Объем",
+      "cancel": "Отмена",
+      "save": "Сохранить",
+      "errors": {
+        "titleRequired": "Название обязательно",
+        "descriptionRequired": "Описание обязательно",
+        "priceRequired": "Цена обязательна",
+        "pricePositive": "Цена должна быть положительным числом",
+        "photoURLRequired": "URL фото обязателен",
+        "categoryRequired": "Категория обязательна",
+        "companyRequired": "Компания обязательна",
+        "volumeRequired": "Объем обязателен"
+      }
+    },
+    "orders": {
+      "leaveReview": "Оставить отзыв"
+    }
+  }
+}
