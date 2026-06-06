@@ -28,9 +28,22 @@ class MyHeader extends HTMLElement {
           display: none;
           background: none;
           border: none;
-          color: var(--colors-basic-black, #000);
+          color: var(--colors-text-title, #000);
           cursor: pointer;
           padding: var(--spacing-sm, 8px);
+          transition: color 0.3s ease;
+        }
+
+        html.font-size-100 {
+          zoom: 1;
+        }
+
+        html.font-size-125 {
+          zoom: 1.25;
+        }
+
+        html.font-size-150 {
+          zoom: 1.5;
         }
 
         .language-switcher {
@@ -134,14 +147,17 @@ class MyHeader extends HTMLElement {
           max-width: 500px;
           max-height: 90vh;
           overflow-y: auto;
+          display: flex;
+          flex-direction: column;
         }
 
         .settings-modal-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: var(--spacing-xl) var(--spacing-xxl);
+          padding: var(--spacing-md) var(--spacing-lg);
           border-bottom: var(--border-size) solid var(--colors-border);
+          flex-shrink: 0;
         }
 
         .settings-modal-title {
@@ -171,16 +187,18 @@ class MyHeader extends HTMLElement {
         }
 
         .settings-modal-body {
-          padding: var(--spacing-xxl);
+          padding: var(--spacing-md) var(--spacing-lg);
           display: flex;
           flex-direction: column;
-          gap: var(--spacing-xl);
+          gap: var(--spacing-md);
+          overflow-y: auto;
+          flex: 1;
         }
 
         .settings-group {
           display: flex;
           flex-direction: column;
-          gap: var(--spacing-md);
+          gap: var(--spacing-xs);
         }
 
         .settings-group-title {
@@ -194,7 +212,7 @@ class MyHeader extends HTMLElement {
           color: var(--colors-text-main);
           font-family: var(--fonts-smalltext-family, Roboto);
           font-size: var(--fonts-sizes-14, 14px);
-          margin-bottom: var(--spacing-sm);
+          margin-bottom: var(--spacing-xs);
         }
 
         .settings-options {
@@ -206,7 +224,30 @@ class MyHeader extends HTMLElement {
         .settings-divider {
           height: var(--border-size);
           background-color: var(--colors-grey-700);
-          margin: var(--spacing-sm) 0;
+          margin: var(--spacing-xs) 0;
+        }
+
+        .settings-reset-btn {
+          width: 100%;
+          padding: var(--spacing-sm) var(--spacing-md);
+          background-color: var(--colors-backgroung-button-1);
+          color: var(--colors-violet-700);
+          border: 1px solid var(--colors-violet-700);
+          border-radius: var(--radius-sm);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--spacing-xs);
+          font-family: var(--fonts-smalltext-family, Roboto);
+          font-size: var(--fonts-sizes-14, 14px);
+          font-weight: 500;
+          transition: all 0.3s ease;
+        }
+
+        .settings-reset-btn:hover {
+          background-color: var(--colors-violet-700);
+          color: var(--colors-backgroung-card-2);
         }
 
         .settings-reset-btn {
@@ -396,6 +437,17 @@ class MyHeader extends HTMLElement {
             <button class="lang-btn" data-lang="en">EN</button>
             <button class="lang-btn" data-lang="ru">RU</button>
           </div>
+          <div class="theme-switcher" style="justify-content: center;">
+            <button class="theme-btn" data-fontsize="100">
+              <span data-i18n="settings.fontSize.normal">100%</span>
+            </button>
+            <button class="theme-btn" data-fontsize="125">
+              <span data-i18n="settings.fontSize.large">150%</span>
+            </button>
+            <button class="theme-btn" data-fontsize="150">
+              <span data-i18n="settings.fontSize.xlarge">200%</span>
+            </button>
+          </div>
           <div style="display: flex; justify-content: center; align-items: center; gap: var(--spacing-xs, 4px);">
             <button class="theme-btn MaterialIcons" data-reset="true" title="Reset settings">restart_alt</button>
           </div>
@@ -459,6 +511,24 @@ class MyHeader extends HTMLElement {
             <div class="settings-divider"></div>
 
             <div class="settings-group">
+              <h4 class="settings-group-title" data-i18n="settings.fontSize.title">Font Size</h4>
+              <p class="settings-group-description" data-i18n="settings.fontSize.description">Adjust text size for better readability</p>
+              <div class="settings-options">
+                <button class="theme-btn" data-fontsize="100">
+                  <span data-i18n="settings.fontSize.normal">100%</span>
+                </button>
+                <button class="theme-btn" data-fontsize="125">
+                  <span data-i18n="settings.fontSize.large">150%</span>
+                </button>
+                <button class="theme-btn" data-fontsize="150">
+                  <span data-i18n="settings.fontSize.xlarge">200%</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <div class="settings-group">
               <button class="settings-reset-btn" data-reset="true">
                 <span class="MaterialIcons">restart_alt</span>
                 <span data-i18n="settings.reset">Reset all settings</span>
@@ -487,6 +557,7 @@ class MyHeader extends HTMLElement {
     const themeBtns = this.querySelectorAll("[data-theme]");
     const imageBtns = this.querySelectorAll("[data-image]");
     const resetBtns = this.querySelectorAll("[data-reset]");
+    const fontSizeBtns = this.querySelectorAll("[data-fontsize]");
     const openSettingsBtn = this.querySelector("#openSettingsBtn");
     const closeSettingsBtn = this.querySelector("#closeSettingsBtn");
     const settingsModal = this.querySelector("#settingsModal");
@@ -560,6 +631,22 @@ class MyHeader extends HTMLElement {
       }
     };
 
+    const updateActiveFontSizeButton = () => {
+      const fontSize = localStorage.getItem("font-size") || "100";
+      fontSizeBtns.forEach((btn) => {
+        if (btn.dataset.fontsize === fontSize) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+      document.documentElement.className = document.documentElement.className.replace(/font-size-\d+/g, '').trim();
+      if (document.documentElement.className) {
+        document.documentElement.className += ' ';
+      }
+      document.documentElement.className += `font-size-${fontSize}`;
+    };
+
     themeBtns.forEach((themeBtn) => {
       themeBtn.addEventListener("click", () => {
         const theme = themeBtn.dataset.theme;
@@ -576,6 +663,14 @@ class MyHeader extends HTMLElement {
           value === "hide" ? "true" : "false",
         );
         updateActiveImageButton();
+      });
+    });
+
+    fontSizeBtns.forEach((fontSizeBtn) => {
+      fontSizeBtn.addEventListener("click", () => {
+        const size = fontSizeBtn.dataset.fontsize;
+        localStorage.setItem("font-size", size);
+        updateActiveFontSizeButton();
       });
     });
 
@@ -597,6 +692,9 @@ class MyHeader extends HTMLElement {
 
         localStorage.setItem("hide-images", "false");
         updateActiveImageButton();
+
+        localStorage.setItem("font-size", "100");
+        updateActiveFontSizeButton();
       });
     });
 
@@ -605,10 +703,18 @@ class MyHeader extends HTMLElement {
     loadTheme(id);
     updateActiveThemeButton();
     updateActiveImageButton();
+    updateActiveFontSizeButton();
 
     openBtn.addEventListener("click", openMenu);
     closeBtn.addEventListener("click", closeMenu);
     overlay.addEventListener("click", closeMenu);
+    openSettingsBtn.addEventListener("click", openSettings);
+    closeSettingsBtn.addEventListener("click", closeSettings);
+    settingsModal.addEventListener("click", (e) => {
+      if (e.target === settingsModal) {
+        closeSettings();
+      }
+    });
     openSettingsBtn.addEventListener("click", openSettings);
     closeSettingsBtn.addEventListener("click", closeSettings);
     settingsModal.addEventListener("click", (e) => {

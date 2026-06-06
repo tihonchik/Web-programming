@@ -29,6 +29,13 @@
         "show": "Show images",
         "hide": "Hide images"
       },
+      "fontSize": {
+        "title": "Font Size",
+        "description": "Adjust text size for better readability",
+        "normal": "100%",
+        "large": "150%",
+        "xlarge": "200%"
+      },
       "reset": "Reset all settings"
     },
     "footer": {
@@ -280,7 +287,11 @@
       "left": "left",
       "right": "right",
       "addToBasket": "Add to basket",
-      "addToFavorites": "Add to favorites"
+      "addToFavorites": "Add to favorites",
+      "addedToBasketSuccess": "Added to basket!",
+      "addedToBasketError": "Failed to add to basket",
+      "addedToFavoritesSuccess": "Added to favorites!",
+      "addedToFavoritesError": "Failed to add to favorites"
     },
     "basket": {
       "searchPlaceholder": "Search in basket...",
@@ -449,6 +460,13 @@
         "description": "Показать или скрыть изображения на странице",
         "show": "Показать изображения",
         "hide": "Скрыть изображения"
+      },
+      "fontSize": {
+        "title": "Размер шрифта",
+        "description": "Настройте размер текста для лучшей читаемости",
+        "normal": "100%",
+        "large": "150%",
+        "xlarge": "200%"
       },
       "reset": "Сбросить все настройки"
     },
@@ -701,7 +719,11 @@
       "left": "назад",
       "right": "вперед",
       "addToBasket": "Добавить в корзину",
-      "addToFavorites": "Добавить в избранное"
+      "addToFavorites": "Добавить в избранное",
+      "addedToBasketSuccess": "Добавлено в корзину!",
+      "addedToBasketError": "Не удалось добавить в корзину",
+      "addedToFavoritesSuccess": "Добавлено в избранное!",
+      "addedToFavoritesError": "Не удалось добавить в избранное"
     },
     "basket": {
       "searchPlaceholder": "Поиск в корзине...",
