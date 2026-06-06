@@ -94,6 +94,16 @@ class MyHeader extends HTMLElement {
           color: var(--colors-violet-700, #7c3aed);
         }
 
+        body.hide-images img,
+        body.hide-images svg,
+        body.hide-images picture,
+        body.hide-images canvas {
+          display: none !important;
+        }
+        body.hide-images * {
+          background-image: none !important;
+        }
+
         .mobile-overlay {
           position: fixed;
           top: 0;
@@ -225,6 +235,10 @@ class MyHeader extends HTMLElement {
               <button class="theme-btn MaterialIcons" data-theme="light">light_mode</button>
               <button class="theme-btn MaterialIcons" data-theme="dark">dark_mode</button>
             </div>
+            <div class="theme-switcher">
+              <button class="theme-btn MaterialIcons" data-image="show" title="Show images">image</button>
+              <button class="theme-btn MaterialIcons" data-image="hide" title="Hide images">image_not_supported</button>
+            </div>
             <div class="language-switcher">
               <button class="lang-btn" data-lang="en">EN</button>
               <button class="lang-btn" data-lang="ru">RU</button>
@@ -257,6 +271,10 @@ class MyHeader extends HTMLElement {
             <button class="theme-btn MaterialIcons" data-theme="light">light_mode</button>
             <button class="theme-btn MaterialIcons" data-theme="dark">dark_mode</button>
           </div>
+          <div class="theme-switcher" style="justify-content: center;">
+            <button class="theme-btn MaterialIcons" data-image="show" title="Show images">image</button>
+            <button class="theme-btn MaterialIcons" data-image="hide" title="Hide images">image_not_supported</button>
+          </div>
           <div class="language-switcher" style="justify-content: center;">
             <button class="lang-btn" data-lang="en">EN</button>
             <button class="lang-btn" data-lang="ru">RU</button>
@@ -284,6 +302,7 @@ class MyHeader extends HTMLElement {
     const mobileMenu = this.querySelector("#mobileMenu");
     const translateBtns = this.querySelectorAll("[data-lang]");
     const themeBtns = this.querySelectorAll("[data-theme]");
+    const imageBtns = this.querySelectorAll("[data-image]");
 
     const openMenu = () => {
       mobileMenu.classList.add("open");
@@ -325,11 +344,41 @@ class MyHeader extends HTMLElement {
       });
     };
 
+    const updateActiveImageButton = () => {
+      const hideImages = localStorage.getItem("hide-images") === "true";
+      imageBtns.forEach((btn) => {
+        if (
+          (btn.dataset.image === "hide" && hideImages) ||
+          (btn.dataset.image === "show" && !hideImages)
+        ) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+      if (hideImages) {
+        document.body.classList.add("hide-images");
+      } else {
+        document.body.classList.remove("hide-images");
+      }
+    };
+
     themeBtns.forEach((themeBtn) => {
       themeBtn.addEventListener("click", () => {
         const theme = themeBtn.dataset.theme;
         setTheme(theme, id);
         updateActiveThemeButton();
+      });
+    });
+
+    imageBtns.forEach((imageBtn) => {
+      imageBtn.addEventListener("click", () => {
+        const value = imageBtn.dataset.image;
+        localStorage.setItem(
+          "hide-images",
+          value === "hide" ? "true" : "false",
+        );
+        updateActiveImageButton();
       });
     });
 
@@ -345,6 +394,7 @@ class MyHeader extends HTMLElement {
     updateActiveLanguageButton();
     loadTheme(id);
     updateActiveThemeButton();
+    updateActiveImageButton();
 
     openBtn.addEventListener("click", openMenu);
     closeBtn.addEventListener("click", closeMenu);
