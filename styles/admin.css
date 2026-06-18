@@ -169,3 +169,27 @@
 .add_new_product {
   background-color: var(--colors-text-button-2);
 }
+
+/* Цвета кнопок модального окна с поддержкой темной темы */
+
+/* Кнопка "Сохранить" (Основная) */
+.product-form button[type="submit"].button {
+  background-color: var(--colors-backgroung-button-1);
+  color: var(--colors-text-button-button-1);
+}
+
+/* Кнопка "Отмена" (Второстепенная) */
+.product-form .button.button-secondary {
+  background-color: var(--colors-backgroung-button-2);
+  color: var(--colors-text-button-button-2);
+  border: var(--border-size) solid var(--colors-border);
+}
+
+/* Кнопка закрытия (крестик) */
+.modal-close {
+  color: var(--colors-text-title);
+}
+
+.modal-close:hover {
+  color: var(--colors-backgroung-button-1);
+}

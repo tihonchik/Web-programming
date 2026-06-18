@@ -172,18 +172,47 @@ async function Login(email, password) {
 
 async function AddToUserBasket(userId, goodId) {
   try {
-    const response = await fetch(baseUrl + "userBasket", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, goodId }),
-    });
-    if (!response.ok) {
+    // 1. Получаем всю корзину данного пользователя
+    const checkResponse = await fetch(`${baseUrl}userBasket?userId=${userId}`);
+    if (!checkResponse.ok) {
       return false;
     }
-    return true;
-  } catch {
+    const userBasket = await checkResponse.json();
+
+    // 2. Ищем товар в корзине, приводя ID к строке для исключения ошибок типов
+    const existingItem = userBasket.find(
+      (item) => String(item.goodId) === String(goodId),
+    );
+
+    if (existingItem) {
+      // 3. Если товар найден, увеличиваем количество
+      const newCount = (existingItem.count || 1) + 1;
+
+      const response = await fetch(`${baseUrl}userBasket/${existingItem.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ count: newCount }),
+      });
+      return response.ok;
+    } else {
+      // 4. Если товара нет, создаем новую запись
+      const response = await fetch(baseUrl + "userBasket", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: userId,
+          goodId: goodId,
+          count: 1,
+        }),
+      });
+      return response.ok;
+    }
+  } catch (error) {
+    console.error("Ошибка при добавлении в корзину:", error);
     return false;
   }
 }

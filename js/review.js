@@ -55,7 +55,10 @@ reviewForm.addEventListener("submit", async (e) => {
   let isValid = true;
 
   if (selectedRating === 0) {
-    showError("ratingError", await getTranslation("review.errors.ratingRequired"));
+    showError(
+      "ratingError",
+      await getTranslation("review.errors.ratingRequired"),
+    );
     isValid = false;
   } else {
     hideError("ratingError");
@@ -63,7 +66,10 @@ reviewForm.addEventListener("submit", async (e) => {
 
   const comment = document.getElementById("comment").value.trim();
   if (!comment) {
-    showError("commentError", await getTranslation("review.errors.commentRequired"));
+    showError(
+      "commentError",
+      await getTranslation("review.errors.commentRequired"),
+    );
     isValid = false;
   } else {
     hideError("commentError");
@@ -75,7 +81,7 @@ reviewForm.addEventListener("submit", async (e) => {
 
   const user = getCurrentUser();
   const review = {
-    orderId: parseInt(orderId),
+    orderId: orderId,
     userId: user.id,
     rating: selectedRating,
     comment: comment,

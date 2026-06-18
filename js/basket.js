@@ -48,6 +48,15 @@ window.addEventListener("favoritesUpdated", () => {
   applyAllFilters();
 });
 
+window.addEventListener("favoritesUpdated", () => {
+  applyAllFilters();
+});
+
+// Добавьте этот слушатель для обновления корзины
+window.addEventListener("basketUpdated", () => {
+  init(); // Перерендерит категории, карточки и обновит общую сумму
+});
+
 let currentCategory = [];
 const categoryContainer = document.querySelector(".catalog_filter");
 async function renderCategories() {

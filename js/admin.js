@@ -106,7 +106,9 @@ appModal.addEventListener("save", async (e) => {
 });
 
 async function handleDeleteProduct(productId, productTitle) {
-  const confirmMessage = (await getTranslation("admin.products.deleteConfirm")).replace("{title}", productTitle);
+  const confirmMessage = (
+    await getTranslation("admin.products.deleteConfirm")
+  ).replace("{title}", productTitle);
   if (confirm(confirmMessage)) {
     const success = await DeleteGood(productId);
     if (success) {
@@ -190,7 +192,9 @@ async function loadUsersFilter() {
   users.forEach((user) => {
     const option = document.createElement("option");
     option.value = user.id;
-    option.textContent = `${user.firstName} ${user.lastName} (${user.email})`;
+    // Берем любое доступное поле фамилии
+    const lastName = user.lastName || user.secondName || user.surname || "";
+    option.textContent = `${user.firstName} ${lastName} (${user.email})`;
     userFilter.appendChild(option);
   });
 }
@@ -231,9 +235,25 @@ async function renderReviews() {
   }
 
   filteredReviews.forEach((review) => {
-    const user = users.find((u) => u.id === review.userId);
-    const order = orders.find((o) => o.id === review.orderId);
-    const product = products.find((p) => p.id === order?.goodId);
+    const rawUser = users.find((u) => u.id === review.userId);
+
+    // Создаем копию пользователя и принудительно задаем lastName из того, что есть в БД
+    const user = rawUser
+      ? {
+          ...rawUser,
+          lastName:
+            rawUser.lastName || rawUser.secondName || rawUser.surname || "",
+        }
+      : null;
+
+    // Ищем заказ (делаем проверку на случай, если review.orderId равен null)
+    const order = review.orderId
+      ? orders.find((o) => o.id === review.orderId)
+      : null;
+
+    // Ищем товар по заказу
+    const product = order ? products.find((p) => p.id === order.goodId) : null;
+
     const card = new ReviewAdminCard(review, user, product, handleDeleteReview);
     reviewsTableBody.appendChild(card.render());
   });

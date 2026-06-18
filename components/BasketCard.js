@@ -24,7 +24,8 @@ class BasketCard extends HTMLElement {
     const removeCountBtn = this.querySelector(".remove_count");
     const article = this.querySelector(".catalog-card");
 
-    removeBtn.addEventListener("click", async () => {
+    removeBtn.addEventListener("click", async (e) => {
+      e.stopPropagation();
       const success = await DeleteUserBasketItem(this.good.basketItemId);
       if (success) {
         notify(await getTranslation("basket.removedSuccess"), "success");
@@ -34,7 +35,8 @@ class BasketCard extends HTMLElement {
       }
     });
 
-    addCountBtn.addEventListener("click", async () => {
+    addCountBtn.addEventListener("click", async (e) => {
+      e.stopPropagation();
       this.good.count += 1;
       const success = await UpdateUserBasketItem(
         this.good.basketItemId,
@@ -47,7 +49,8 @@ class BasketCard extends HTMLElement {
       }
     });
 
-    removeCountBtn.addEventListener("click", async () => {
+    removeCountBtn.addEventListener("click", async (e) => {
+      e.stopPropagation();
       if (this.good.count > 1) {
         this.good.count -= 1;
         const success = await UpdateUserBasketItem(
@@ -56,6 +59,7 @@ class BasketCard extends HTMLElement {
         );
         if (success) {
           await this.updateCountDisplay();
+          window.dispatchEvent(new CustomEvent("basketUpdated"));
         } else {
           notify(await getTranslation("basket.updateError"), "error");
         }
