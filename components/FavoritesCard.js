@@ -1,6 +1,6 @@
-import { DeleteUserFavoriteItem } from "/js/api.js";
-import { notify } from "/components/MyToast.js";
-import { getTranslation } from "/js/translation.js";
+import { DeleteUserFavoriteItem } from "../js/api.js";
+import { notify } from "./MyToast.js";
+import { getTranslation } from "../js/translation.js";
 
 class FavoritesCard extends HTMLElement {
   constructor(good, onView) {

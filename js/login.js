@@ -1,7 +1,7 @@
-import { Login } from "/js/api.js";
-import { showError, hideError } from "/js/error.js";
-import { setCurrentUser, isAuthenticated } from "/js/auth.js";
-import { getTranslation } from "/js/translation.js";
+import { Login } from "./api.js";
+import { showError, hideError } from "./error.js";
+import { setCurrentUser, isAuthenticated } from "./auth.js";
+import { getTranslation } from "./translation.js";
 
 const top100Passwords = [
   "password",
@@ -190,7 +190,7 @@ loginForm.addEventListener("submit", async (e) => {
 
   if (user) {
     setCurrentUser(user);
-    window.location.href = "/pages/catalog.html";
+    window.location.href = "./catalog.html";
   } else {
     showError(
       "loginError",
@@ -201,7 +201,7 @@ loginForm.addEventListener("submit", async (e) => {
 
 function checkAuth() {
   if (isAuthenticated()) {
-    window.location.href = "/pages/catalog.html";
+    window.location.href = "./catalog.html";
   }
 }
 

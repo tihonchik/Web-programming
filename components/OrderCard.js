@@ -1,4 +1,4 @@
-import { getTranslation } from "/js/translation.js";
+import { getTranslation } from "../js/translation.js";
 
 class OrderCard extends HTMLElement {
   constructor(order, onView) {
@@ -23,7 +23,7 @@ class OrderCard extends HTMLElement {
     if (reviewBtn) {
       reviewBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        window.location.href = `/pages/review.html?orderId=${this.order.id}`;
+        window.location.href = `./review.html?orderId=${this.order.id}`;
       });
     }
 

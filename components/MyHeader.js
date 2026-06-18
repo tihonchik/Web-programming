@@ -1,11 +1,11 @@
-import { isAuthenticated, removeCurrentUser, isAdmin } from "/js/auth.js";
+import { isAuthenticated, removeCurrentUser, isAdmin } from "../js/auth.js";
 import {
   translatePage,
   loadTranslationPage,
   getCurentLang,
-} from "/js/translation.js";
-import { getCurrentTheme, setTheme, loadTheme } from "/js/theme.js";
-import { getCurrentUser } from "/js/auth.js";
+} from "../js/translation.js";
+import { getCurrentTheme, setTheme, loadTheme } from "../js/theme.js";
+import { getCurrentUser } from "../js/auth.js";
 
 class MyHeader extends HTMLElement {
   connectedCallback() {
@@ -13,12 +13,12 @@ class MyHeader extends HTMLElement {
       ? `<button class="header__right-button button Smalltext logout-btn" data-i18n="header.logout">
            Logout
          </button>`
-      : `<a href="/pages/login.html" class="header__right-button button Smalltext" data-i18n="header.login">
+      : `<a href="../pages/login.html" class="header__right-button button Smalltext" data-i18n="header.login">
            Login
          </a>`;
 
     const adminLink = isAdmin()
-      ? `<a href="/pages/admin.html" class="header__a Smalltext" data-i18n="header.admin">Admin</a>`
+      ? `<a href="../pages/admin.html" class="header__a Smalltext" data-i18n="header.admin">Admin</a>`
       : "";
 
     this.innerHTML = `
@@ -391,11 +391,11 @@ class MyHeader extends HTMLElement {
 
           <!-- Десктопная навигация -->
           <nav class="header__nav">
-            <a href="/index.html" class="header__a Smalltext" data-i18n="header.home">Home</a>
-            <a href="/pages/catalog.html" class="header__a Smalltext" data-i18n="header.catalog">Catalog</a>
-            <a href="/pages/favorites.html" class="header__a Smalltext" data-i18n="header.favorites">Favorites</a>
-            <a href="/pages/Basket.html" class="header__a Smalltext" data-i18n="header.basket">Basket</a>
-            <a href="/pages/orders.html" class="header__a Smalltext" data-i18n="header.orders">Orders</a>
+            <a href="../index.html" class="header__a Smalltext" data-i18n="header.home">Home</a>
+            <a href="../pages/catalog.html" class="header__a Smalltext" data-i18n="header.catalog">Catalog</a>
+            <a href="../pages/favorites.html" class="header__a Smalltext" data-i18n="header.favorites">Favorites</a>
+            <a href="../pages/Basket.html" class="header__a Smalltext" data-i18n="header.basket">Basket</a>
+            <a href="../pages/orders.html" class="header__a Smalltext" data-i18n="header.orders">Orders</a>
             ${adminLink}
           </nav>
 
@@ -416,12 +416,12 @@ class MyHeader extends HTMLElement {
           <button class="close-menu-btn MaterialIcons" id="closeMenuBtn">close</button>
         </div>
         <nav class="mobile-nav">
-          <a href="/index.html" data-i18n="header.home">Home</a>
-          <a href="/pages/catalog.html" data-i18n="header.catalog">Products</a>
-          <a href="/pages/favorites.html" data-i18n="header.favorites">Favorites</a>
-          <a href="/pages/Basket.html" data-i18n="header.basket">Basket</a>
-          <a href="/pages/orders.html" data-i18n="header.orders">Orders</a>
-          ${adminLink ? `<a href="/pages/admin.html" data-i18n="header.admin">Admin</a>` : ""}
+          <a href="../index.html" data-i18n="header.home">Home</a>
+          <a href="../pages/catalog.html" data-i18n="header.catalog">Products</a>
+          <a href="../pages/favorites.html" data-i18n="header.favorites">Favorites</a>
+          <a href="../pages/Basket.html" data-i18n="header.basket">Basket</a>
+          <a href="../pages/orders.html" data-i18n="header.orders">Orders</a>
+          ${adminLink ? `<a href="../pages/admin.html" data-i18n="header.admin">Admin</a>` : ""}
         </nav>
         <div class="mobile-divider"></div>
         <div class="mobile-actions">
@@ -544,7 +544,7 @@ class MyHeader extends HTMLElement {
       logoutButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
           removeCurrentUser();
-          window.location.href = "/pages/login.html";
+          window.location.href = "../pages/login.html";
         });
       });
     }

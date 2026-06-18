@@ -3,14 +3,14 @@ import {
   GetUserBasketFiltered,
   DeleteGood,
   Buy,
-} from "/js/api.js";
-import BasketCard from "/components/BasketCard.js";
-import { isAuthenticated, getCurrentUser } from "/js/auth.js";
-import { notify } from "/components/MyToast.js";
-import { getTranslation } from "/js/translation.js";
+} from "./api.js";
+import BasketCard from "../components/BasketCard.js";
+import { isAuthenticated, getCurrentUser } from "./auth.js";
+import { notify } from "../components/MyToast.js";
+import { getTranslation } from "./translation.js";
 
 if (!isAuthenticated()) {
-  window.location.href = "/pages/login.html";
+  window.location.href = "./login.html";
 }
 
 const detailModal = document.getElementById("detailModal");

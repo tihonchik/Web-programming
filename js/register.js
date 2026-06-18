@@ -1,7 +1,7 @@
-import { Register, GetUsers } from "/js/api.js";
-import User from "/models/User.js";
-import { showError, hideError } from "/js/error.js";
-import { getTranslation } from "/js/translation.js";
+import { Register, GetUsers } from "./api.js";
+import User from "../models/User.js";
+import { showError, hideError } from "./error.js";
+import { getTranslation } from "./translation.js";
 
 const top100Passwords = [
   "password",
@@ -418,5 +418,5 @@ registerForm.addEventListener("submit", async (e) => {
   );
 
   Register(newUser);
-  window.location.href = "/pages/login.html";
+  window.location.href = "./login.html";
 });

@@ -7,16 +7,16 @@ import {
   DeleteReview,
   GetUsers,
   GetUserOrders,
-} from "/js/api.js";
-import { isAuthenticated, isAdmin } from "/js/auth.js";
-import BasketAdminCard from "/components/BasketAdminCard.js";
-import ReviewAdminCard from "/components/ReviewAdminCard.js";
-import { notify } from "/components/MyToast.js";
-import { getTranslation } from "/js/translation.js";
+} from "./api.js";
+import { isAuthenticated, isAdmin } from "./auth.js";
+import BasketAdminCard from "../components/BasketAdminCard.js";
+import ReviewAdminCard from "../components/ReviewAdminCard.js";
+import { notify } from "../components/MyToast.js";
+import { getTranslation } from "./translation.js";
 
 if (!isAuthenticated() || !isAdmin()) {
   notify(await getTranslation("admin.accessDenied"), "error");
-  window.location.href = "/index.html";
+  window.location.href = "../index.html";
 }
 
 let products = [];

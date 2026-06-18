@@ -1,10 +1,10 @@
-import { GetUserFavorites, GetUserFavoritesFiltered } from "/js/api.js";
-import FavoritesCard from "/components/FavoritesCard.js";
-import { isAuthenticated, getCurrentUser } from "/js/auth.js";
-import { getTranslation } from "/js/translation.js";
+import { GetUserFavorites, GetUserFavoritesFiltered } from "./api.js";
+import FavoritesCard from "../components/FavoritesCard.js";
+import { isAuthenticated, getCurrentUser } from "./auth.js";
+import { getTranslation } from "./translation.js";
 
 if (!isAuthenticated()) {
-  window.location.href = "/pages/login.html";
+  window.location.href = "./login.html";
 }
 
 const perPage = 8;

@@ -1,5 +1,5 @@
-import { showError, hideError } from "/js/error.js";
-import { getTranslation } from "/js/translation.js";
+import { showError, hideError } from "../js/error.js";
+import { getTranslation } from "../js/translation.js";
 
 class ProductModal extends HTMLElement {
   connectedCallback() {

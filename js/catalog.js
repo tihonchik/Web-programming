@@ -1,5 +1,5 @@
-import CatalogCard from "/components/CatalogCard.js";
-import { GetGoods } from "/js/api.js";
+import CatalogCard from "../components/CatalogCard.js";
+import { GetGoods } from "./api.js";
 
 const perPage = 8;
 let currentPage = 1;

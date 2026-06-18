@@ -1,18 +1,18 @@
-import { isAuthenticated, getCurrentUser } from "/js/auth.js";
-import { AddReview } from "/js/api.js";
-import { showError, hideError } from "/js/error.js";
-import { notify } from "/components/MyToast.js";
-import { getTranslation } from "/js/translation.js";
+import { isAuthenticated, getCurrentUser } from "./auth.js";
+import { AddReview } from "./api.js";
+import { showError, hideError } from "./error.js";
+import { notify } from "../components/MyToast.js";
+import { getTranslation } from "./translation.js";
 
 if (!isAuthenticated()) {
-  window.location.href = "/pages/login.html";
+  window.location.href = "./login.html";
 }
 
 const urlParams = new URLSearchParams(window.location.search);
 const orderId = urlParams.get("orderId");
 
 if (!orderId) {
-  window.location.href = "/pages/orders.html";
+  window.location.href = "./orders.html";
 }
 
 let selectedRating = 0;
@@ -92,7 +92,7 @@ reviewForm.addEventListener("submit", async (e) => {
 
   if (success) {
     notify(await getTranslation("review.submitSuccess"), "success");
-    window.location.href = "/pages/orders.html";
+    window.location.href = "./orders.html";
   } else {
     notify(await getTranslation("review.submitError"), "error");
   }

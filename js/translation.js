@@ -1,4 +1,4 @@
-import { getFromLocalStorage, setToLocalStorage } from "/js/localStotage.js";
+import { getFromLocalStorage, setToLocalStorage } from "./localStotage.js";
 
 let id = null;
 

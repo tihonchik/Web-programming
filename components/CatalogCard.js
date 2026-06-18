@@ -1,7 +1,7 @@
-import { AddToUserBasket, AddToUserFavorites } from "/js/api.js";
-import { isAuthenticated, getCurrentUser } from "/js/auth.js";
-import { notify } from "/components/MyToast.js";
-import { getTranslation } from "/js/translation.js";
+import { AddToUserBasket, AddToUserFavorites } from "../js/api.js";
+import { isAuthenticated, getCurrentUser } from "../js/auth.js";
+import { notify } from "./MyToast.js";
+import { getTranslation } from "../js/translation.js";
 
 class CatalogCard extends HTMLElement {
   constructor(good, onView) {

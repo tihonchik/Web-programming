@@ -1,9 +1,9 @@
-import OrderCard from "/components/OrderCard.js";
-import { GetUserOrders } from "/js/api.js";
-import { isAuthenticated, getCurrentUser } from "/js/auth.js";
+import OrderCard from "../components/OrderCard.js";
+import { GetUserOrders } from "./api.js";
+import { isAuthenticated, getCurrentUser } from "./auth.js";
 
 if (!isAuthenticated()) {
-  window.location.href = "/pages/login.html";
+  window.location.href = "./login.html";
 }
 
 const detailModal = document.getElementById("detailModal");

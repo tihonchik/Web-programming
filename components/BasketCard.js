@@ -1,6 +1,6 @@
-import { DeleteUserBasketItem, UpdateUserBasketItem } from "/js/api.js";
-import { notify } from "/components/MyToast.js";
-import { getTranslation } from "/js/translation.js";
+import { DeleteUserBasketItem, UpdateUserBasketItem } from "../js/api.js";
+import { notify } from "./MyToast.js";
+import { getTranslation } from "../js/translation.js";
 
 class BasketCard extends HTMLElement {
   constructor(good, onView) {
